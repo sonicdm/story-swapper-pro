@@ -1,0 +1,23 @@
+{
+  "id": "idioms-and-prepositions",
+  "name": "Short idiom and preposition smoke tests",
+  "engine": "compromise",
+  "text": "He ran full into his arms instead of eight years. She was older than he. Which rises o'er the sands. I'm at rest when fear chilled my blood. Where love is free from fear and care.",
+  "words": {
+    "instead": { "eligible": false, "noCategories": true },
+    "o'er": { "eligible": false, "noCategories": true },
+    "rest": { "eligible": false },
+    "fear": { "eligible": false },
+    "care": { "eligible": false },
+    "ran": {
+      "eligible": true,
+      "categoriesInclude": ["verb"],
+      "categoriesExclude": ["noun"]
+    },
+    "older": {
+      "eligible": true,
+      "pickCategory": "adjective"
+    }
+  },
+  "mustNotSwap": ["instead", "o'er", "rest", "fear", "care"]
+}

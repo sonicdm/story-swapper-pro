@@ -1,0 +1,23 @@
+{
+  "id": "jekyll-dialogue",
+  "name": "Jekyll & Hyde — dialogue idioms and reporting verbs",
+  "engine": "compromise",
+  "text": "Mr. Utterson was sitting by his fireside one evening after dinner, when he was surprised to receive a visit from Poole. Take a seat, and here is a glass of wine for you, said the lawyer. Now, take your time, and tell me plainly what you want. You know the doctor's ways, sir, replied Poole. I don't like it, sir—I wish I may die if I do. Now, my good man, be explicit. I've been afraid for about a week, returned Poole, doggedly disregarding the question. The man's appearance amply bore out his words. Come, said the lawyer, I see you have some good reason, Poole; I see there is something seriously amiss. What's the matter?",
+  "words": {
+    "evening": { "eligible": false, "noCategories": true },
+    "matter": { "eligible": false, "noCategories": true },
+    "seat": { "eligible": false, "noCategories": true },
+    "time": { "eligible": false, "noCategories": true },
+    "ways": { "eligible": false, "noCategories": true },
+    "wish": { "eligible": false, "noCategories": true },
+    "good": { "eligible": false, "noCategories": true },
+    "returned": { "eligible": false, "noCategories": true },
+    "appearance": { "eligible": false, "noCategories": true },
+    "reason": { "eligible": false, "noCategories": true }
+  },
+  "mustNotSwap": [
+    "evening", "matter", "seat", "time", "ways", "wish", "good",
+    "returned", "appearance", "reason", "man"
+  ],
+  "selection": { "count": 10, "seed": 99 }
+}

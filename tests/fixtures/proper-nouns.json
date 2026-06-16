@@ -1,0 +1,39 @@
+{
+  "id": "proper-nouns",
+  "name": "Proper nouns → person / place prompts",
+  "engine": "compromise",
+  "text": "Henry walked from London to Paris. Chion waved at Mary by the river Dee.",
+  "words": {
+    "Henry": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Mary": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Chion": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "London": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "place"
+    },
+    "Paris": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "place"
+    },
+    "Dee": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "place"
+    }
+  },
+  "selection": { "count": 4, "seed": 7 }
+}

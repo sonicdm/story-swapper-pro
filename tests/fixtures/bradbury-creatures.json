@@ -1,0 +1,53 @@
+{
+  "id": "bradbury-creatures",
+  "name": "Bradbury — The Creatures That Time Forgot",
+  "source": "Gutenberg #63874",
+  "engine": "compromise+wink",
+  "text": "Sim ran full into his arms. She was older than he, but she held him with a fierce strength. Chion stood grinning, his teeth white in the sun. Lyte came running, Dienc behind her. They would live only eight days instead of eight years.",
+  "words": {
+    "ran": {
+      "eligible": true,
+      "categoriesInclude": ["verb", "past-tense verb"],
+      "categoriesExclude": ["noun"]
+    },
+    "stood": {
+      "eligible": true,
+      "categoriesInclude": ["verb", "past-tense verb"],
+      "categoriesExclude": ["noun"]
+    },
+    "older": {
+      "eligible": true,
+      "pickCategory": "adjective",
+      "categoriesExclude": ["noun"]
+    },
+    "instead": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "Sim": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Chion": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Dienc": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Lyte": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    }
+  },
+  "mustNotSwap": ["instead"],
+  "selection": {
+    "count": 10,
+    "seed": 42
+  }
+}

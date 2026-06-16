@@ -1,0 +1,30 @@
+{
+  "id": "nesbit-idioms",
+  "name": "Nesbit — possessive idioms and graded compounds",
+  "engine": "compromise",
+  "text": "Everybody drank everybody else's health. He was taught to think of others. The grown-ups thought it was bare. It was a blissful dream of perfect A.1.-ness.",
+  "words": {
+    "else's": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "think": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "others": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "grown-ups": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "A.1.-ness": {
+      "matchText": true,
+      "eligible": false,
+      "noCategories": true
+    }
+  },
+  "mustNotSwap": ["else's", "think", "others", "grown-ups", "A.1.-ness", "everybody"]
+}

@@ -1,0 +1,27 @@
+const appState = {
+  sourceType: 'paste',
+  rawText: '',
+  cleanText: '',
+  detectedSections: [],
+  selectedSection: null,
+  selectedSectionIndex: -1,
+  selectedText: '',
+  collectionMode: 'auto',
+  revealLength: 250,
+  promptCount: 'auto',
+  tokens: [],
+  classifications: [],
+  candidates: [],
+  prompts: [],
+  replacements: {},
+  finalHtml: '',
+  finalPlainText: '',
+  loadedSourceTitle: '',
+  nlpEngine: null,
+  selectedBook: null,
+  errors: [],
+  warnings: [],
+  phase: 'source',
+  gutenbergResults: []
+};
+export { appState };

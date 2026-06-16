@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Swapper</title>
+  <link rel="preconnect" href="https://gutendex.com">
+  <link rel="preconnect" href="https://poetrydb.org">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="app">
+    <header>
+      <h1>Story Swapper</h1>
+      <p>Mad Libs-style word swap fun</p>
+    </header>
+
+    <div id="status" role="status" aria-live="polite"></div>
+
+    <main id="main" data-phase="source">
+      <!-- SOURCE PHASE -->
+      <section id="phase-source" class="phase active card">
+        <div class="tabs" role="tablist" aria-label="Source type">
+          <button class="tab" role="tab" id="tab-paste" aria-selected="true" aria-controls="panel-paste" data-tab="paste">Paste Text</button>
+          <button class="tab" role="tab" id="tab-gutenberg" aria-selected="false" aria-controls="panel-gutenberg" data-tab="gutenberg">Public Domain</button>
+          <button class="tab" role="tab" id="tab-poem" aria-selected="false" aria-controls="panel-poem" data-tab="poem">Poem</button>
+          <button class="tab" role="tab" id="tab-sample" aria-selected="false" aria-controls="panel-sample" data-tab="sample">Sample</button>
+          <button class="tab" role="tab" id="tab-madlibs" aria-selected="false" aria-controls="panel-madlibs" data-tab="madlibs">Mad Libs</button>
+        </div>
+
+        <div id="panel-paste" class="panel active" role="tabpanel" aria-labelledby="tab-paste">
+          <div class="field">
+            <label for="paste-text">Your story text</label>
+            <textarea id="paste-text" placeholder="Paste a short story, paragraph, or any text here…"></textarea>
+          </div>
+          <div class="field">
+            <label for="paste-length">Reveal length</label>
+            <div class="select-wrap">
+              <select id="paste-length">
+                <option value="150">150 words</option>
+                <option value="250" selected>250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000">1000 words</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-paste-start">Start Game</button>
+        </div>
+
+        <div id="panel-gutenberg" class="panel" role="tabpanel" aria-labelledby="tab-gutenberg">
+          <p id="file-protocol-notice" class="file-notice hidden" role="note">
+            Opened as a local file — book downloads need a web server.
+            From this folder run <code>npm run dev</code> or <code>npm run preview</code>,
+            or serve the built app: <code>cd dist &amp;&amp; python -m http.server 8080</code>
+            then open <code>http://localhost:8080/</code>. Sample and Paste work offline.
+          </p>
+          <div class="field">
+            <label for="gutenberg-search">Search titles or authors</label>
+            <input type="search" id="gutenberg-search" placeholder="e.g. fairy tale ghost humor">
+          </div>
+          <div class="field">
+            <label for="gutenberg-category">Category</label>
+            <div class="select-wrap">
+              <select id="gutenberg-category">
+                <option value="">Any category</option>
+                <option value="Short Stories">Short Stories</option>
+                <option value="Fairy Tales">Fairy Tales</option>
+                <option value="Horror">Ghost Stories</option>
+                <option value="Humour">Humor</option>
+                <option value="Children's Literature">Children's Stories</option>
+                <option value="Mythology, Legends &amp; Folklore">Folklore &amp; Myths</option>
+                <option value="Fables">Fables</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" id="btn-gutenberg-search">Search</button>
+            <button type="button" class="btn-secondary" id="btn-gutenberg-random">Random</button>
+          </div>
+          <ul id="gutenberg-results" class="results-list hidden" aria-label="Search results"></ul>
+          <div class="field">
+            <label for="gutenberg-collection">Collection handling</label>
+            <div class="select-wrap">
+              <select id="gutenberg-collection">
+                <option value="auto">Auto-select one story/section</option>
+                <option value="beginning">Use beginning</option>
+                <option value="random-excerpt">Random excerpt</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="gutenberg-length">Reveal length</label>
+            <div class="select-wrap">
+              <select id="gutenberg-length">
+                <option value="150">150 words</option>
+                <option value="250" selected>250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000">1000 words</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-gutenberg-load">Load Story</button>
+        </div>
+
+        <div id="panel-poem" class="panel" role="tabpanel" aria-labelledby="tab-poem">
+          <div class="field">
+            <label for="poem-author">Author (optional)</label>
+            <input type="text" id="poem-author" placeholder="e.g. Dickinson">
+          </div>
+          <div class="field">
+            <label for="poem-title">Title (optional)</label>
+            <input type="text" id="poem-title" placeholder="e.g. Hope">
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" id="btn-poem-random">Random Poem</button>
+            <button type="button" class="btn-secondary" id="btn-poem-search">Search</button>
+          </div>
+          <button type="button" class="btn-primary" id="btn-poem-load">Load Poem</button>
+        </div>
+
+        <div id="panel-sample" class="panel" role="tabpanel" aria-labelledby="tab-sample">
+          <div class="field">
+            <label for="sample-select">Choose a sample</label>
+            <div class="select-wrap">
+              <select id="sample-select"></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="sample-length">Reveal length</label>
+            <div class="select-wrap">
+              <select id="sample-length">
+                <option value="150">150 words</option>
+                <option value="250" selected>250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000">1000 words</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-sample-load">Load Sample</button>
+        </div>
+
+        <div id="panel-madlibs" class="panel" role="tabpanel" aria-labelledby="tab-madlibs">
+          <p class="field-hint" style="margin-top:0">
+            Classic fill-in-the-blank stories from
+            <a href="https://github.com/chroline/madlibs-api" rel="noopener noreferrer" target="_blank">madlibs-api</a>
+            (madlibz templates, MIT). Also accepts Rosetta-style <code>&lt;noun&gt;</code> and
+            <code>--NOUN--</code> syntax when you paste.
+          </p>
+          <div class="field">
+            <label for="madlibs-select">Choose a template</label>
+            <div class="select-wrap">
+              <select id="madlibs-select"></select>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" id="btn-madlibs-random">Random</button>
+          </div>
+          <div class="field">
+            <label for="madlibs-length">Max story length</label>
+            <div class="select-wrap">
+              <select id="madlibs-length">
+                <option value="250">250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000" selected>Full template</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-madlibs-load">Load Mad Lib</button>
+        </div>
+
+        <div class="field" style="margin-top:1rem;margin-bottom:0">
+          <label for="prompt-count">Number of word prompts</label>
+          <div class="select-wrap">
+            <select id="prompt-count">
+              <option value="auto" selected>Auto (based on length)</option>
+              <option value="8">8 prompts</option>
+              <option value="12">12 prompts</option>
+              <option value="16">16 prompts</option>
+              <option value="20">20 prompts</option>
+            </select>
+          </div>
+        </div>
+        <p class="nlp-badge" id="nlp-status">Loading word detection…</p>
+      </section>
+
+      <!-- LOADING PHASE -->
+      <section id="phase-loading" class="phase card">
+        <div class="loading-spinner">
+          <div class="spinner" aria-hidden="true"></div>
+          <p id="loading-message">Preparing your story…</p>
+        </div>
+      </section>
+
+      <!-- PROMPTS PHASE -->
+      <section id="phase-prompts" class="phase card">
+        <h2 style="margin:0 0 0.5rem;font-size:1.2rem">Fill in the blanks</h2>
+        <p style="margin:0 0 0.75rem;color:var(--muted);font-size:0.9rem">Don't peek — the original words stay hidden until reveal!</p>
+        <div class="btn-row" style="margin:0 0 1rem">
+          <button type="button" class="btn-secondary" id="btn-surprise">Surprise me</button>
+        </div>
+        <form id="prompt-form" class="prompt-form" novalidate></form>
+      </section>
+
+      <!-- REVEAL PHASE -->
+      <section id="phase-reveal" class="phase card">
+        <h2 style="margin:0 0 1rem;font-size:1.2rem">Your Story</h2>
+        <div id="story-output" class="story-reveal"></div>
+        <label class="peek-toggle">
+          <input type="checkbox" id="toggle-originals"> Show the original words
+        </label>
+        <div id="story-summary" class="summary"></div>
+        <div class="btn-row" style="margin-top:1rem">
+          <button type="button" class="btn-secondary" id="btn-copy">Copy Story</button>
+          <button type="button" class="btn-secondary" id="btn-download">Download .txt</button>
+          <button type="button" class="btn-secondary" id="btn-play-again">Play Again</button>
+          <button type="button" class="btn-secondary" id="btn-reroll-words">Reroll Words</button>
+          <button type="button" class="btn-secondary hidden" id="btn-reroll-section">Reroll Section</button>
+          <button type="button" class="btn-secondary" id="btn-new-source">New Source</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="sticky-actions" id="sticky-actions">
+    <div class="app-inner">
+      <button type="button" class="btn-primary hidden" id="btn-sticky-reveal">Reveal Story</button>
+    </div>
+  </div>
+
+  <template id="prompt-template">
+    <div class="prompt-item">
+      <label></label>
+      <p class="hint"></p>
+      <input type="text" autocomplete="off" required>
+    </div>
+  </template>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

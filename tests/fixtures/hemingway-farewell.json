@@ -1,0 +1,15 @@
+{
+  "id": "hemingway-farewell",
+  "name": "Farewell to Arms excerpt — auto-swap picks real nouns/verbs",
+  "engine": "compromise",
+  "text": "Beyond the village the road was cleared. Holes appeared where the cars had driven. Doctors hoped they would reach the river before dark.",
+  "words": {
+    "road": { "eligible": true },
+    "village": { "eligible": true },
+    "river": { "eligible": true },
+    "hoped": { "eligible": true, "poolCategory": "past-tense verb" },
+    "driven": { "eligible": true }
+  },
+  "mustNotSwap": ["the", "they"],
+  "selection": { "count": 5, "seed": 99 }
+}

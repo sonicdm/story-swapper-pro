@@ -1,0 +1,36 @@
+{
+  "name": "story-swapper-pro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Story Swapper — Mad Libs-style word swap game (Vite web app)",
+  "scripts": {
+    "dev": "npm run build:dict && vite",
+    "build": "npm run build:dict && vite build",
+    "build:dict": "node scripts/build-dictionary.mjs",
+    "preview": "vite preview",
+    "preview:watch": "concurrently -k -n build,preview -c yellow,cyan \"vite build --watch\" \"vite preview\"",
+    "serve": "npm run build && vite preview",
+    "test": "npm run build:dict && vitest run",
+    "test:watch": "vitest",
+    "test:full": "npm run build:dict && cross-env TEST_FULL=1 vitest run",
+    "test:coverage": "cross-env TEST_FULL=1 vitest run --coverage",
+    "test:inspect": "node scripts/inspect-text.mjs"
+  },
+  "dependencies": {
+    "compromise": "^14.14.4",
+    "en-dictionary": "^2.0.3",
+    "en-wordnet": "^2.0.11",
+    "pluralize": "^8.0.0",
+    "wink-eng-lite-web-model": "^1.8.1",
+    "wink-nlp": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/pluralize": "^0.0.33",
+    "@vitest/coverage-v8": "^3.2.6",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.5"
+  }
+}

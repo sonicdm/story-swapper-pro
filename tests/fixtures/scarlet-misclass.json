@@ -1,0 +1,13 @@
+{
+  "id": "scarlet-misclass",
+  "name": "Study in Scarlet — dictionary rejects bad POS",
+  "engine": "compromise",
+  "useDictionary": true,
+  "text": "Account of the affair. I still retain in my scrap-book. There had seldom been a tragedy. Name of the victim and the deceased had heard of aqua tofana. The principles of Malthus from the unsettling of the minds weakening of all authority. He had stayed at the boarding-house.",
+  "words": {
+    "seldom": { "eligible": false },
+    "retain": { "eligible": true, "poolCategory": "verb" }
+  },
+  "mustNotSwap": ["seldom"],
+  "selection": { "count": 8, "seed": 42, "useDictionary": true }
+}

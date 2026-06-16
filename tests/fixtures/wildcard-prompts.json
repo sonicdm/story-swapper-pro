@@ -1,0 +1,48 @@
+{
+  "id": "wildcard-prompts",
+  "name": "Wildcard Mad Libs prompts (semantic over grammar)",
+  "engine": "compromise",
+  "text": "The man picked up a red box and yelled. Dinner was cold pizza. The doctor drove a car wearing a hat. She was running through the park.",
+  "words": {
+    "man": {
+      "pickCategory": "name of someone in the room",
+      "categoriesInclude": ["name of someone in the room"]
+    },
+    "red": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "box": {
+      "pickCategory": "object",
+      "categoriesInclude": ["object"]
+    },
+    "yelled": {
+      "pickCategory": "sound",
+      "categoriesInclude": ["sound", "past-tense verb"]
+    },
+    "pizza": {
+      "pickCategory": "food",
+      "categoriesInclude": ["food"]
+    },
+    "doctor": {
+      "pickCategory": "job",
+      "categoriesInclude": ["job"]
+    },
+    "car": {
+      "pickCategory": "vehicle",
+      "categoriesInclude": ["vehicle"]
+    },
+    "hat": {
+      "pickCategory": "clothing item",
+      "categoriesInclude": ["clothing item", "object"]
+    },
+    "running": {
+      "pickCategory": "verb ending in -ing",
+      "categoriesInclude": ["verb ending in -ing", "verb"]
+    }
+  },
+  "selection": {
+    "count": 8,
+    "seed": 42
+  }
+}

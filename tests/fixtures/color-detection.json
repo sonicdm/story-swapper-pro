@@ -1,0 +1,49 @@
+{
+  "id": "color-detection",
+  "name": "Auto-detected color words (NLP swaps)",
+  "engine": "compromise",
+  "text": "She wore a cape of crimson silk. His eyes were deep blue. The violet sky turned silver at dusk. A tiny green door opened onto a golden meadow. The baker preferred a warm brown loaf.",
+  "words": {
+    "crimson": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"],
+      "categoriesExclude": ["adjective"]
+    },
+    "blue": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "violet": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "silver": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "green": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "golden": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "brown": {
+      "pickCategory": "color",
+      "categoriesInclude": ["color"]
+    },
+    "tiny": {
+      "pickCategory": "adjective",
+      "categoriesExclude": ["color"]
+    },
+    "warm": {
+      "pickCategory": "adjective",
+      "categoriesExclude": ["color"]
+    }
+  },
+  "selection": {
+    "count": 10,
+    "seed": 99
+  }
+}

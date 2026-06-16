@@ -1,0 +1,57 @@
+{
+  "id": "marys-dream",
+  "name": "Mary's Dream (John Lowe) — poetry regression",
+  "source": "PoetryDB / public domain",
+  "engine": "compromise+wink",
+  "text": "The moon had climbed the eastern hill\nWhich rises o'er the sands of Dee,\nAnd from its highest summit shed\nA silver light on tower and tree,\nWhen Mary laid her down to sleep\n(Her thoughts on Sandy kneeling at sea);\nWhen soft and low a voice was heard,\nSaying, 'Mary, weep no more for me.'\n\nShe from her pillow gently raised\nHer head, to see who there might be,\nAnd saw young Sandy, shivering stand\nWith visage pale and hollow e'e.\n'Oh Mary dear, cold is my clay;\nIt lies o'er the stormy sea;\nFar, far from thee, I sleep in death.\nDear Mary, weep no more for me.\n\n'Three stormy nights and stormy days\nWe toss'd upon the raging main.\nAnd long we strove our bark to save;\nBut all our striving was in vain.\nE'en then, when fear chilled my blood,\nMy heart was filled with love of thee.\nThe storm is past, and I'm at rest;\nSo, Mary, weep no more for me.\n\n'Oh maiden dear, thyself prepare;\nWe soon shall meet upon that shore\nWhere love is free from fear and care,\nAnd thou and I shall part no more.'\nLoud skreigh'd the cock, the shadow fled;\nNo more of Sandy could she see;\nBut soft the passing spirit said,\n'Sweet Mary, weep no more for me.'",
+  "words": {
+    "o'er": {
+      "eligible": false,
+      "noCategories": true
+    },
+    "kneeling": {
+      "eligible": false
+    },
+    "toss'd": {
+      "eligible": false
+    },
+    "fear": {
+      "eligible": false
+    },
+    "rest": {
+      "eligible": false
+    },
+    "skreigh'd": {
+      "eligible": false
+    },
+    "e'e": {
+      "eligible": false
+    },
+    "e'en": {
+      "eligible": false
+    },
+    "Mary": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Sandy": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "name of someone in the room"
+    },
+    "Dee": {
+      "matchText": true,
+      "eligible": true,
+      "poolCategory": "place"
+    },
+    "care": {
+      "eligible": false
+    }
+  },
+  "mustNotSwap": ["o'er", "kneeling", "toss'd", "fear", "rest", "skreigh'd"],
+  "selection": {
+    "count": 16,
+    "seed": 12345
+  }
+}
