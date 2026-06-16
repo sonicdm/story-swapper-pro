@@ -1,0 +1,40 @@
+{
+  "title": "Movie Review",
+  "text": [
+    "## Movie Review\n\nCritics call it the most ",
+    " film of the season.\n\n**Starring:** ",
+    " as a ",
+    " hero who must ",
+    " across a ",
+    " landscape to recover a stolen ",
+    ".\n\n**Villain:** Played by a ",
+    " celebrity, who wants to ",
+    " the world using only a ",
+    " and poor timing.\n\n**Best scene:** A ",
+    " chase through a ",
+    " while ",
+    " music swells.\n\n**Worst scene:** Someone tries to ",
+    " a ",
+    " and fails.\n\n**Rating:** ",
+    " stars and one ",
+    " popcorn bucket."
+  ],
+  "blanks": [
+    "adjective",
+    "name",
+    "adjective",
+    "verb",
+    "adjective",
+    "object",
+    "adjective",
+    "verb",
+    "object",
+    "adjective",
+    "place",
+    "adjective",
+    "verb",
+    "animal",
+    "number",
+    "adjective"
+  ]
+}

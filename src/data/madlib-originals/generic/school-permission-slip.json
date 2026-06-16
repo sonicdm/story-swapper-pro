@@ -1,0 +1,38 @@
+{
+  "title": "School Permission Slip",
+  "text": [
+    "## School Permission Slip\n\nDear Parent,\n\nOur class will visit the ",
+    " Museum of ",
+    " on ",
+    "day.\n\n**Students should bring:**\n- A ",
+    " lunch\n- A ",
+    " water bottle\n- ",
+    " shoes\n\n**Itinerary:** We will ",
+    " through the ",
+    " exhibit and learn about ",
+    " history.\n\n**Permission granted** to ride the ",
+    " bus and participate in the ",
+    " workshop.\n\n**Emergency contact:** ",
+    " at ",
+    " o'clock.\n\n**Note:** If your child is allergic to ",
+    ", ",
+    ", or enthusiasm, please inform us."
+  ],
+  "blanks": [
+    "adjective",
+    "plural noun",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "verb",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "name",
+    "number",
+    "plural noun",
+    "plural noun"
+  ]
+}

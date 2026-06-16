@@ -42,49 +42,7 @@ She thought of her husband, who had sailed out on a clear morning twenty years b
 On the walk back through the narrow streets, she paused at the chandlery window. A new compass rested among the coils of rope, its needle steady and bright. She bought it without speaking, carried it home, and set it on the kitchen table beside the cold tea. In the morning she would decide whether to keep waiting or to learn a different direction.`
   },
   {
-    title: "Superhero Job Application (Template)",
-    text: `OFFICIAL FORM: HERO REGISTRATION BOARD
-
-Applicant name: Captain {noun}
-Secret identity occupation: professional {noun}
-City of operation: New {place}
-Preferred cape color: {color}
-
-Please describe your origin story in one paragraph:
-I was bitten by a radioactive {animal} while volunteering at the local {place}. At first I only gained the power to {verb}, but after a thunderstorm and a motivational speech from my grandmother, I learned to {verb} at incredible speed. My weakness is {noun}, especially on Mondays.
-
-Equipment checklist:
-- Utility belt containing snacks, string, and a small {object}
-- Mask with anti-fog goggles and excellent cheekbones
-- Sidekick named {person} who complains constantly but never gives up
-- Hidden base located beneath the {place} downtown
-
-Battle record:
-Last week I defeated the villain known as Doctor {noun} by using teamwork, a {object}, and a perfectly timed pun. Civilians cheered, pigeons saluted, and one reporter asked if I was single in the middle of a collapsing bridge.
-
-Statement of purpose:
-I wish to protect this city because every child deserves to feel safe, every dog deserves a long walk, and every villain deserves a second chance unless they steal cakes. I promise to arrive quickly, leave politely, and never reveal my identity at family reunions.
-
-Signature: {noun}
-Date: the future`
-  },
-  {
-    title: "Letter from Camp (Template)",
-    text: `Dear {person},
-
-Camp is {adjective} so far. Our cabin is near the {place}, and every morning we {verb} before breakfast. Yesterday our counselor taught us to {verb} properly, which was harder than it looked.
-
-Last night we sat around the fire and told stories about {animal}s and old {place}s. My tentmate brought a {object} from home and swears it brings good luck. I am not sure I believe that, but I slept well.
-
-The food is okay. Lunch was {adjective}, dinner was better, and someone hid a {object} in the salad bowl. Nobody admitted to it.
-
-Please write back soon. Tell me whether the {place} is still quiet and whether the {animal} next door has learned any new tricks.
-
-Missing you,
-{person}`
-  },
-  {
-    title: "Evening Walk (Template + auto swaps)",
+    title: "Evening Walk (Hybrid: tags + auto picks)",
     text: `After supper I took the long way home through the {place}. The air smelled of rain and {noun}, and the last light lay {adjective} across the rooftops.
 
 An old {person} passed me on the path and nodded without speaking. I nodded back, the way people do when they share a street but not a history. Somewhere a dog barked once and then thought better of it.

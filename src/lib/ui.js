@@ -7,9 +7,12 @@ import {
   rerollWords, rerollSection, resetGame
 } from './game.js';
 import {
-  fetchGutendexResults, fetchRandomReadableBook, gutenbergBlockedOnFileProtocol
+  fetchGutendexResults, fetchRandomReadableBook, fetchPoem, poemToText,
+  gutenbergBlockedOnFileProtocol
 } from './fetch.js';
-import { listBundledMadLibTitles } from './madlibs.js';
+import {
+  listBundledMadLibCatalog, getMadLibMeta, getRandomBundledMadLibTitle
+} from './madlibs.js';
 import { loadNlpEngine, awaitWinkEngine } from './nlp-engine.js';
 
 function renderGutenbergResults(results) {
@@ -30,6 +33,7 @@ function renderGutenbergResults(results) {
       list.querySelectorAll('li').forEach(el => el.classList.remove('selected'));
       li.classList.add('selected');
       appState.selectedBook = book;
+      updateGutenbergSelection();
     });
     list.appendChild(li);
   });
@@ -37,7 +41,8 @@ function renderGutenbergResults(results) {
 }
 
 const SETTINGS_KEY = 'storySwapper:settings';
-const LENGTH_SELECTS = ['#paste-length', '#gutenberg-length', '#sample-length', '#madlibs-length'];
+const LENGTH_SELECTS = ['#paste-length', '#gutenberg-length', '#sample-length', '#poem-length'];
+const AUTO_SWAP_TABS = new Set(['paste', 'gutenberg', 'poem', 'sample']);
 
 function loadSettings() {
   try {
@@ -53,9 +58,87 @@ function saveSettings() {
       tab: appState.sourceType,
       length: $('#paste-length')?.value,
       promptCount: $('#prompt-count')?.value,
-      showOriginals: $('#toggle-originals')?.checked || false
+      showOriginals: $('#toggle-originals')?.checked || false,
+      madlibsTitle: $('#madlibs-select')?.value || ''
     }));
   } catch (_) { /* ignore quota / privacy mode */ }
+}
+
+function updateSourceSpecificUI() {
+  const tab = appState.sourceType;
+  const autoSwap = AUTO_SWAP_TABS.has(tab);
+  $('#auto-swap-settings')?.classList.toggle('hidden', !autoSwap);
+}
+
+function updateMadLibMeta() {
+  const el = $('#madlibs-meta');
+  const title = $('#madlibs-select')?.value;
+  if (!el || !title) {
+    if (el) el.textContent = '';
+    return;
+  }
+  const meta = getMadLibMeta(title);
+  const words = meta.wordCount ? `~${meta.wordCount} words` : '';
+  el.textContent = `${meta.blankCount} blanks${words ? ` · ${words}` : ''}`;
+}
+
+function updateGutenbergSelection() {
+  const el = $('#gutenberg-selected');
+  if (!el) return;
+  const book = appState.selectedBook;
+  if (!book) {
+    el.textContent = '';
+    return;
+  }
+  const authors = (book.authors || []).map(a => a.name).join(', ');
+  el.textContent = `Selected: ${book.title}${authors ? ` by ${authors}` : ''}`;
+}
+
+function updatePoemSelection() {
+  const el = $('#poem-selected');
+  if (!el) return;
+  if (!appState.selectedPoem) {
+    el.textContent = '';
+    return;
+  }
+  el.textContent = `Selected: ${appState.selectedPoem.title}`;
+}
+
+function renderMadLibSelect(filter = '', preferredTitle = '') {
+  const select = $('#madlibs-select');
+  if (!select) return;
+  const catalog = listBundledMadLibCatalog();
+  const needle = filter.trim().toLowerCase();
+  select.innerHTML = '';
+  let firstVisible = '';
+  for (const group of catalog) {
+    const items = group.items.filter(item =>
+      !needle || item.title.toLowerCase().includes(needle)
+    );
+    if (!items.length) continue;
+    const og = document.createElement('optgroup');
+    og.label = group.label;
+    for (const item of items) {
+      const opt = document.createElement('option');
+      opt.value = item.title;
+      opt.textContent = item.title;
+      og.appendChild(opt);
+      if (!firstVisible) firstVisible = item.title;
+    }
+    select.appendChild(og);
+  }
+  if (!select.options.length) {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = needle ? 'No templates match' : 'No templates available';
+    select.appendChild(opt);
+  } else {
+    const pick = preferredTitle && [...select.options].some(o => o.value === preferredTitle)
+      ? preferredTitle
+      : firstVisible;
+    select.value = pick;
+  }
+  updateMadLibMeta();
 }
 
 function applySettings(settings) {
@@ -66,13 +149,54 @@ function applySettings(settings) {
     });
   }
   if (settings.promptCount && $('#prompt-count')) $('#prompt-count').value = settings.promptCount;
-  if (settings.tab) switchTab(settings.tab);
+  switchTab(settings.tab || 'madlibs');
+  renderMadLibSelect('', settings.madlibsTitle || '');
 }
 
 function switchTab(tabName) {
   activateTab(tabName);
   appState.sourceType = tabName;
+  updateSourceSpecificUI();
   saveSettings();
+}
+
+async function pickRandomPoem() {
+  setStatus('Finding a random poem…', 'info');
+  try {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const poems = await fetchPoem('', '');
+      const poem = Array.isArray(poems) ? poems[0] : poems;
+      const data = poemToText(poem);
+      if (data.text.split(/\s+/).length >= 40) {
+        appState.selectedPoem = data;
+        updatePoemSelection();
+        setStatus(`Selected: ${data.title}`, 'success');
+        return;
+      }
+    }
+    throw new Error('short');
+  } catch (_) {
+    setStatus('Random poem failed. Try search or Examples.', 'error');
+  }
+}
+
+async function searchPoem() {
+  setStatus('Searching poems…', 'info');
+  try {
+    const author = $('#poem-author').value.trim();
+    const title = $('#poem-title').value.trim();
+    if (!author && !title) {
+      setStatus('Enter an author or title, or use Random.', 'error');
+      return;
+    }
+    const poems = await fetchPoem(author, title);
+    const poem = Array.isArray(poems) ? poems[Math.floor(Math.random() * poems.length)] : poems;
+    appState.selectedPoem = poemToText(poem);
+    updatePoemSelection();
+    setStatus(`Selected: ${appState.selectedPoem.title}`, 'success');
+  } catch (_) {
+    setStatus('No poem found. Try different search terms.', 'error');
+  }
 }
 
 function initApp() {
@@ -85,9 +209,9 @@ function initApp() {
   if (!SAMPLES.length) {
     const opt = document.createElement('option');
     opt.value = '';
-    opt.textContent = 'No samples available';
+    opt.textContent = 'No examples available';
     sampleSelect.appendChild(opt);
-    setStatus('Sample stories failed to load. Try npm run dev or rebuild the app.', 'error');
+    setStatus('Example stories failed to load. Try npm run dev or rebuild the app.', 'error');
   } else {
     SAMPLES.forEach((s, i) => {
       const opt = document.createElement('option');
@@ -97,16 +221,7 @@ function initApp() {
     });
   }
 
-  const madlibsSelect = $('#madlibs-select');
-  if (madlibsSelect) {
-    madlibsSelect.innerHTML = '';
-    listBundledMadLibTitles().forEach(title => {
-      const opt = document.createElement('option');
-      opt.value = title;
-      opt.textContent = title;
-      madlibsSelect.appendChild(opt);
-    });
-  }
+  renderMadLibSelect();
 
   $$('.tab').forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.tab));
@@ -124,36 +239,47 @@ function initApp() {
       renderGutenbergResults(results);
       setStatus(`Found ${results.length} books.`, 'success');
     } catch (_) {
-      setStatus('Could not search public domain books. Try Sample or Paste.', 'error');
+      setStatus('Could not search public domain books. Try Examples or Paste.', 'error');
     }
   });
 
   $('#btn-gutenberg-random').addEventListener('click', async () => {
-    setStatus('Finding a random story…', 'info');
+    setStatus('Finding a random book…', 'info');
     try {
       const cat = $('#gutenberg-category').value;
       const book = await fetchRandomReadableBook(cat);
       appState.selectedBook = book;
-      await startFromGutenberg(book);
+      renderGutenbergResults([book]);
+      const list = $('#gutenberg-results');
+      list.querySelector('li')?.classList.add('selected');
+      updateGutenbergSelection();
+      setStatus(`Selected: ${book.title}`, 'success');
     } catch (_) {
-      setStatus('Random story failed. Try Sample or Paste.', 'error');
+      setStatus('Random book failed. Try Examples or Paste.', 'error');
     }
   });
 
   $('#btn-gutenberg-load').addEventListener('click', () => startFromGutenberg(appState.selectedBook));
 
-  $('#btn-poem-random').addEventListener('click', () => startFromPoem('', '', true));
-  $('#btn-poem-search').addEventListener('click', () => {
-    startFromPoem($('#poem-author').value.trim(), $('#poem-title').value.trim());
-  });
-  $('#btn-poem-load').addEventListener('click', () => {
-    startFromPoem($('#poem-author').value.trim(), $('#poem-title').value.trim(), !$('#poem-author').value.trim() && !$('#poem-title').value.trim());
-  });
+  $('#btn-poem-random').addEventListener('click', pickRandomPoem);
+  $('#btn-poem-search').addEventListener('click', searchPoem);
+  $('#btn-poem-load').addEventListener('click', () => startFromPoem(appState.selectedPoem));
 
   $('#btn-sample-load').addEventListener('click', startFromSample);
 
-  $('#btn-madlibs-random').addEventListener('click', () => startFromMadLib(true));
-  $('#btn-madlibs-load').addEventListener('click', () => startFromMadLib(false));
+  $('#btn-madlibs-random').addEventListener('click', () => {
+    const title = getRandomBundledMadLibTitle($('#madlibs-select')?.value);
+    renderMadLibSelect($('#madlibs-filter')?.value || '', title);
+    setStatus(`Selected: ${title}`, 'success');
+  });
+  $('#btn-madlibs-load').addEventListener('click', () => startFromMadLib());
+  $('#madlibs-select')?.addEventListener('change', () => {
+    updateMadLibMeta();
+    saveSettings();
+  });
+  $('#madlibs-filter')?.addEventListener('input', e => {
+    renderMadLibSelect(e.target.value, $('#madlibs-select')?.value);
+  });
 
   $('#prompt-form').addEventListener('submit', e => { e.preventDefault(); revealStory(); });
   $('#btn-sticky-reveal').addEventListener('click', revealStory);
@@ -175,6 +301,7 @@ function initApp() {
   const settings = loadSettings();
   applySettings(settings);
   if (settings.showOriginals) peek.checked = true;
+  updateSourceSpecificUI();
 
   if (gutenbergBlockedOnFileProtocol()) {
     $('#file-protocol-notice')?.classList.remove('hidden');
@@ -214,4 +341,4 @@ function initApp() {
     $('#nlp-status').textContent = 'Using built-in word guesser (works offline)';
   });
 }
-export { renderGutenbergResults, switchTab, initApp };
+export { renderGutenbergResults, switchTab, initApp, renderMadLibSelect };

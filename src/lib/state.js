@@ -22,6 +22,8 @@ const appState = {
   errors: [],
   warnings: [],
   phase: 'source',
-  gutenbergResults: []
+  gutenbergResults: [],
+  selectedPoem: null,
+  pendingMadLibTitle: ''
 };
 export { appState };

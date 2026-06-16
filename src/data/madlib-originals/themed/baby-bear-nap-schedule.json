@@ -1,0 +1,34 @@
+{
+  "title": "Baby Bear Nap Schedule",
+  "text": [
+    "## Baby Bear Nap Protocol\n\n**Pre-nap:**\n- ",
+    " story\n- ",
+    " honey on toast\n\n**Music:** Soft ",
+    " songs from the ",
+    " collection.\n\n**Room:** Must be ",
+    ", quiet, and free of ",
+    " toys.\n\n**Duration:** Baby Bear will ",
+    " for exactly ",
+    " minutes unless a ",
+    " butterfly appears.\n\n**Wake-up:** Stretching, yawning, and asking for another ",
+    ".\n\n**If Baby joins:** Both may ",
+    " until someone finds the ",
+    " blanket.\n\n**Do not** schedule meetings during ",
+    " hour."
+  ],
+  "blanks": [
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "plural noun",
+    "verb",
+    "number",
+    "adjective",
+    "object",
+    "verb",
+    "adjective",
+    "adjective"
+  ]
+}

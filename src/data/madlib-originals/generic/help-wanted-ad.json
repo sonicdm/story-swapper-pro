@@ -1,0 +1,40 @@
+{
+  "title": "Help Wanted Ad",
+  "text": [
+    "## Help Wanted\n\nNow hiring a ",
+    " ",
+    " to join our ",
+    " team downtown.\n\n**Requirements:**\n- Must be able to ",
+    " quickly\n- Lift ",
+    " pounds\n- Remain ",
+    " during emergencies involving ",
+    " or spilled ",
+    "\n\n**Benefits:**\n- ",
+    " dental\n- Unlimited ",
+    "\n- One ",
+    " holiday per month\n\n**How to apply:** In person wearing ",
+    " attire with a ",
+    " resume.\n\n**Ideal candidate:** ",
+    " years experience; can ",
+    " without supervision. No ",
+    " applicants, please."
+  ],
+  "blanks": [
+    "adjective",
+    "job",
+    "adjective",
+    "verb",
+    "number",
+    "adjective",
+    "plural noun",
+    "type of liquid",
+    "adjective",
+    "plural noun",
+    "adjective",
+    "adjective",
+    "object",
+    "number",
+    "verb",
+    "adjective"
+  ]
+}

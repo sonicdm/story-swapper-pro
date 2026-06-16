@@ -1,14 +1,15 @@
 # Story Swapper
 
-Mad Libs-style word swap game built with Vite. Paste text, pull from Project Gutenberg, load a poem, play a classic Mad Lib, or try a sample — then fill in the blanks and reveal your ridiculous story.
+Mad Libs-style word swap game built with Vite. Play **46 bundled Mad Libs**, try **Examples** for NLP auto-swap demos, paste your own text, pull from Project Gutenberg, or load a poem — then fill in the blanks and reveal your ridiculous story.
 
 ## Quick start
 
 ```bash
 cd story-swapper-pro
 npm install
-npm run dev            # builds WordNet JSON into public/, then dev server
+npm run dev            # build dict + sync Mad Libs JSON, then dev server
 npm run build          # → dist/ (includes dictionary assets for GitHub Pages)
+npm run sync:madlibs   # merge classics + originals → madlibs-templates.json
 npm run preview        # serve production build (static; refresh browser after rebuild)
 npm run preview:watch  # rebuild dist on save + preview (refresh browser to see changes)
 ```
@@ -20,7 +21,7 @@ npm run preview:watch  # rebuild dist on save + preview (refresh browser to see 
 | `npm run preview:watch` | Rebuild on save | Updates `dist/` when you save; **refresh the tab** to load new assets |
 | `python -m http.server` | No | Static files only; run `npm run build` manually after edits |
 
-**If samples or buttons do nothing:** the app must load its JavaScript bundle over HTTP. Do not open `dist/index.html` as a `file://` URL. Use `npm run dev`, `npm run preview`, or:
+**If Examples or buttons do nothing:** the app must load its JavaScript bundle over HTTP. Do not open `dist/index.html` as a `file://` URL. Use `npm run dev`, `npm run preview`, or:
 
 ```bash
 cd story-swapper-pro/dist
@@ -37,26 +38,45 @@ From the project root, `python -m http.server` also works if you open `http://lo
 - **Surprise me** — auto-fill every blank with a random word for its category.
 - **Show the original words** — reveal-screen toggle and hover tooltips.
 - **Download .txt** and copy-to-clipboard.
-- **Remembers settings** — length, prompt count, tab, and peek preference via `localStorage`.
-- Sources: paste, Project Gutenberg (Gutendex), PoetryDB, **classic Mad Libs** (bundled + [madlibs-api](https://github.com/chroline/madlibs-api)), and bundled offline samples.
-- **Classic Mad Libs tab** — pick a template or hit Random; works offline from bundled stories when the API is unreachable.
-- **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers. With **Auto** prompt count, only the tags are used (classic Mad Libs). Pick a fixed prompt count (8, 12, …) to also add auto-detected swaps in tagged passages.
+- **Remembers settings** — length, prompt count, tab, Mad Libs pick, and peek preference via `localStorage`.
+- Sources: **Mad Libs** (46 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
+- **Mad Libs tab** — filter, optgroups (Classics / Legacy / Generic / Themed), Random then Start; full template always (never cropped).
+- **Examples tab** — short prose for smart word detection; one hybrid passage with `{tags}` plus optional auto-swaps.
+- **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers on Paste. Mad Libs use classic blank labels via JSON `text[]`/`blanks[]`.
+
+## Tab roles
+
+| Tab | Purpose |
+|-----|---------|
+| **Mad Libs** | Fill-in-the-blank templates only — tag prompts, no length trim |
+| **Examples** | NLP auto-swap demos (4 prose + 1 hybrid) |
+| **Paste** | Any text + `{tag}` templates |
+| **Public Domain** | Gutendex search / random book → excerpt |
+| **Poem** | PoetryDB search / random poem |
 
 ## Project layout
 
 ```
 story-swapper-pro/
+  scripts/
+    sync-madlib-templates.mjs   # merge JSON sources → bundle
+    brace-template-to-json.mjs  # convert {tag} strings for migration
+    seed-madlib-originals.mjs   # regenerates generic/themed JSON (optional)
   src/
-    index.html
-    styles.css
-    main.js
     data/
-      samples.js
-      madlibs-templates.json   # offline classic templates (from madlibs-api / madlibz)
-    lib/           # game logic, NLP, fetch, UI, madlibs conversion
-  public/          # copied as-is to dist/ (.nojekyll for GitHub Pages)
-  dist/            # production build output (gitignored)
+      samples.js                # Examples tab only (prose + hybrid)
+      madlibs-classics.json     # 16 madlibz classics (source)
+      madlib-originals/
+        legacy/                 # migrated {tag} templates
+        generic/                # 14 new originals
+        themed/                 # 14 themed originals (pets, IT, 90s/00s, etc.)
+      madlibs-templates.json    # GENERATED — do not hand-edit
+    lib/
+  public/                       # copied as-is to dist/ (.nojekyll for GitHub Pages)
+  dist/                         # production build output (gitignored)
 ```
+
+Run `npm run sync:madlibs` after editing any JSON under `madlibs-classics.json` or `madlib-originals/`. Dev and build run sync automatically.
 
 ## Deploy to GitHub Pages
 
@@ -66,7 +86,7 @@ A workflow is included at `.github/workflows/deploy-pages.yml`. It builds on pus
 
 1. Push this repo to GitHub.
 2. In **Settings → Pages**, set source to **GitHub Actions**.
-3. Push a change under `story-swapper-pro/` — the workflow runs automatically.
+3. Push to `main` — the workflow runs automatically.
 
 The workflow sets `VITE_BASE_PATH=/<repo-name>/` so asset paths work on a project site (`username.github.io/repo-name/`).
 
@@ -134,6 +154,7 @@ Story Swapper builds on ideas and data from several Mad Libs and NLP projects:
 | [workergnome/madlibs](https://github.com/workergnome/madlibs) | Inspiration for corpus `--NOUN--` placeholder markers | MIT |
 | [Rosetta Code — Mad Libs](https://rosettacode.org/wiki/Mad_Libs) | Inspiration for angle-bracket `<tag>` template syntax | (wiki content; see site terms) |
 | [Improving Mad Libs with expressions](https://manningbooks.medium.com/improving-mad-libs-with-expressions-4d306683ab58) (Manning) | Inspiration for richer blank labels and expression-style prompts | Article |
+| [What a _________ Job: How Mad Libs Are Written](https://www.vulture.com/2014/10/what-a-_________-job-how-mad-libs-are-written.html) (Vulture) | Craft reference for original template writing (blanks-first, foolproof framing) | Article |
 | [Project Gutenberg](https://www.gutenberg.org) + [Gutendex](https://gutendex.com) | Public-domain book search and text | Public domain texts |
 | [PoetryDB](https://poetrydb.org) | Poem search API | Open API |
 | [WordNet](https://wordnet.princeton.edu) via [en-wordnet](https://github.com/moos/wordnet) | POS validation and Surprise-me word pools | WordNet license |
@@ -142,5 +163,5 @@ Bundled Mad Libs templates are included for offline play and fall back automatic
 
 ## Notes
 
-- **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Sample and Paste still work.
+- **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Examples, Paste, and Mad Libs still work.
 - The older single-file `standalone.html` build has been removed in favor of this standard Vite output.

@@ -1,0 +1,38 @@
+{
+  "title": "Product Warning Label",
+  "text": [
+    "## Product Warning\n\n**CAUTION:** This ",
+    " may become ",
+    " when exposed to sunlight, gossip, or ",
+    " music.\n\n**Do not:**\n- ",
+    " while operating a ",
+    "\n- Negotiate with ",
+    " people\n\n**Side effects:** ",
+    " laughter, sudden urges to ",
+    ", and believing you can ",
+    " professionally.\n\n**Keep away from** ",
+    " animals and open ",
+    ".\n\n**If swallowed:** Contact a ",
+    " immediately and describe the ",
+    " flavor.\n\n**Storage:** Cool, ",
+    " place away from children and ",
+    " influencers."
+  ],
+  "blanks": [
+    "object",
+    "adjective",
+    "adjective",
+    "verb",
+    "vehicle",
+    "adjective",
+    "adjective",
+    "verb",
+    "verb",
+    "adjective",
+    "plural noun",
+    "job",
+    "adjective",
+    "adjective",
+    "adjective"
+  ]
+}

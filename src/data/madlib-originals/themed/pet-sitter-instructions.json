@@ -1,0 +1,30 @@
+{
+  "title": "Pet Sitter Instructions",
+  "text": [
+    "## Pet Sitter Instructions\n\nThank you for watching **Matilda** (dark red golden retriever), **Violet** (tortie cat), and **Zebby** (black cat).\n\n**Matilda:** Needs ",
+    " walks and one ",
+    " treat after she ",
+    " politely.\n\n**Violet:** Demands ",
+    " food at exactly ",
+    " o'clock and will ",
+    " if ignored.\n\n**Zebby:** Hides in the ",
+    " and attacks anything ",
+    ".\n\n**Rules:** Do not ",
+    " the vacuum near them. Emergency vet number is on the ",
+    ".\n\n**Bonus:** If all three sit together peacefully, photograph it — it is ",
+    " and probably a sign."
+  ],
+  "blanks": [
+    "adjective",
+    "adjective",
+    "verb",
+    "adjective",
+    "number",
+    "verb",
+    "place",
+    "adjective",
+    "verb",
+    "object",
+    "adjective"
+  ]
+}

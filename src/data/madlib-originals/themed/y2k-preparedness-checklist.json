@@ -1,0 +1,38 @@
+{
+  "title": "Y2K Preparedness Checklist",
+  "text": [
+    "## Y2K Readiness Plan\n\n**Stockpile:**\n- ",
+    " gallons of ",
+    "\n- ",
+    " batteries\n\n**Finances:** Withdraw ",
+    " dollars in ",
+    " bills from the bank.\n\n**Equipment:** Test the ",
+    " generator and the ",
+    " radio.\n\n**Maps:** Print maps because GPS may ",
+    ".\n\n**Grandma:** Teach her to ",
+    " without fear.\n\n**Supplies:** Store canned ",
+    " and one ",
+    " for morale.\n\n**Midnight rule:** Do not ",
+    " near any ",
+    " computer.\n\n**Worst case:** Build a ",
+    " fort and assign ",
+    " to guard duty."
+  ],
+  "blanks": [
+    "number",
+    "type of liquid",
+    "adjective",
+    "number",
+    "adjective",
+    "adjective",
+    "adjective",
+    "verb",
+    "verb",
+    "food",
+    "object",
+    "verb",
+    "adjective",
+    "adjective",
+    "name"
+  ]
+}

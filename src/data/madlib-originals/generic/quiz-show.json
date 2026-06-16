@@ -1,0 +1,38 @@
+{
+  "title": "Quiz Show",
+  "text": [
+    "## Quiz Show\n\nWelcome to *Who Wants to Be ",
+    "!*\n\n**Contestant:** ",
+    " from ",
+    ", a professional ",
+    " with strong opinions about ",
+    ".\n\n**For one thousand points:** Name a ",
+    " country famous for ",
+    " exports.\n\n**For ten thousand:** Spell a ",
+    " word while ",
+    " on one foot.\n\n**Lifeline:** Phone-a-",
+    " went to voicemail.\n\n**Final question:** If a ",
+    " train leaves at ",
+    " o'clock carrying ",
+    " passengers, how many will sing?\n\n**Answer:** ",
+    " — because this show makes no ",
+    " sense."
+  ],
+  "blanks": [
+    "adjective",
+    "name",
+    "a place",
+    "job",
+    "plural noun",
+    "foreign country",
+    "adjective",
+    "adjective",
+    "verb ending in 'ing'",
+    "name",
+    "adjective",
+    "number",
+    "number",
+    "number",
+    "adjective"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Server Room Incident",
+  "text": [
+    "## Server Room Ticket\n\n**Ticket #",
+    ":** Loud ",
+    " noise reported in server room B.\n\n**Technician:** Arrived with a ",
+    " flashlight and one ",
+    " attitude.\n\n**Findings:**\n- A ",
+    " cable chewing on ",
+    " power\n- An old ",
+    " pizza\n- Sticky note: DO NOT ",
+    "\n\n**Fix applied:** Labeled everything ",
+    " and rebooted the ",
+    " twice for luck.\n\n**Monitoring:** Tracks ",
+    " temperature and ",
+    " humidity.\n\n**Request:** Stop storing ",
+    " equipment next to the backup ",
+    ".\n\nClosing as resolved-ish."
+  ],
+  "blanks": [
+    "number",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "food",
+    "verb",
+    "adjective",
+    "object",
+    "adjective",
+    "adjective",
+    "adjective",
+    "object"
+  ]
+}

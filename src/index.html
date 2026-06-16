@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Story Swapper</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://gutendex.com">
   <link rel="preconnect" href="https://poetrydb.org">
   <link rel="stylesheet" href="./styles.css">
@@ -21,14 +22,64 @@
       <!-- SOURCE PHASE -->
       <section id="phase-source" class="phase active card">
         <div class="tabs" role="tablist" aria-label="Source type">
-          <button class="tab" role="tab" id="tab-paste" aria-selected="true" aria-controls="panel-paste" data-tab="paste">Paste Text</button>
-          <button class="tab" role="tab" id="tab-gutenberg" aria-selected="false" aria-controls="panel-gutenberg" data-tab="gutenberg">Public Domain</button>
-          <button class="tab" role="tab" id="tab-poem" aria-selected="false" aria-controls="panel-poem" data-tab="poem">Poem</button>
-          <button class="tab" role="tab" id="tab-sample" aria-selected="false" aria-controls="panel-sample" data-tab="sample">Sample</button>
-          <button class="tab" role="tab" id="tab-madlibs" aria-selected="false" aria-controls="panel-madlibs" data-tab="madlibs">Mad Libs</button>
+          <div class="tabs-row tabs-row-primary">
+            <button class="tab" role="tab" id="tab-madlibs" aria-selected="true" aria-controls="panel-madlibs" data-tab="madlibs">Mad Libs</button>
+            <button class="tab" role="tab" id="tab-sample" aria-selected="false" aria-controls="panel-sample" data-tab="sample">Examples</button>
+            <button class="tab" role="tab" id="tab-paste" aria-selected="false" aria-controls="panel-paste" data-tab="paste">Paste Text</button>
+          </div>
+          <div class="tabs-row tabs-row-secondary">
+            <button class="tab" role="tab" id="tab-gutenberg" aria-selected="false" aria-controls="panel-gutenberg" data-tab="gutenberg">Public Domain</button>
+            <button class="tab" role="tab" id="tab-poem" aria-selected="false" aria-controls="panel-poem" data-tab="poem">Poem</button>
+          </div>
         </div>
 
-        <div id="panel-paste" class="panel active" role="tabpanel" aria-labelledby="tab-paste">
+        <div id="panel-madlibs" class="panel active" role="tabpanel" aria-labelledby="tab-madlibs">
+          <p class="field-hint" style="margin-top:0">
+            Classic fill-in-the-blank stories — bundled offline catalog plus optional live API.
+          </p>
+          <div class="field">
+            <label for="madlibs-filter">Filter templates</label>
+            <input type="search" id="madlibs-filter" placeholder="Search by title…" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="madlibs-select">Choose a template</label>
+            <div class="select-wrap">
+              <select id="madlibs-select"></select>
+            </div>
+            <p id="madlibs-meta" class="field-hint" aria-live="polite"></p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn-primary" id="btn-madlibs-random">Random</button>
+            <button type="button" class="btn-secondary" id="btn-madlibs-load">Start Mad Lib</button>
+          </div>
+        </div>
+
+        <div id="panel-sample" class="panel" role="tabpanel" aria-labelledby="tab-sample">
+          <p class="field-hint" style="margin-top:0">
+            Short prose for testing smart word detection — not classic fill-in-the-blank Mad Libs.
+          </p>
+          <div class="field">
+            <label for="sample-select">Choose an example</label>
+            <div class="select-wrap">
+              <select id="sample-select"></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="sample-length">Reveal length</label>
+            <div class="select-wrap">
+              <select id="sample-length">
+                <option value="150">150 words</option>
+                <option value="250" selected>250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000">1000 words</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-sample-load">Start Example</button>
+        </div>
+
+        <div id="panel-paste" class="panel" role="tabpanel" aria-labelledby="tab-paste">
           <div class="field">
             <label for="paste-text">Your story text</label>
             <textarea id="paste-text" placeholder="Paste a short story, paragraph, or any text here…"></textarea>
@@ -53,7 +104,7 @@
             Opened as a local file — book downloads need a web server.
             From this folder run <code>npm run dev</code> or <code>npm run preview</code>,
             or serve the built app: <code>cd dist &amp;&amp; python -m http.server 8080</code>
-            then open <code>http://localhost:8080/</code>. Sample and Paste work offline.
+            then open <code>http://localhost:8080/</code>. Examples, Paste, and Mad Libs work offline.
           </p>
           <div class="field">
             <label for="gutenberg-search">Search titles or authors</label>
@@ -74,11 +125,6 @@
               </select>
             </div>
           </div>
-          <div class="btn-row">
-            <button type="button" class="btn-secondary" id="btn-gutenberg-search">Search</button>
-            <button type="button" class="btn-secondary" id="btn-gutenberg-random">Random</button>
-          </div>
-          <ul id="gutenberg-results" class="results-list hidden" aria-label="Search results"></ul>
           <div class="field">
             <label for="gutenberg-collection">Collection handling</label>
             <div class="select-wrap">
@@ -101,10 +147,28 @@
               </select>
             </div>
           </div>
-          <button type="button" class="btn-primary" id="btn-gutenberg-load">Load Story</button>
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" id="btn-gutenberg-search">Search</button>
+            <button type="button" class="btn-secondary" id="btn-gutenberg-random">Random</button>
+          </div>
+          <ul id="gutenberg-results" class="results-list hidden" aria-label="Search results"></ul>
+          <p id="gutenberg-selected" class="field-hint" aria-live="polite"></p>
+          <button type="button" class="btn-primary" id="btn-gutenberg-load">Start Story</button>
         </div>
 
         <div id="panel-poem" class="panel" role="tabpanel" aria-labelledby="tab-poem">
+          <div class="field">
+            <label for="poem-length">Reveal length</label>
+            <div class="select-wrap">
+              <select id="poem-length">
+                <option value="150">150 words</option>
+                <option value="250" selected>250 words</option>
+                <option value="400">400 words</option>
+                <option value="650">650 words</option>
+                <option value="1000">1000 words</option>
+              </select>
+            </div>
+          </div>
           <div class="field">
             <label for="poem-author">Author (optional)</label>
             <input type="text" id="poem-author" placeholder="e.g. Dickinson">
@@ -117,62 +181,11 @@
             <button type="button" class="btn-secondary" id="btn-poem-random">Random Poem</button>
             <button type="button" class="btn-secondary" id="btn-poem-search">Search</button>
           </div>
-          <button type="button" class="btn-primary" id="btn-poem-load">Load Poem</button>
+          <p id="poem-selected" class="field-hint" aria-live="polite"></p>
+          <button type="button" class="btn-primary" id="btn-poem-load">Start Poem</button>
         </div>
 
-        <div id="panel-sample" class="panel" role="tabpanel" aria-labelledby="tab-sample">
-          <div class="field">
-            <label for="sample-select">Choose a sample</label>
-            <div class="select-wrap">
-              <select id="sample-select"></select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="sample-length">Reveal length</label>
-            <div class="select-wrap">
-              <select id="sample-length">
-                <option value="150">150 words</option>
-                <option value="250" selected>250 words</option>
-                <option value="400">400 words</option>
-                <option value="650">650 words</option>
-                <option value="1000">1000 words</option>
-              </select>
-            </div>
-          </div>
-          <button type="button" class="btn-primary" id="btn-sample-load">Load Sample</button>
-        </div>
-
-        <div id="panel-madlibs" class="panel" role="tabpanel" aria-labelledby="tab-madlibs">
-          <p class="field-hint" style="margin-top:0">
-            Classic fill-in-the-blank stories from
-            <a href="https://github.com/chroline/madlibs-api" rel="noopener noreferrer" target="_blank">madlibs-api</a>
-            (madlibz templates, MIT). Also accepts Rosetta-style <code>&lt;noun&gt;</code> and
-            <code>--NOUN--</code> syntax when you paste.
-          </p>
-          <div class="field">
-            <label for="madlibs-select">Choose a template</label>
-            <div class="select-wrap">
-              <select id="madlibs-select"></select>
-            </div>
-          </div>
-          <div class="btn-row">
-            <button type="button" class="btn-secondary" id="btn-madlibs-random">Random</button>
-          </div>
-          <div class="field">
-            <label for="madlibs-length">Max story length</label>
-            <div class="select-wrap">
-              <select id="madlibs-length">
-                <option value="250">250 words</option>
-                <option value="400">400 words</option>
-                <option value="650">650 words</option>
-                <option value="1000" selected>Full template</option>
-              </select>
-            </div>
-          </div>
-          <button type="button" class="btn-primary" id="btn-madlibs-load">Load Mad Lib</button>
-        </div>
-
-        <div class="field" style="margin-top:1rem;margin-bottom:0">
+        <div id="auto-swap-settings" class="field" style="margin-top:1rem;margin-bottom:0">
           <label for="prompt-count">Number of word prompts</label>
           <div class="select-wrap">
             <select id="prompt-count">
@@ -183,8 +196,8 @@
               <option value="20">20 prompts</option>
             </select>
           </div>
+          <p class="nlp-badge" id="nlp-status">Loading word detection…</p>
         </div>
-        <p class="nlp-badge" id="nlp-status">Loading word detection…</p>
       </section>
 
       <!-- LOADING PHASE -->

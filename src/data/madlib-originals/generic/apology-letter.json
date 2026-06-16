@@ -1,0 +1,38 @@
+{
+  "title": "Apology Letter",
+  "text": [
+    "## Apology Letter\n\nDear ",
+    ",\n\nI am deeply sorry for ",
+    " your ",
+    " during the ",
+    " party.\n\nIt was wrong to ",
+    " near the ",
+    " and even worse to blame your ",
+    ".\n\nI should not have ",
+    " your favorite ",
+    " or told everyone about the ",
+    " incident.\n\n**To make amends** I will ",
+    " publicly, replace the ",
+    ", and never again ",
+    " without permission.\n\nPlease forgive me.\n\nSincerely,\n",
+    ", a reformed ",
+    " person."
+  ],
+  "blanks": [
+    "name",
+    "verb ending in 'ing'",
+    "object",
+    "adjective",
+    "verb",
+    "place",
+    "animal",
+    "verb",
+    "object",
+    "adjective",
+    "verb",
+    "object",
+    "verb",
+    "name",
+    "adjective"
+  ]
+}

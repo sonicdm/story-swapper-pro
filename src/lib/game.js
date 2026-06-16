@@ -15,6 +15,7 @@ import pluralize from 'pluralize';
 import { phraseLooksPlural, isPastTenseForm } from './grammar.js';
 import { hasPlaceholders, selectMixedCandidates, countPlaceholders, placeholderOriginalForCategory } from './placeholders.js';
 import { lookupPosForPool, randomWordsForCategories } from './dictionary.js';
+import { renderMadLibMarkdown, swapPlaceholder } from './story-markdown.js';
 
 function renderPromptForm(candidates) {
   const form = $('#prompt-form');
@@ -153,7 +154,17 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
-function buildFinalStory(tokens, prompts, replacements) {
+function makeSwapMarkHtml(applied, meta) {
+  const safe = escapeHtml(applied);
+  const origLabel = meta.isPlaceholder
+    ? `[${meta.label || meta.category}]`
+    : (meta.originalWord ?? meta.original ?? '');
+  const origSafe = escapeHtml(origLabel);
+  return `<mark class="swap" title="was: ${origSafe}" aria-label="Your word: ${safe}, originally ${origSafe}" data-original="${origSafe}">${safe}</mark>`;
+}
+
+function buildFinalStory(tokens, prompts, replacements, options = {}) {
+  const useMarkdown = options.useMarkdown === true;
   const replaceMap = new Map();
   prompts.forEach((p, i) => {
     replaceMap.set(p.tokenIndex, { replacement: replacements[i] ?? '', meta: p });
@@ -161,6 +172,9 @@ function buildFinalStory(tokens, prompts, replacements) {
 
   const htmlParts = [];
   const plainParts = [];
+  const markdownParts = [];
+  const swapHtml = [];
+  let swapIndex = 0;
   let lastWord = null;
 
   for (const tok of tokens) {
@@ -173,32 +187,48 @@ function buildFinalStory(tokens, prompts, replacements) {
         if (fixed !== lastWord.text) {
           plainParts[lastWord.plainIdx] = fixed;
           htmlParts[lastWord.htmlIdx] = escapeHtml(fixed);
+          if (useMarkdown) markdownParts[lastWord.mdIdx] = fixed;
         }
       }
 
-      const safe = escapeHtml(applied);
-      const origLabel = meta.isPlaceholder
-        ? `[${meta.label || meta.category}]`
-        : (meta.originalWord ?? meta.original ?? '');
-      const origSafe = escapeHtml(origLabel);
-      htmlParts.push(`<mark class="swap" title="was: ${origSafe}" aria-label="Your word: ${safe}, originally ${origSafe}" data-original="${origSafe}">${safe}</mark>`);
+      htmlParts.push(makeSwapMarkHtml(applied, meta));
       plainParts.push(applied);
-      lastWord = { norm: applied.toLowerCase(), text: applied, plainIdx: plainParts.length - 1, htmlIdx: htmlParts.length - 1 };
+      if (useMarkdown) {
+        swapHtml.push(makeSwapMarkHtml(applied, meta));
+        markdownParts.push(swapPlaceholder(swapIndex++));
+      }
+      lastWord = {
+        norm: applied.toLowerCase(),
+        text: applied,
+        plainIdx: plainParts.length - 1,
+        htmlIdx: htmlParts.length - 1,
+        mdIdx: useMarkdown ? markdownParts.length - 1 : undefined
+      };
     } else {
       const esc = tok.text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       htmlParts.push(esc);
       plainParts.push(tok.text);
+      if (useMarkdown) markdownParts.push(tok.text);
       if (tok.type === 'word') {
-        lastWord = { norm: tok.norm, text: tok.text, plainIdx: plainParts.length - 1, htmlIdx: htmlParts.length - 1 };
+        lastWord = {
+          norm: tok.norm,
+          text: tok.text,
+          plainIdx: plainParts.length - 1,
+          htmlIdx: htmlParts.length - 1,
+          mdIdx: useMarkdown ? markdownParts.length - 1 : undefined
+        };
       }
     }
   }
 
   const html = htmlParts.join('');
   const plain = plainParts.join('');
-  appState.finalHtml = html;
+  const markdownPlain = useMarkdown ? markdownParts.join('') : '';
+  appState.finalHtml = useMarkdown ? renderMadLibMarkdown(markdownPlain, swapHtml) : html;
   appState.finalPlainText = plain;
-  return { html, plain };
+  return useMarkdown
+    ? { html: appState.finalHtml, plain, markdownPlain, swapHtml, useMarkdown: true }
+    : { html, plain, useMarkdown: false };
 }
 
 async function fillRandomPrompts() {
@@ -268,22 +298,32 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
     appState.cleanText = isGutenberg
       ? cleanGutenbergText(rawText)
       : normalizeTemplateSyntax(rawText.replace(/\r\n/g, '\n').trim());
-    appState.detectedSections = detectSections(appState.cleanText);
-    appState.collectionMode = appState.sourceType === 'gutenberg'
-      ? $('#gutenberg-collection').value
-      : 'auto';
-    const section = selectSection(
-      appState.cleanText,
-      appState.detectedSections,
-      appState.collectionMode,
-      appState.selectedSectionIndex
-    );
-    appState.selectedSection = section;
-    appState.selectedSectionIndex = section.index;
-    appState.selectedText = trimToWordLimit(section.text, appState.revealLength);
+
+    if (appState.sourceType === 'madlibs') {
+      appState.detectedSections = [];
+      appState.selectedSection = { text: appState.cleanText, title: title, index: 0 };
+      appState.selectedSectionIndex = 0;
+      appState.selectedText = appState.cleanText;
+      appState.revealLength = countWords(appState.cleanText);
+    } else {
+      appState.detectedSections = detectSections(appState.cleanText);
+      appState.collectionMode = appState.sourceType === 'gutenberg'
+        ? $('#gutenberg-collection').value
+        : 'auto';
+      const section = selectSection(
+        appState.cleanText,
+        appState.detectedSections,
+        appState.collectionMode,
+        appState.selectedSectionIndex
+      );
+      appState.selectedSection = section;
+      appState.selectedSectionIndex = section.index;
+      appState.selectedText = trimToWordLimit(section.text, appState.revealLength);
+    }
     appState.tokens = tokenize(appState.selectedText);
 
-    if (countWords(appState.selectedText) < 80 && countPlaceholders(appState.tokens) === 0) {
+    const minWords = appState.sourceType === 'madlibs' ? 20 : 80;
+    if (countWords(appState.selectedText) < minWords && countPlaceholders(appState.tokens) === 0) {
       throw new Error('This text is too short. Try a longer excerpt or paste more text.');
     }
 
@@ -353,7 +393,7 @@ async function startFromGutenberg(book) {
     appState.sourceType = 'gutenberg';
     if (location.protocol === 'file:' || err?.message === 'gutenberg-file-protocol') {
       setStatus(
-        'Public Domain book downloads do not work when opening this HTML file directly. Use Sample or Paste, or serve the folder: python -m http.server 8080',
+        'Public Domain book downloads do not work when opening this HTML file directly. Use Examples or Paste, or serve the folder: python -m http.server 8080',
         'error'
       );
     } else if (err?.message === 'gutenberg-audio-only') {
@@ -366,30 +406,24 @@ async function startFromGutenberg(book) {
   }
 }
 
-async function startFromPoem(author, title, randomOnly = false) {
+async function startFromPoem(poemData) {
+  if (!poemData?.text) {
+    setStatus('Pick a poem first — try Random or Search.', 'error');
+    return;
+  }
   showPhase('loading');
   try {
-    let poems;
-    if (randomOnly) {
-      for (let attempt = 0; attempt < 3; attempt++) {
-        poems = await fetchPoem('', '');
-        const { text } = poemToText(Array.isArray(poems) ? poems[0] : poems);
-        if (countWords(text) >= 80) break;
-      }
-    } else {
-      poems = await fetchPoem(author, title);
-    }
-    const poem = Array.isArray(poems) ? poems[Math.floor(Math.random() * poems.length)] : poems;
-    const { text, title: poemTitle } = poemToText(poem);
+    const { text, title: poemTitle } = poemData;
     if (countWords(text) < 40) throw new Error('Poem too short');
     appState.sourceType = 'poem';
-    appState.revealLength = Math.min(parseInt($('#paste-length')?.value || '250', 10), countWords(text));
+    appState.revealLength = Math.min(parseInt($('#poem-length')?.value || '250', 10), countWords(text));
     appState.promptCount = $('#prompt-count').value;
     appState.collectionMode = 'beginning';
     await prepareGameFromSource(text, poemTitle, false);
   } catch (_) {
     showPhase('source');
-    setStatus('Could not load a poem right now. Try Sample or Paste.', 'error');
+    switchTab('poem');
+    setStatus('Could not load a poem right now. Try Examples or Paste.', 'error');
   }
 }
 
@@ -403,20 +437,14 @@ async function startFromSample() {
   await prepareGameFromSource(sample.text, sample.title, false);
 }
 
-async function startFromMadLib(randomOnly = false) {
+async function startFromMadLib() {
   showPhase('loading');
   $('#loading-message').textContent = 'Loading Mad Libs template…';
   setStatus('');
   try {
-    let story;
-    if (randomOnly) {
-      story = await fetchMadLibRandom();
-    } else {
-      const title = $('#madlibs-select').value;
-      story = title ? await fetchMadLibByTitle(title) : await fetchMadLibRandom();
-    }
+    const title = $('#madlibs-select')?.value;
+    const story = title ? await fetchMadLibByTitle(title) : await fetchMadLibRandom();
     appState.sourceType = 'madlibs';
-    appState.revealLength = parseInt($('#madlibs-length').value, 10) || 1000;
     appState.promptCount = 'auto';
     appState.collectionMode = 'beginning';
     const credit = story.source === 'bundled' ? ' (offline)' : '';
@@ -447,9 +475,11 @@ function revealStory() {
     replacements.push(val);
   }
   appState.replacements = replacements;
-  const { html } = buildFinalStory(appState.tokens, appState.candidates, replacements);
+  const useMarkdown = appState.sourceType === 'madlibs';
+  const result = buildFinalStory(appState.tokens, appState.candidates, replacements, { useMarkdown });
   const output = $('#story-output');
-  output.innerHTML = html;
+  output.innerHTML = result.html;
+  output.classList.toggle('story-reveal--markdown', useMarkdown);
   output.classList.toggle('show-originals', !!$('#toggle-originals')?.checked);
   const wc = countWords(appState.selectedText);
   const sectionTitle = appState.selectedSection?.title;

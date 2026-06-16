@@ -1,0 +1,36 @@
+{
+  "title": "Horoscope",
+  "text": [
+    "## Today's Horoscope\n\n**Sign:** ",
+    " signs\n\n**Opportunity:** A ",
+    " stranger may offer you a ",
+    " opportunity near a ",
+    ".\n\n**Lucky charm:** Your lucky ",
+    " is hiding inside an old ",
+    ".\n\n**Romance:** Romance blooms when you ",
+    " with confidence and wear something ",
+    ".\n\n**Warning:** Beware of ",
+    " advice from a ",
+    " relative.\n\n**Finance:** Financial luck arrives after you ",
+    " a forgotten ",
+    ".\n\n**Tonight:** Dream of ",
+    " animals and wake up feeling ",
+    "."
+  ],
+  "blanks": [
+    "adjective",
+    "adjective",
+    "adjective",
+    "place",
+    "object",
+    "object",
+    "verb",
+    "adjective",
+    "adjective",
+    "adjective",
+    "verb",
+    "object",
+    "plural noun",
+    "adjective"
+  ]
+}

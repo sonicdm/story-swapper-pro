@@ -1,0 +1,38 @@
+{
+  "title": "Blockbuster Rental Night",
+  "text": [
+    "## Blockbuster Night Checklist\n\n**Arrival:** Before ",
+    " PM for best ",
+    " selection.\n\n**Browse:**\n- ",
+    " aisle first\n- ",
+    " new releases near the ",
+    " display\n\n**Rent:**\n- One ",
+    " movie\n- One ",
+    " comedy\n- Zero damaged ",
+    " cases\n\n**Snacks:** ",
+    " candy and a soda the size of a ",
+    ".\n\n**At home:** ",
+    " the tape, ignore tracking lines, and ",
+    " during previews.\n\n**Return by:** ",
+    " PM or pay a ",
+    " late fee that feels ",
+    ".\n\n**Bonus:** Argue about whether to rewind."
+  ],
+  "blanks": [
+    "number",
+    "adjective",
+    "adjective",
+    "verb",
+    "adjective",
+    "adjective",
+    "adjective",
+    "plural noun",
+    "adjective",
+    "object",
+    "verb",
+    "verb",
+    "number",
+    "adjective",
+    "adjective"
+  ]
+}

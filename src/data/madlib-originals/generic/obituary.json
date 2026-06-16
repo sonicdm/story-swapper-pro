@@ -1,0 +1,42 @@
+{
+  "title": "Obituary",
+  "text": [
+    "## Obituary\n\nIn loving memory of ",
+    ", who passed peacefully after a long battle with ",
+    " laundry and an aggressive ",
+    " collection.\n\n**Early life:** Born in a ",
+    " hospital, they spent youth ",
+    " through fields of ",
+    " and dreaming of ",
+    ".\n\n**Career:** They worked as a ",
+    " for ",
+    " years, retiring to pursue ",
+    " and competitive ",
+    ".\n\n**Survived by:** ",
+    " cousins, one ",
+    " dog, and a goldfish named ",
+    ".\n\n**Services:** Will be held at ",
+    " Cemetery. In lieu of flowers, send ",
+    " and kind ",
+    "."
+  ],
+  "blanks": [
+    "name",
+    "adjective",
+    "plural noun",
+    "adjective",
+    "verb ending in 'ing'",
+    "plural noun",
+    "plural noun",
+    "job",
+    "number",
+    "verb ending in 'ing'",
+    "plural noun",
+    "number",
+    "adjective",
+    "name",
+    "a place",
+    "food",
+    "plural noun"
+  ]
+}

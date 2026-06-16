@@ -1,0 +1,38 @@
+{
+  "title": "Office Slack Message",
+  "text": [
+    "## Slack Update\n\n@channel quick update:\n\n**Deployment:** The ",
+    " deployment is ",
+    " because QA found a ",
+    " bug in the ",
+    " module.\n\n**Investigation:** ",
+    " is investigating while ",
+    " writes the postmortem in ",
+    " language.\n\n**Please:** Do not ",
+    " in #general until we ",
+    " leadership.\n\n**ETA:** ",
+    " business days or one ",
+    " weekend, whichever feels ",
+    ".\n\n**Customer note:** Ping me if customers ask why the ",
+    " button now ",
+    " users to a ",
+    " quiz.\n\nThanks team!!!"
+  ],
+  "blanks": [
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "name",
+    "name",
+    "adjective",
+    "verb",
+    "verb",
+    "number",
+    "adjective",
+    "adjective",
+    "adjective",
+    "verb",
+    "adjective"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Baby and Baby Bear Bedtime",
+  "text": [
+    "## Bedtime Checklist\n\n**For Baby and Baby Bear:**\n\n- Draw a ",
+    " bath\n- Find the ",
+    " pajamas with ",
+    " on them\n- Read one ",
+    " story about ",
+    " who learn to ",
+    "\n\n**Baby Bear:** Requires ",
+    " honey on a ",
+    " spoon and will ",
+    " if the room is too ",
+    ".\n\n**Baby:** Prefers the ",
+    " lullaby sung ",
+    " while rocking the ",
+    " chair.\n\n**Lights out:** ",
+    " o'clock.\n\n**If either wakes up:** Offer a ",
+    " hug and do not mention ",
+    " until morning."
+  ],
+  "blanks": [
+    "adjective",
+    "adjective",
+    "plural noun",
+    "adjective",
+    "animal",
+    "verb",
+    "adjective",
+    "adjective",
+    "verb",
+    "adjective",
+    "adjective",
+    "adverb",
+    "adjective",
+    "number",
+    "adjective",
+    "plural noun"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Instruction Manual",
+  "text": [
+    "## Instruction Manual\n\n**WARNING:** Do not ",
+    " this ",
+    " near water, bees, or emotional ",
+    " people.\n\n**Step A:** Insert the ",
+    " into slot ",
+    " until you hear a ",
+    " sound.\n\n**Step B:** Press the ",
+    " button firmly with your ",
+    ".\n\n**Step C:** Wait ",
+    " minutes while the device becomes ",
+    ".\n\n**Step D:** If smoke appears, ",
+    " calmly toward the nearest ",
+    ".\n\n**Maintenance:** Clean with a ",
+    " cloth every ",
+    " days.\n\n**Support:** Questions? Call our ",
+    " support line and ask for ",
+    "."
+  ],
+  "blanks": [
+    "verb",
+    "object",
+    "adjective",
+    "object",
+    "number",
+    "adjective",
+    "color",
+    "body part",
+    "number",
+    "adjective",
+    "verb",
+    "place",
+    "adjective",
+    "number",
+    "adjective",
+    "name"
+  ]
+}

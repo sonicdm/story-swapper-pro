@@ -1,0 +1,36 @@
+{
+  "title": "Zebby's Incident Report",
+  "text": [
+    "## Incident Report\n\n**Filed by:** Zebby, black cat\n\n**Time:** ",
+    " o'clock\n\n**Location:** The ",
+    " near the ",
+    "\n\n**Event:** Human attempted to ",
+    " without offering ",
+    " first.\n\n**Witnesses:**\n- Matilda (",
+    ")\n- Violet (",
+    ")\n\n**Response:** Zebby ",
+    " under the couch, then ",
+    " the offender's ",
+    ".\n\n**Damage:** One ",
+    " knocked over, zero regrets.\n\n**Corrective action:** Schedule ",
+    " play sessions; stop buying ",
+    " toys.\n\n**Status:** Closed until next ",
+    " snack."
+  ],
+  "blanks": [
+    "number",
+    "place",
+    "object",
+    "verb",
+    "food",
+    "adjective",
+    "adjective",
+    "verb",
+    "verb",
+    "body part",
+    "object",
+    "adjective",
+    "adjective",
+    "adjective"
+  ]
+}

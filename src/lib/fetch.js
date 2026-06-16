@@ -1,6 +1,14 @@
 import { countWords } from './dom.js';
 
-const MADLIBS_API = 'https://madlibs-api.vercel.app';
+/** CORS-friendly mirror of madlibs-api data for static hosting (GitHub Pages). */
+const MADLIBS_CDN = 'https://cdn.jsdelivr.net/gh/chroline/madlibs-api@main/data/templates.json';
+
+let madlibsCdnCache = null;
+
+function isLocalhost() {
+  const h = location.hostname;
+  return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+}
 
 function pickPlainTextUrl(formats) {
   if (!formats) return null;
@@ -68,11 +76,6 @@ function gutenbergTextCandidates(book) {
   const unique = [...new Set(urls.filter(isGutenbergStoryUrl))];
   unique.sort((a, b) => gutenbergUrlPriority(a) - gutenbergUrlPriority(b));
   return unique;
-}
-
-function isLocalhost() {
-  const h = location.hostname;
-  return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
 }
 
 function isGutenbergHost(url) {
@@ -286,14 +289,19 @@ async function fetchPoem(author, title) {
 }
 
 function toSameOriginMadlibsProxy(apiPath) {
-  try {
-    if (!isLocalhost()) return null;
-    return `/api/madlibs${apiPath}`;
-  } catch (_) {
-    return null;
-  }
+  if (!isLocalhost()) return null;
+  return `/api/madlibs${apiPath}`;
 }
 
+async function loadMadlibsCdnTemplates() {
+  if (madlibsCdnCache) return madlibsCdnCache;
+  const res = await fetch(MADLIBS_CDN);
+  if (!res.ok) throw new Error(`madlibs CDN HTTP ${res.status}`);
+  madlibsCdnCache = await res.json();
+  return madlibsCdnCache;
+}
+
+/** Live API on localhost (Vite proxy); madlibs-api data via jsDelivr on GitHub Pages. */
 async function fetchMadLibApi(apiPath) {
   const proxy = toSameOriginMadlibsProxy(apiPath);
   if (proxy) {
@@ -301,7 +309,21 @@ async function fetchMadLibApi(apiPath) {
     if (!res.ok) throw new Error(`madlibs HTTP ${res.status}`);
     return res.json();
   }
-  return fetchJsonWithCorsFallback(`${MADLIBS_API}${apiPath}`);
+
+  const templates = await loadMadlibsCdnTemplates();
+  if (apiPath === '/api/random') {
+    const titles = Object.keys(templates);
+    const title = titles[Math.floor(Math.random() * titles.length)];
+    return { title, ...templates[title] };
+  }
+  const storyMatch = apiPath.match(/^\/api\/story\/(.+)$/);
+  if (storyMatch) {
+    const title = decodeURIComponent(storyMatch[1]);
+    const entry = templates[title];
+    if (!entry) throw new Error('madlibs-not-found');
+    return { title, ...entry };
+  }
+  throw new Error('madlibs-unknown-path');
 }
 
 async function fetchMadLibRandom() {

@@ -137,6 +137,40 @@ export function listBundledMadLibTitles() {
   return Object.keys(templates).sort((a, b) => a.localeCompare(b));
 }
 
+const CATEGORY_ORDER = ['classics', 'legacy', 'generic', 'themed'];
+const CATEGORY_LABELS = {
+  classics: 'Classics',
+  legacy: 'Legacy',
+  generic: 'Generic',
+  themed: 'Themed'
+};
+
+/** Catalog grouped for UI optgroups. */
+export function listBundledMadLibCatalog() {
+  const groups = new Map(CATEGORY_ORDER.map(c => [c, []]));
+  for (const title of listBundledMadLibTitles()) {
+    const entry = templates[title];
+    const cat = entry?.category || 'classics';
+    if (!groups.has(cat)) groups.set(cat, []);
+    groups.get(cat).push({ title, ...getMadLibMeta(title, entry) });
+  }
+  return CATEGORY_ORDER
+    .filter(c => groups.get(c)?.length)
+    .map(c => ({ id: c, label: CATEGORY_LABELS[c] || c, items: groups.get(c) }));
+}
+
+export function getMadLibMeta(title, entry = templates[title]) {
+  if (!entry) return { blankCount: 0, wordCount: 0, category: 'classics' };
+  const blankCount = entry.blankCount ?? entry.blanks?.length ?? 0;
+  const wordCount = entry.wordCount ?? 0;
+  return { blankCount, wordCount, category: entry.category || 'classics' };
+}
+
+export function getRandomBundledMadLibTitle(exclude = '') {
+  const titles = listBundledMadLibTitles().filter(t => t !== exclude);
+  return titles[Math.floor(Math.random() * titles.length)];
+}
+
 export function getBundledMadLib(title) {
   const entry = templates[title];
   if (!entry) return null;
