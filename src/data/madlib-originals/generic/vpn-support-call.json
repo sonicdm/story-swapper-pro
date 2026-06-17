@@ -1,0 +1,32 @@
+{
+  "title": "VPN Support Call",
+  "text": [
+    "## VPN Support Call\n\n**Agent:** Thank you for calling ",
+    " IT support. May I have your employee ",
+    "?\n\n**User:** I cannot ",
+    " from home. The ",
+    " icon just spins.\n\n**Agent:** Please ",
+    " your router, then ",
+    " the VPN client.\n\n**User:** It asked for my ",
+    " and then said access was ",
+    ".\n\n**Agent:** I reset your ",
+    " in Active Directory. Try ",
+    " again in ",
+    " minutes.\n\n**User:** It works! You are a ",
+    " legend."
+  ],
+  "blanks": [
+    "adjective",
+    "number",
+    "verb",
+    "adjective",
+    "verb",
+    "verb",
+    "object",
+    "adjective",
+    "object",
+    "verb",
+    "number",
+    "adjective"
+  ]
+}

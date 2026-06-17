@@ -34,7 +34,7 @@ describe('madlib originals JSON', () => {
 
   it('has expected original file counts', () => {
     expect(files.filter(f => f.sub === 'legacy').length).toBe(2);
-    expect(files.filter(f => f.sub === 'generic').length).toBe(14);
+    expect(files.filter(f => f.sub === 'generic').length).toBe(17);
     expect(files.filter(f => f.sub === 'themed').length).toBe(14);
   });
 
@@ -72,9 +72,9 @@ describe('madlib originals JSON', () => {
 });
 
 describe('madlibs bundle', () => {
-  it('bundle has ~46 templates with categories', () => {
+  it('bundle has ~49 templates with categories', () => {
     const titles = listBundledMadLibTitles();
-    expect(titles.length).toBeGreaterThanOrEqual(45);
+    expect(titles.length).toBeGreaterThanOrEqual(48);
     const catalog = listBundledMadLibCatalog();
     expect(catalog.map(g => g.id)).toEqual(expect.arrayContaining(['classics', 'legacy', 'generic', 'themed']));
     const total = catalog.reduce((n, g) => n + g.items.length, 0);

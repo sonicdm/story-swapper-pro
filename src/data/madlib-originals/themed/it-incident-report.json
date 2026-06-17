@@ -1,0 +1,40 @@
+{
+  "title": "IT Incident Report",
+  "text": [
+    "## IT Incident Report\n\n**Incident summary:** Company-wide ",
+    " outage began at ",
+    " AM after someone ",
+    " the ",
+    " server.\n\n**Root cause:** A ",
+    " patch pushed by ",
+    " during lunch.\n\n**User impact:** ",
+    " employees unable to ",
+    " for ",
+    " minutes.\n\n**Timeline:** Tier-1 missed the alert because the queue was ",
+    "; fix attempted by ",
+    " the ",
+    " twice.\n\n**Action items:**\n- Add ",
+    " monitoring\n- Ban ",
+    " changes on Fridays\n- Require ",
+    " approval before rebooting anything\n\n**Blameless note:** The vendor swore the update was harmless.",
+    "\n\n**Status:** Ticket closed."
+  ],
+  "blanks": [
+    "adjective",
+    "number",
+    "verb",
+    "adjective",
+    "object",
+    "adjective",
+    "name",
+    "number",
+    "verb",
+    "number",
+    "adjective",
+    "verb",
+    "object",
+    "adjective",
+    "plural noun",
+    "adjective"
+  ]
+}

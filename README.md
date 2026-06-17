@@ -1,6 +1,6 @@
 # Story Swapper
 
-Mad Libs-style word swap game built with Vite. Play **46 bundled Mad Libs**, try **Examples** for NLP auto-swap demos, paste your own text, pull from Project Gutenberg, or load a poem — then fill in the blanks and reveal your ridiculous story.
+Mad Libs-style word swap game built with Vite. Play **49 bundled Mad Libs**, try **Examples** for NLP auto-swap demos, paste your own text, pull from Project Gutenberg, or load a poem — then fill in the blanks and reveal your ridiculous story.
 
 ## Quick start
 
@@ -39,7 +39,7 @@ From the project root, `python -m http.server` also works if you open `http://lo
 - **Show the original words** — reveal-screen toggle and hover tooltips.
 - **Download .txt** and copy-to-clipboard.
 - **Remembers settings** — length, prompt count, tab, Mad Libs pick, and peek preference via `localStorage`.
-- Sources: **Mad Libs** (46 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
+- Sources: **Mad Libs** (49 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
 - **Mad Libs tab** — filter, optgroups (Classics / Legacy / Generic / Themed), Random then Start; full template always (never cropped).
 - **Examples tab** — short prose for smart word detection; one hybrid passage with `{tags}` plus optional auto-swaps.
 - **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers on Paste. Mad Libs use classic blank labels via JSON `text[]`/`blanks[]`.

@@ -1,0 +1,38 @@
+{
+  "title": "New Hire IT Setup",
+  "text": [
+    "## New Hire IT Setup\n\n**Employee:** ",
+    "\n\n**Start date:** ",
+    "day\n\n**Hardware issued:**\n- ",
+    " laptop with ",
+    " monitor\n- ",
+    " keyboard and wireless ",
+    "\n\n**Accounts created:**\n- Email and ",
+    " access\n- Badge: ",
+    " wing, ",
+    " floor\n\n**Training scheduled:**\n- ",
+    " security awareness\n- How to ",
+    " without breaking the ",
+    "\n\n**Notes:** No admin rights on the ",
+    ". Manager says they are ",
+    " and should never receive ",
+    " permissions."
+  ],
+  "blanks": [
+    "name",
+    "adjective",
+    "adjective",
+    "adjective",
+    "adjective",
+    "object",
+    "adjective",
+    "adjective",
+    "number",
+    "adjective",
+    "verb",
+    "object",
+    "object",
+    "adjective",
+    "adjective"
+  ]
+}

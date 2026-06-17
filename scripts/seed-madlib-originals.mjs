@@ -316,6 +316,69 @@ const GENERIC = [
       " person."
     ],
     blanks: ["name", "verb ending in 'ing'", "object", "adjective", "verb", "place", "animal", "verb", "object", "adjective", "verb", "object", "verb", "name", "adjective"]
+  },
+  {
+    title: "Help Desk Ticket",
+    text: [
+      "## Help Desk Ticket\n\n**Caller:** ",
+      "\n\n**Location:** ",
+      " building, floor ",
+      "\n\n**Priority:** ",
+      "\n\n**Problem:** User cannot ",
+      " — screen shows a ",
+      " error about ",
+      ".\n\n**Troubleshooting:**\n- Rebooted the ",
+      "\n- Reseated the ",
+      " cable\n- Asked them to ",
+      " and try again\n\n**Resolution:** Replaced the ",
+      " and cleared the ",
+      " queue. Closed as ",
+      ".\n\n**Time on ticket:** ",
+      " minutes. User thanked us and asked if we also fix ",
+      "."
+    ],
+    blanks: ["name", "adjective", "number", "adjective", "verb", "adjective", "plural noun", "object", "adjective", "verb", "adjective", "adjective", "adjective", "number", "plural noun"]
+  },
+  {
+    title: "VPN Support Call",
+    text: [
+      "## VPN Support Call\n\n**Agent:** Thank you for calling ",
+      " IT support. May I have your employee ",
+      "?\n\n**User:** I cannot ",
+      " from home. The ",
+      " icon just spins.\n\n**Agent:** Please ",
+      " your router, then ",
+      " the VPN client.\n\n**User:** It asked for my ",
+      " and then said access was ",
+      ".\n\n**Agent:** I reset your ",
+      " in Active Directory. Try ",
+      " again in ",
+      " minutes.\n\n**User:** It works! You are a ",
+      " legend."
+    ],
+    blanks: ["adjective", "number", "verb", "adjective", "verb", "verb", "object", "adjective", "object", "verb", "number", "adjective"]
+  },
+  {
+    title: "New Hire IT Setup",
+    text: [
+      "## New Hire IT Setup\n\n**Employee:** ",
+      "\n\n**Start date:** ",
+      "day\n\n**Hardware issued:**\n- ",
+      " laptop with ",
+      " monitor\n- ",
+      " keyboard and wireless ",
+      "\n\n**Accounts created:**\n- Email and ",
+      " access\n- Badge: ",
+      " wing, ",
+      " floor\n\n**Training scheduled:**\n- ",
+      " security awareness\n- How to ",
+      " without breaking the ",
+      "\n\n**Notes:** No admin rights on the ",
+      ". Manager says they are ",
+      " and should never receive ",
+      " permissions."
+    ],
+    blanks: ["name", "adjective", "adjective", "adjective", "adjective", "object", "adjective", "adjective", "number", "adjective", "verb", "object", "object", "adjective", "adjective"]
   }
 ];
 
@@ -339,28 +402,27 @@ const THEMED = [
     blanks: ["adjective", "adjective", "verb", "adjective", "number", "verb", "place", "adjective", "verb", "object", "adjective"]
   },
   {
-    title: "IT Postmortem",
+    title: "IT Incident Report",
     text: [
-      "## IT Postmortem\n\n**Incident summary:** Production ",
-      " failed at ",
+      "## IT Incident Report\n\n**Incident summary:** Company-wide ",
+      " outage began at ",
       " AM after someone ",
       " the ",
-      " config.\n\n**Root cause:** A ",
-      " deploy approved by ",
-      " during lunch.\n\n**Customer impact:** ",
-      " users unable to ",
+      " server.\n\n**Root cause:** A ",
+      " patch pushed by ",
+      " during lunch.\n\n**User impact:** ",
+      " employees unable to ",
       " for ",
-      " minutes.\n\n**Timeline:** Alert ignored because Slack was ",
-      "; rollback attempted using a ",
-      " script; success declared too ",
-      ".\n\n**Action items:**\n- Add ",
+      " minutes.\n\n**Timeline:** Tier-1 missed the alert because the queue was ",
+      "; fix attempted by ",
+      " the ",
+      " twice.\n\n**Action items:**\n- Add ",
       " monitoring\n- Ban ",
-      " on Fridays\n- Require ",
-      " sign-off before touching the ",
-      " server\n\n**Blameless note:** The intern is actually a ",
-      " in disguise."
+      " changes on Fridays\n- Require ",
+      " approval before rebooting anything\n\n**Blameless note:** The vendor swore the update was harmless.",
+      "\n\n**Status:** Ticket closed."
     ],
-    blanks: ["object", "number", "verb", "adjective", "adjective", "name", "number", "verb", "number", "adjective", "adjective", "adverb", "adjective", "plural noun", "adjective", "object", "adjective"]
+    blanks: ["adjective", "number", "verb", "adjective", "object", "adjective", "name", "number", "verb", "number", "adjective", "verb", "object", "adjective", "plural noun", "adjective"]
   },
   {
     title: "Baby and Baby Bear Bedtime",
@@ -512,26 +574,25 @@ const THEMED = [
     blanks: ["number", "type of liquid", "adjective", "number", "adjective", "adjective", "adjective", "verb", "verb", "food", "object", "verb", "adjective", "adjective", "name"]
   },
   {
-    title: "Office Slack Message",
+    title: "IT Help Desk Update",
     text: [
-      "## Slack Update\n\n@channel quick update:\n\n**Deployment:** The ",
-      " deployment is ",
-      " because QA found a ",
-      " bug in the ",
-      " module.\n\n**Investigation:** ",
-      " is investigating while ",
-      " writes the postmortem in ",
-      " language.\n\n**Please:** Do not ",
-      " in #general until we ",
-      " leadership.\n\n**ETA:** ",
-      " business days or one ",
-      " weekend, whichever feels ",
-      ".\n\n**Customer note:** Ping me if customers ask why the ",
-      " button now ",
-      " users to a ",
-      " quiz.\n\nThanks team!!!"
+      "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The ",
+      " printer on floor ",
+      " is ",
+      " again.\n\n**On site:** ",
+      " with a ",
+      " toolkit while ",
+      " clears the password-reset ",
+      ".\n\n**Users affected:** Anyone trying to ",
+      " or use the ",
+      " conference room.\n\n**Workaround:** Route jobs to the ",
+      " copier and ",
+      " your laptop until further notice.\n\n**ETA:** ",
+      " minutes unless the print spooler acts ",
+      " again.\n\nPlease stop opening tickets titled \"The internet is ",
+      ".\""
     ],
-    blanks: ["adjective", "adjective", "adjective", "adjective", "name", "name", "adjective", "verb", "verb", "number", "adjective", "adjective", "adjective", "verb", "adjective"]
+    blanks: ["adjective", "number", "adjective", "name", "adjective", "name", "object", "verb", "adjective", "adjective", "verb", "number", "adjective", "adjective"]
   },
   {
     title: "Server Room Incident",
@@ -539,20 +600,19 @@ const THEMED = [
       "## Server Room Ticket\n\n**Ticket #",
       ":** Loud ",
       " noise reported in server room B.\n\n**Technician:** Arrived with a ",
-      " flashlight and one ",
-      " attitude.\n\n**Findings:**\n- A ",
-      " cable chewing on ",
+      " flashlight and a clipboard.\n\n**Findings:**\n- A ",
+      " cable connected to ",
       " power\n- An old ",
-      " pizza\n- Sticky note: DO NOT ",
-      "\n\n**Fix applied:** Labeled everything ",
-      " and rebooted the ",
-      " twice for luck.\n\n**Monitoring:** Tracks ",
+      " pizza box on the UPS\n- Sticky note: DO NOT ",
+      "\n\n**Fix applied:** Labeled every ",
+      " port and rebooted the ",
+      " twice for luck.\n\n**Monitoring:** Now tracks ",
       " temperature and ",
-      " humidity.\n\n**Request:** Stop storing ",
-      " equipment next to the backup ",
+      " humidity.\n\n**Reminder:** Stop storing ",
+      " boxes next to the backup ",
       ".\n\nClosing as resolved-ish."
     ],
-    blanks: ["number", "adjective", "adjective", "adjective", "adjective", "adjective", "food", "verb", "adjective", "object", "adjective", "adjective", "adjective", "object"]
+    blanks: ["number", "adjective", "adjective", "adjective", "adjective", "adjective", "food", "verb", "adjective", "object", "adjective", "adjective", "object"]
   },
   {
     title: "Baby Bear Nap Schedule",
