@@ -1,38 +1,5 @@
 {
   "title": "MySpace Profile Update",
-  "text": [
-    "## MySpace Profile\n\n**About me:** Currently ",
-    " and obsessed with ",
-    " bands.\n\n**Mood:** ",
-    "\n\n**Music:** Anything ",
-    " with loud ",
-    ".\n\n**Heroes:** ",
-    ", my ",
-    " friends, and whoever invented ",
-    ".\n\n**Interests:** ",
-    ", glitter, and taking ",
-    " photos in the bathroom mirror.\n\n**Top 8:** Updated — do not ",
-    " if you are not on it.\n\n**New background:** ",
-    " stars on a ",
-    " background.\n\nComment if you want to join my ",
-    " group!!! xoxo ",
-    " :)"
-  ],
-  "blanks": [
-    "adjective",
-    "adjective",
-    "adjective",
-    "adjective",
-    "plural noun",
-    "name",
-    "adjective",
-    "plural noun",
-    "verb ending in 'ing'",
-    "adjective",
-    "verb",
-    "adjective",
-    "color",
-    "adjective",
-    "name"
-  ]
+  "category": "themed",
+  "text": "## MySpace Profile\n\n**About me:** Currently {adjective} and obsessed with {adjective} bands.\n\n**Mood:** {adjective}\n\n**Music:** Anything {adjective} with loud {plural noun}.\n\n**Heroes:** {person}, my {adjective} friends, and whoever invented {plural noun}.\n\n**Interests:** {verb ending in -ing}, glitter, and taking {adjective} photos in the bathroom mirror.\n\n**Top 8:** Updated — do not {verb} if you are not on it.\n\n**New background:** {adjective} stars on a {color} background.\n\nComment if you want to join my {adjective} group!!! xoxo {person} :)"
 }

@@ -1,7 +1,7 @@
 import { $, setStatus, showPhase, countWords, switchTab } from './dom.js';
 import { appState } from './state.js';
 import { SAMPLES } from '../data/samples.js';
-import { AUTO_PROMPTS, CATEGORY_LABELS, CATEGORY_HINTS } from './constants.js';
+import { CATEGORY_LABELS, CATEGORY_HINTS } from './constants.js';
 import {
   cleanGutenbergText, detectSections, selectSection, trimToWordLimit, tokenize
 } from './text.js';
@@ -160,7 +160,10 @@ function makeSwapMarkHtml(applied, meta) {
     ? `[${meta.label || meta.category}]`
     : (meta.originalWord ?? meta.original ?? '');
   const origSafe = escapeHtml(origLabel);
-  return `<mark class="swap" title="was: ${origSafe}" aria-label="Your word: ${safe}, originally ${origSafe}" data-original="${origSafe}">${safe}</mark>`;
+  const categoryLabel = meta.label || meta.category || 'word';
+  const categorySafe = escapeHtml(categoryLabel);
+  const detailSafe = `${origSafe} / ${categorySafe}`;
+  return `<mark class="swap" title="was: ${origSafe} (${categorySafe})" aria-label="Your word: ${safe}, originally ${origSafe}, detected as ${categorySafe}" data-original="${origSafe}" data-category="${categorySafe}" data-detail="${detailSafe}">${safe}</mark>`;
 }
 
 function buildFinalStory(tokens, prompts, replacements, options = {}) {

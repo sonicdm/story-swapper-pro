@@ -3,9 +3,13 @@ import { tokenize } from '../src/lib/text.js';
 import {
   applyReplacement, buildFinalStory, fixArticle, startsWithVowelSound
 } from '../src/lib/game.js';
-import { classifyTokensHeuristic, selectReplacementCandidates } from '../src/lib/classify.js';
+import {
+  classifyTokensHeuristic, selectReplacementCandidates, plannedCategories,
+  resolveAutoPromptCount, resolveMadLibPromptCount, resolvePromptCount
+} from '../src/lib/classify.js';
 import { selectMixedCandidates } from '../src/lib/placeholders.js';
 import { appState } from '../src/lib/state.js';
+import { SAMPLES } from '../src/data/samples.js';
 
 function prompt(tokenIndex, category, extra = {}) {
   return {
@@ -56,6 +60,8 @@ describe('buildFinalStory', () => {
     expect(plain).toContain('egg');
     expect(plain).not.toContain('a orange');
     expect(html).toContain('<mark class="swap"');
+    expect(html).toContain('data-detail="red / color"');
+    expect(html).toContain('data-category="object"');
   });
 
   it('preserves whitespace and punctuation around swaps', () => {
@@ -136,6 +142,46 @@ describe('end-to-end prompt pipeline', () => {
     for (const word of replacements) {
       expect(plain).toContain(word);
     }
+  });
+
+  it('uses a Mad Libs-style category plan for auto swaps', () => {
+    const tokens = tokenize(SAMPLES[0].text);
+    const cls = classifyTokensHeuristic(tokens);
+    const picks = selectReplacementCandidates(tokens, cls, {
+      count: 10,
+      seed: 7,
+      minDistance: 1,
+      allowPartial: true
+    });
+    const picked = picks.map(p => p.originalWord.toLowerCase());
+    const categories = picks.map(p => p.category);
+
+    expect(picks).toHaveLength(10);
+    expect(categories).toContain('day of week');
+    expect(categories).toContain('name of someone in the room');
+    expect(categories.filter(c => c === 'noun').length).toBeLessThanOrEqual(1);
+    expect(picked).not.toEqual(expect.arrayContaining(['away', 'named', 'shaped', 'patched', 'lived', 'right']));
+  });
+
+  it('plans only prompt categories available in the source pool', () => {
+    const pool = [
+      { category: 'object' },
+      { category: 'adjective' },
+      { category: 'adjective' }
+    ];
+    expect(plannedCategories(8, pool)).toEqual(['adjective', 'object', 'adjective']);
+    expect(plannedCategories(8, [])).toEqual([]);
+  });
+
+  it('uses Mad Libs blank density for auto prompt counts', () => {
+    expect(resolvePromptCount(150, 'auto')).toBe(18);
+    expect(resolveMadLibPromptCount(250)).toBe(30);
+    expect(resolveMadLibPromptCount(400)).toBe(48);
+    expect(resolveAutoPromptCount(400, [
+      { norm: 'alpha', category: 'noun' },
+      { norm: 'beta', category: 'noun' },
+      { norm: 'gamma', category: 'noun' }
+    ])).toBe(3);
   });
 
   it('allows partial selection when passage is sparse', () => {

@@ -1,38 +1,5 @@
 {
   "title": "New Hire IT Setup",
-  "text": [
-    "## New Hire IT Setup\n\n**Employee:** ",
-    "\n\n**Start date:** ",
-    "day\n\n**Hardware issued:**\n- ",
-    " laptop with ",
-    " monitor\n- ",
-    " keyboard and wireless ",
-    "\n\n**Accounts created:**\n- Email and ",
-    " access\n- Badge: ",
-    " wing, ",
-    " floor\n\n**Training scheduled:**\n- ",
-    " security awareness\n- How to ",
-    " without breaking the ",
-    "\n\n**Notes:** No admin rights on the ",
-    ". Manager says they are ",
-    " and should never receive ",
-    " permissions."
-  ],
-  "blanks": [
-    "name",
-    "adjective",
-    "adjective",
-    "adjective",
-    "adjective",
-    "object",
-    "adjective",
-    "adjective",
-    "number",
-    "adjective",
-    "verb",
-    "object",
-    "object",
-    "adjective",
-    "adjective"
-  ]
+  "category": "generic",
+  "text": "## New Hire IT Setup\n\n**Employee:** {person}\n\n**Start date:** {adjective}day\n\n**Hardware issued:**\n- {adjective} laptop with {adjective} monitor\n- {adjective} keyboard and wireless {object}\n\n**Accounts created:**\n- Email and {adjective} access\n- Badge: {adjective} wing, {number} floor\n\n**Training scheduled:**\n- {adjective} security awareness\n- How to {verb} without breaking the {object}\n\n**Notes:** No admin rights on the {object}. Manager says they are {adjective} and should never receive {adjective} permissions."
 }

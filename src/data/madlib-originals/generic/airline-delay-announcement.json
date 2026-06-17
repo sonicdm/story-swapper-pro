@@ -1,0 +1,5 @@
+{
+  "title": "Airline Delay Announcement",
+  "category": "generic",
+  "text": "## Airline Delay Announcement\n\nGood afternoon, passengers on flight {number} to {place}.\n\nYour departure has been delayed because a {adjective} {animal} was seen {verb ending in -ing} near the runway.\n\n**While you wait:**\n- Please keep all {plural noun} under your seat\n- Do not {verb} the boarding door\n- Enjoy one complimentary {food}\n\n**Updated boarding time:** {number} minutes after the captain finishes inspecting the {object}.\n\nWe appreciate your {adjective} patience and promise the snack cart is only mildly {adjective}."
+}

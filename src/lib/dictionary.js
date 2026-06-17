@@ -1,12 +1,12 @@
 import { normalizeWordNetPos } from './dictionary-pos.js';
 import { buildSwapPool } from './classify.js';
-import { WORD_LISTS } from './constants.js';
+import { WORD_LISTS, NUMBER_WORDS } from './constants.js';
 
 let posIndex = null;
 let wordPools = null;
 let loadPromise = null;
 
-const NUMBER_WORDS = ['three', 'seven', 'twelve', 'forty', 'a hundred', 'a thousand', 'zero', 'nine', 'sixteen', 'a dozen'];
+const REQUIRED_POOL_KEYS = ['noun', 'verb', 'adjective', 'adverb'];
 
 const POOL_FOR_CATEGORY = {
   noun: 'noun',
@@ -27,7 +27,39 @@ const POOL_FOR_CATEGORY = {
   job: 'noun',
   vehicle: 'noun',
   'clothing item': 'noun',
+  'day of week': 'noun',
   'silly word': 'noun'
+};
+
+const CURATED_FOR_CATEGORY = {
+  noun: () => [
+    ...WORD_LISTS.objects,
+    ...WORD_LISTS.animals,
+    ...WORD_LISTS.places,
+    ...WORD_LISTS.personNouns,
+    ...WORD_LISTS.foods
+  ],
+  adjective: () => WORD_LISTS.adjectives,
+  adverb: () => WORD_LISTS.adverbs,
+  verb: () => WORD_LISTS.verbs,
+  'past-tense verb': () => WORD_LISTS.verbs,
+  'verb ending in -ing': () => WORD_LISTS.verbs,
+  animal: () => WORD_LISTS.animals,
+  'body part': () => WORD_LISTS.bodyParts,
+  place: () => WORD_LISTS.places,
+  emotion: () => WORD_LISTS.emotions,
+  sound: () => WORD_LISTS.sounds,
+  object: () => WORD_LISTS.objects,
+  food: () => WORD_LISTS.foods,
+  job: () => WORD_LISTS.jobs,
+  vehicle: () => WORD_LISTS.vehicles,
+  'clothing item': () => WORD_LISTS.clothing,
+  'silly word': () => WORD_LISTS.sillyWords,
+  'name of someone in the room': () => WORD_LISTS.names,
+  'day of week': () => WORD_LISTS.weekdays,
+  color: () => WORD_LISTS.colors,
+  number: () => NUMBER_WORDS,
+  'plural noun': () => [...WORD_LISTS.objects, ...WORD_LISTS.animals]
 };
 
 /** Which WordNet pool backs a Mad Libs category (for tests). */
@@ -41,40 +73,62 @@ function assetUrl(filename) {
   return `${base}${filename}`;
 }
 
+function wordNetLoadError(reason) {
+  return new Error(`WordNet dictionary assets are unavailable: ${reason}. Run npm run build:dict and serve the app over HTTP.`);
+}
+
+function validateWordPoolsObject(pools) {
+  for (const key of REQUIRED_POOL_KEYS) {
+    if (!Array.isArray(pools?.[key]) || pools[key].length === 0) {
+      throw wordNetLoadError(`missing ${key} pool`);
+    }
+  }
+  return pools;
+}
+
 /** Load WordNet assets once (dev server + GitHub Pages). */
 export async function loadDictionary() {
   if (posIndex && wordPools) return { posIndex, wordPools };
   if (loadPromise) return loadPromise;
 
   loadPromise = (async () => {
-    const emptyPools = { noun: [], verb: [], adjective: [], adverb: [] };
     const map = new Map();
     try {
       const [posRes, poolsRes] = await Promise.all([
         fetch(assetUrl('pos-index.json')),
         fetch(assetUrl('word-pools.json'))
       ]);
-      if (posRes.ok) {
-        const data = await posRes.json();
-        for (const [lemma, posList] of Object.entries(data)) {
-          const set = new Set(posList.map(normalizeWordNetPos));
-          if (set.size) map.set(lemma, set);
-        }
+      if (!posRes.ok) throw wordNetLoadError(`pos-index.json returned ${posRes.status}`);
+      if (!poolsRes.ok) throw wordNetLoadError(`word-pools.json returned ${poolsRes.status}`);
+
+      const data = await posRes.json();
+      for (const [lemma, posList] of Object.entries(data)) {
+        const set = new Set(posList.map(normalizeWordNetPos));
+        if (set.size) map.set(lemma, set);
       }
-      if (poolsRes.ok) {
-        wordPools = await poolsRes.json();
-      } else {
-        wordPools = emptyPools;
+      if (!map.size) {
+        throw wordNetLoadError('pos-index.json is empty');
       }
+
+      wordPools = validateWordPoolsObject(await poolsRes.json());
       posIndex = map;
     } catch (_) {
-      posIndex = map;
-      wordPools = emptyPools;
+      posIndex = null;
+      wordPools = null;
+      if (_ instanceof Error && _.message.startsWith('WordNet dictionary assets are unavailable')) {
+        throw _;
+      }
+      throw wordNetLoadError(_ instanceof Error ? _.message : 'failed to load assets');
     }
     return { posIndex, wordPools };
   })();
 
-  return loadPromise;
+  try {
+    return await loadPromise;
+  } catch (err) {
+    loadPromise = null;
+    throw err;
+  }
 }
 
 export function lookupPosFromIndex(lemmas, posIndexMap) {
@@ -117,6 +171,7 @@ function fallbackWord(category, rng) {
     case 'job': return pickFrom(WORD_LISTS.jobs, rng);
     case 'vehicle': return pickFrom(WORD_LISTS.vehicles, rng);
     case 'clothing item': return pickFrom(WORD_LISTS.clothing, rng);
+    case 'day of week': return pickFrom(WORD_LISTS.weekdays, rng);
     case 'silly word': return pickFrom(WORD_LISTS.sillyWords, rng);
     case 'name of someone in the room': return pickFrom(WORD_LISTS.personNouns, rng);
     case 'color': return pickFrom(WORD_LISTS.colors, rng);
@@ -126,25 +181,37 @@ function fallbackWord(category, rng) {
   }
 }
 
-/** Random WordNet word for a Mad Libs category (Surprise me). */
+function curatedWord(category, rng) {
+  const list = CURATED_FOR_CATEGORY[category]?.();
+  return pickFrom(list, rng);
+}
+
+function randomPoolWord(category, pools, rng) {
+  const poolKey = POOL_FOR_CATEGORY[category];
+  if (!poolKey) return null;
+  const pool = pools?.[poolKey];
+  if (!pool?.length) {
+    throw wordNetLoadError(`missing ${poolKey} pool`);
+  }
+  return pool[Math.floor(rng() * pool.length)];
+}
+
+/** Random word for a Mad Libs category. Requires WordNet assets to be loaded. */
 export async function randomWordForCategory(category, rng = Math.random) {
   const { wordPools: pools } = await loadDictionary();
-  const poolKey = POOL_FOR_CATEGORY[category];
-  if (poolKey && pools?.[poolKey]?.length) {
-    return pools[poolKey][Math.floor(rng() * pools[poolKey].length)];
-  }
-  return fallbackWord(category, rng) || 'word';
+  return curatedWord(category, rng)
+    || randomPoolWord(category, pools, rng)
+    || fallbackWord(category, rng)
+    || 'word';
 }
 
 export async function randomWordsForCategories(categories, rng = Math.random) {
   const { wordPools: pools } = await loadDictionary();
   return categories.map(cat => {
-    const poolKey = POOL_FOR_CATEGORY[cat];
-    if (poolKey && pools?.[poolKey]?.length) {
-      const pool = pools[poolKey];
-      return pool[Math.floor(rng() * pool.length)];
-    }
-    return fallbackWord(cat, rng) || 'word';
+    return curatedWord(cat, rng)
+      || randomPoolWord(cat, pools, rng)
+      || fallbackWord(cat, rng)
+      || 'word';
   });
 }
 
@@ -161,7 +228,7 @@ export function loadPosIndexFromObject(obj) {
 }
 
 export function loadWordPoolsFromObject(obj) {
-  wordPools = obj;
+  wordPools = validateWordPoolsObject(obj);
   return obj;
 }
 

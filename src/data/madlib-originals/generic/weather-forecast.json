@@ -1,40 +1,5 @@
 {
   "title": "Weather Forecast",
-  "text": [
-    "## Weather Forecast\n\nGood evening. Tomorrow expect ",
-    " skies over the ",
-    " valley with ",
-    " winds from the ",
-    ".\n\n**Commuters:** Carry a ",
-    " and avoid ",
-    " puddles near the ",
-    ".\n\n**Temperatures:** Will feel ",
-    " before lunch, then become ",
-    " by evening.\n\n**Chance of precipitation:** ",
-    " percent chance of ",
-    " falling on anyone who forgot to ",
-    ".\n\n**Weekend outlook:** Mostly ",
-    " with isolated ",
-    " and one heroic ",
-    " saving a ",
-    " from a tree."
-  ],
-  "blanks": [
-    "adjective",
-    "adjective",
-    "adjective",
-    "place",
-    "clothing item",
-    "adjective",
-    "place",
-    "adjective",
-    "adjective",
-    "number",
-    "plural noun",
-    "verb",
-    "adjective",
-    "plural noun",
-    "animal",
-    "object"
-  ]
+  "category": "generic",
+  "text": "## Weather Forecast\n\nGood evening. Tomorrow expect {adjective} skies over the {adjective} valley with {adjective} winds from the {place}.\n\n**Commuters:** Carry a {clothing item} and avoid {adjective} puddles near the {place}.\n\n**Temperatures:** Will feel {adjective} before lunch, then become {adjective} by evening.\n\n**Chance of precipitation:** {number} percent chance of {plural noun} falling on anyone who forgot to {verb}.\n\n**Weekend outlook:** Mostly {adjective} with isolated {plural noun} and one heroic {animal} saving a {object} from a tree."
 }

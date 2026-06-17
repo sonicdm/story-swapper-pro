@@ -1,0 +1,5 @@
+{
+  "title": "Castle Tour Script",
+  "category": "generic",
+  "text": "## Castle Tour Script\n\nWelcome to the {adjective} Castle of {place}.\n\nPlease stay behind the {adjective} rope and do not touch the royal {object}.\n\n**In the great hall:** Our guide will {verb} beside a portrait of {person}, who famously defeated a {adjective} {animal} with only a {body part}.\n\n**In the dungeon:** Visitors may hear {plural noun} and one suspicious {sound}.\n\n**Gift shop:** Buy a {color} crown, a {food}, or a postcard that says, \"I survived the {adjective} stairs.\""
+}

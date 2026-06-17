@@ -330,7 +330,7 @@
       border-radius: 3px;
     }
     .story-reveal.show-originals mark.swap::after {
-      content: " (" attr(data-original) ")";
+      content: " (" attr(data-detail) ")";
       font-size: 0.78em;
       font-weight: 400;
       font-style: italic;

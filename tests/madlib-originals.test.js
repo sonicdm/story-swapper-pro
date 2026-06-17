@@ -3,23 +3,25 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import {
-  madlibsApiStoryToTemplate,
   madLibBlankToTag,
   listBundledMadLibTitles,
   listBundledMadLibCatalog,
   getBundledMadLib,
   getMadLibMeta
 } from '../src/lib/madlibs.js';
-import { braceTemplateToJson } from '../scripts/brace-template-to-json.mjs';
 import { tokenize } from '../src/lib/text.js';
 import { SAMPLES } from '../src/data/samples.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const originalsDir = path.join(root, 'src', 'data', 'madlib-originals');
 
+function countBlanks(text) {
+  return (text.match(/\{[^}]+\}/g) || []).length;
+}
+
 function walkOriginalJsonFiles() {
   const files = [];
-  for (const sub of ['legacy', 'generic', 'themed']) {
+  for (const sub of ['classics', 'legacy', 'generic', 'themed']) {
     const dir = path.join(originalsDir, sub);
     if (!fs.existsSync(dir)) continue;
     for (const f of fs.readdirSync(dir).filter(n => n.endsWith('.json'))) {
@@ -33,46 +35,49 @@ describe('madlib originals JSON', () => {
   const files = walkOriginalJsonFiles();
 
   it('has expected original file counts', () => {
+    expect(files.filter(f => f.sub === 'classics').length).toBe(16);
     expect(files.filter(f => f.sub === 'legacy').length).toBe(2);
-    expect(files.filter(f => f.sub === 'generic').length).toBe(17);
-    expect(files.filter(f => f.sub === 'themed').length).toBe(14);
+    expect(files.filter(f => f.sub === 'generic').length).toBe(21);
+    expect(files.filter(f => f.sub === 'themed').length).toBe(18);
   });
 
   for (const { sub, path: filePath, data } of files) {
     const title = data.title || path.basename(filePath, '.json');
     it(`validates ${sub}/${path.basename(filePath)}`, () => {
-      expect(data.text.length).toBe(data.blanks.length + 1);
-      expect(data.blanks.length).toBeGreaterThanOrEqual(8);
-      expect(data.blanks.length).toBeLessThanOrEqual(18);
-      const body = madlibsApiStoryToTemplate(data);
-      expect(body).toMatch(/\{/);
-      const tokens = tokenize(body);
-      expect(tokens.filter(t => t.type === 'blank').length).toBe(data.blanks.length);
+      expect(typeof data.text).toBe('string');
+      expect(data.text).toMatch(/\{/);
+      const blankCount = countBlanks(data.text);
+      const minBlanks = sub === 'classics' ? 8 : 8;
+      expect(blankCount).toBeGreaterThanOrEqual(minBlanks);
+      if (sub !== 'classics') {
+        expect(blankCount).toBeLessThanOrEqual(18);
+      }
+      const tokens = tokenize(data.text);
+      expect(tokens.filter(t => t.type === 'blank').length).toBe(blankCount);
     });
   }
 
-  it('retrofitted templates include markdown structure in opening segment', () => {
+  it('retrofitted templates include markdown structure', () => {
     const matilda = files.find(f => f.data.title === "Matilda's Walk Report");
     const superhero = files.find(f => f.data.title === 'Superhero Job Application');
     const doctor = files.find(f => f.data.title === "Doctor's Report");
-    expect(matilda?.data.text[0]).toMatch(/^## /);
-    expect(superhero?.data.text[0]).toMatch(/^## /);
-    expect(doctor?.data.text[0]).toMatch(/^## /);
+    expect(matilda?.data.text).toMatch(/^## /);
+    expect(superhero?.data.text).toMatch(/^## /);
+    expect(doctor?.data.text).toMatch(/^## /);
   });
 
   it('migrated legacy templates still tokenize with correct blank count', () => {
     for (const title of ['Superhero Job Application', 'Letter from Camp']) {
       const file = files.find(f => f.data.title === title);
       expect(file, title).toBeTruthy();
-      const body = madlibsApiStoryToTemplate(file.data);
-      const tokens = tokenize(body);
-      expect(tokens.filter(t => t.type === 'blank').length).toBe(file.data.blanks.length);
+      const tokens = tokenize(file.data.text);
+      expect(tokens.filter(t => t.type === 'blank').length).toBe(countBlanks(file.data.text));
     }
   });
 });
 
 describe('madlibs bundle', () => {
-  it('bundle has ~49 templates with categories', () => {
+  it('bundle has ~57 templates with categories', () => {
     const titles = listBundledMadLibTitles();
     expect(titles.length).toBeGreaterThanOrEqual(48);
     const catalog = listBundledMadLibCatalog();
@@ -99,10 +104,10 @@ describe('madlibs bundle', () => {
     expect(meta.category).toBe('generic');
   });
 
-  it('brace converter round-trips tags to classic blanks', () => {
-    const json = braceTemplateToJson('Test', 'A {adjective} {noun} {verb}.');
-    expect(json.blanks).toEqual(['adjective', 'noun', 'verb']);
-    expect(madlibsApiStoryToTemplate(json)).toBe('A {adjective} {noun} {verb}.');
+  it('bundled entries use string text with {tags}', () => {
+    const doctor = getBundledMadLib("Doctor's Report");
+    expect(typeof doctor?.text).toBe('string');
+    expect(doctor?.text).toMatch(/\{adjective\}/);
     expect(madLibBlankToTag('name')).toBe('person');
   });
 });

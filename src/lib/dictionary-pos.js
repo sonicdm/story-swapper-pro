@@ -81,6 +81,13 @@ export function reconcileCategory(category, posSet, original = '') {
 
   const o = (original || '').toLowerCase();
 
+  if (category === 'past-tense verb' && isPastTenseForm(o)) {
+    return { keep: true, category };
+  }
+  if (category === 'verb ending in -ing' && isGerundSurfaceForm(o)) {
+    return { keep: true, category };
+  }
+
   if (VERB_LIKE.has(category) && posSetHas(posSet, 'verb')) {
     if (isGerundSurfaceForm(o)) return { keep: true, category: 'verb ending in -ing' };
     if (isPastTenseForm(o)) return { keep: true, category: 'past-tense verb' };

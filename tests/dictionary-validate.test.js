@@ -23,6 +23,11 @@ describe('dictionary-pos (pure)', () => {
     expect(categoryMatchesWordNet('verb ending in -ing', pos, 'bring')).toBe(false);
     expect(reconcileCategory('verb ending in -ing', pos, 'bring')).toEqual({ keep: true, category: 'verb' });
   });
+
+  it('keeps contextual past-tense verbs even when WordNet lists the inflected form as adjective', () => {
+    const pos = new Set(['adjective']);
+    expect(reconcileCategory('past-tense verb', pos, 'vanished')).toEqual({ keep: true, category: 'past-tense verb' });
+  });
 });
 
 describe('en-dictionary integration', () => {

@@ -13,9 +13,9 @@
     "preview:watch": "concurrently -k -n build,preview -c yellow,cyan \"vite build --watch\" \"vite preview\"",
     "serve": "npm run build && vite preview",
     "test": "npm run build:dict && npm run sync:madlibs && vitest run",
-    "test:watch": "vitest",
+    "test:watch": "npm run build:dict && npm run sync:madlibs && vitest",
     "test:full": "npm run build:dict && npm run sync:madlibs && cross-env TEST_FULL=1 vitest run",
-    "test:coverage": "cross-env TEST_FULL=1 vitest run --coverage",
+    "test:coverage": "npm run build:dict && npm run sync:madlibs && cross-env TEST_FULL=1 vitest run --coverage",
     "test:inspect": "node scripts/inspect-text.mjs"
   },
   "dependencies": {

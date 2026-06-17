@@ -10,7 +10,6 @@ import {
 } from '../src/lib/story-markdown.js';
 import { buildFinalStory } from '../src/lib/game.js';
 import { tokenize } from '../src/lib/text.js';
-import { madlibsApiStoryToTemplate } from '../src/lib/madlibs.js';
 
 const matildaJson = JSON.parse(fs.readFileSync(
   path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'data', 'madlib-originals', 'themed', 'matilda-s-walk-report.json'),
@@ -72,18 +71,17 @@ describe('story-markdown', () => {
 
 describe('buildFinalStory madlibs markdown integration', () => {
   it('renders markdown headings for a seeded template', () => {
-    const story = matildaJson;
-    const body = madlibsApiStoryToTemplate(story);
+    const body = matildaJson.text;
     const tokens = tokenize(body);
     const blanks = tokens.filter(t => t.type === 'blank');
-    const prompts = blanks.map((t, i) => ({
+    const prompts = blanks.map((t) => ({
       tokenIndex: t.index,
       originalWord: t.text,
-      category: story.blanks[i],
-      label: story.blanks[i],
+      category: t.blankCategory,
+      label: t.blankCategory,
       isPlaceholder: true
     }));
-    const replacements = story.blanks.map((_, i) => `word${i}`);
+    const replacements = blanks.map((_, i) => `word${i}`);
     const { html, useMarkdown } = buildFinalStory(tokens, prompts, replacements, { useMarkdown: true });
     expect(useMarkdown).toBe(true);
     expect(html).toContain('<h2>Walk Report</h2>');

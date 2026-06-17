@@ -1,6 +1,6 @@
 import {
   STOP_WORDS, ADJ_SUFFIXES, VERB_SUFFIXES, NOUN_SUFFIXES, VERB_FALSE, MODALS,
-  DETERMINERS, CATEGORY_WEIGHTS, CATEGORY_LABELS, CATEGORY_HINTS, AUTO_PROMPTS, listHas
+  DETERMINERS, MONTHS, DAYS, NUMBER_WORD_SET, CATEGORY_WEIGHTS, CATEGORY_LABELS, CATEGORY_HINTS, listHas
 } from './constants.js';
 import { filterPoolWithDictionary, validatePoolItem } from './dictionary-pos.js';
 import {
@@ -8,7 +8,7 @@ import {
   isIngNounContext, looksLikeProperName, resolveProperNounCategory, isIdiomPart, isCompoundProtected, isLikelyPluralNoun,
   isPoeticOrArchaicForm, normalizeForPos, isPrepositionWord, isAbstractPoeticContext,
   isParticipleAfterName, isColorWord, isShoutVerb, isGerundVerb, isLexicalCompound,
-  isReportingVerbBeforeName
+  isReportingVerbBeforeName, isReportingVerb
 } from './grammar.js';
 import { posFromWinkTag } from './nlp-hints.js';
 
@@ -17,6 +17,13 @@ function hasSuffix(word, suffixes) {
 }
 
 const MODIFIERS = new Set(['still', 'very', 'so', 'too', 'quite', 'rather', 'more', 'most', 'less', 'least', 'almost', 'nearly']);
+const PREPOSITION_CONTEXT = new Set([
+  'about', 'above', 'across', 'after', 'against', 'along', 'among', 'around',
+  'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between', 'beyond',
+  'by', 'for', 'from', 'in', 'inside', 'into', 'near', 'of', 'off', 'on',
+  'onto', 'out', 'over', 'through', 'to', 'toward', 'towards', 'under', 'with',
+  'within', 'without'
+]);
 
 function prevNounish(prev) {
   return DETERMINERS.has(prev) || listHas('personNouns', prev) || listHas('places', prev) ||
@@ -28,6 +35,93 @@ const GRAMMAR_CATS = new Set([
   'verb', 'past-tense verb', 'verb ending in -ing', 'adjective', 'adverb',
   'plural noun', 'noun', 'number'
 ]);
+
+const MADLIB_PROMPT_RECIPE = [
+  'adjective',
+  'object',
+  'past-tense verb',
+  'place',
+  'animal',
+  'day of week',
+  'food',
+  'name of someone in the room',
+  'plural noun',
+  'body part',
+  'verb',
+  'color',
+  'clothing item',
+  'adverb',
+  'emotion',
+  'sound',
+  'verb ending in -ing',
+  'job',
+  'vehicle',
+  'noun'
+];
+
+const FILL_CATEGORY_PRIORITY = [
+  'adjective',
+  'past-tense verb',
+  'object',
+  'place',
+  'animal',
+  'food',
+  'name of someone in the room',
+  'day of week',
+  'plural noun',
+  'body part',
+  'verb',
+  'color',
+  'clothing item',
+  'emotion',
+  'sound',
+  'verb ending in -ing',
+  'job',
+  'vehicle',
+  'adverb',
+  'noun',
+  'number'
+];
+
+const MADLIB_GUIDE_WORDS = 150;
+const MADLIB_GUIDE_BLANKS = 18;
+
+function plannedCategories(count, pool = []) {
+  const remaining = new Map();
+  for (const item of pool) {
+    remaining.set(item.category, (remaining.get(item.category) || 0) + 1);
+  }
+  if (!remaining.size) return [];
+
+  const plan = [];
+  while (plan.length < count) {
+    let added = false;
+    for (const category of MADLIB_PROMPT_RECIPE) {
+      if (plan.length >= count) break;
+      const left = remaining.get(category) || 0;
+      if (left <= 0) continue;
+      plan.push(category);
+      remaining.set(category, left - 1);
+      added = true;
+    }
+    if (!added) break;
+  }
+
+  while (plan.length < count) {
+    let added = false;
+    for (const category of FILL_CATEGORY_PRIORITY) {
+      if (plan.length >= count) break;
+      const left = remaining.get(category) || 0;
+      if (left <= 0) continue;
+      plan.push(category);
+      remaining.set(category, left - 1);
+      added = true;
+    }
+    if (!added) break;
+  }
+
+  return plan;
+}
 
 function applyResolvedGrammar(cats, w, prevWord, hints, nextWord = '') {
   const fun = cats.filter(c => !GRAMMAR_CATS.has(c));
@@ -66,17 +160,22 @@ function classifyWordPos(w, prevWord, hints, nextWord = '') {
   const inAdj = listHas('adjectives', w) || isComparativeAdjective(w, prevWord) ||
     (hasSuffix(w, ADJ_SUFFIXES) && !w.endsWith('ly'));
   const inVerb = isKnownVerbForm(w) || (hasSuffix(w, VERB_SUFFIXES) && !VERB_FALSE.has(w));
+  const pluralSurface = w.endsWith('s') && !w.endsWith('ss') && w.length > 3 && !w.endsWith('ness');
 
   if (isComparativeAdjective(w, prevWord)) return 'adjective';
   if (isIngNounContext(w, prevWord, nextWord)) return 'noun';
   if (afterToOrModal && inVerb) return 'verb';
+  if (prevWord === 'that' && pluralSurface && inVerb) return 'verb';
+  if (pluralSurface && DETERMINERS.has(prevWord) && nextWord && isKnownVerbForm(nextWord)) return 'plural';
+  if (pluralSurface && nextWord?.endsWith('s') && !nextWord.endsWith('ss')) return 'plural';
+  if (pluralSurface && prevWord && isKnownVerbForm(prevWord) && PREPOSITION_CONTEXT.has(nextWord)) return 'plural';
   if (DETERMINERS.has(prevWord) && NOUN_AFTER_DETERMINER.has(w)) return 'noun';
   if (listHas('adjectives', prevWord) && !inVerb) {
     if (inAdj) return 'adjective';
-    if (w.endsWith('s') && !w.endsWith('ss') && w.length > 3) return 'plural';
+    if (pluralSurface) return 'plural';
     return 'noun';
   }
-  if (w.endsWith('s') && !w.endsWith('ss') && w.length > 3 && !w.endsWith('ness') && afterNounish && !afterToOrModal) {
+  if (pluralSurface && afterNounish && !afterToOrModal) {
     if ((listHas('places', prevWord) || listHas('objects', prevWord)) && !inVerb) return 'plural';
     if ((listHas('personNouns', prevWord) || listHas('animals', prevWord)) && inVerb) return 'verb';
   }
@@ -84,7 +183,7 @@ function classifyWordPos(w, prevWord, hints, nextWord = '') {
   if (inVerb) return 'verb';
   if (inAdj) return 'adjective';
   if (isLikelyPluralNoun(w, prevWord, hints)) return 'plural';
-  if (w.endsWith('s') && !w.endsWith('ss') && w.length > 3 && !w.endsWith('ness') && !inVerb) return 'plural';
+  if (pluralSurface && !inVerb) return 'plural';
   if (hasSuffix(w, NOUN_SUFFIXES) && !(w.endsWith('er') && isComparativeAdjective(w, prevWord))) return 'noun';
   return 'noun';
 }
@@ -96,6 +195,15 @@ function classifyTokenHeuristic(tok, wordTokens, wi, tokens, hints) {
 
   if (STOP_WORDS.has(w) || w.length < 2) {
     return { categories: [], confidence: 0 };
+  }
+  if (MONTHS.has(w)) {
+    return { categories: [], confidence: 0 };
+  }
+  if (DAYS.has(w)) {
+    return { categories: ['day of week'], confidence: 0.95 };
+  }
+  if (NUMBER_WORD_SET.has(w)) {
+    return { categories: ['number'], confidence: 0.9 };
   }
   if (w.endsWith('ly') && w.length > 4) {
     return { categories: [], confidence: 0 };
@@ -336,11 +444,25 @@ function classifyTokensWithNlp(tokens, engine) {
 
 function resolvePromptCount(revealLength, promptSetting) {
   if (promptSetting !== 'auto') return parseInt(promptSetting, 10);
-  const limits = Object.keys(AUTO_PROMPTS).map(Number).sort((a, b) => a - b);
-  for (const lim of limits) {
-    if (revealLength <= lim) return AUTO_PROMPTS[lim];
-  }
-  return 20;
+  return resolveMadLibPromptCount(revealLength);
+}
+
+function countWordTokens(tokens) {
+  return tokens.filter(t => t.type === 'word').length;
+}
+
+function resolveMadLibPromptCount(wordCount) {
+  const words = Math.max(0, Number(wordCount) || 0);
+  if (!words) return 0;
+  return Math.max(1, Math.round((words * MADLIB_GUIDE_BLANKS) / MADLIB_GUIDE_WORDS));
+}
+
+function resolveAutoPromptCount(wordCount, pool = []) {
+  const base = resolveMadLibPromptCount(wordCount);
+  if (!pool.length) return 0;
+
+  const sourceCap = new Set(pool.map(item => item.norm)).size;
+  return Math.min(base, sourceCap);
 }
 
 function pickCategory(categories, tok, prevWord = '', cls = null) {
@@ -372,6 +494,7 @@ function pickCategory(categories, tok, prevWord = '', cls = null) {
   }
   if (categories.includes('object') && listHas('objects', w)) return 'object';
   if (categories.includes('silly word') && listHas('sillyWords', w)) return 'silly word';
+  if (categories.includes('day of week') && DAYS.has(w)) return 'day of week';
   const grammar = [
     'verb ending in -ing', 'past-tense verb', 'adverb', 'adjective', 'verb',
     'plural noun', 'noun', 'number'
@@ -384,7 +507,8 @@ function pickCategory(categories, tok, prevWord = '', cls = null) {
 
 function resolveMinDistance(tokens, count) {
   const n = tokens.length;
-  return Math.max(6, Math.min(35, Math.floor(n / (count * 2.5))));
+  const safeCount = Math.max(1, count || 1);
+  return Math.max(6, Math.min(35, Math.floor(n / (safeCount * 2.5))));
 }
 
 function seededRandom(seed) {
@@ -398,6 +522,27 @@ function seededRandom(seed) {
   };
 }
 
+function shuffledCopy(items, rng) {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function shouldSkipAutoCandidate(category, tok, prevWord, nextWord) {
+  if (category === 'adjective' && /ed$/.test(tok.norm) && nextWord === 'like') return true;
+  if (category === 'adjective' && tok.norm === 'right' && prevWord === 'just') return true;
+  if (category === 'past-tense verb' && /ed$/.test(tok.norm) && ['by', 'like', 'with'].includes(nextWord)) return true;
+  if (category === 'past-tense verb' && tok.norm === 'named') return true;
+  if ((category === 'verb' || category === 'past-tense verb') && prevWord === 'there' && ['lived', 'stood', 'sat', 'lay'].includes(tok.norm)) return true;
+  if (category === 'verb' && tok.norm === 'like' && DETERMINERS.has(nextWord)) return true;
+  if (category === 'noun' && DAYS.has(tok.norm)) return true;
+  if (category === 'noun' && MONTHS.has(tok.norm)) return true;
+  return false;
+}
+
 /** All tokens eligible for swapping (before shuffle / distance filtering). */
 function buildSwapPool(tokens, classifications) {
   const wordTokens = tokens.filter(t => t.type === 'word');
@@ -408,6 +553,8 @@ function buildSwapPool(tokens, classifications) {
     const cls = classifications.get(tok.index);
     if (!cls || !cls.categories.length || cls.confidence < 0.35) continue;
     if (STOP_WORDS.has(tok.norm)) continue;
+    if (MONTHS.has(tok.norm)) continue;
+    if (isReportingVerb(tok)) continue;
     if (isPoeticOrArchaicForm(tok)) continue;
     if (isParticipleAfterName(tok, wordTokens, wi)) continue;
     const prevWord = wi > 0 ? wordTokens[wi - 1].norm : '';
@@ -420,6 +567,7 @@ function buildSwapPool(tokens, classifications) {
     if (tok.norm.length < 3 && !cls.categories.includes('number')) continue;
 
     const category = pickCategory(cls.categories, tok, prevWord, cls);
+    if (shouldSkipAutoCandidate(category, tok, prevWord, nextWord)) continue;
     const weight = CATEGORY_WEIGHTS[category] || 5;
     pool.push({
       tokenIndex: tok.index,
@@ -435,14 +583,34 @@ function buildSwapPool(tokens, classifications) {
   return pool;
 }
 
+function toPromptCandidate(entry) {
+  const pluralPreserveCategories = new Set([
+    'noun', 'animal', 'body part', 'place', 'object', 'food', 'job',
+    'vehicle', 'clothing item'
+  ]);
+  const looksPlural = /(?:[^'\u2019]s|ies)$/i.test(entry.original) && !/ss$/i.test(entry.original);
+  return {
+    tokenIndex: entry.tokenIndex,
+    originalWord: entry.original,
+    category: entry.category,
+    label: CATEGORY_LABELS[entry.category] || entry.category,
+    hint: CATEGORY_HINTS[entry.category] || '',
+    preservePossessive: /['\u2019]s$/i.test(entry.original),
+    preservePlural: entry.category === 'plural noun'
+      || (looksPlural && pluralPreserveCategories.has(entry.category)),
+    properNoun: Boolean(entry.properNoun)
+  };
+}
+
 function selectReplacementCandidates(tokens, classifications, options) {
   const {
     count,
-    minDistance = resolveMinDistance(tokens, count),
+    minDistance: requestedMinDistance = null,
     seed,
     excludeTokenIndices = null,
     allowPartial = false,
-    dictionaryPos = null
+    dictionaryPos = null,
+    autoCount = false
   } = options;
   const excluded = excludeTokenIndices instanceof Set
     ? excludeTokenIndices
@@ -453,40 +621,60 @@ function selectReplacementCandidates(tokens, classifications, options) {
   if (dictionaryPos?.size) {
     pool = filterPoolWithDictionary(pool, dictionaryPos);
   }
+  const targetCount = autoCount
+    ? resolveAutoPromptCount(countWordTokens(tokens), pool, count)
+    : count;
+  const minDistance = requestedMinDistance ?? resolveMinDistance(tokens, targetCount);
   const rng = seed != null ? seededRandom(seed) : Math.random;
-  pool.sort(() => rng() - 0.5);
+  pool = shuffledCopy(pool, rng);
   const selected = [];
   const usedNorms = new Set();
   const usedIndices = [];
 
-  for (const item of pool) {
-    if (selected.length >= count) break;
-    if (usedNorms.has(item.norm)) continue;
-    if (usedIndices.some(idx => Math.abs(idx - item.tokenIndex) < minDistance)) continue;
+  function trySelect(category, distance) {
+    if (selected.length >= targetCount) return false;
+    for (const item of pool) {
+      if (item.category !== category) continue;
+      if (usedNorms.has(item.norm)) continue;
+      if (usedIndices.some(idx => Math.abs(idx - item.tokenIndex) < distance)) continue;
 
-    let entry = item;
-    if (dictionaryPos?.size) {
-      const validated = validatePoolItem(item, dictionaryPos);
-      if (!validated) continue;
-      entry = validated;
+      let entry = item;
+      if (dictionaryPos?.size) {
+        const validated = validatePoolItem(item, dictionaryPos);
+        if (!validated || validated.category !== item.category) continue;
+        entry = validated;
+      }
+
+      usedNorms.add(entry.norm);
+      usedIndices.push(entry.tokenIndex);
+      selected.push(toPromptCandidate(entry));
+      return true;
     }
-
-    usedNorms.add(entry.norm);
-    usedIndices.push(entry.tokenIndex);
-    selected.push({
-      tokenIndex: entry.tokenIndex,
-      originalWord: entry.original,
-      category: entry.category,
-      label: CATEGORY_LABELS[entry.category] || entry.category,
-      hint: CATEGORY_HINTS[entry.category] || '',
-      preservePossessive: /['\u2019]s$/i.test(entry.original),
-      preservePlural: entry.category === 'plural noun'
-        || (/[^'\u2019]s$/i.test(entry.original) && !/ss$/i.test(entry.original) && entry.category === 'noun'),
-      properNoun: Boolean(entry.properNoun)
-    });
+    return false;
   }
 
-  if (!allowPartial && selected.length < Math.min(6, count) && count >= 6) {
+  const plan = plannedCategories(targetCount, pool);
+  for (const category of plan) {
+    if (selected.length >= targetCount) break;
+    trySelect(category, minDistance);
+  }
+
+  const relaxedDistance = Math.max(1, Math.floor(minDistance / 2));
+  for (const category of plan) {
+    if (selected.length >= targetCount) break;
+    trySelect(category, relaxedDistance);
+  }
+
+  while (selected.length < targetCount) {
+    let added = false;
+    for (const category of FILL_CATEGORY_PRIORITY) {
+      if (selected.length >= targetCount) break;
+      added = trySelect(category, relaxedDistance) || added;
+    }
+    if (!added) break;
+  }
+
+  if (!allowPartial && selected.length < Math.min(6, targetCount) && targetCount >= 6) {
     throw new Error('Too few replaceable words in this text. Try a longer excerpt or different section.');
   }
   return selected;
@@ -494,6 +682,6 @@ function selectReplacementCandidates(tokens, classifications, options) {
 
 export {
   classifyTokensHeuristic, classifyTokensWithNlp,
-  resolvePromptCount, pickCategory, resolveMinDistance,
-  buildSwapPool, selectReplacementCandidates
+  resolvePromptCount, resolveMadLibPromptCount, resolveAutoPromptCount, pickCategory, resolveMinDistance,
+  buildSwapPool, selectReplacementCandidates, plannedCategories
 };

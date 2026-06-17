@@ -54,6 +54,11 @@ const PLACEHOLDER_ALIASES = {
   garment: 'clothing item',
   silly: 'silly word',
   'silly word': 'silly word',
+  day: 'day of week',
+  weekday: 'day of week',
+  weekdays: 'day of week',
+  'day of week': 'day of week',
+  'day of the week': 'day of week',
   adverb: 'adverb',
   adverbs: 'adverb',
   adv: 'adverb',
@@ -125,6 +130,7 @@ export function selectMixedCandidates(tokens, classifications, options) {
       count: resolvePromptCount(revealLength, promptSetting),
       seed,
       allowPartial: true,
+      autoCount: promptSetting === 'auto',
       ...dictOpts
     });
   }

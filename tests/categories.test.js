@@ -14,7 +14,8 @@ import { assertWordSpec } from './helpers/assert-word.js';
 const RECOMMENDED_CATEGORIES = [
   'adjective', 'verb', 'past-tense verb', 'verb ending in -ing', 'noun', 'plural noun',
   'name of someone in the room', 'place', 'animal', 'body part', 'object', 'food',
-  'color', 'emotion', 'sound', 'number', 'job', 'vehicle', 'clothing item', 'silly word'
+  'color', 'emotion', 'sound', 'number', 'job', 'vehicle', 'clothing item', 'silly word',
+  'day of week'
 ];
 
 describe('Mad Libs category catalog', () => {
@@ -35,6 +36,7 @@ describe('Mad Libs category catalog', () => {
     expect(resolvePlaceholderCategory('verb ending in -ing')).toBe('verb ending in -ing');
     expect(resolvePlaceholderCategory('gerund')).toBe('verb ending in -ing');
     expect(resolvePlaceholderCategory('adverb')).toBe('adverb');
+    expect(resolvePlaceholderCategory('day of the week')).toBe('day of week');
   });
 
   it('builds template candidates for extended tags', () => {
@@ -84,5 +86,28 @@ describe('wildcard prompt remapping', () => {
     expect(pizza?.category).toBe('food');
     const car = pool.find(p => p.norm === 'car');
     expect(car?.category).toBe('vehicle');
+  });
+
+  it('classifies weekdays and skips reporting verbs in the swap pool', () => {
+    const text = 'One rainy Tuesday, Clara said, and vanished around the corner.';
+    const tokens = tokenize(text);
+    const cls = classifyTokensHeuristic(tokens);
+    const pool = buildSwapPool(tokens, cls);
+    expect(pool.find(p => p.norm === 'one')?.category).toBe('number');
+    expect(pool.find(p => p.norm === 'tuesday')?.category).toBe('day of week');
+    expect(pool.some(p => p.norm === 'said')).toBe(false);
+  });
+
+  it('keeps dense auto-swap grammar picks sane', () => {
+    const text = 'She could hear whispers from behind a brass door that listens. The whispers spoke of cinnamon storms, rivers of honey, and wrapped itself around her shoulders.';
+    const tokens = tokenize(text);
+    const cls = classifyTokensHeuristic(tokens);
+    const pool = buildSwapPool(tokens, cls);
+
+    expect(pool.find(p => p.norm === 'itself')).toBeUndefined();
+    expect(pool.find(p => p.norm === 'brass')?.category).toBe('color');
+    expect(pool.find(p => p.norm === 'listens')?.category).toBe('verb');
+    expect(pool.filter(p => p.norm === 'whispers').every(p => p.category === 'plural noun')).toBe(true);
+    expect(pool.find(p => p.norm === 'storms')?.category).toBe('plural noun');
   });
 });

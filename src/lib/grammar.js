@@ -216,6 +216,10 @@ const REPORTING_VERBS = new Set([
   'remarked', 'interposed', 'added', 'croaked', 'murmured', 'growled'
 ]);
 
+export function isReportingVerb(tok) {
+  return REPORTING_VERBS.has(tok.norm);
+}
+
 function isPossessiveForm(w) {
   return /['\u2019]s$/i.test(w);
 }

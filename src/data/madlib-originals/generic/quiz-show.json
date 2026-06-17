@@ -1,38 +1,5 @@
 {
   "title": "Quiz Show",
-  "text": [
-    "## Quiz Show\n\nWelcome to *Who Wants to Be ",
-    "!*\n\n**Contestant:** ",
-    " from ",
-    ", a professional ",
-    " with strong opinions about ",
-    ".\n\n**For one thousand points:** Name a ",
-    " country famous for ",
-    " exports.\n\n**For ten thousand:** Spell a ",
-    " word while ",
-    " on one foot.\n\n**Lifeline:** Phone-a-",
-    " went to voicemail.\n\n**Final question:** If a ",
-    " train leaves at ",
-    " o'clock carrying ",
-    " passengers, how many will sing?\n\n**Answer:** ",
-    " — because this show makes no ",
-    " sense."
-  ],
-  "blanks": [
-    "adjective",
-    "name",
-    "a place",
-    "job",
-    "plural noun",
-    "foreign country",
-    "adjective",
-    "adjective",
-    "verb ending in 'ing'",
-    "name",
-    "adjective",
-    "number",
-    "number",
-    "number",
-    "adjective"
-  ]
+  "category": "generic",
+  "text": "## Quiz Show\n\nWelcome to *Who Wants to Be {adjective}!*\n\n**Contestant:** {person} from {place}, a professional {job} with strong opinions about {plural noun}.\n\n**For one thousand points:** Name a {place} country famous for {adjective} exports.\n\n**For ten thousand:** Spell a {adjective} word while {verb ending in -ing} on one foot.\n\n**Lifeline:** Phone-a-{person} went to voicemail.\n\n**Final question:** If a {adjective} train leaves at {number} o'clock carrying {number} passengers, how many will sing?\n\n**Answer:** {number} — because this show makes no {adjective} sense."
 }

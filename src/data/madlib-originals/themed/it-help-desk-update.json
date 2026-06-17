@@ -1,36 +1,5 @@
 {
   "title": "IT Help Desk Update",
-  "text": [
-    "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The ",
-    " printer on floor ",
-    " is ",
-    " again.\n\n**On site:** ",
-    " with a ",
-    " toolkit while ",
-    " clears the password-reset ",
-    ".\n\n**Users affected:** Anyone trying to ",
-    " or use the ",
-    " conference room.\n\n**Workaround:** Route jobs to the ",
-    " copier and ",
-    " your laptop until further notice.\n\n**ETA:** ",
-    " minutes unless the print spooler acts ",
-    " again.\n\nPlease stop opening tickets titled \"The internet is ",
-    ".\""
-  ],
-  "blanks": [
-    "adjective",
-    "number",
-    "adjective",
-    "name",
-    "adjective",
-    "name",
-    "object",
-    "verb",
-    "adjective",
-    "adjective",
-    "verb",
-    "number",
-    "adjective",
-    "adjective"
-  ]
+  "category": "themed",
+  "text": "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The {adjective} printer on floor {number} is {adjective} again.\n\n**On site:** {person} with a {adjective} toolkit while {person} clears the password-reset {object}.\n\n**Users affected:** Anyone trying to {verb} or use the {adjective} conference room.\n\n**Workaround:** Route jobs to the {adjective} copier and {verb} your laptop until further notice.\n\n**ETA:** {number} minutes unless the print spooler acts {adjective} again.\n\nPlease stop opening tickets titled \"The internet is {adjective}.\""
 }

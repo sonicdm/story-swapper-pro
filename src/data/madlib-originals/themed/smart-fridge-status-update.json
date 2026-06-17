@@ -1,0 +1,5 @@
+{
+  "title": "Smart Fridge Status Update",
+  "category": "themed",
+  "text": "## Smart Fridge Status Update\n\n**Device:** Kitchen Fridge firmware {number}.{number}\n\n**Notification:** Your {adjective} yogurt has achieved {emotion} and may attempt to {verb}.\n\n**Inventory warning:** Low on {food}, high on {plural noun}, suspiciously full of {color} leftovers.\n\n**Suggested action:** Ask {person} to remove the {object} before it starts {verb ending in -ing}.\n\n**Voice assistant note:** The fridge heard a {sound} near the {place} and responded {adverb}.\n\n**Warranty status:** Still technically {adjective}."
+}

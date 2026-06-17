@@ -1,38 +1,5 @@
 {
   "title": "Apology Letter",
-  "text": [
-    "## Apology Letter\n\nDear ",
-    ",\n\nI am deeply sorry for ",
-    " your ",
-    " during the ",
-    " party.\n\nIt was wrong to ",
-    " near the ",
-    " and even worse to blame your ",
-    ".\n\nI should not have ",
-    " your favorite ",
-    " or told everyone about the ",
-    " incident.\n\n**To make amends** I will ",
-    " publicly, replace the ",
-    ", and never again ",
-    " without permission.\n\nPlease forgive me.\n\nSincerely,\n",
-    ", a reformed ",
-    " person."
-  ],
-  "blanks": [
-    "name",
-    "verb ending in 'ing'",
-    "object",
-    "adjective",
-    "verb",
-    "place",
-    "animal",
-    "verb",
-    "object",
-    "adjective",
-    "verb",
-    "object",
-    "verb",
-    "name",
-    "adjective"
-  ]
+  "category": "generic",
+  "text": "## Apology Letter\n\nDear {person},\n\nI am deeply sorry for {verb ending in -ing} your {object} during the {adjective} party.\n\nIt was wrong to {verb} near the {place} and even worse to blame your {animal}.\n\nI should not have {past-tense verb} your favorite {object} or told everyone about the {adjective} incident.\n\n**To make amends** I will {verb} publicly, replace the {object}, and never again {verb} without permission.\n\nPlease forgive me.\n\nSincerely,\n{person}, a reformed {adjective} person."
 }

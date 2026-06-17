@@ -1,40 +1,5 @@
 {
   "title": "Instruction Manual",
-  "text": [
-    "## Instruction Manual\n\n**WARNING:** Do not ",
-    " this ",
-    " near water, bees, or emotional ",
-    " people.\n\n**Step A:** Insert the ",
-    " into slot ",
-    " until you hear a ",
-    " sound.\n\n**Step B:** Press the ",
-    " button firmly with your ",
-    ".\n\n**Step C:** Wait ",
-    " minutes while the device becomes ",
-    ".\n\n**Step D:** If smoke appears, ",
-    " calmly toward the nearest ",
-    ".\n\n**Maintenance:** Clean with a ",
-    " cloth every ",
-    " days.\n\n**Support:** Questions? Call our ",
-    " support line and ask for ",
-    "."
-  ],
-  "blanks": [
-    "verb",
-    "object",
-    "adjective",
-    "object",
-    "number",
-    "adjective",
-    "color",
-    "body part",
-    "number",
-    "adjective",
-    "verb",
-    "place",
-    "adjective",
-    "number",
-    "adjective",
-    "name"
-  ]
+  "category": "generic",
+  "text": "## Instruction Manual\n\n**WARNING:** Do not {verb} this {object} near water, bees, or emotional {adjective} people.\n\n**Step A:** Insert the {object} into slot {number} until you hear a {adjective} sound.\n\n**Step B:** Press the {color} button firmly with your {body part}.\n\n**Step C:** Wait {number} minutes while the device becomes {adjective}.\n\n**Step D:** If smoke appears, {verb} calmly toward the nearest {place}.\n\n**Maintenance:** Clean with a {adjective} cloth every {number} days.\n\n**Support:** Questions? Call our {adjective} support line and ask for {person}."
 }

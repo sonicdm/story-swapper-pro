@@ -1,34 +1,5 @@
 {
   "title": "Letter from Camp",
-  "text": [
-    "## Letter from Camp\n\nDear ",
-    ",\n\nCamp is ",
-    " so far. Our cabin is near the ",
-    ", and every morning we ",
-    " before breakfast.\n\n**Yesterday:** Our counselor taught us to ",
-    " properly, which was harder than it looked.\n\n**Last night:** We sat around the fire and told stories about ",
-    "s and old ",
-    "s. My tentmate brought a ",
-    " from home and swears it brings good luck.\n\n**Food:** Lunch was ",
-    ", dinner was better, and someone hid a ",
-    " in the salad bowl.\n\n**Please write back soon.** Tell me whether the ",
-    " is still quiet and whether the ",
-    " next door has learned any new tricks.\n\nMissing you,\n",
-    ""
-  ],
-  "blanks": [
-    "name",
-    "adjective",
-    "a place",
-    "verb",
-    "verb",
-    "animal",
-    "a place",
-    "object",
-    "adjective",
-    "object",
-    "a place",
-    "animal",
-    "name"
-  ]
+  "category": "legacy",
+  "text": "## Letter from Camp\n\nDear {person},\n\nCamp is {adjective} so far. Our cabin is near the {place}, and every morning we {past-tense verb} before breakfast.\n\n**Yesterday:** Our counselor taught us to {verb} properly, which was harder than it looked.\n\n**Last night:** We sat around the fire and told stories about {animal}s and old {place}s. My tentmate brought a {object} from home and swears it brings good luck.\n\n**Food:** Lunch was {adjective}, dinner was better, and someone hid a {object} in the salad bowl.\n\n**Please write back soon.** Tell me whether the {place} is still quiet and whether the {animal} next door has learned any new tricks.\n\nMissing you,\n{person}"
 }

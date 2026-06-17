@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import {
   loadWordPoolsFromObject,
   loadPosIndexFromObject,
@@ -8,9 +8,11 @@ import {
   poolKeyForCategory,
   resetDictionaryCache
 } from '../src/lib/dictionary.js';
+import { WORD_LISTS } from '../src/lib/constants.js';
 
 describe('dictionary (static WordNet assets)', () => {
   beforeEach(() => {
+    vi.restoreAllMocks();
     resetDictionaryCache();
     loadWordPoolsFromObject({
       noun: ['table', 'dragon', 'kitchen'],
@@ -34,21 +36,36 @@ describe('dictionary (static WordNet assets)', () => {
     expect(map.get('retain')?.has('verb')).toBe(true);
   });
 
-  it('picks WordNet pool words by category', async () => {
+  it('picks curated words by category after WordNet loads', async () => {
     const noun = await randomWordForCategory('noun', () => 0);
-    expect(['table', 'dragon', 'kitchen']).toContain(noun);
+    expect(WORD_LISTS.objects).toContain(noun);
     const verb = await randomWordForCategory('past-tense verb', () => 0.99);
-    expect(['jump', 'retain', 'whisper']).toContain(verb);
+    expect(WORD_LISTS.verbs).toContain(verb);
+  });
+
+  it('prefers curated words for semantic categories', async () => {
+    const animal = await randomWordForCategory('animal', () => 0);
+    expect(animal).toBe(WORD_LISTS.animals[0]);
+    const color = await randomWordForCategory('color', () => 0);
+    expect(color).toBe(WORD_LISTS.colors[0]);
+    const weekday = await randomWordForCategory('day of week', () => 0);
+    expect(weekday).toBe(WORD_LISTS.weekdays[0]);
   });
 
   it('batch-fills categories', async () => {
-    const words = await randomWordsForCategories(['noun', 'adjective'], () => 0);
-    expect(words).toEqual(['table', 'crimson']);
+    const words = await randomWordsForCategories(['noun', 'adjective', 'animal'], () => 0);
+    expect(words).toEqual([WORD_LISTS.objects[0], WORD_LISTS.adjectives[0], WORD_LISTS.animals[0]]);
   });
 
   it('maps category to pool key', () => {
     expect(poolKeyForCategory('past-tense verb')).toBe('verb');
     expect(poolKeyForCategory('color')).toBe('adjective');
     expect(poolKeyForCategory('animal')).toBe('noun');
+  });
+
+  it('treats missing WordNet assets as a core load failure', async () => {
+    resetDictionaryCache();
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 404 });
+    await expect(randomWordsForCategories(['noun'])).rejects.toThrow(/WordNet dictionary assets are unavailable/);
   });
 });

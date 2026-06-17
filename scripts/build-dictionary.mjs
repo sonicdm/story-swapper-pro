@@ -15,9 +15,17 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dbDir = join(root, 'node_modules', 'en-wordnet', 'database', '3.0');
 const outDir = join(root, 'public');
 
-function isPoolLemma(lemma, posName) {
+function taggedSenseCount(parts) {
+  const pointerCount = Number(parts[3] || 0);
+  const tagIndex = 5 + pointerCount;
+  const count = Number(parts[tagIndex] || 0);
+  return Number.isFinite(count) ? count : 0;
+}
+
+function isPoolLemma(lemma, posName, tagCount) {
   if (lemma.length < 3 || lemma.length > 14) return false;
   if (!/^[a-z]+$/.test(lemma)) return false;
+  if (tagCount < 1) return false;
   if (STOP_WORDS.has(lemma)) return false;
   if (posName === 'verb' && (MODALS.has(lemma) || VERB_FALSE.has(lemma))) return false;
   return true;
@@ -36,7 +44,7 @@ function parseIndexFile(path, posChar) {
     if (!lemma || !/^[a-z0-9'-]+$/i.test(lemma)) continue;
     if (!posMap.has(lemma)) posMap.set(lemma, new Set());
     posMap.get(lemma).add(posName);
-    if (isPoolLemma(lemma, posName)) pool.push(lemma);
+    if (isPoolLemma(lemma, posName, taggedSenseCount(parts))) pool.push(lemma);
   }
   return { posMap, pool };
 }

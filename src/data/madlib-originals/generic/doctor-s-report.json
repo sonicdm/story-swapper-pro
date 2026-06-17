@@ -1,34 +1,5 @@
 {
   "title": "Doctor's Report",
-  "text": [
-    "## Doctor's Report\n\n**Patient presentation:** Patient presents with a ",
-    " ",
-    " ache near the ",
-    ".\n\n**Vital signs:** ",
-    " and slightly ",
-    ".\n\n**Treatment:** Rest, ",
-    " fluids, and one small ",
-    " taken ",
-    " with meals.\n\n**Follow-up:** Follow up if symptoms become ",
-    " or if the patient begins to ",
-    " uncontrollably at work.\n\n**Notes:** Patient insists this started after eating ",
-    " at a ",
-    " restaurant. Prescription signed with a ",
-    " pen."
-  ],
-  "blanks": [
-    "adjective",
-    "body part",
-    "body part",
-    "adjective",
-    "adjective",
-    "adjective",
-    "object",
-    "adverb",
-    "adjective",
-    "verb",
-    "food",
-    "adjective",
-    "color"
-  ]
+  "category": "generic",
+  "text": "## Doctor's Report\n\n**Patient presentation:** Patient presents with a {adjective} {body part} ache near the {body part}.\n\n**Vital signs:** {adjective} and slightly {adjective}.\n\n**Treatment:** Rest, {adjective} fluids, and one small {object} taken {adverb} with meals.\n\n**Follow-up:** Follow up if symptoms become {adjective} or if the patient begins to {verb} uncontrollably at work.\n\n**Notes:** Patient insists this started after eating {food} at a {adjective} restaurant. Prescription signed with a {color} pen."
 }

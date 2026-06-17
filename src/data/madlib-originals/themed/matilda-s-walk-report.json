@@ -1,38 +1,5 @@
 {
   "title": "Matilda's Walk Report",
-  "text": [
-    "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** ",
-    " with a chance of ",
-    ".\n\n**Route:** Left on ",
-    " Street, past the ",
-    " park, then home for ",
-    " treats.\n\n**Highlights:** Matilda ",
-    " at a ",
-    " squirrel and made ",
-    " new friends.\n\n**Lowlights:** She rolled in something ",
-    " near a ",
-    ".\n\n**Equipment:** ",
-    " leash, ",
-    " bag, one heroic ",
-    ".\n\n**Owner mood:** ",
-    ".\n\n**Recommendation:** More walks, fewer ",
-    " distractions."
-  ],
-  "blanks": [
-    "adjective",
-    "plural noun",
-    "adjective",
-    "adjective",
-    "adjective",
-    "verb",
-    "adjective",
-    "number",
-    "adjective",
-    "place",
-    "adjective",
-    "adjective",
-    "object",
-    "adjective",
-    "plural noun"
-  ]
+  "category": "themed",
+  "text": "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** {adjective} with a chance of {plural noun}.\n\n**Route:** Left on {adjective} Street, past the {adjective} park, then home for {adjective} treats.\n\n**Highlights:** Matilda {past-tense verb} at a {adjective} squirrel and made {number} new friends.\n\n**Lowlights:** She rolled in something {adjective} near a {place}.\n\n**Equipment:** {adjective} leash, {adjective} bag, one heroic {object}.\n\n**Owner mood:** {adjective}.\n\n**Recommendation:** More walks, fewer {plural noun} distractions."
 }

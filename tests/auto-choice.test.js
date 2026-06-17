@@ -14,6 +14,7 @@ import {
   resetDictionaryCache
 } from '../src/lib/dictionary.js';
 import { selectMixedCandidates } from '../src/lib/placeholders.js';
+import { WORD_LISTS } from '../src/lib/constants.js';
 import { getEngine } from './helpers/nlp-session.js';
 import { analyzeTextWithDictionary, selectWithSeed } from './helpers/analyze.js';
 import { builtDictionaryAvailable, loadBuiltDictionary } from './helpers/built-dictionary.mjs';
@@ -131,7 +132,7 @@ describe.skipIf(!HAS_DICT)('auto-pick (WordNet-validated candidate selection)', 
   });
 });
 
-describe.skipIf(!HAS_DICT)('surprise me (WordNet random fill)', () => {
+describe.skipIf(!HAS_DICT)('surprise me (curated random fill with required WordNet)', () => {
   let wordPools;
 
   beforeEach(() => {
@@ -139,19 +140,19 @@ describe.skipIf(!HAS_DICT)('surprise me (WordNet random fill)', () => {
     ({ wordPools } = loadBuiltDictionary());
   });
 
-  it('picks nouns from the noun pool for noun prompts', async () => {
+  it('picks curated nouns for noun prompts', async () => {
     const word = await randomWordForCategory('noun', () => 0);
-    expect(wordPools.noun).toContain(word);
+    expect(WORD_LISTS.objects).toContain(word);
   });
 
-  it('picks verbs from the verb pool for verb-form prompts', async () => {
+  it('picks curated verbs for verb-form prompts', async () => {
     for (const cat of ['verb', 'past-tense verb', 'verb ending in -ing']) {
       const word = await randomWordForCategory(cat, () => 0);
-      expect(wordPools.verb, `${cat} should draw from verb pool`).toContain(word);
+      expect(WORD_LISTS.verbs, `${cat} should draw from curated verbs`).toContain(word);
     }
   });
 
-  it('maps wildcard categories to the right WordNet pool', async () => {
+  it('keeps WordNet pool mapping available for category POS groups', () => {
     const cases = [
       ['animal', 'noun'],
       ['place', 'noun'],
@@ -160,8 +161,22 @@ describe.skipIf(!HAS_DICT)('surprise me (WordNet random fill)', () => {
       ['adjective', 'adjective']
     ];
     for (const [category, poolKey] of cases) {
+      expect(poolKeyForCategory(category), `${category} → ${poolKey}`).toBe(poolKey);
+    }
+  });
+
+  it('prefers curated words for semantic prompts', async () => {
+    const cases = [
+      ['animal', WORD_LISTS.animals],
+      ['place', WORD_LISTS.places],
+      ['object', WORD_LISTS.objects],
+      ['food', WORD_LISTS.foods],
+      ['color', WORD_LISTS.colors],
+      ['day of week', WORD_LISTS.weekdays]
+    ];
+    for (const [category, list] of cases) {
       const word = await randomWordForCategory(category, () => 0);
-      expect(wordPools[poolKey], `${category} → ${poolKey}`).toContain(word);
+      expect(word, category).toBe(list[0]);
     }
   });
 
@@ -169,18 +184,19 @@ describe.skipIf(!HAS_DICT)('surprise me (WordNet random fill)', () => {
     const categories = ['noun', 'verb', 'adjective', 'animal', 'color'];
     const words = await randomWordsForCategories(categories, () => 0);
     expect(words).toHaveLength(categories.length);
-    words.forEach((word, i) => {
-      const key = poolKeyForCategory(categories[i]);
-      expect(wordPools[key]).toContain(word);
-    });
+    expect(words[0]).toBe(WORD_LISTS.objects[0]);
+    expect(words[1]).toBe(WORD_LISTS.verbs[0]);
+    expect(words[2]).toBe(WORD_LISTS.adjectives[0]);
+    expect(words[3]).toBe(WORD_LISTS.animals[0]);
+    expect(words[4]).toBe(WORD_LISTS.colors[0]);
   });
 
   it('deterministic rng picks stable words from built pools', async () => {
     const a = await randomWordsForCategories(['noun', 'verb'], () => 0);
     const b = await randomWordsForCategories(['noun', 'verb'], () => 0);
     expect(a).toEqual(b);
-    expect(a[0]).toBe(wordPools.noun[0]);
-    expect(a[1]).toBe(wordPools.verb[0]);
+    expect(a[0]).toBe(WORD_LISTS.objects[0]);
+    expect(a[1]).toBe(WORD_LISTS.verbs[0]);
   });
 });
 

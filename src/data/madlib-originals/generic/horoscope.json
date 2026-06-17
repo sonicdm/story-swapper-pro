@@ -1,36 +1,5 @@
 {
   "title": "Horoscope",
-  "text": [
-    "## Today's Horoscope\n\n**Sign:** ",
-    " signs\n\n**Opportunity:** A ",
-    " stranger may offer you a ",
-    " opportunity near a ",
-    ".\n\n**Lucky charm:** Your lucky ",
-    " is hiding inside an old ",
-    ".\n\n**Romance:** Romance blooms when you ",
-    " with confidence and wear something ",
-    ".\n\n**Warning:** Beware of ",
-    " advice from a ",
-    " relative.\n\n**Finance:** Financial luck arrives after you ",
-    " a forgotten ",
-    ".\n\n**Tonight:** Dream of ",
-    " animals and wake up feeling ",
-    "."
-  ],
-  "blanks": [
-    "adjective",
-    "adjective",
-    "adjective",
-    "place",
-    "object",
-    "object",
-    "verb",
-    "adjective",
-    "adjective",
-    "adjective",
-    "verb",
-    "object",
-    "plural noun",
-    "adjective"
-  ]
+  "category": "generic",
+  "text": "## Today's Horoscope\n\n**Sign:** {adjective} signs\n\n**Opportunity:** A {adjective} stranger may offer you a {adjective} opportunity near a {place}.\n\n**Lucky charm:** Your lucky {object} is hiding inside an old {object}.\n\n**Romance:** Romance blooms when you {verb} with confidence and wear something {adjective}.\n\n**Warning:** Beware of {adjective} advice from a {adjective} relative.\n\n**Finance:** Financial luck arrives after you {verb} a forgotten {object}.\n\n**Tonight:** Dream of {plural noun} animals and wake up feeling {adjective}."
 }

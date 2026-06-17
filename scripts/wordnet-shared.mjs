@@ -13,6 +13,7 @@ export function parseIndexFile(path, posChar) {
   const posName = POS_MAP[posChar];
   const text = readFileSync(path, 'utf8');
   const map = new Map();
+  const taggedSenseCounts = new Map();
   for (const line of text.split('\n')) {
     if (!line || line.startsWith(' ')) continue;
     const parts = line.split(/\s+/);
@@ -21,7 +22,9 @@ export function parseIndexFile(path, posChar) {
     if (!lemma || !/^[a-z0-9'-]+$/i.test(lemma)) continue;
     if (!map.has(lemma)) map.set(lemma, new Set());
     map.get(lemma).add(posName);
+    taggedSenseCounts.set(lemma, taggedSenseCount(parts));
   }
+  map.taggedSenseCounts = taggedSenseCounts;
   return map;
 }
 
@@ -36,9 +39,17 @@ export function mergePosMaps(maps) {
   return merged;
 }
 
-export function isSwapWorthyLemma(lemma, posName) {
+function taggedSenseCount(parts) {
+  const pointerCount = Number(parts[3] || 0);
+  const tagIndex = 5 + pointerCount;
+  const count = Number(parts[tagIndex] || 0);
+  return Number.isFinite(count) ? count : 0;
+}
+
+export function isSwapWorthyLemma(lemma, posName, tagCount = 0) {
   if (!lemma || lemma.length < 3 || lemma.length > 14) return false;
   if (!/^[a-z]+$/.test(lemma)) return false;
+  if (tagCount < 1) return false;
   if (STOP_WORDS.has(lemma)) return false;
   if (posName === 'verb' && (MODALS.has(lemma) || VERB_FALSE.has(lemma))) return false;
   return true;
@@ -60,7 +71,8 @@ export function buildWordPoolsObject(merged, perPosMaps) {
 
   for (const [posName, posMap] of Object.entries(perPosMaps)) {
     for (const lemma of posMap.keys()) {
-      if (!isSwapWorthyLemma(lemma, posName)) continue;
+      const tagCount = posMap.taggedSenseCounts?.get(lemma) || 0;
+      if (!isSwapWorthyLemma(lemma, posName, tagCount)) continue;
       if (seen[posName].has(lemma)) continue;
       seen[posName].add(lemma);
       pools[posName].push(lemma);

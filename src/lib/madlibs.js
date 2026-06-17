@@ -1,135 +1,25 @@
 import templates from '../data/madlibs-templates.json';
+import {
+  normalizeMadLibBlank,
+  madLibBlankToTag,
+  madlibsApiStoryToTemplate,
+  STREAMLIT_HINT_ALIASES,
+  TAG_FOR_CATEGORY
+} from './madlib-api-format.js';
 
-/**
- * Map classic Mad Libs blank labels (madlibs-api, madlibz, streamlit-games) to our {tag} names.
- * Inspired by HermanFasset/madlibz, chroline/madlibs-api, joelgrus/streamlit-games,
- * Rosetta Code <tag> templates, and workergnome/madlibs --NOUN-- markers.
- */
-const MADLIB_BLANK_ALIASES = {
-  noun: 'noun',
-  nouns: 'noun',
-  'plural noun': 'plural noun',
-  'plural nouns': 'plural noun',
-  plural: 'plural noun',
-  plurals: 'plural noun',
-  animals: 'animal',
-  animal: 'animal',
-  adjective: 'adjective',
-  adjectives: 'adjective',
-  adj: 'adjective',
-  'adjective ending in -est': 'adjective',
-  adverb: 'adverb',
-  adverbs: 'adverb',
-  adv: 'adverb',
-  verb: 'verb',
-  verbs: 'verb',
-  'past tense verb': 'past-tense verb',
-  'past tense': 'past-tense verb',
-  past: 'past-tense verb',
-  'verb ending in ing': 'verb ending in -ing',
-  "verb ending in 'ing'": 'verb ending in -ing',
-  'verb ending in -ing': 'verb ending in -ing',
-  'verb ing': 'verb ending in -ing',
-  gerund: 'verb ending in -ing',
-  ing: 'verb ending in -ing',
-  'name': 'name of someone in the room',
-  person: 'name of someone in the room',
-  someone: 'name of someone in the room',
-  celebrity: 'name of someone in the room',
-  'he or she': 'name of someone in the room',
-  'his or her': 'name of someone in the room',
-  'foreign country': 'place',
-  'a place': 'place',
-  place: 'place',
-  places: 'place',
-  'noun; place': 'place',
-  emotion: 'emotion',
-  emotions: 'emotion',
-  object: 'object',
-  objects: 'object',
-  sound: 'sound',
-  sounds: 'sound',
-  number: 'number',
-  numbers: 'number',
-  'body part': 'body part',
-  'body parts': 'body part',
-  bodypart: 'body part',
-  bodyparts: 'body part',
-  'part of the body': 'body part',
-  'part of body': 'body part',
-  'another body part': 'body part',
-  color: 'color',
-  colour: 'color',
-  colours: 'color',
-  colors: 'color',
-  food: 'food',
-  foods: 'food',
-  'type of liquid': 'food',
-  job: 'job',
-  jobs: 'job',
-  occupation: 'job',
-  'plural noun; type of job': 'job',
-  vehicle: 'vehicle',
-  vehicles: 'vehicle',
-  clothing: 'clothing item',
-  'clothing item': 'clothing item',
-  clothes: 'clothing item',
-  garment: 'clothing item',
-  'article of clothing': 'clothing item',
-  silly: 'silly word',
-  'silly word': 'silly word'
-};
+export { normalizeMadLibBlank, madLibBlankToTag, madlibsApiStoryToTemplate };
 
-const STREAMLIT_HINT_ALIASES = {
-  animal_plural: 'animal',
-  body_plural: 'body part',
-  food_plural: 'food'
-};
-
-/** Normalize a Mad Libs blank label to an internal category id, or null. */
-export function normalizeMadLibBlank(raw) {
-  const key = (raw || '').trim().toLowerCase().replace(/\s+/g, ' ');
-  if (!key) return null;
-  return MADLIB_BLANK_ALIASES[key] || null;
-}
-
-const TAG_FOR_CATEGORY = {
-  'name of someone in the room': 'person',
-  'verb ending in -ing': 'verb ending in -ing',
-  'past-tense verb': 'past-tense verb',
-  'body part': 'body part',
-  'clothing item': 'clothing item',
-  'silly word': 'silly word',
-  'plural noun': 'plural noun'
-};
-
-/** Pick the best {tag} string for a blank label (falls back to noun). */
-export function madLibBlankToTag(raw) {
-  const category = normalizeMadLibBlank(raw)
-    || (TAG_FOR_CATEGORY[raw] ? raw : null);
-  if (!category) return 'noun';
-  return TAG_FOR_CATEGORY[category] || category;
-}
-
-/** Interleave madlibs-api text[] + blanks[] into a {tag} template string. */
-export function madlibsApiStoryToTemplate({ text, blanks }) {
-  const parts = Array.isArray(text) ? text : [];
-  const labels = Array.isArray(blanks) ? blanks : [];
-  let out = '';
-  for (let i = 0; i < parts.length; i++) {
-    out += parts[i];
-    if (i < labels.length) {
-      out += `{${madLibBlankToTag(labels[i])}}`;
-    }
-  }
-  return out.trim();
-}
-
-/** Convert one entry from madlibs-api templates.json. */
+/** Convert one bundled or API entry to a {tag} template string. */
 export function madlibsTemplateEntryToText(entry) {
   if (!entry) return '';
   if (typeof entry === 'string') return entry;
-  return madlibsApiStoryToTemplate(entry);
+  if (typeof entry.text === 'string' && !Array.isArray(entry.text)) {
+    return entry.text.trim();
+  }
+  if (Array.isArray(entry.text) && Array.isArray(entry.blanks)) {
+    return madlibsApiStoryToTemplate(entry);
+  }
+  return '';
 }
 
 /** Bundled classic templates (offline fallback, MIT via madlibz / madlibs-api). */
@@ -161,7 +51,8 @@ export function listBundledMadLibCatalog() {
 
 export function getMadLibMeta(title, entry = templates[title]) {
   if (!entry) return { blankCount: 0, wordCount: 0, category: 'classics' };
-  const blankCount = entry.blankCount ?? entry.blanks?.length ?? 0;
+  const blankCount = entry.blankCount
+    ?? (typeof entry.text === 'string' ? (entry.text.match(/\{[^}]+\}/g)?.length ?? 0) : entry.blanks?.length ?? 0);
   const wordCount = entry.wordCount ?? 0;
   return { blankCount, wordCount, category: entry.category || 'classics' };
 }
@@ -221,7 +112,9 @@ export function normalizeTemplateSyntax(text) {
 export function parseMadLibApiResponse(data) {
   if (!data?.text) throw new Error('madlibs-invalid');
   const title = data.title || 'Mad Libs';
-  const body = madlibsApiStoryToTemplate(data);
+  const body = Array.isArray(data.text)
+    ? madlibsApiStoryToTemplate(data)
+    : String(data.text);
   if (!body.includes('{')) throw new Error('madlibs-invalid');
   return { title, text: body, source: 'api' };
 }

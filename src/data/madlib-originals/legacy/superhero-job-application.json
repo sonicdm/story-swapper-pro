@@ -1,38 +1,5 @@
 {
   "title": "Superhero Job Application",
-  "text": [
-    "## Hero Registration Board\n\n**Applicant name:** Captain ",
-    "\n**Secret identity occupation:** professional ",
-    "\n**City of operation:** New ",
-    "\n**Preferred cape color:** ",
-    "\n\n**Origin story:**\nI was bitten by a radioactive ",
-    " while volunteering at the local ",
-    ". At first I only gained the power to ",
-    ", but after a thunderstorm and a motivational speech from my grandmother, I learned to ",
-    " at incredible speed. My weakness is ",
-    ", especially on Mondays.\n\n**Equipment checklist:**\n- Utility belt containing snacks, string, and a small ",
-    "\n- Mask with anti-fog goggles and excellent cheekbones\n- Sidekick named ",
-    " who complains constantly but never gives up\n- Hidden base located beneath the ",
-    " downtown\n\n**Battle record:**\nLast week I defeated the villain known as Doctor ",
-    " by using teamwork, a ",
-    ", and a perfectly timed pun. Civilians cheered, pigeons saluted, and one reporter asked if I was single in the middle of a collapsing bridge.\n\n**Statement of purpose:**\nI wish to protect this city because every child deserves to feel safe, every dog deserves a long walk, and every villain deserves a second chance unless they steal cakes. I promise to arrive quickly, leave politely, and never reveal my identity at family reunions.\n\n**Signature:** ",
-    "\n**Date:** the future"
-  ],
-  "blanks": [
-    "noun",
-    "noun",
-    "a place",
-    "color",
-    "animal",
-    "a place",
-    "verb",
-    "verb",
-    "noun",
-    "object",
-    "name",
-    "a place",
-    "noun",
-    "object",
-    "noun"
-  ]
+  "category": "legacy",
+  "text": "## Hero Registration Board\n\n**Applicant name:** Captain {noun}\n**Secret identity occupation:** professional {noun}\n**City of operation:** New {place}\n**Preferred cape color:** {color}\n\n**Origin story:**\nI was bitten by a radioactive {animal} while volunteering at the local {place}. At first I only gained the power to {verb}, but after a thunderstorm and a motivational speech from my grandmother, I learned to {verb} at incredible speed. My weakness is {noun}, especially on Mondays.\n\n**Equipment checklist:**\n- Utility belt containing snacks, string, and a small {object}\n- Mask with anti-fog goggles and excellent cheekbones\n- Sidekick named {person} who complains constantly but never gives up\n- Hidden base located beneath the {place} downtown\n\n**Battle record:**\nLast week I defeated the villain known as Doctor {noun} by using teamwork, a {object}, and a perfectly timed pun. Civilians cheered, pigeons saluted, and one reporter asked if I was single in the middle of a collapsing bridge.\n\n**Statement of purpose:**\nI wish to protect this city because every child deserves to feel safe, every dog deserves a long walk, and every villain deserves a second chance unless they steal cakes. I promise to arrive quickly, leave politely, and never reveal my identity at family reunions.\n\n**Signature:** {noun}\n**Date:** the future"
 }
