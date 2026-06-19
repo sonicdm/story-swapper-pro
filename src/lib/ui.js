@@ -1,8 +1,8 @@
-import { $, $$, setStatus, showPhase, switchTab as activateTab } from './dom.js';
+import { $, $$, setStatus, showPhase, switchTab as activateTab, countWords } from './dom.js';
 import { appState } from './state.js';
 import { SAMPLES } from '../data/samples.js';
 import {
-  startFromPaste, startFromGutenberg, startFromPoem, startFromSample, startFromMadLib,
+  startFromCreateDraft, startFromGutenberg, startFromPoem, startFromSample, startFromMadLib,
   revealStory, copyFinalStory, downloadFinalStory, fillRandomPrompts,
   rerollWords, rerollSection, resetGame
 } from './game.js';
@@ -12,9 +12,27 @@ import {
 } from './fetch.js';
 import {
   listBundledMadLibCatalog, getMadLibMeta, getRandomBundledMadLibTitle,
-  COLLECTIONS, COLLECTION_LABELS, TAG_ORDER, TAG_LABELS, FORMAT_LABELS
+  COLLECTIONS, COLLECTION_LABELS, FORMAT_ORDER, TAG_ORDER, TAG_LABELS, FORMAT_LABELS
 } from './madlibs.js';
 import { loadNlpEngine, awaitWinkEngine } from './nlp-engine.js';
+import { renderMadLibMarkdown } from './story-markdown.js';
+import { tokenize } from './text.js';
+import { classifyTokensHeuristic, classifyTokensWithNlp, selectReplacementCandidates } from './classify.js';
+import { lookupPosForPool } from './dictionary.js';
+import {
+  EDITOR_BLANK_TAGS,
+  customTemplateKey,
+  deleteCustomTemplate,
+  loadCustomTemplates,
+  parseCustomTemplatePack,
+  saveCustomTemplates,
+  serializeCustomTemplatePack,
+  tagForCategory,
+  unsupportedPlaceholderTags,
+  upsertCustomTemplate,
+  validBlankCount,
+  validateCustomTemplate
+} from './custom-templates.js';
 
 function renderGutenbergResults(results) {
   const list = $('#gutenberg-results');
@@ -47,13 +65,16 @@ function renderGutenbergResults(results) {
 }
 
 const SETTINGS_KEY = 'storySwapper:settings';
-const LENGTH_SELECTS = ['#paste-length', '#gutenberg-length', '#sample-length', '#poem-length'];
-const AUTO_SWAP_TABS = new Set(['paste', 'gutenberg', 'poem', 'sample']);
+const LENGTH_SELECTS = ['#editor-length', '#gutenberg-length', '#sample-length', '#poem-length'];
+const AUTO_SWAP_TABS = new Set(['create', 'gutenberg', 'poem', 'sample']);
 
 /** Active Mad Lib collection + tag filter chips. */
 const madlibActiveCollections = new Set();
 const madlibActiveTags = new Set();
 let madlibFilterTimer = null;
+const editorActiveTags = new Set(['everyday']);
+let currentCustomTemplateId = '';
+let editorSuggestions = [];
 
 function getMadLibBrowseFilter() {
   return {
@@ -117,7 +138,7 @@ function saveSettings() {
   try {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({
       tab: appState.sourceType,
-      length: $('#paste-length')?.value,
+      length: $('#editor-length')?.value,
       promptCount: $('#prompt-count')?.value,
       showOriginals: $('#toggle-originals')?.checked || false,
       madlibsTitle: $('#madlibs-select')?.value || ''
@@ -177,6 +198,385 @@ function updatePoemSelection() {
   el.textContent = `Selected: ${appState.selectedPoem.title}`;
 }
 
+function editorDraftInput() {
+  return {
+    id: currentCustomTemplateId,
+    title: $('#editor-title')?.value || '',
+    text: $('#editor-text')?.value || '',
+    format: $('#editor-format')?.value || 'story',
+    tags: [...editorActiveTags]
+  };
+}
+
+function setEditorTags(tags) {
+  editorActiveTags.clear();
+  const valid = (Array.isArray(tags) ? tags : []).filter(t => TAG_ORDER.includes(t)).slice(0, 3);
+  for (const tag of valid.length ? valid : ['everyday']) editorActiveTags.add(tag);
+}
+
+function renderEditorFormatOptions() {
+  const select = $('#editor-format');
+  if (!select) return;
+  select.innerHTML = '';
+  for (const format of FORMAT_ORDER) {
+    const opt = document.createElement('option');
+    opt.value = format;
+    opt.textContent = FORMAT_LABELS[format] || format;
+    select.appendChild(opt);
+  }
+}
+
+function renderEditorTagChips() {
+  const container = $('#editor-tag-chips');
+  if (!container) return;
+  container.innerHTML = '';
+  for (const tag of TAG_ORDER) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tag-chip' + (editorActiveTags.has(tag) ? ' active' : '');
+    btn.textContent = TAG_LABELS[tag] || tag;
+    btn.setAttribute('aria-pressed', editorActiveTags.has(tag) ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      if (editorActiveTags.has(tag)) {
+        editorActiveTags.delete(tag);
+      } else if (editorActiveTags.size < 3) {
+        editorActiveTags.add(tag);
+      } else {
+        setStatus('Choose up to 3 tags.', 'error');
+      }
+      renderEditorTagChips();
+      updateEditorStatsAndPreview();
+    });
+    container.appendChild(btn);
+  }
+}
+
+function renderEditorBlankToolbar() {
+  const toolbar = $('#editor-blank-toolbar');
+  if (!toolbar) return;
+  toolbar.innerHTML = '';
+  for (const tag of EDITOR_BLANK_TAGS) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = `{${tag}}`;
+    btn.addEventListener('click', () => insertEditorTag(tag));
+    toolbar.appendChild(btn);
+  }
+}
+
+function insertEditorTag(tag) {
+  const textarea = $('#editor-text');
+  if (!textarea) return;
+  const insert = `{${tag}}`;
+  const start = textarea.selectionStart ?? textarea.value.length;
+  const end = textarea.selectionEnd ?? textarea.value.length;
+  textarea.value = `${textarea.value.slice(0, start)}${insert}${textarea.value.slice(end)}`;
+  const pos = start + insert.length;
+  textarea.focus();
+  textarea.setSelectionRange(pos, pos);
+  updateEditorStatsAndPreview();
+}
+
+function updateEditorStatsAndPreview() {
+  const text = $('#editor-text')?.value || '';
+  const title = $('#editor-title')?.value || '';
+  const stats = $('#editor-stats');
+  const validationEl = $('#editor-validation');
+  const preview = $('#editor-preview');
+  const blanks = validBlankCount(text);
+  const words = countWords(text);
+  const unsupported = unsupportedPlaceholderTags(text);
+  if (stats) {
+    const mode = blanks ? 'template mode' : 'plain text auto-swap mode';
+    stats.textContent = `${words} words · ${blanks} blanks · ${mode}`;
+  }
+  if (validationEl) {
+    const validation = validateCustomTemplate(
+      { title, text, format: $('#editor-format')?.value, tags: [...editorActiveTags] },
+      loadCustomTemplates(),
+      currentCustomTemplateId
+    );
+    validationEl.className = 'editor-validation';
+    if (!text.trim()) {
+      validationEl.textContent = 'Paste plain text to play, or add {noun}-style blanks to save a template.';
+    } else if (unsupported.length) {
+      validationEl.classList.add('error');
+      validationEl.textContent = `Unsupported blank tags: ${unsupported.join(', ')}.`;
+    } else if (validation.errors.length) {
+      validationEl.classList.add('warn');
+      validationEl.textContent = validation.errors.join(' ');
+    } else if (validation.warnings.length) {
+      validationEl.classList.add('warn');
+      validationEl.textContent = validation.warnings.join(' ');
+    } else {
+      validationEl.textContent = 'Ready to save or play.';
+    }
+  }
+  if (preview) {
+    const previewText = text.trim() || '*Markdown preview appears here.*';
+    preview.innerHTML = renderMadLibMarkdown(previewText, []);
+  }
+}
+
+function renderCustomTemplateSelect(preferredId = '') {
+  const select = $('#custom-template-select');
+  if (!select) return;
+  const templates = loadCustomTemplates().sort((a, b) => a.title.localeCompare(b.title));
+  select.innerHTML = '';
+  if (!templates.length) {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = 'No saved templates';
+    select.appendChild(opt);
+  } else {
+    for (const template of templates) {
+      const opt = document.createElement('option');
+      opt.value = template.id;
+      opt.textContent = template.title;
+      select.appendChild(opt);
+    }
+    if (preferredId && templates.some(t => t.id === preferredId)) {
+      select.value = preferredId;
+    }
+  }
+  const hasSelection = Boolean(select.value);
+  $('#btn-editor-load').disabled = !hasSelection;
+  $('#btn-editor-delete').disabled = !hasSelection;
+  $('#btn-editor-export').disabled = !hasSelection;
+  $('#btn-editor-export-all').disabled = !templates.length;
+}
+
+function loadCustomTemplateIntoEditor(template) {
+  if (!template) return;
+  currentCustomTemplateId = template.id;
+  $('#editor-title').value = template.title || '';
+  $('#editor-text').value = template.text || '';
+  $('#editor-format').value = template.format || 'story';
+  setEditorTags(template.tags);
+  renderEditorTagChips();
+  renderCustomTemplateSelect(template.id);
+  updateEditorStatsAndPreview();
+  setStatus(`Loaded "${template.title}".`, 'success');
+}
+
+function loadSelectedCustomTemplate() {
+  const id = $('#custom-template-select')?.value;
+  const template = loadCustomTemplates().find(t => t.id === id);
+  if (!template) {
+    setStatus('Pick a saved template first.', 'error');
+    return;
+  }
+  loadCustomTemplateIntoEditor(template);
+}
+
+function refreshTemplateBrowsers(preferredKey = '') {
+  renderCustomTemplateSelect(currentCustomTemplateId);
+  renderMadLibSelect(getMadLibBrowseFilter(), preferredKey || $('#madlibs-select')?.value);
+  updateEditorStatsAndPreview();
+}
+
+function saveEditorTemplate(copy = false) {
+  const draft = editorDraftInput();
+  if (copy) {
+    draft.id = '';
+    draft.title = draft.title ? `${draft.title} Copy` : 'Untitled Template Copy';
+  }
+  const validation = validateCustomTemplate(draft, loadCustomTemplates(), copy ? '' : currentCustomTemplateId);
+  if (validation.errors.length) {
+    updateEditorStatsAndPreview();
+    setStatus(validation.errors.join(' '), 'error');
+    return;
+  }
+  try {
+    const saved = upsertCustomTemplate(draft);
+    currentCustomTemplateId = saved.id;
+    $('#editor-title').value = saved.title;
+    refreshTemplateBrowsers(customTemplateKey(saved.id));
+    setStatus(`Saved "${saved.title}" to this browser.`, 'success');
+  } catch (err) {
+    setStatus(err.message || 'Could not save this template.', 'error');
+  }
+}
+
+function deleteSelectedCustomTemplate() {
+  const id = $('#custom-template-select')?.value || currentCustomTemplateId;
+  if (!id) {
+    setStatus('Pick a saved template first.', 'error');
+    return;
+  }
+  const template = loadCustomTemplates().find(t => t.id === id);
+  if (!template) {
+    setStatus('That saved template is no longer available.', 'error');
+    refreshTemplateBrowsers();
+    return;
+  }
+  if (!confirm(`Delete "${template.title}" from this browser?`)) return;
+  try {
+    deleteCustomTemplate(id);
+    if (currentCustomTemplateId === id) currentCustomTemplateId = '';
+    refreshTemplateBrowsers();
+    setStatus(`Deleted "${template.title}".`, 'success');
+  } catch (err) {
+    setStatus(err.message || 'Could not delete this template.', 'error');
+  }
+}
+
+function slugifyName(name) {
+  return (name || 'story-swapper-templates')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 48) || 'story-swapper-templates';
+}
+
+function downloadJson(filename, json) {
+  const blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function exportSelectedCustomTemplate() {
+  const id = $('#custom-template-select')?.value || currentCustomTemplateId;
+  const template = loadCustomTemplates().find(t => t.id === id);
+  if (!template) {
+    setStatus('Pick a saved template first.', 'error');
+    return;
+  }
+  downloadJson(`${slugifyName(template.title)}.json`, serializeCustomTemplatePack([template]));
+  setStatus(`Exported "${template.title}".`, 'success');
+}
+
+function exportAllCustomTemplates() {
+  const templates = loadCustomTemplates();
+  if (!templates.length) {
+    setStatus('No saved templates to export.', 'error');
+    return;
+  }
+  downloadJson('story-swapper-custom-templates.json', serializeCustomTemplatePack(templates));
+  setStatus(`Exported ${templates.length} templates.`, 'success');
+}
+
+async function importCustomTemplateFile(file) {
+  if (!file) return;
+  try {
+    const raw = await file.text();
+    const existing = loadCustomTemplates();
+    const result = parseCustomTemplatePack(raw, existing);
+    if (!result.templates.length) {
+      setStatus(result.errors.join(' ') || 'No valid templates found.', 'error');
+      return;
+    }
+    saveCustomTemplates([...existing, ...result.templates]);
+    currentCustomTemplateId = result.templates[result.templates.length - 1].id;
+    loadCustomTemplateIntoEditor(result.templates[result.templates.length - 1]);
+    refreshTemplateBrowsers(customTemplateKey(currentCustomTemplateId));
+    const skipped = result.errors.length ? ` ${result.errors.length} skipped.` : '';
+    setStatus(`Imported ${result.templates.length} templates.${skipped}`, result.errors.length ? 'info' : 'success');
+  } catch (err) {
+    setStatus(err.message || 'Could not import templates.', 'error');
+  }
+}
+
+function renderEditorSuggestions() {
+  const box = $('#editor-suggestions');
+  if (!box) return;
+  box.innerHTML = '';
+  if (!editorSuggestions.length) {
+    box.classList.add('hidden');
+    return;
+  }
+  const title = document.createElement('h3');
+  title.textContent = 'Suggested blanks';
+  box.appendChild(title);
+  const list = document.createElement('div');
+  list.className = 'suggestion-list';
+  for (const suggestion of editorSuggestions) {
+    const label = document.createElement('label');
+    label.className = 'suggestion-item';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = true;
+    input.dataset.index = String(suggestion.index);
+    const text = document.createElement('span');
+    text.textContent = suggestion.originalWord;
+    const meta = document.createElement('small');
+    meta.textContent = `{${tagForCategory(suggestion.category)}}`;
+    label.append(input, text, meta);
+    list.appendChild(label);
+  }
+  const apply = document.createElement('button');
+  apply.type = 'button';
+  apply.className = 'btn-secondary';
+  apply.textContent = 'Apply Selected Blanks';
+  apply.addEventListener('click', applySelectedSuggestions);
+  box.append(list, apply);
+  box.classList.remove('hidden');
+}
+
+async function suggestEditorBlanks() {
+  const text = $('#editor-text')?.value || '';
+  if (!text.trim()) {
+    setStatus('Write or paste text before asking for suggestions.', 'error');
+    return;
+  }
+  setStatus('Finding good blank candidates...', 'info');
+  try {
+    const tokens = tokenize(text);
+    const classifications = appState.nlpEngine && appState.nlpEngine.name !== 'heuristic'
+      ? classifyTokensWithNlp(tokens, appState.nlpEngine)
+      : classifyTokensHeuristic(tokens);
+    let dictionaryPos = null;
+    try {
+      dictionaryPos = await lookupPosForPool(tokens, classifications);
+    } catch (_) {
+      dictionaryPos = null;
+    }
+    const candidates = selectReplacementCandidates(tokens, classifications, {
+      count: 12,
+      allowPartial: true,
+      dictionaryPos
+    });
+    editorSuggestions = candidates
+      .map((candidate, index) => ({ ...candidate, index, token: tokens[candidate.tokenIndex] }))
+      .filter(s => Number.isInteger(s.token?.start) && Number.isInteger(s.token?.end));
+    renderEditorSuggestions();
+    setStatus(editorSuggestions.length ? `Found ${editorSuggestions.length} blank suggestions.` : 'No good blank suggestions found.', editorSuggestions.length ? 'success' : 'error');
+  } catch (err) {
+    editorSuggestions = [];
+    renderEditorSuggestions();
+    setStatus(err.message || 'Could not suggest blanks for this text.', 'error');
+  }
+}
+
+function applySelectedSuggestions() {
+  const box = $('#editor-suggestions');
+  const textarea = $('#editor-text');
+  if (!box || !textarea) return;
+  const selected = [...box.querySelectorAll('input[type="checkbox"]:checked')]
+    .map(input => editorSuggestions.find(s => s.index === Number(input.dataset.index)))
+    .filter(Boolean)
+    .sort((a, b) => b.token.start - a.token.start);
+  if (!selected.length) {
+    setStatus('Select at least one suggestion to apply.', 'error');
+    return;
+  }
+  let text = textarea.value;
+  for (const suggestion of selected) {
+    text = `${text.slice(0, suggestion.token.start)}{${tagForCategory(suggestion.category)}}${text.slice(suggestion.token.end)}`;
+  }
+  textarea.value = text;
+  editorSuggestions = [];
+  renderEditorSuggestions();
+  updateEditorStatsAndPreview();
+  setStatus(`Applied ${selected.length} suggested blanks.`, 'success');
+}
+
 function renderMadLibSelect(filter = {}, preferredTitle = '') {
   const select = $('#madlibs-select');
   if (!select) return;
@@ -197,10 +597,10 @@ function renderMadLibSelect(filter = {}, preferredTitle = '') {
     og.label = group.label;
     for (const item of group.items) {
       const opt = document.createElement('option');
-      opt.value = item.title;
+      opt.value = item.key || item.title;
       opt.textContent = item.title;
       og.appendChild(opt);
-      if (!firstVisible) firstVisible = item.title;
+      if (!firstVisible) firstVisible = opt.value;
     }
     select.appendChild(og);
   }
@@ -226,7 +626,8 @@ function applySettings(settings) {
     });
   }
   if (settings.promptCount && $('#prompt-count')) $('#prompt-count').value = settings.promptCount;
-  switchTab(settings.tab || 'madlibs');
+  const savedTab = settings.tab === 'paste' ? 'create' : settings.tab;
+  switchTab(savedTab || 'madlibs');
   renderMadLibSelect({}, settings.madlibsTitle || '');
 }
 
@@ -301,12 +702,39 @@ function initApp() {
   renderMadLibCollectionChips();
   renderMadLibTagChips();
   renderMadLibSelect();
+  renderEditorFormatOptions();
+  renderEditorTagChips();
+  renderEditorBlankToolbar();
+  renderCustomTemplateSelect();
+  updateEditorStatsAndPreview();
 
   $$('.tab').forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.tab));
   });
 
-  $('#btn-paste-start').addEventListener('click', startFromPaste);
+  $('#btn-editor-play').addEventListener('click', startFromCreateDraft);
+  $('#btn-editor-save').addEventListener('click', () => saveEditorTemplate(false));
+  $('#btn-editor-save-copy').addEventListener('click', () => saveEditorTemplate(true));
+  $('#btn-editor-suggest').addEventListener('click', suggestEditorBlanks);
+  $('#btn-editor-load').addEventListener('click', loadSelectedCustomTemplate);
+  $('#btn-editor-delete').addEventListener('click', deleteSelectedCustomTemplate);
+  $('#btn-editor-export').addEventListener('click', exportSelectedCustomTemplate);
+  $('#btn-editor-export-all').addEventListener('click', exportAllCustomTemplates);
+  $('#btn-editor-import').addEventListener('click', () => $('#custom-import-file')?.click());
+  $('#custom-template-select')?.addEventListener('change', () => {
+    renderCustomTemplateSelect($('#custom-template-select')?.value || '');
+  });
+  $('#custom-import-file')?.addEventListener('change', async e => {
+    await importCustomTemplateFile(e.target.files?.[0]);
+    e.target.value = '';
+  });
+  $('#editor-title')?.addEventListener('input', updateEditorStatsAndPreview);
+  $('#editor-text')?.addEventListener('input', () => {
+    editorSuggestions = [];
+    renderEditorSuggestions();
+    updateEditorStatsAndPreview();
+  });
+  $('#editor-format')?.addEventListener('change', updateEditorStatsAndPreview);
 
   $('#btn-gutenberg-search').addEventListener('click', async () => {
     setStatus('Searching…', 'info');
@@ -318,7 +746,7 @@ function initApp() {
       renderGutenbergResults(results);
       setStatus(`Found ${results.length} books.`, 'success');
     } catch (_) {
-      setStatus('Could not search public domain books. Try Examples or Paste.', 'error');
+      setStatus('Could not search public domain books. Try Examples or Create.', 'error');
     }
   });
 
@@ -334,7 +762,7 @@ function initApp() {
       updateGutenbergSelection();
       setStatus(`Selected: ${book.title}`, 'success');
     } catch (_) {
-      setStatus('Random book failed. Try Examples or Paste.', 'error');
+      setStatus('Random book failed. Try Examples or Create.', 'error');
     }
   });
 
@@ -355,7 +783,8 @@ function initApp() {
       return;
     }
     renderMadLibSelect(filter, title);
-    setStatus(`Selected: ${title}`, 'success');
+    const selected = $('#madlibs-select')?.selectedOptions?.[0]?.textContent || title;
+    setStatus(`Selected: ${selected}`, 'success');
   });
   $('#btn-madlibs-load').addEventListener('click', () => startFromMadLib());
   $('#madlibs-select')?.addEventListener('change', () => {

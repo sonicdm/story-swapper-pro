@@ -59,7 +59,7 @@ npx playwright install chromium
 
 ### Template mode (`{verb}`, `{noun}`, …)
 
-Paste or sample text with `{category}` tags uses **template mode**: every tag becomes a prompt in order. With **Auto** prompt count, only those tags are used (no NLP extras). Set a fixed prompt count to add auto-detected swaps in hybrid passages. Bare `___` counts as `{noun}`.
+Create or sample text with `{category}` tags uses **template mode**: every tag becomes a prompt in order. With **Auto** prompt count, only those tags are used (no NLP extras). Set a fixed prompt count to add auto-detected swaps in hybrid passages. Bare `___` counts as `{noun}`.
 
 Supported tags include `{verb}`, `{past-tense verb}`, `{verb ending in -ing}`, `{adjective}`, `{adverb}`, `{noun}`, `{plural noun}`, `{animal}`, `{place}`, `{object}`, `{food}`, `{job}`, `{vehicle}`, `{clothing item}`, `{emotion}`, `{sound}`, `{silly word}`, `{body part}`, `{person}`, `{number}`, `{color}`, `{day of week}`.
 

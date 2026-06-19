@@ -289,9 +289,14 @@ function resetGame() {
   appState.replacements = {};
   appState.finalHtml = '';
   appState.finalPlainText = '';
+  appState.forceTemplateMode = false;
   showPhase('source');
   setStatus('');
   $('#btn-reroll-section').classList.add('hidden');
+}
+
+function isTemplateModeSource() {
+  return appState.sourceType === 'madlibs' || appState.forceTemplateMode === true;
 }
 
 async function prepareGameFromSource(rawText, title, isGutenberg = false) {
@@ -304,7 +309,9 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
       ? cleanGutenbergText(rawText)
       : normalizeTemplateSyntax(rawText.replace(/\r\n/g, '\n').trim());
 
-    if (appState.sourceType === 'madlibs') {
+    const templateMode = isTemplateModeSource();
+
+    if (templateMode) {
       appState.detectedSections = [];
       appState.selectedSection = { text: appState.cleanText, title: title, index: 0 };
       appState.selectedSectionIndex = 0;
@@ -327,7 +334,7 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
     }
     appState.tokens = tokenize(appState.selectedText);
 
-    const minWords = appState.sourceType === 'madlibs' ? 20 : 80;
+    const minWords = templateMode ? 20 : 80;
     if (countWords(appState.selectedText) < minWords && countPlaceholders(appState.tokens) === 0) {
       throw new Error('This text is too short. Try a longer excerpt or paste more text.');
     }
@@ -367,13 +374,15 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
   }
 }
 
-async function startFromPaste() {
-  const text = $('#paste-text').value.trim();
-  if (!text) { setStatus('Please paste some text first.', 'error'); return; }
-  appState.sourceType = 'paste';
-  appState.revealLength = parseInt($('#paste-length').value, 10);
-  appState.promptCount = $('#prompt-count').value;
-  await prepareGameFromSource(text, 'Pasted text', false);
+async function startFromCreateDraft() {
+  const text = $('#editor-text')?.value.trim() || '';
+  if (!text) { setStatus('Write or paste a template first.', 'error'); return; }
+  const title = $('#editor-title')?.value.trim() || 'Draft template';
+  appState.sourceType = 'create';
+  appState.forceTemplateMode = hasPlaceholders(normalizeTemplateSyntax(text));
+  appState.revealLength = parseInt($('#editor-length')?.value || '250', 10);
+  appState.promptCount = appState.forceTemplateMode ? 'auto' : $('#prompt-count').value;
+  await prepareGameFromSource(text, appState.forceTemplateMode ? `Draft: ${title}` : 'Pasted text', false);
 }
 
 async function startFromGutenberg(book) {
@@ -387,6 +396,7 @@ async function startFromGutenberg(book) {
   try {
     const raw = await fetchGutenbergText(book);
     appState.sourceType = 'gutenberg';
+    appState.forceTemplateMode = false;
     appState.selectedBook = book;
     appState.revealLength = parseInt($('#gutenberg-length').value, 10);
     appState.promptCount = $('#prompt-count').value;
@@ -398,7 +408,7 @@ async function startFromGutenberg(book) {
     appState.sourceType = 'gutenberg';
     if (location.protocol === 'file:' || err?.message === 'gutenberg-file-protocol') {
       setStatus(
-        'Public Domain book downloads do not work when opening this HTML file directly. Use Examples or Paste, or serve the folder: python -m http.server 8080',
+        'Public Domain book downloads do not work when opening this HTML file directly. Use Examples or Create, or serve the folder: python -m http.server 8080',
         'error'
       );
     } else if (err?.message === 'gutenberg-audio-only') {
@@ -406,7 +416,7 @@ async function startFromGutenberg(book) {
     } else if (err?.message === 'gutenberg-no-text') {
       setStatus('Could not find readable text for this book. Try another title or use Random.', 'error');
     } else {
-      setStatus('Could not download this book. Try another title, Sample, or Paste.', 'error');
+      setStatus('Could not download this book. Try another title, Sample, or Create.', 'error');
     }
   }
 }
@@ -421,6 +431,7 @@ async function startFromPoem(poemData) {
     const { text, title: poemTitle } = poemData;
     if (countWords(text) < 40) throw new Error('Poem too short');
     appState.sourceType = 'poem';
+    appState.forceTemplateMode = false;
     appState.revealLength = Math.min(parseInt($('#poem-length')?.value || '250', 10), countWords(text));
     appState.promptCount = $('#prompt-count').value;
     appState.collectionMode = 'beginning';
@@ -428,7 +439,7 @@ async function startFromPoem(poemData) {
   } catch (_) {
     showPhase('source');
     switchTab('poem');
-    setStatus('Could not load a poem right now. Try Examples or Paste.', 'error');
+    setStatus('Could not load a poem right now. Try Examples or Create.', 'error');
   }
 }
 
@@ -437,6 +448,7 @@ async function startFromSample() {
   const sample = SAMPLES[idx];
   if (!sample) return;
   appState.sourceType = 'sample';
+  appState.forceTemplateMode = false;
   appState.revealLength = parseInt($('#sample-length').value, 10);
   appState.promptCount = $('#prompt-count').value;
   await prepareGameFromSource(sample.text, sample.title, false);
@@ -450,10 +462,12 @@ async function startFromMadLib() {
     const title = $('#madlibs-select')?.value;
     const story = title ? await fetchMadLibByTitle(title) : await fetchMadLibRandom();
     appState.sourceType = 'madlibs';
+    appState.forceTemplateMode = true;
     appState.promptCount = 'auto';
     appState.collectionMode = 'beginning';
+    const prefix = story.source === 'custom' ? 'Custom' : 'Mad Libs';
     const credit = story.source === 'bundled' ? ' (offline)' : '';
-    await prepareGameFromSource(story.text, `Mad Libs: ${story.title}${credit}`, false);
+    await prepareGameFromSource(story.text, `${prefix}: ${story.title}${credit}`, false);
   } catch (err) {
     showPhase('source');
     switchTab('madlibs');
@@ -480,7 +494,7 @@ function revealStory() {
     replacements.push(val);
   }
   appState.replacements = replacements;
-  const useMarkdown = appState.sourceType === 'madlibs';
+  const useMarkdown = isTemplateModeSource();
   const result = buildFinalStory(appState.tokens, appState.candidates, replacements, { useMarkdown });
   const output = $('#story-output');
   output.innerHTML = result.html;
@@ -557,6 +571,7 @@ export {
   renderPromptForm, applyReplacement, buildFinalStory, copyFinalStory,
   downloadFinalStory, fillRandomPrompts, fixArticle, formatStorySummaryHtml,
   startsWithVowelSound,
-  resetGame, prepareGameFromSource, startFromPaste, startFromGutenberg,
-  startFromPoem, startFromSample, startFromMadLib, revealStory, rerollWords, rerollSection
+  resetGame, prepareGameFromSource, startFromCreateDraft, startFromGutenberg,
+  startFromPoem, startFromSample, startFromMadLib,
+  revealStory, rerollWords, rerollSection
 };

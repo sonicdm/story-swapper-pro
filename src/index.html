@@ -26,7 +26,7 @@
           <div class="tabs-row tabs-row-primary">
             <button class="tab" role="tab" id="tab-madlibs" aria-selected="true" aria-controls="panel-madlibs" data-tab="madlibs">Mad Libs</button>
             <button class="tab" role="tab" id="tab-sample" aria-selected="false" aria-controls="panel-sample" data-tab="sample">Examples</button>
-            <button class="tab" role="tab" id="tab-paste" aria-selected="false" aria-controls="panel-paste" data-tab="paste">Paste Text</button>
+            <button class="tab" role="tab" id="tab-create" aria-selected="false" aria-controls="panel-create" data-tab="create">Create</button>
           </div>
           <div class="tabs-row tabs-row-secondary">
             <button class="tab" role="tab" id="tab-gutenberg" aria-selected="false" aria-controls="panel-gutenberg" data-tab="gutenberg">Public Domain</button>
@@ -36,7 +36,7 @@
 
         <div id="panel-madlibs" class="panel active" role="tabpanel" aria-labelledby="tab-madlibs">
           <p class="field-hint" style="margin-top:0">
-            Fill-in-the-blank stories — browse by collection (Classic, Original, Official, Woo! Jr), tags, or title.
+            Fill-in-the-blank stories — browse by collection (Classic, Original, Official, Woo! Jr, Custom), tags, or title.
           </p>
           <div class="field">
             <label for="madlibs-filter">Filter templates</label>
@@ -88,24 +88,82 @@
           <button type="button" class="btn-primary" id="btn-sample-load">Start Example</button>
         </div>
 
-        <div id="panel-paste" class="panel" role="tabpanel" aria-labelledby="tab-paste">
-          <div class="field">
-            <label for="paste-text">Your story text</label>
-            <textarea id="paste-text" placeholder="Paste a short story, paragraph, or any text here…"></textarea>
-          </div>
-          <div class="field">
-            <label for="paste-length">Reveal length</label>
-            <div class="select-wrap">
-              <select id="paste-length">
-                <option value="150">150 words</option>
-                <option value="250" selected>250 words</option>
-                <option value="400">400 words</option>
-                <option value="650">650 words</option>
-                <option value="1000">1000 words</option>
-              </select>
+        <div id="panel-create" class="panel" role="tabpanel" aria-labelledby="tab-create">
+          <p class="field-hint" style="margin-top:0">
+            Write Markdown with {noun}-style blanks, or paste plain text and let Story Swapper pick words for you.
+          </p>
+
+          <div class="editor-grid">
+            <div class="field">
+              <label for="editor-title">Template title</label>
+              <input type="text" id="editor-title" placeholder="e.g. Family Road Trip Memo">
+            </div>
+            <div class="field">
+              <label for="editor-format">Format</label>
+              <div class="select-wrap">
+                <select id="editor-format"></select>
+              </div>
             </div>
           </div>
-          <button type="button" class="btn-primary" id="btn-paste-start">Start Game</button>
+
+          <div class="field">
+            <span class="field-label" id="editor-tags-label">Topic tags</span>
+            <div id="editor-tag-chips" class="tag-chips" role="group" aria-labelledby="editor-tags-label"></div>
+            <p class="field-hint">Choose up to 3 tags for browsing later.</p>
+          </div>
+
+          <div class="field">
+            <label for="editor-text">Markdown template</label>
+            <div id="editor-blank-toolbar" class="blank-toolbar" aria-label="Insert blank"></div>
+            <textarea id="editor-text" class="editor-textarea" placeholder="## My Template&#10;&#10;On {day of week}, {person} found a {adjective} {object} behind the couch."></textarea>
+          </div>
+
+          <div class="editor-grid">
+            <div class="field">
+              <label for="editor-length">Plain-text reveal length</label>
+              <div class="select-wrap">
+                <select id="editor-length">
+                  <option value="150">150 words</option>
+                  <option value="250" selected>250 words</option>
+                  <option value="400">400 words</option>
+                  <option value="650">650 words</option>
+                  <option value="1000">1000 words</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="custom-template-select">Saved templates</label>
+              <div class="select-wrap">
+                <select id="custom-template-select"></select>
+              </div>
+            </div>
+          </div>
+
+          <div id="editor-stats" class="editor-stats" aria-live="polite"></div>
+          <div id="editor-validation" class="editor-validation" aria-live="polite"></div>
+
+          <div class="btn-row">
+            <button type="button" class="btn-primary" id="btn-editor-play">Play Draft</button>
+            <button type="button" class="btn-secondary" id="btn-editor-save">Save Template</button>
+            <button type="button" class="btn-secondary" id="btn-editor-save-copy">Save Copy</button>
+            <button type="button" class="btn-secondary" id="btn-editor-suggest">Suggest Blanks</button>
+          </div>
+
+          <div id="editor-suggestions" class="editor-suggestions hidden"></div>
+
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" id="btn-editor-load">Load Saved</button>
+            <button type="button" class="btn-secondary" id="btn-editor-delete">Delete Saved</button>
+            <button type="button" class="btn-secondary" id="btn-editor-export">Export Saved</button>
+            <button type="button" class="btn-secondary" id="btn-editor-export-all">Export All</button>
+            <button type="button" class="btn-secondary" id="btn-editor-import">Import</button>
+            <input type="file" id="custom-import-file" class="hidden" accept="application/json,.json">
+          </div>
+
+          <div class="field editor-preview-wrap">
+            <span class="field-label">Markdown preview</span>
+            <div id="editor-preview" class="story-reveal story-reveal--markdown editor-preview"></div>
+          </div>
         </div>
 
         <div id="panel-gutenberg" class="panel" role="tabpanel" aria-labelledby="tab-gutenberg">
@@ -113,7 +171,7 @@
             Opened as a local file — book downloads need a web server.
             From this folder run <code>npm run dev</code> or <code>npm run preview</code>,
             or serve the built app: <code>cd dist &amp;&amp; python -m http.server 8080</code>
-            then open <code>http://localhost:8080/</code>. Examples, Paste, and Mad Libs work offline.
+            then open <code>http://localhost:8080/</code>. Examples, Create, and Mad Libs work offline.
           </p>
           <div class="field">
             <label for="gutenberg-search">Search titles or authors</label>

@@ -343,6 +343,7 @@ async function fetchMadLibByTitle(title) {
   const trimmed = (title || '').trim();
   if (!trimmed) throw new Error('madlibs-no-title');
   const bundled = getBundledMadLib(trimmed);
+  if (bundled?.source === 'custom') return bundled;
   try {
     const data = await fetchMadLibApi(`/api/story/${encodeURIComponent(trimmed)}`);
     return parseMadLibApiResponse(data);

@@ -1,12 +1,13 @@
 /** Mad Lib template browse taxonomy — format optgroups + tag filter chips. */
 
-export const COLLECTIONS = ['classic', 'original', 'official', 'woo-jr'];
+export const COLLECTIONS = ['classic', 'original', 'official', 'woo-jr', 'custom'];
 
 export const COLLECTION_LABELS = {
   classic: 'Classic',
   original: 'Original',
   official: 'Official',
-  'woo-jr': 'Woo! Jr'
+  'woo-jr': 'Woo! Jr',
+  custom: 'Custom'
 };
 
 export const FORMAT_ORDER = [

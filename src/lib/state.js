@@ -1,5 +1,5 @@
 const appState = {
-  sourceType: 'paste',
+  sourceType: 'madlibs',
   rawText: '',
   cleanText: '',
   detectedSections: [],
@@ -9,6 +9,7 @@ const appState = {
   collectionMode: 'auto',
   revealLength: 250,
   promptCount: 'auto',
+  forceTemplateMode: false,
   tokens: [],
   classifications: [],
   candidates: [],

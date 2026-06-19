@@ -15,6 +15,12 @@ import {
   TAG_LABELS,
   filterMadLibTemplates
 } from './madlib-taxonomy.js';
+import {
+  customTemplateToCatalogItem,
+  getCustomTemplateByKey,
+  isCustomTemplateKey,
+  listCustomMadLibItems
+} from './custom-templates.js';
 
 export { normalizeMadLibBlank, madLibBlankToTag, madlibsApiStoryToTemplate };
 export {
@@ -49,10 +55,13 @@ export function listBundledMadLibTitles(filter = null) {
 
 /** Flat list of templates with browse metadata. */
 export function listBundledMadLibItems() {
-  return listBundledMadLibTitlesRaw().map(title => ({
-    title,
-    ...getMadLibMeta(title)
-  }));
+  return [
+    ...listBundledMadLibTitlesRaw().map(title => ({
+      title,
+      ...getMadLibMeta(title)
+    })),
+    ...listCustomMadLibItems()
+  ];
 }
 
 function listBundledMadLibTitlesRaw() {
@@ -78,6 +87,10 @@ export function listBundledMadLibCatalog(filter = null) {
 }
 
 export function getMadLibMeta(title, entry = templates[title]) {
+  if (isCustomTemplateKey(title)) {
+    const custom = getCustomTemplateByKey(title);
+    if (custom) return customTemplateToCatalogItem(custom);
+  }
   if (!entry) {
     return {
       blankCount: 0,
@@ -102,12 +115,24 @@ export function getMadLibMeta(title, entry = templates[title]) {
 }
 
 export function getRandomBundledMadLibTitle(exclude = '', filter = null) {
-  const titles = listBundledMadLibTitles(filter).filter(t => t !== exclude);
-  if (!titles.length) return '';
-  return titles[Math.floor(Math.random() * titles.length)];
+  const items = filter ? filterMadLibTemplates(listBundledMadLibItems(), filter) : listBundledMadLibItems();
+  const keys = items
+    .map(i => i.key || i.title)
+    .filter(key => key !== exclude);
+  if (!keys.length) return '';
+  return keys[Math.floor(Math.random() * keys.length)];
 }
 
 export function getBundledMadLib(title) {
+  if (isCustomTemplateKey(title)) {
+    const custom = getCustomTemplateByKey(title);
+    if (!custom) return null;
+    return {
+      title: custom.title,
+      text: madlibsTemplateEntryToText(custom),
+      source: 'custom'
+    };
+  }
   const entry = templates[title];
   if (!entry) return null;
   return {

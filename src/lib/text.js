@@ -206,6 +206,8 @@ function tokenize(text) {
         tokens.push({
           index: tokens.length,
           text: blankSlice,
+          start: i,
+          end,
           norm: '',
           type: 'blank',
           blankCategory: category || 'noun',
@@ -231,6 +233,8 @@ function tokenize(text) {
       tokens.push({
         index: tokens.length,
         text: blankSlice,
+        start: i,
+        end,
         norm: '',
         type: 'blank',
         blankCategory: 'noun',
@@ -259,6 +263,8 @@ function tokenize(text) {
     const token = {
       index: tokens.length,
       text: slice,
+      start: i,
+      end,
       norm: type === 'word' ? slice.toLowerCase().replace(/^['']+|['']+$/g, '') : slice,
       type,
       isCapitalized: type === 'word' && /^[A-Z]/.test(slice) && !atSentenceStart,

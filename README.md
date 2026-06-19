@@ -4,7 +4,7 @@
 
 **Live app:** [https://sonicdm.github.io/story-swapper-pro/](https://sonicdm.github.io/story-swapper-pro/)
 
-Mad Libs-style browser app built with Vite. It includes **136 bundled Mad Libs**, NLP-based auto-swap examples, pasted text, Project Gutenberg/Gutendex books, and PoetryDB poems.
+Mad Libs-style browser app built with Vite. It includes **160 bundled Mad Libs**, a Markdown template creator with browser-local saves, NLP-based auto-swap examples, Project Gutenberg/Gutendex books, and PoetryDB poems.
 
 ## Quick start
 
@@ -35,10 +35,12 @@ npm run preview
 - **Auto prompt density** — auto-swaps target roughly 18 blanks per 150 words, then cap to distinct usable source words.
 - **Reveal controls** — highlight replacements, show original words, copy plain text, and download `.txt`.
 - **Saved settings** — length, prompt count, tab, Mad Libs pick, and reveal preference via `localStorage`.
-- Sources: **Mad Libs** (136 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
+- **Custom templates** — Create tab saves Markdown Mad Libs in browser storage, with JSON import/export for backup.
+- Sources: **Mad Libs** (160 bundled templates), **Examples** (prose NLP demos), Create, Project Gutenberg (Gutendex), PoetryDB.
 - **Mad Libs tab** — search, tag filter chips, format optgroups, Random then Start; full template always (never cropped).
 - **Examples tab** — short prose for NLP word detection; one hybrid passage with `{tags}` plus optional auto-swaps.
-- **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers on Paste. Mad Libs templates are authored as a single `{tag}` string in JSON.
+- **Create tab** — Markdown editor, blank toolbar, live preview, local saves, imports/exports, and suggested blanks.
+- **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers. Mad Libs templates are authored as a single `{tag}` string in JSON.
 
 ## Mad Lib authoring
 
@@ -55,9 +57,9 @@ Each story is one JSON file under `src/data/madlib-originals/`:
 }
 ```
 
-- `**text**` — full template with `{tag}` placeholders (same as the Paste tab)
+- `**text**` — full template with `{tag}` placeholders (same syntax the Create tab saves)
 - `**category**` — folder provenance (`classics`, `legacy`, `generic`, `themed`, `official`)
-- `**collection**` — `classic`, `original`, `official`, or `woo-jr` (browse metadata)
+- `**collection**` — `classic`, `original`, `official`, `woo-jr`, or runtime `custom` (browse metadata)
 - `**format**` — primary UI group: `story`, `how-to`, `form`, `incident-report`, `announcement`, `letter`, `checklist`, `review`, `legal`, `speech`, `listing`, `log`
 - `**tags**` — 1–3 filter chips: `everyday`, `workplace`, `tech`, `civic`, `school`, `travel`, `food`, `media`, `sports`, `gaming`, `retro-web`, `fantasy`, `sci-fi`, `spooky`, `seasonal`, `pets`, `kids`, `parody-bureaucratic`
 
@@ -72,7 +74,7 @@ Run `npm run sync:madlibs` after editing any file under `madlib-originals/`. Dev
 | ----------------- | -------------------------------------------------------------- |
 | **Mad Libs**      | Fill-in-the-blank templates only — tag prompts, no length trim |
 | **Examples**      | NLP auto-swap demos (4 prose + 1 hybrid)                       |
-| **Paste**         | Any text + `{tag}` templates                                   |
+| **Create**        | Markdown editor for plain text drafts and saved custom templates |
 | **Public Domain** | Gutendex search / random book → excerpt                        |
 | **Poem**          | PoetryDB search / random poem                                  |
 
@@ -91,7 +93,7 @@ story-swapper-pro/
         classics/               # 16 madlibz classics
         legacy/                 # 2 migrated templates
         generic/                # 51 originals
-        themed/                 # 38 themed originals
+        themed/                 # 62 themed originals
         official/               # 18 Penguin Mad Libs (authorized PDF import)
         woo-jr/                 # 11 WooJr.com printable Mad Libs
       madlibs-templates.json    # GENERATED — do not hand-edit
@@ -200,6 +202,6 @@ Bundled templates support offline play and remote API fallback. Template text re
 
 ## Notes
 
-- **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Examples, Paste, and Mad Libs still work.
-- **Third-party CORS proxies:** On GitHub Pages, Gutenberg text may be fetched via public proxy services (`api.allorigins.win`, `cors.eu.org`, `r.jina.ai`) when direct cross-origin requests fail. Selecting a book sends its URL (and the downloaded text) through whichever proxy succeeds. Mad Libs, Examples, and Paste do not use these proxies.
+- **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Examples, Create, and Mad Libs still work.
+- **Third-party CORS proxies:** On GitHub Pages, Gutenberg text may be fetched via public proxy services (`api.allorigins.win`, `cors.eu.org`, `r.jina.ai`) when direct cross-origin requests fail. Selecting a book sends its URL (and the downloaded text) through whichever proxy succeeds. Mad Libs, Examples, and Create do not use these proxies.
 - The older single-file `standalone.html` build has been removed in favor of this standard Vite output.
