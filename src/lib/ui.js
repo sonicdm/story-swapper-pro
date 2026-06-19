@@ -28,8 +28,13 @@ function renderGutenbergResults(results) {
   results.forEach((book, i) => {
     const li = document.createElement('li');
     li.dataset.index = String(i);
+    li.appendChild(document.createTextNode(book.title || ''));
     const authors = (book.authors || []).map(a => a.name).join(', ');
-    li.innerHTML = `${book.title}${authors ? `<small>${authors}</small>` : ''}`;
+    if (authors) {
+      const small = document.createElement('small');
+      small.textContent = authors;
+      li.appendChild(small);
+    }
     li.addEventListener('click', () => {
       list.querySelectorAll('li').forEach(el => el.classList.remove('selected'));
       li.classList.add('selected');
@@ -48,6 +53,7 @@ const AUTO_SWAP_TABS = new Set(['paste', 'gutenberg', 'poem', 'sample']);
 /** Active Mad Lib collection + tag filter chips. */
 const madlibActiveCollections = new Set();
 const madlibActiveTags = new Set();
+let madlibFilterTimer = null;
 
 function getMadLibBrowseFilter() {
   return {
@@ -357,7 +363,10 @@ function initApp() {
     saveSettings();
   });
   $('#madlibs-filter')?.addEventListener('input', () => {
-    renderMadLibSelect(getMadLibBrowseFilter(), $('#madlibs-select')?.value);
+    clearTimeout(madlibFilterTimer);
+    madlibFilterTimer = setTimeout(() => {
+      renderMadLibSelect(getMadLibBrowseFilter(), $('#madlibs-select')?.value);
+    }, 200);
   });
 
   $('#prompt-form').addEventListener('submit', e => { e.preventDefault(); revealStory(); });

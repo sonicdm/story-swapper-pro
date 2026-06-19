@@ -1,0 +1,12 @@
+{
+  "title": "Community Resource Referral",
+  "category": "themed",
+  "text": "## Community Resource Referral\n\n**Referral for:** {person}\n\n**Requested support:** {adjective} help with housing, employment, and one confusing {object}.\n\n**Immediate need:** {food}, bus fare, and a safe {place} before {number} PM.\n\n**Strength observed:** Client {past-tense verb} {adverb} even while feeling {emotion}.\n\n**Partner agency:** A {adjective} {job} at the {place} can {verb} the paperwork.\n\n**Follow-up:** Case worker will call on {day of week}, bring {plural noun}, and avoid using the phrase just {verb}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "civic",
+    "everyday",
+    "workplace"
+  ]
+}

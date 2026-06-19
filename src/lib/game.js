@@ -16,6 +16,7 @@ import { phraseLooksPlural, isPastTenseForm } from './grammar.js';
 import { hasPlaceholders, selectMixedCandidates, countPlaceholders, placeholderOriginalForCategory } from './placeholders.js';
 import { lookupPosForPool, randomWordsForCategories } from './dictionary.js';
 import { renderMadLibMarkdown, swapPlaceholder } from './story-markdown.js';
+import { escapeHtml } from './html-utils.js';
 
 function renderPromptForm(candidates) {
   const form = $('#prompt-form');
@@ -28,7 +29,7 @@ function renderPromptForm(candidates) {
     const input = node.querySelector('input');
     const id = `prompt-${i}`;
     label.setAttribute('for', id);
-    label.innerHTML = `<span class="prompt-num">${i + 1}</span> ${c.label}`;
+    label.innerHTML = `<span class="prompt-num">${i + 1}</span> ${escapeHtml(c.label)}`;
     hint.textContent = c.hint || '';
     hint.style.display = c.hint ? 'block' : 'none';
     input.id = id;
@@ -40,7 +41,6 @@ function renderPromptForm(candidates) {
     form.appendChild(node);
   });
   appState.candidates = candidates;
-  appState.prompts = candidates;
 }
 
 const IRREGULAR_PAST = {
@@ -146,14 +146,6 @@ function applyReplacement(original, replacement, meta) {
   return word;
 }
 
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
 function makeSwapMarkHtml(applied, meta) {
   const safe = escapeHtml(applied);
   const origLabel = meta.isPlaceholder
@@ -234,6 +226,16 @@ function buildFinalStory(tokens, prompts, replacements, options = {}) {
     : { html, plain, useMarkdown: false };
 }
 
+function formatStorySummaryHtml(sourceTitle, sectionTitle, wordCount, swapCount) {
+  const sourceSafe = escapeHtml(sourceTitle);
+  const sectionSafe = sectionTitle ? escapeHtml(sectionTitle) : '';
+  return `
+    <strong>Source:</strong> ${sourceSafe}<br>
+    ${sectionSafe ? `<strong>Section:</strong> ${sectionSafe}<br>` : ''}
+    <strong>Words:</strong> ${wordCount} · <strong>Swaps:</strong> ${swapCount}
+  `;
+}
+
 async function fillRandomPrompts() {
   setStatus('Picking random words…', 'info');
   try {
@@ -284,7 +286,6 @@ async function copyFinalStory() {
 function resetGame() {
   appState.tokens = [];
   appState.candidates = [];
-  appState.prompts = [];
   appState.replacements = {};
   appState.finalHtml = '';
   appState.finalPlainText = '';
@@ -487,11 +488,12 @@ function revealStory() {
   output.classList.toggle('show-originals', !!$('#toggle-originals')?.checked);
   const wc = countWords(appState.selectedText);
   const sectionTitle = appState.selectedSection?.title;
-  $('#story-summary').innerHTML = `
-    <strong>Source:</strong> ${appState.loadedSourceTitle}<br>
-    ${sectionTitle ? `<strong>Section:</strong> ${sectionTitle}<br>` : ''}
-    <strong>Words:</strong> ${wc} · <strong>Swaps:</strong> ${replacements.length}
-  `;
+  $('#story-summary').innerHTML = formatStorySummaryHtml(
+    appState.loadedSourceTitle,
+    sectionTitle,
+    wc,
+    replacements.length
+  );
   const rerollSec = $('#btn-reroll-section');
   if (appState.detectedSections.length > 1 && appState.collectionMode === 'auto') {
     rerollSec.classList.remove('hidden');
@@ -553,7 +555,8 @@ async function rerollSection() {
 }
 export {
   renderPromptForm, applyReplacement, buildFinalStory, copyFinalStory,
-  downloadFinalStory, fillRandomPrompts, fixArticle, startsWithVowelSound,
+  downloadFinalStory, fillRandomPrompts, fixArticle, formatStorySummaryHtml,
+  startsWithVowelSound,
   resetGame, prepareGameFromSource, startFromPaste, startFromGutenberg,
   startFromPoem, startFromSample, startFromMadLib, revealStory, rerollWords, rerollSection
 };

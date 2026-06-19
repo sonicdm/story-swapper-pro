@@ -1,17 +1,11 @@
+import { escapeHtml } from './html-utils.js';
+
 /** Opaque swap placeholders — never valid markdown syntax. */
 export function swapPlaceholder(index) {
   return `\uE000${index}\uE001`;
 }
 
 const PLACEHOLDER_RE = /\uE000(\d+)\uE001/g;
-
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
 
 function renderInline(text) {
   const parts = text.split(PLACEHOLDER_RE);

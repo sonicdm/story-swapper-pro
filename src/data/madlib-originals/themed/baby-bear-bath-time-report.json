@@ -1,0 +1,11 @@
+{
+  "title": "Baby Bear Bath Time Report",
+  "category": "themed",
+  "text": "## Bath Time Report\n\nSubject: Baby Bear, baby bear\n\n**Water temperature:** {adjective} but acceptable after {number} tests with one {body part}.\n\n**Soap:** Smelled like {food} and made {color} bubbles around the {object}.\n\n**Incident:** Baby Bear {past-tense verb} when a {adjective} rubber {animal} began {verb ending in -ing}.\n\n**Song request:** A {adjective} lullaby sung {adverb} by {person}.\n\n**After bath:** Baby Bear felt {emotion}, wore a {clothing item}, and tried to {verb} the towel.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "kids"
+  ]
+}

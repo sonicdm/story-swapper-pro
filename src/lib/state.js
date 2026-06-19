@@ -12,18 +12,14 @@ const appState = {
   tokens: [],
   classifications: [],
   candidates: [],
-  prompts: [],
   replacements: {},
   finalHtml: '',
   finalPlainText: '',
   loadedSourceTitle: '',
   nlpEngine: null,
   selectedBook: null,
-  errors: [],
-  warnings: [],
   phase: 'source',
   gutenbergResults: [],
-  selectedPoem: null,
-  pendingMadLibTitle: ''
+  selectedPoem: null
 };
 export { appState };

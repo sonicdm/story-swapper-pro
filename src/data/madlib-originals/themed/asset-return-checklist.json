@@ -1,0 +1,11 @@
+{
+  "title": "Asset Return Checklist",
+  "category": "themed",
+  "text": "## Asset Return Checklist\n\nEmployee: {person}\n\nPlease return the following by {day of week}: one {adjective} laptop, {number} chargers, a {color} badge, and the mysterious {object} from your desk.\n\nBefore shipping, {verb} all files to the approved {place} and stop {verb ending in -ing} company data onto {plural noun}.\n\nMissing equipment will be replaced with a {adjective} invoice and a call from a {job}.\n\nIf you feel {emotion}, eat {food}, make a {sound}, and contact IT {adverb}.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
+}

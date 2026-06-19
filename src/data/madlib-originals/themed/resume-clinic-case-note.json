@@ -1,0 +1,11 @@
+{
+  "title": "Resume Clinic Case Note",
+  "category": "themed",
+  "text": "## Resume Clinic Case Note\n\n**Client:** {person}\n\n**Objective:** Replace the {adjective} resume summary with something less like a {noun}.\n\n**Experience translated:** \"Helped with {plural noun}\" became \"coordinated {adjective} operations while {verb ending in -ing}.\"\n\n**Skills added:** {verb}, customer service, and safely operating a {object} near a {place}.\n\n**Concern:** Gap in work history caused by {number} months of {emotion} and a {adjective} {animal}.\n\n**Plan:** Employment specialist will {verb} edits {adverb} and send applications by {day of week}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "workplace",
+    "civic"
+  ]
+}

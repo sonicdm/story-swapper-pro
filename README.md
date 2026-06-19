@@ -167,7 +167,7 @@ Word categories use a client-side pipeline:
 
 | Library                                            | Role                                                                                                     |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| **WordNet** (`pos-index.json` + `word-pools.json`) | Required POS validation for auto-swaps; common-word random pools built from `en-wordnet` at compile time |
+| **WordNet** (`pos-index.json.gz` or `pos-index.json` + `word-pools.json`) | Required POS validation for auto-swaps; common-word random pools built from `en-wordnet` at compile time |
 | **compromise** (`/three`)                          | Document-level POS hints, person/place tags, term-level merge                                            |
 | **wink-nlp** + **wink-eng-lite-web-model**         | Optional second pass (~1 MB, lazy-loaded) for universal POS tags                                         |
 | **pluralize**                                      | Plural detection and fitting replacements to plural slots                                                |
@@ -201,4 +201,5 @@ Bundled templates support offline play and remote API fallback. Template text re
 ## Notes
 
 - **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Examples, Paste, and Mad Libs still work.
+- **Third-party CORS proxies:** On GitHub Pages, Gutenberg text may be fetched via public proxy services (`api.allorigins.win`, `cors.eu.org`, `r.jina.ai`) when direct cross-origin requests fail. Selecting a book sends its URL (and the downloaded text) through whichever proxy succeeds. Mad Libs, Examples, and Paste do not use these proxies.
 - The older single-file `standalone.html` build has been removed in favor of this standard Vite output.

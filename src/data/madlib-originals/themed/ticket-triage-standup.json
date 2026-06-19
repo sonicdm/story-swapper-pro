@@ -1,0 +1,12 @@
+{
+  "title": "Ticket Triage Standup",
+  "category": "themed",
+  "text": "## Ticket Triage Standup\n\n**Facilitator:** {person}\n\n**Total tickets:** {number}, not counting the one labeled my {object} is haunted.\n\n**Priority one:** {adjective} outage preventing a {job} from {verb ending in -ing} near {place}.\n\n**Priority two:** User wants a {color} laptop because it feels more {emotion}.\n\n**Blocked by:** Vendor, {plural noun}, and a dashboard that {past-tense verb} {adverb}.\n\n**Action items:** {verb} the queue, assign the {adjective} tickets, and bring {food} before everyone makes a {sound}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "tech",
+    "workplace",
+    "parody-bureaucratic"
+  ]
+}

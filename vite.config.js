@@ -37,6 +37,6 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     target: 'es2020',
-    sourcemap: true
+    sourcemap: false
   }
 });

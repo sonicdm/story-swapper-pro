@@ -86,32 +86,52 @@ function validateWordPoolsObject(pools) {
   return pools;
 }
 
+function parsePosIndexObject(data) {
+  const map = new Map();
+  for (const [lemma, posList] of Object.entries(data)) {
+    const set = new Set(posList.map(normalizeWordNetPos));
+    if (set.size) map.set(lemma, set);
+  }
+  if (!map.size) {
+    throw wordNetLoadError('pos-index.json is empty');
+  }
+  return map;
+}
+
+/** Fetch pos-index JSON, preferring gzip when the browser supports DecompressionStream. */
+export async function fetchPosIndexData() {
+  if (typeof DecompressionStream !== 'undefined') {
+    try {
+      const gzRes = await fetch(assetUrl('pos-index.json.gz'));
+      if (gzRes.ok) {
+        const ds = new DecompressionStream('gzip');
+        const text = await new Response(gzRes.body.pipeThrough(ds)).text();
+        return JSON.parse(text);
+      }
+    } catch (_) {
+      /* fall through to uncompressed JSON */
+    }
+  }
+  const res = await fetch(assetUrl('pos-index.json'));
+  if (!res.ok) throw wordNetLoadError(`pos-index.json returned ${res.status}`);
+  return res.json();
+}
+
 /** Load WordNet assets once (dev server + GitHub Pages). */
 export async function loadDictionary() {
   if (posIndex && wordPools) return { posIndex, wordPools };
   if (loadPromise) return loadPromise;
 
   loadPromise = (async () => {
-    const map = new Map();
     try {
-      const [posRes, poolsRes] = await Promise.all([
-        fetch(assetUrl('pos-index.json')),
+      const [data, poolsRes] = await Promise.all([
+        fetchPosIndexData(),
         fetch(assetUrl('word-pools.json'))
       ]);
-      if (!posRes.ok) throw wordNetLoadError(`pos-index.json returned ${posRes.status}`);
       if (!poolsRes.ok) throw wordNetLoadError(`word-pools.json returned ${poolsRes.status}`);
 
-      const data = await posRes.json();
-      for (const [lemma, posList] of Object.entries(data)) {
-        const set = new Set(posList.map(normalizeWordNetPos));
-        if (set.size) map.set(lemma, set);
-      }
-      if (!map.size) {
-        throw wordNetLoadError('pos-index.json is empty');
-      }
-
+      posIndex = parsePosIndexObject(data);
       wordPools = validateWordPoolsObject(await poolsRes.json());
-      posIndex = map;
     } catch (_) {
       posIndex = null;
       wordPools = null;
@@ -219,12 +239,8 @@ export async function randomWordsForCategories(categories, rng = Math.random) {
 export const loadPosIndex = loadDictionary;
 
 export function loadPosIndexFromObject(obj) {
-  const map = new Map();
-  for (const [lemma, posList] of Object.entries(obj)) {
-    map.set(lemma, new Set(posList.map(normalizeWordNetPos)));
-  }
-  posIndex = map;
-  return map;
+  posIndex = parsePosIndexObject(obj);
+  return posIndex;
 }
 
 export function loadWordPoolsFromObject(obj) {

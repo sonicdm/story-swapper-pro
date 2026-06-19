@@ -1,0 +1,11 @@
+{
+  "title": "Matilda's Squirrel Debrief",
+  "category": "themed",
+  "text": "## Squirrel Debrief\n\n**Subject:** Matilda, dark red golden retriever\n\n**Time of sighting:** {number} minutes after breakfast.\n\n**Suspect:** A {adjective} {color} {animal} near the {place}.\n\n**Initial response:** Matilda {past-tense verb}, then attempted to {verb} {adverb} while the leash became a {adjective} {object}.\n\n**Treat negotiation:** Handler offered {food}; Matilda accepted with {emotion} but continued {verb ending in -ing}.\n\n**Damage:** {number} {plural noun} startled, one {body part} covered in grass.\n\n**Recommendation:** More practice with {adjective} squirrels.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
+}

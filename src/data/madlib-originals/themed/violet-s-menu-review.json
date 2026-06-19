@@ -1,0 +1,11 @@
+{
+  "title": "Violet's Menu Review",
+  "category": "themed",
+  "text": "## Menu Review\n\nReviewer: Violet, tortie cat and head cat\n\nTonight's entree was {adjective} {food} served in a {color} bowl at {number} o'clock.\n\n**Aroma:** {adjective}, though someone allowed Matilda to {verb} nearby.\n\n**Texture:** Like a {object} that had been {past-tense verb} by a {job}.\n\n**Service:** Human approached {adverb}, then failed to notice Zebby the black kitten {verb ending in -ing} near the {place}.\n\n**Emotional result:** {emotion}.\n\n**Final verdict:** Replace with {food} and add {number} {plural noun}.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "pets",
+    "food"
+  ]
+}

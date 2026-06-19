@@ -1,0 +1,11 @@
+{
+  "title": "Matilda's Grooming Review",
+  "category": "themed",
+  "text": "## Grooming Review\n\nClient: Matilda, dark red golden retriever\n\n**Bath quality:** {adjective}, with notes of {food} and wet {animal}.\n\n**Brush report:** Removed {number} pounds of {color} fluff, one mystery {object}, and several {plural noun} from behind her {body part}.\n\n**Cooperation:** Matilda {past-tense verb} until the dryer began {verb ending in -ing} like a {sound}.\n\n**Post-groom mood:** {emotion}; immediately tried to {verb} on the {place}.\n\n**Final rating:** {number} stars and one {adjective} bandana.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
+}

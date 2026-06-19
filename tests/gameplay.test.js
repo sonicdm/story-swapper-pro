@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { tokenize } from '../src/lib/text.js';
 import {
-  applyReplacement, buildFinalStory, fixArticle, startsWithVowelSound
+  applyReplacement, buildFinalStory, fixArticle, formatStorySummaryHtml, startsWithVowelSound
 } from '../src/lib/game.js';
 import {
   classifyTokensHeuristic, selectReplacementCandidates, plannedCategories,
@@ -118,6 +118,20 @@ describe('buildFinalStory', () => {
       prompt(dog.index, 'animal', { originalWord: 'dog' })
     ], ['   ']);
     expect(plain).toContain('dog');
+  });
+});
+
+describe('formatStorySummaryHtml', () => {
+  it('escapes hostile source and section titles', () => {
+    const html = formatStorySummaryHtml(
+      '<img src=x onerror=alert(1)>',
+      '<section>evil</section>',
+      120,
+      8
+    );
+    expect(html).not.toContain('<img');
+    expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;');
+    expect(html).toContain('&lt;section&gt;evil&lt;/section&gt;');
   });
 });
 

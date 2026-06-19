@@ -47,6 +47,7 @@ function isGutenbergReadableBook(book) {
     .map(k => formats[k])
     .filter(isGutenbergStoryUrl);
   if (plainUrls.length) return true;
+  // Text book with id but no format URLs: still probe generated gutenberg.org URLs.
   return true;
 }
 
@@ -66,8 +67,9 @@ function gutenbergTextCandidates(book) {
   }
   const formats = book.formats || {};
   for (const key of Object.keys(formats)) {
-    if (key.startsWith('text/plain') && isGutenbergStoryUrl(formats[key])) {
-      urls.push(formats[key]);
+    const url = formats[key];
+    if (key.startsWith('text/plain') && isGutenbergStoryUrl(url) && isGutenbergHost(url)) {
+      urls.push(url);
     }
   }
   if (id) {

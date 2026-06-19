@@ -1,0 +1,12 @@
+{
+  "title": "Access Request Approval Chain",
+  "category": "themed",
+  "text": "## Access Request Approval Chain\n\n**Requester:** {person}\n\n**System:** The {adjective} portal used to {verb} {plural noun}.\n\n**Access level:** {color} badge plus permission to touch the {object}.\n\n**Business reason:** User is a {job} and must {verb} before {day of week}.\n\n**Manager approval:** Granted {adverb}, pending {number} screenshots and one {adjective} spreadsheet.\n\n**Security concern:** Requester once {past-tense verb} a {vehicle} into the {place}.\n\n**Decision:** Approved, but only if they promise not to feel {emotion}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "tech",
+    "workplace",
+    "parody-bureaucratic"
+  ]
+}

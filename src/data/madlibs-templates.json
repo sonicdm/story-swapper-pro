@@ -35,6 +35,19 @@
     "blankCount": 11,
     "wordCount": 144
   },
+  "Access Request Approval Chain": {
+    "text": "## Access Request Approval Chain\n\n**Requester:** {person}\n\n**System:** The {adjective} portal used to {verb} {plural noun}.\n\n**Access level:** {color} badge plus permission to touch the {object}.\n\n**Business reason:** User is a {job} and must {verb} before {day of week}.\n\n**Manager approval:** Granted {adverb}, pending {number} screenshots and one {adjective} spreadsheet.\n\n**Security concern:** Requester once {past-tense verb} a {vehicle} into the {place}.\n\n**Decision:** Approved, but only if they promise not to feel {emotion}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "tech",
+      "workplace",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 16,
+    "wordCount": 71
+  },
   "AIM Away Message": {
     "text": "## AIM Away Message\n\nbrb {verb ending in -ing}ing 4 a while!!!\n\n**If u need me:** Prob at the {adjective} mall or fighting my {adjective} brother 4 the computer.\n\n**Current mood:** {adjective}\n\n**Listening 2:** {plural noun} on my {adjective} CD player.\n\n**Leave a {plural noun} if u wanna talk about {plural noun}, homework, or who {past-tense verb} who on the bus.\n\n**Back @** {number} unless dial-up is {adjective} again lol.\n\n**Auto-reply:** BRB DO NOT {verb} MY PROFILE!!! ~*{person} ~*",
     "category": "themed",
@@ -105,6 +118,18 @@
     "blankCount": 15,
     "wordCount": 75
   },
+  "Asset Return Checklist": {
+    "text": "## Asset Return Checklist\n\nEmployee: {person}\n\nPlease return the following by {day of week}: one {adjective} laptop, {number} chargers, a {color} badge, and the mysterious {object} from your desk.\n\nBefore shipping, {verb} all files to the approved {place} and stop {verb ending in -ing} company data onto {plural noun}.\n\nMissing equipment will be replaced with a {adjective} invoice and a call from a {job}.\n\nIf you feel {emotion}, eat {food}, make a {sound}, and contact IT {adverb}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
+    "blankCount": 16,
+    "wordCount": 76
+  },
   "Baby and Baby Bear Bedtime": {
     "text": "## Bedtime Checklist\n\n**For Baby and Baby Bear:**\n\n- Draw a {adjective} bath\n- Find the {adjective} pajamas with {plural noun} on them\n- Read one {adjective} story about {animal} who learn to {verb}\n\n**Baby Bear:** Requires {adjective} honey on a {adjective} spoon and will {verb} if the room is too {adjective}.\n\n**Baby:** Prefers the {adjective} lullaby sung {adverb} while rocking the {adjective} chair.\n\n**Lights out:** {number} o'clock.\n\n**If either wakes up:** Offer a {adjective} hug and do not mention {plural noun} until morning.",
     "category": "themed",
@@ -116,6 +141,30 @@
     ],
     "blankCount": 16,
     "wordCount": 80
+  },
+  "Baby Bear Bath Time Report": {
+    "text": "## Bath Time Report\n\nSubject: Baby Bear, baby bear\n\n**Water temperature:** {adjective} but acceptable after {number} tests with one {body part}.\n\n**Soap:** Smelled like {food} and made {color} bubbles around the {object}.\n\n**Incident:** Baby Bear {past-tense verb} when a {adjective} rubber {animal} began {verb ending in -ing}.\n\n**Song request:** A {adjective} lullaby sung {adverb} by {person}.\n\n**After bath:** Baby Bear felt {emotion}, wore a {clothing item}, and tried to {verb} the towel.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "kids"
+    ],
+    "blankCount": 16,
+    "wordCount": 71
+  },
+  "Baby Bear Honey Picnic Plan": {
+    "text": "## Honey Picnic Plan\n\nHost: Baby Bear, baby bear\n\n**Location:** The {adjective} {place} under a {color} sky.\n\n**Menu:** {number} jars of {food}, tiny {plural noun}, and one emergency {object}.\n\n**Activities:** {verb ending in -ing} with butterflies, learning to {verb}, and listening for a {sound} in the trees.\n\n**Guest list:** One {adjective} {animal}, {person}, and anyone wearing a {clothing item}.\n\n**Picnic rule:** If Baby Bear feels {emotion}, everyone must {verb} {adverb} and offer more honey.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "pets",
+      "kids"
+    ],
+    "blankCount": 17,
+    "wordCount": 73
   },
   "Baby Bear Nap Schedule": {
     "text": "## Baby Bear Nap Protocol\n\n**Pre-nap:**\n- {adjective} story\n- {adjective} honey on toast\n\n**Music:** Soft {adjective} songs from the {adjective} collection.\n\n**Room:** Must be {adjective}, quiet, and free of {plural noun} toys.\n\n**Duration:** Baby Bear will {verb} for exactly {number} minutes unless a {adjective} butterfly appears.\n\n**Wake-up:** Stretching, yawning, and asking for another {object}.\n\n**If Baby joins:** Both may {verb} until someone finds the {adjective} blanket.\n\n**Do not** schedule meetings during {adjective} hour.",
@@ -260,6 +309,19 @@
     "blankCount": 14,
     "wordCount": 65
   },
+  "Community Resource Referral": {
+    "text": "## Community Resource Referral\n\n**Referral for:** {person}\n\n**Requested support:** {adjective} help with housing, employment, and one confusing {object}.\n\n**Immediate need:** {food}, bus fare, and a safe {place} before {number} PM.\n\n**Strength observed:** Client {past-tense verb} {adverb} even while feeling {emotion}.\n\n**Partner agency:** A {adjective} {job} at the {place} can {verb} the paperwork.\n\n**Follow-up:** Case worker will call on {day of week}, bring {plural noun}, and avoid using the phrase just {verb}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "civic",
+      "everyday",
+      "workplace"
+    ],
+    "blankCount": 16,
+    "wordCount": 70
+  },
   "Courtroom Testimony": {
     "text": "## Courtroom Testimony\n\nYour honor, on {day of week}, I saw {person} enter the {place} carrying a {adjective} {object}.\n\nThe witness appeared {emotion} and began {verb ending in -ing} near the evidence table.\n\nWhen asked about the missing {noun}, they {past-tense verb} and blamed a {animal} wearing a {color} {clothing item}.\n\nExhibit {number} is a bag of {plural noun} found beside the {body part} print.\n\nI swear this statement is completely {adjective} and only slightly {emotion}, according to the {job}.",
     "category": "generic",
@@ -355,6 +417,31 @@
     ],
     "blankCount": 18,
     "wordCount": 73
+  },
+  "Emergency Treat Inventory": {
+    "text": "## Emergency Treat Inventory\n\n**Shelf:** {adjective} cabinet above the {place}\n\n**Matilda:** Requires {number} {adjective} biscuits after any walk involving a {animal}.\n\n**Violet:** Head cat demands {food} arranged {adverb} in the correct bowl.\n\n**Zebby:** Black kitten accepts {food} only if served beside a {color} {object}, preferably not stolen from Violet.\n\n**Baby Bear:** Needs honey, a {clothing item}, and one {adjective} spoon.\n\n**Shortage plan:** If supplies run low, {verb} to the {place} while {verb ending in -ing}. Do not let anyone feel {emotion}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "pets",
+      "food"
+    ],
+    "blankCount": 16,
+    "wordCount": 80
+  },
+  "Employment Specialist Intake": {
+    "text": "## Employment Specialist Intake\n\n**Client goal:** Find a {adjective} job where they can {verb} without feeling {emotion}.\n\n**Preferred schedule:** {number} hours per week, ideally near {place}.\n\n**Strengths:** {verb ending in -ing}, staying {adjective}, and explaining {plural noun} to confused supervisors.\n\n**Barrier noted:** Transportation involves one {adjective} {vehicle} and a {place} that closes early.\n\n**Next step:** Employment specialist will {verb} the resume, call a {job}, and practice interview answers {adverb}.\n\n**Encouragement:** Bring {food}, confidence, and one {color} {object}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "workplace",
+      "civic",
+      "everyday"
+    ],
+    "blankCount": 17,
+    "wordCount": 76
   },
   "Escape Room Briefing": {
     "text": "## Escape Room Briefing\n\n**Team:** {number} players led by {person}\n\n**Theme:** The {adjective} {place} of {plural noun}\n\n**Time limit:** {number} minutes\n\n**Rules:**\n- Do not {verb} the {object}\n- Hints cost {number} points\n- No {verb ending in -ing} the {color} {clothing item}\n\n**Safety:** In case of panic, {verb} calmly and {past-tense verb} the emergency {sound}.\n\n**Goal:** Find the {adjective} key hidden inside a {vehicle} replica.\n\n**Prize:** Bragging rights and one {food} coupon.",
@@ -605,6 +692,18 @@
     "blankCount": 16,
     "wordCount": 81
   },
+  "Interview Coaching Follow-Up": {
+    "text": "## Interview Coaching Follow-Up\n\n**Candidate:** {person}\n\n**Mock interview result:** {adjective}, with only {number} accidental mentions of {plural noun}.\n\n**Best answer:** Explained teamwork by describing a {adjective} time they had to {verb} near a {place}.\n\n**Needs practice:** Looking at the interviewer instead of the {color} {object}.\n\n**Employment specialist tip:** Pause {adverb}, breathe through your {body part}, and say you are {emotion} about the role.\n\n**Next interview:** {day of week} with a {job}; wear a {clothing item}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "workplace",
+      "civic"
+    ],
+    "blankCount": 15,
+    "wordCount": 74
+  },
   "Is There a Monster in My Room?": {
     "text": "## Is There a Monster in My Room?\n\nEvery night before I {verb} to sleep, I swear I can {verb} noises in my closet. It sounds like a {adjective} {noun} is {verb ending in -ing} in there and it's so {adjective}! When I call my mom and {person}, they never {verb} anything. So I {verb} off the lights and try to {verb}. That's when the {plural noun} start under my {object}. Is it a monster, or something else, like a {noun} or maybe even a {noun}?",
     "category": "woo-jr",
@@ -640,6 +739,19 @@
     ],
     "blankCount": 15,
     "wordCount": 87
+  },
+  "Job Readiness Workshop Plan": {
+    "text": "## Job Readiness Workshop Plan\n\n**Topic:** How to sound {adjective} while answering {number} interview questions.\n\n**Warm-up:** Everyone says their name, dream {job}, and one {adjective} strength.\n\n**Activity:** Practice {verb ending in -ing} a handshake, then explain why you want to {verb} at a {place}.\n\n**Materials:** {color} folders, resume {plural noun}, one emergency {object}, and {food} for morale.\n\n**Employment specialist note:** If anyone gets {emotion}, pause {adverb} and try a {silly word} confidence chant.\n\n**Homework:** Wear a {clothing item} on {day of week}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "workplace",
+      "civic",
+      "school"
+    ],
+    "blankCount": 16,
+    "wordCount": 81
   },
   "LAN Party Snack Plan": {
     "text": "## LAN Party Snack Plan\n\n**Start time:** {number} PM, after everyone carries their {adjective} computer into the basement.\n\n**Network setup:** {person} will {verb} the router while {number} people yell about {plural noun}.\n\n**Approved snacks:**\n- {adjective} chips\n- {food} in a bowl shaped like a {object}\n- One emergency {color} soda\n\n**House rule:** If your character is defeated by a {animal}, you must {verb} and refill the ice tray.\n\n**Status:** The night ends when the modem makes a {sound}.",
@@ -723,6 +835,30 @@
     ],
     "blankCount": 18,
     "wordCount": 71
+  },
+  "Matilda's Grooming Review": {
+    "text": "## Grooming Review\n\nClient: Matilda, dark red golden retriever\n\n**Bath quality:** {adjective}, with notes of {food} and wet {animal}.\n\n**Brush report:** Removed {number} pounds of {color} fluff, one mystery {object}, and several {plural noun} from behind her {body part}.\n\n**Cooperation:** Matilda {past-tense verb} until the dryer began {verb ending in -ing} like a {sound}.\n\n**Post-groom mood:** {emotion}; immediately tried to {verb} on the {place}.\n\n**Final rating:** {number} stars and one {adjective} bandana.",
+    "category": "themed",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 16,
+    "wordCount": 71
+  },
+  "Matilda's Squirrel Debrief": {
+    "text": "## Squirrel Debrief\n\n**Subject:** Matilda, dark red golden retriever\n\n**Time of sighting:** {number} minutes after breakfast.\n\n**Suspect:** A {adjective} {color} {animal} near the {place}.\n\n**Initial response:** Matilda {past-tense verb}, then attempted to {verb} {adverb} while the leash became a {adjective} {object}.\n\n**Treat negotiation:** Handler offered {food}; Matilda accepted with {emotion} but continued {verb ending in -ing}.\n\n**Damage:** {number} {plural noun} startled, one {body part} covered in grass.\n\n**Recommendation:** More practice with {adjective} squirrels.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 17,
+    "wordCount": 72
   },
   "Matilda's Walk Report": {
     "text": "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** {adjective} with a chance of {plural noun}.\n\n**Route:** Left on {adjective} Street, past the {adjective} park, then home for {adjective} treats.\n\n**Highlights:** Matilda {past-tense verb} at a {adjective} squirrel and made {number} new friends.\n\n**Lowlights:** She rolled in something {adjective} near a {place}.\n\n**Equipment:** {adjective} leash, {adjective} bag, one heroic {object}.\n\n**Owner mood:** {adjective}.\n\n**Recommendation:** More walks, fewer {plural noun} distractions.",
@@ -892,6 +1028,18 @@
     "blankCount": 18,
     "wordCount": 85
   },
+  "On-Call Handoff Notes": {
+    "text": "## On-Call Handoff Notes\n\n**Outgoing engineer:** {person}\n\n**Pager mood:** {emotion}\n\n**Watch item:** The {adjective} server in {place} has been {verb ending in -ing} since {number} PM.\n\n**Known issue:** If the dashboard turns {color}, do not {verb}; restart the {object} {adverb}.\n\n**Customer impact:** One {job} cannot upload {plural noun} and keeps sending {sound} messages.\n\n**Snack inventory:** {food}, {food}, and a suspicious {adjective} cup.\n\n**Final note:** Trust nothing after {day of week}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
+    "blankCount": 17,
+    "wordCount": 69
+  },
   "Our Cafeteria": {
     "text": "Our school cafeteria has really {adjective} food. Just thinking about it makes my stomach {verb}. The spaghetti is {adjective} and tastes like {noun}. One day, I swear one of my meatballs started to {verb}! The turkey tacos are totally {adjective} and look kind of like old {noun}. My friend Dana actually likes the meatloaf, even though it's {adjective} and {adjective}. I call it \"Mystery Meatloaf\" and think it's really made out of {noun}. My dad said he'd make my lunches, but the first day, he made me a sandwich out of {noun} and peanut butter! I think I'd rather take my chances with the cafeteria!",
     "category": "classics",
@@ -917,6 +1065,31 @@
     "blankCount": 18,
     "wordCount": 76
   },
+  "Password Reset War Room": {
+    "text": "## Password Reset War Room\n\n**Incident:** {number} users forgot passwords after the {adjective} holiday weekend.\n\n**Symptoms:** Login screen says {silly word}, MFA app makes a {sound}, and one {job} cannot {verb} payroll.\n\n**Current workaround:** Ask users to {verb} {adverb}, then stop storing passwords under a {color} {object}.\n\n**Escalation:** If the account belongs to {person}, notify the {adjective} admin near {place}.\n\n**Root cause theory:** Too many {plural noun} and not enough {food}.\n\n**Status:** {emotion} but improving.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 16,
+    "wordCount": 74
+  },
+  "Patch Window Announcement": {
+    "text": "## Patch Window Announcement\n\nPlease be advised: the {adjective} production system will be unavailable on {day of week} from {number} to {number} PM.\n\nDuring this window, IT will {verb} the database, replace a {color} {object}, and whisper {silly word} at the firewall.\n\nUsers should save {plural noun}, close the {adjective} app, and avoid {verb ending in -ing} near the {place}.\n\nExpected impact: {emotion}, one {sound}, and temporary inability to {verb}.\n\nQuestions may be directed to {person}, senior {job}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
+    "blankCount": 17,
+    "wordCount": 77
+  },
   "Paul Bunyan Mad Lib": {
     "text": "## Paul Bunyan Mad Lib\n\nPaul Bunyan was a powerful giant, {number} feet tall. He was famous throughout the lumbering districts for his great {adjective} strength. So great was his lung capacity that he called his {plural noun} to dinner by blowing through a {adjective} tree. When he spoke {noun} sometimes fell from trees.\n\nWhen he had doughnuts for breakfast, they were carried from the {place} by {number} {noun} on poles which they carried on their {body part}.\n\nBunyan was assisted in his lumbering by a huge blue {animal} named Babe. This {adjective} {animal} had the strength of nine {plural noun} and it weighed {number} thousand pounds. Its head was so big, it measured seven {plural noun} between the eyes. Its horns were of {adjective} and {adjective} Paul tied a line to their tips and hung {noun} on it to dry. The original color of the animal was pure {color}.\n\nOne {noun} it snowed {color} snow for {number} days and the ox lying down in it all {noun} was dyed {color}. Paul and Babe {verb} a {adjective} house up a hill. In the woods around Paul's camp were {adjective} animals. Some were very wild and {adjective} and others harmless. There was a {animal} which laid square eggs so that they would not roll {noun} the hill.",
     "category": "woo-jr",
@@ -929,8 +1102,32 @@
     "blankCount": 30,
     "wordCount": 215
   },
+  "Pet Council Meeting Minutes": {
+    "text": "## Pet Council Meeting Minutes\n\n**Attending:** Violet the tortie head cat, Matilda the dark red golden retriever, Zebby the black kitten, and Baby Bear the baby bear.\n\n**Agenda item one:** Should humans {verb} before breakfast? Vote: {number} yes, one {adjective} stare from Violet.\n\n**Matilda's motion:** More {food} after every {adjective} walk.\n\n**Zebby's motion:** Protect the {place} from {plural noun} and bother Violet less.\n\n**Violet's motion:** Reserve all {color} sunbeams.\n\n**Baby Bear's motion:** Add {adjective} honey to the {object}.\n\nMeeting ended with {verb ending in -ing} and {emotion}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 12,
+    "wordCount": 86
+  },
+  "Pet Photo Shoot Call Sheet": {
+    "text": "## Pet Photo Shoot Call Sheet\n\n**Theme:** {adjective} family portrait with {number} props.\n\n**Violet:** Tortie head cat, photographed first in the {place} sunbeam with {food}.\n\n**Matilda:** Dark red golden retriever, positioned near the {color} {object}.\n\n**Zebby:** Black kitten, scheduled for a {adjective} close-up if he does not {verb} Violet.\n\n**Baby Bear:** Baby bear, wears the {clothing item} and may {verb} {adverb}.\n\n**Photographer note:** If anyone starts {verb ending in -ing}, make a {sound} and offer a {adjective} treat.",
+    "category": "themed",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "pets",
+      "media"
+    ],
+    "blankCount": 14,
+    "wordCount": 77
+  },
   "Pet Sitter Instructions": {
-    "text": "## Pet Sitter Instructions\n\nThank you for watching **Matilda** (dark red golden retriever), **Violet** (tortie cat), and **Zebby** (black cat).\n\n**Matilda:** Needs {adjective} walks and one {adjective} treat after she {past-tense verb} politely.\n\n**Violet:** Demands {adjective} food at exactly {number} o'clock and will {verb} if ignored.\n\n**Zebby:** Hides in the {place} and attacks anything {adjective}.\n\n**Rules:** Do not {verb} the vacuum near them. Emergency vet number is on the {object}.\n\n**Bonus:** If all three sit together peacefully, photograph it — it is {adjective} and probably a sign.",
+    "text": "## Pet Sitter Instructions\n\nThank you for watching **Matilda** (dark red golden retriever), **Violet** (tortie cat and head cat), and **Zebby** (black kitten).\n\n**Matilda:** Needs {adjective} walks and one {adjective} treat after she {past-tense verb} politely.\n\n**Violet:** Demands {adjective} food at exactly {number} o'clock and will {verb} if ignored.\n\n**Zebby:** Hides in the {place}, attacks anything {adjective}, and bothers Violet for sport.\n\n**Rules:** Do not {verb} the vacuum near them. Emergency vet number is on the {object}.\n\n**Bonus:** If all three sit together peacefully, photograph it — it is {adjective} and probably a sign.",
     "category": "themed",
     "collection": "original",
     "format": "form",
@@ -939,7 +1136,7 @@
       "everyday"
     ],
     "blankCount": 11,
-    "wordCount": 85
+    "wordCount": 92
   },
   "Pinktastic": {
     "text": "## Pinktastic\n\nMy absolute favorite {noun} in the whole, {adjective} world is pink. Everything I wear is pink, from my head down to my {body part}. I eat, sleep, and {verb} pink! I redecorated my room with pink wallpaper, pink carpeting, and pink {plural noun}. I cover all my school {plural noun} in pink paper and use only pink {plural noun} to write my homework. I even got permission from the {adjective} principal to paint my locker pink! I can't wait until I turn {number} years old and get my {adjective} license because I've been saving up money to buy a hot pink convertible {noun}. It will be so {adjective}. Maybe one day I'll have a/an {adjective} pink house, too! Then there will be no doubt in anyone's {noun} that pink is my favorite color in the whole, wide {noun}!",
@@ -1048,6 +1245,18 @@
     ],
     "blankCount": 14,
     "wordCount": 84
+  },
+  "Resume Clinic Case Note": {
+    "text": "## Resume Clinic Case Note\n\n**Client:** {person}\n\n**Objective:** Replace the {adjective} resume summary with something less like a {noun}.\n\n**Experience translated:** \"Helped with {plural noun}\" became \"coordinated {adjective} operations while {verb ending in -ing}.\"\n\n**Skills added:** {verb}, customer service, and safely operating a {object} near a {place}.\n\n**Concern:** Gap in work history caused by {number} months of {emotion} and a {adjective} {animal}.\n\n**Plan:** Employment specialist will {verb} edits {adverb} and send applications by {day of week}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "workplace",
+      "civic"
+    ],
+    "blankCount": 16,
+    "wordCount": 75
   },
   "Road Trip!": {
     "text": "## Road Trip!\n\nPack your bags! It's time to take a/an {adjective} road trip across the United States to visit some of the most {adjective} historical landmarks. First stop is Philadelphia, where you can visit Independence Hall to see where the Declaration of {plural noun} was signed. After that, check out the Liberty Bell. It's the most famous cracked {noun} in history, and a symbol of freedom across America. Then head on up to Boston, where you can check out the USS Constitution, the oldest {verb ending in -ing} naval vessel, and the {noun} Hill Monument. In New York, you can climb to the top of the {noun} of Liberty (or take a/an {vehicle} to check out the view from the harbor!). Now it's time to head west, where you can see famous landmarks like Mount {silly word}, which features carved statues of the {body part} of some of our most {adjective} presidents. Or check out {color}-stone, our first national park, which includes the famous geyser Old {adjective}! Just don't forget to pack a/an {noun}—you'll want to take pictures to remember your {adjective} trip by!",
@@ -1252,6 +1461,19 @@
     "blankCount": 18,
     "wordCount": 86
   },
+  "Supported Employment Goal Plan": {
+    "text": "## Supported Employment Goal Plan\n\n**Long-term goal:** Work as a {job} in a {adjective} setting near {place}.\n\n**Short-term goal:** Apply to {number} jobs before {day of week}.\n\n**Supports:** Employment specialist, {person}, and one {adjective} checklist.\n\n**Practice skill:** {verb ending in -ing} interview answers without staring at the {object}.\n\n**Accommodation idea:** A {color} schedule, quieter {place}, and permission to {verb} when feeling {emotion}.\n\n**Celebration plan:** Eat {food}, make a {sound}, and mark progress with {plural noun}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "workplace",
+      "civic",
+      "everyday"
+    ],
+    "blankCount": 16,
+    "wordCount": 74
+  },
   "Talk Like a Pirate": {
     "text": "Ye can always pretend to be a bloodthirsty {noun}, threatening everyone by waving yer {adjective} sword in the air, but until ye learn to {verb} like a pirate, ye'll never be {adverb} accepted as an authentic {noun}. So here's what ye do: Cleverly work into yer daily conversations {adjective} pirate phrases such as \"Ahoy there, {plural noun}, \"\"Avast, ye {plural noun},\" and \"Shiver me {plural noun}.\" Remember to drop all yer gs when ye say such words as sailin', spittin', and fightin'. This will give ye a/an {body part} start to being recognized as a swashbucklin' {noun}. Once ye have the lingo down pat, it helps to wear a three-cornered {noun} on yer head, stash a/an {noun} in yer pants, and keep a/an {noun} perched atop yer {body part}. Aye, now ye be a real pirate!",
     "category": "classics",
@@ -1373,6 +1595,19 @@
     "blankCount": 24,
     "wordCount": 205
   },
+  "Ticket Triage Standup": {
+    "text": "## Ticket Triage Standup\n\n**Facilitator:** {person}\n\n**Total tickets:** {number}, not counting the one labeled my {object} is haunted.\n\n**Priority one:** {adjective} outage preventing a {job} from {verb ending in -ing} near {place}.\n\n**Priority two:** User wants a {color} laptop because it feels more {emotion}.\n\n**Blocked by:** Vendor, {plural noun}, and a dashboard that {past-tense verb} {adverb}.\n\n**Action items:** {verb} the queue, assign the {adjective} tickets, and bring {food} before everyone makes a {sound}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "tech",
+      "workplace",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 16,
+    "wordCount": 72
+  },
   "Time Traveler Customs Form": {
     "text": "## Time Traveler Customs Form\n\nWelcome to {place}, year {number}.\n\nDeclare all {adjective} artifacts, including {plural noun}, future {food}, and any {color} {object} capable of {verb ending in -ing}.\n\nTraveler name: {person}\n\nOccupation in original era: {job}\n\nHave you recently {past-tense verb} a historical {animal}? If yes, please explain {adverb}.\n\nDo not {verb} your own ancestor, touch the {noun}, or reveal next {day of week}'s weather.\n\nCurrent emotion: {emotion}. Approved snack: {food}.",
     "category": "themed",
@@ -1444,6 +1679,18 @@
     "blankCount": 18,
     "wordCount": 70
   },
+  "Vet Follow-Up Notes": {
+    "text": "## Vet Follow-Up Notes\n\nPatient group: Violet, Matilda, Zebby, and Baby Bear.\n\n**Violet:** Tortie cat and head cat; emotionally {emotion} when meals arrive {adverb}.\n\n**Matilda:** Dark red golden retriever; healthy but {adjective} after {verb ending in -ing} near a {animal}.\n\n**Zebby:** Black kitten; recommends {number} minutes of {adjective} play and fewer attacks on Violet's {object}.\n\n**Baby Bear:** Baby bear; prescribe {food}, naps, and a {color} {clothing item}.\n\n**Clinic advice:** {verb} the {place} before everyone starts a {sound} contest.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 14,
+    "wordCount": 77
+  },
   "Video Games": {
     "text": "## Video Games\n\nAlthough video {plural noun} have been around for over {number} years, they've become more and more {adjective} as developers create more sophisticated {plural noun}. Today's {plural noun} games are so complicated, they require really {adjective} attention at all times. They have you sitting on pins and {noun} throughout the entire game. Such {plural noun} as Final {noun} XIII, Grand Theft {noun}, and (the) {place} Noire cost more to develop than many {plural noun} movies produced by big Hollywood {plural noun}. If the technology in the video-gaming {noun} continues to advance, imagine what future electronic {plural noun} will be like. It's {adjective}-boggling.",
     "category": "official",
@@ -1457,7 +1704,7 @@
     "wordCount": 104
   },
   "Violet's Demand List": {
-    "text": "## Official Demands\n\n*From Violet the tortie cat:*\n\n**Breakfast:** Must include {adjective} food served in the {adjective} bowl only.\n\n**Sunbeam:** The sunbeam on the {place} belongs to Violet from {number} AM to {number} PM.\n\n**Staff rules:**\n- {verb} before entering the room\n- Avoid {adjective} noises\n\n**Petting:** Allowed only on the {body part} for {number} seconds.\n\n**Zebby:** May not {verb} near Violet's {place}.\n\n**Violations:** {adjective} stares and one {adjective} item knocked off a shelf.\n\nSigned with a {color} paw print.",
+    "text": "## Official Demands\n\n*From Violet the tortie cat and head cat:*\n\n**Breakfast:** Must include {adjective} food served in the {adjective} bowl only.\n\n**Sunbeam:** The sunbeam on the {place} belongs to Violet from {number} AM to {number} PM.\n\n**Staff rules:**\n- {verb} before entering the room\n- Avoid {adjective} noises\n\n**Petting:** Allowed only on the {body part} for {number} seconds.\n\n**Zebby:** The black kitten may not {verb} near Violet's {place}.\n\n**Violations:** {adjective} stares and one {adjective} item knocked off a shelf.\n\nSigned with a {color} paw print.",
     "category": "themed",
     "collection": "original",
     "format": "letter",
@@ -1466,7 +1713,31 @@
       "everyday"
     ],
     "blankCount": 14,
-    "wordCount": 77
+    "wordCount": 83
+  },
+  "Violet's Menu Review": {
+    "text": "## Menu Review\n\nReviewer: Violet, tortie cat and head cat\n\nTonight's entree was {adjective} {food} served in a {color} bowl at {number} o'clock.\n\n**Aroma:** {adjective}, though someone allowed Matilda to {verb} nearby.\n\n**Texture:** Like a {object} that had been {past-tense verb} by a {job}.\n\n**Service:** Human approached {adverb}, then failed to notice Zebby the black kitten {verb ending in -ing} near the {place}.\n\n**Emotional result:** {emotion}.\n\n**Final verdict:** Replace with {food} and add {number} {plural noun}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "pets",
+      "food"
+    ],
+    "blankCount": 16,
+    "wordCount": 75
+  },
+  "Violet's Sunbeam Schedule": {
+    "text": "## Sunbeam Schedule\n\nPrepared by Violet, tortie head cat and senior light inspector.\n\n**Morning beam:** Begins at {number} o'clock on the {adjective} {place}.\n\n**Required setup:** One {color} blanket, no {plural noun}, and {food} served {adverb}.\n\n**Unauthorized visitors:** Zebby the black kitten may {verb} nearby for {number} seconds. Matilda must not {verb} the beam with her {body part}.\n\n**If clouds appear:** Violet will become {emotion}, knock over a {object}, and begin {verb ending in -ing}.\n\n**Backup beam:** The {adjective} window.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 15,
+    "wordCount": 78
   },
   "VPN Support Call": {
     "text": "## VPN Support Call\n\n**Agent:** Thank you for calling {adjective} IT support. May I have your employee {number}?\n\n**User:** I cannot {verb} from home. The {adjective} icon just spins.\n\n**Agent:** Please {verb} your router, then {verb} the VPN client.\n\n**User:** It asked for my {object} and then said access was {adjective}.\n\n**Agent:** I reset your {object} in Active Directory. Try {verb} again in {number} minutes.\n\n**User:** It works! You are a {adjective} legend.",
@@ -1586,8 +1857,20 @@
     "blankCount": 18,
     "wordCount": 71
   },
+  "Zebby's Couch Kingdom Treaty": {
+    "text": "## Couch Kingdom Treaty\n\nBy order of Zebby, black kitten and self-appointed couch prince, the {adjective} couch is now a sovereign {place}.\n\nHumans may enter only after offering {number} pieces of {food} and saying {silly word} {adverb}.\n\nViolet, the tortie head cat, may overrule this treaty on {day of week}, especially if Zebby tries to {verb} her {object}.\n\nMatilda must keep her {body part} outside the border unless invited by a {adjective} meow.\n\nAny {animal} caught {verb ending in -ing} will be exiled to the {place}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 14,
+    "wordCount": 85
+  },
   "Zebby's Incident Report": {
-    "text": "## Incident Report\n\n**Filed by:** Zebby, black cat\n\n**Time:** {number} o'clock\n\n**Location:** The {place} near the {object}\n\n**Event:** Human attempted to {verb} without offering {food} first.\n\n**Witnesses:**\n- Matilda ({adjective})\n- Violet ({adjective})\n\n**Response:** Zebby {past-tense verb} under the couch, then {past-tense verb} the offender's {body part}.\n\n**Damage:** One {object} knocked over, zero regrets.\n\n**Corrective action:** Schedule {adjective} play sessions; stop buying {adjective} toys.\n\n**Status:** Closed until next {adjective} snack.",
+    "text": "## Incident Report\n\n**Filed by:** Zebby, black kitten\n\n**Time:** {number} o'clock\n\n**Location:** The {place} near the {object}\n\n**Event:** Human attempted to {verb} without offering {food} first.\n\n**Witnesses:**\n- Matilda ({adjective})\n- Violet, head cat ({adjective})\n\n**Response:** Zebby {past-tense verb} under the couch, then {past-tense verb} the offender's {body part}.\n\n**Damage:** One {object} knocked over, zero regrets.\n\n**Corrective action:** Schedule {adjective} play sessions; stop buying {adjective} toys; respect Violet's authority.\n\n**Status:** Closed until next {adjective} snack.",
     "category": "themed",
     "collection": "original",
     "format": "incident-report",
@@ -1596,7 +1879,19 @@
       "everyday"
     ],
     "blankCount": 14,
-    "wordCount": 67
+    "wordCount": 72
+  },
+  "Zebby's Midnight Patrol Log": {
+    "text": "## Midnight Patrol Log\n\n**Officer:** Zebby, black kitten\n\n**Route:** From the {place} to the {adjective} window, across {number} forbidden {plural noun}.\n\n**Suspicious item:** One {color} {object} making a {sound} near the {food} bowl.\n\n**Action taken:** Zebby {past-tense verb} behind the {place}, then {past-tense verb} at the item with a {adjective} {body part}.\n\n**Witness statement:** Violet the head cat looked {emotion}; Matilda tried to {verb}.\n\n**Conclusion:** Patrol successful, pending {verb ending in -ing} at dawn and an apology to Violet.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 16,
+    "wordCount": 78
   },
   "Zombie Picnic": {
     "text": "If zombies had a picnic, what would they {verb} to eat? Everybody knows zombies love to {verb} {body part}, but did you know they also enjoy {body part} and even {body part}? The best {noun} for a zombie picnic is when the moon is {adjective}. At least one zombie will bring {food} to drink, and it's not a picnic without {body part} with extra flesh on top. After eating, zombies will {verb} {adjective} games like kick the {body part} and {body part} toss. What fun!",

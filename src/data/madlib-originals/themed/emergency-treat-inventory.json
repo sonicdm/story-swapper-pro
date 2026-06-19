@@ -1,0 +1,11 @@
+{
+  "title": "Emergency Treat Inventory",
+  "category": "themed",
+  "text": "## Emergency Treat Inventory\n\n**Shelf:** {adjective} cabinet above the {place}\n\n**Matilda:** Requires {number} {adjective} biscuits after any walk involving a {animal}.\n\n**Violet:** Head cat demands {food} arranged {adverb} in the correct bowl.\n\n**Zebby:** Black kitten accepts {food} only if served beside a {color} {object}, preferably not stolen from Violet.\n\n**Baby Bear:** Needs honey, a {clothing item}, and one {adjective} spoon.\n\n**Shortage plan:** If supplies run low, {verb} to the {place} while {verb ending in -ing}. Do not let anyone feel {emotion}.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "pets",
+    "food"
+  ]
+}

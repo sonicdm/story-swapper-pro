@@ -1,0 +1,11 @@
+{
+  "title": "Zebby's Midnight Patrol Log",
+  "category": "themed",
+  "text": "## Midnight Patrol Log\n\n**Officer:** Zebby, black kitten\n\n**Route:** From the {place} to the {adjective} window, across {number} forbidden {plural noun}.\n\n**Suspicious item:** One {color} {object} making a {sound} near the {food} bowl.\n\n**Action taken:** Zebby {past-tense verb} behind the {place}, then {past-tense verb} at the item with a {adjective} {body part}.\n\n**Witness statement:** Violet the head cat looked {emotion}; Matilda tried to {verb}.\n\n**Conclusion:** Patrol successful, pending {verb ending in -ing} at dawn and an apology to Violet.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Pet Photo Shoot Call Sheet",
+  "category": "themed",
+  "text": "## Pet Photo Shoot Call Sheet\n\n**Theme:** {adjective} family portrait with {number} props.\n\n**Violet:** Tortie head cat, photographed first in the {place} sunbeam with {food}.\n\n**Matilda:** Dark red golden retriever, positioned near the {color} {object}.\n\n**Zebby:** Black kitten, scheduled for a {adjective} close-up if he does not {verb} Violet.\n\n**Baby Bear:** Baby bear, wears the {clothing item} and may {verb} {adverb}.\n\n**Photographer note:** If anyone starts {verb ending in -ing}, make a {sound} and offer a {adjective} treat.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "pets",
+    "media"
+  ]
+}

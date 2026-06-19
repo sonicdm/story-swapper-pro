@@ -1,0 +1,11 @@
+{
+  "title": "Patch Window Announcement",
+  "category": "themed",
+  "text": "## Patch Window Announcement\n\nPlease be advised: the {adjective} production system will be unavailable on {day of week} from {number} to {number} PM.\n\nDuring this window, IT will {verb} the database, replace a {color} {object}, and whisper {silly word} at the firewall.\n\nUsers should save {plural noun}, close the {adjective} app, and avoid {verb ending in -ing} near the {place}.\n\nExpected impact: {emotion}, one {sound}, and temporary inability to {verb}.\n\nQuestions may be directed to {person}, senior {job}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
+}

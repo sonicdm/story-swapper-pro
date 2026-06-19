@@ -1,0 +1,11 @@
+{
+  "title": "Vet Follow-Up Notes",
+  "category": "themed",
+  "text": "## Vet Follow-Up Notes\n\nPatient group: Violet, Matilda, Zebby, and Baby Bear.\n\n**Violet:** Tortie cat and head cat; emotionally {emotion} when meals arrive {adverb}.\n\n**Matilda:** Dark red golden retriever; healthy but {adjective} after {verb ending in -ing} near a {animal}.\n\n**Zebby:** Black kitten; recommends {number} minutes of {adjective} play and fewer attacks on Violet's {object}.\n\n**Baby Bear:** Baby bear; prescribe {food}, naps, and a {color} {clothing item}.\n\n**Clinic advice:** {verb} the {place} before everyone starts a {sound} contest.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
+}

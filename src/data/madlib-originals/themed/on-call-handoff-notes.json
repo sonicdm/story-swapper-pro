@@ -1,0 +1,11 @@
+{
+  "title": "On-Call Handoff Notes",
+  "category": "themed",
+  "text": "## On-Call Handoff Notes\n\n**Outgoing engineer:** {person}\n\n**Pager mood:** {emotion}\n\n**Watch item:** The {adjective} server in {place} has been {verb ending in -ing} since {number} PM.\n\n**Known issue:** If the dashboard turns {color}, do not {verb}; restart the {object} {adverb}.\n\n**Customer impact:** One {job} cannot upload {plural noun} and keeps sending {sound} messages.\n\n**Snack inventory:** {food}, {food}, and a suspicious {adjective} cup.\n\n**Final note:** Trust nothing after {day of week}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
+}

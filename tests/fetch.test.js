@@ -57,4 +57,19 @@ Chapter One`;
 
 Chapter One`);
   });
+
+  it('ignores hostile non-gutenberg format URLs from Gutendex metadata', () => {
+    const urls = gutenbergTextCandidates({
+      id: 100,
+      formats: {
+        'text/plain; charset=utf-8': 'https://evil.example.com/malware.txt'
+      }
+    });
+    expect(urls.some(u => u.includes('evil.example'))).toBe(false);
+    expect(urls.every(u => /gutenberg\.org/.test(u))).toBe(true);
+  });
+
+  it('accepts Text books with id when Gutendex omits usable text/plain URLs', () => {
+    expect(isGutenbergReadableBook({ id: 11, media_type: 'Text', formats: {} })).toBe(true);
+  });
 });
