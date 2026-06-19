@@ -1,5 +1,11 @@
 {
   "title": "Instruction Manual",
   "category": "generic",
-  "text": "## Instruction Manual\n\n**WARNING:** Do not {verb} this {object} near water, bees, or emotional {adjective} people.\n\n**Step A:** Insert the {object} into slot {number} until you hear a {adjective} sound.\n\n**Step B:** Press the {color} button firmly with your {body part}.\n\n**Step C:** Wait {number} minutes while the device becomes {adjective}.\n\n**Step D:** If smoke appears, {verb} calmly toward the nearest {place}.\n\n**Maintenance:** Clean with a {adjective} cloth every {number} days.\n\n**Support:** Questions? Call our {adjective} support line and ask for {person}."
+  "text": "## Instruction Manual\n\n**WARNING:** Do not {verb} this {object} near water, bees, or emotional {adjective} people.\n\n**Step A:** Insert the {object} into slot {number} until you hear a {adjective} sound.\n\n**Step B:** Press the {color} button firmly with your {body part}.\n\n**Step C:** Wait {number} minutes while the device becomes {adjective}.\n\n**Step D:** If smoke appears, {verb} calmly toward the nearest {place}.\n\n**Maintenance:** Clean with a {adjective} cloth every {number} days.\n\n**Support:** Questions? Call our {adjective} support line and ask for {person}.",
+  "collection": "original",
+  "format": "how-to",
+  "tags": [
+    "everyday",
+    "tech"
+  ]
 }

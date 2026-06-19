@@ -1,0 +1,11 @@
+{
+  "title": "Office Fridge Warning",
+  "category": "generic",
+  "text": "## Office Fridge Warning\n\nTo whoever stole my {adjective} {food}: I know it was you.\n\nThe container was {color}, clearly marked with {person}, and guarded by {number} tiny {plural noun}.\n\nIf you do not return it by {day of week}, I will {verb} the break room camera and notify a {job}.\n\nAlso, please remove the {animal} from shelf three.\n\nIt has been {verb ending in -ing} beside my {object}, wearing a {clothing item}, and making everyone feel {emotion}. Bring {number} {plural noun} and a {color} {noun}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "workplace",
+    "food"
+  ]
+}

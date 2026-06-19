@@ -1,0 +1,11 @@
+{
+  "title": "Neighborhood Watch Bulletin",
+  "category": "generic",
+  "text": "## Neighborhood Watch Bulletin\n\n**Alert level:** {adjective}\n\n**Reported activity:** A {person} was seen {verb ending in -ing} near the {place} at {number} AM.\n\n**Suspect description:** Wearing a {color} {clothing item}, carrying {plural noun}, and making a {sound}.\n\n**Vehicle:** Possibly a {adjective} {vehicle} with {plural noun} on the roof.\n\n**Safety tips:**\n- Do not {verb} strangers\n- Lock your {object}\n\n**Meeting:** {day of week} at the community {place}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "civic",
+    "everyday"
+  ]
+}

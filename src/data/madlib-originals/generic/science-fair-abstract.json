@@ -1,0 +1,11 @@
+{
+  "title": "Science Fair Abstract",
+  "category": "generic",
+  "text": "## Science Fair Abstract\n\n**Title:** How {adjective} {plural noun} Affect {emotion}\n\n**Student:** {person}, Grade {number}\n\n**Hypothesis:** If a {animal} eats {food}, it will {verb} {adverb}.\n\n**Method:** Built a {color} {object} and spent {number} hours {verb ending in -ing} in the {place}.\n\n**Results:** The control group {past-tense verb}; the test group made a {sound}.\n\n**Conclusion:** Science is {adjective}.\n\n**Future work:** Repeat with a {vehicle}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "school",
+    "kids"
+  ]
+}

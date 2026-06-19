@@ -1,0 +1,10 @@
+{
+  "title": "Yard Sale Sign",
+  "category": "generic",
+  "text": "## Yard Sale Sign\n\nHuge {adjective} yard sale this {day of week} at {place}.\n\nWe have {number} {plural noun}, a gently used {object}, one {color} {vehicle}, and a mysterious box labeled do not {verb}.\n\nAsk {person} about the vintage {clothing item} or the {animal} that keeps {verb ending in -ing} by the lemonade table.\n\nPrices are {adjective}; haggling makes us {emotion}.\n\nFree {food} with every purchase of a {noun} from a {job}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "everyday"
+  ]
+}

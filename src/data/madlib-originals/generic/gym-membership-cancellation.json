@@ -1,0 +1,10 @@
+{
+  "title": "Gym Membership Cancellation",
+  "category": "generic",
+  "text": "## Gym Membership Cancellation\n\nI would like to cancel my {adjective} gym membership immediately.\n\nWhen I joined, the brochure promised {number} machines, fresh {food}, and a trainer who would {verb} politely.\n\nInstead, I found a {animal} on the treadmill and {person} {verb ending in -ing} in the sauna.\n\nMy final class involved lifting a {color} {object} with my {body part}.\n\nPlease stop billing my {noun}, return my {clothing item}, and remove me from the {emotion} newsletter before {day of week}. My {body part} still feels {adjective} from {number} {plural noun}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "everyday"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Mall Security Incident Report",
+  "category": "themed",
+  "text": "## Mall Security Incident Report\n\nAt {number} PM near the {place}, officer {person} observed a {adjective} disturbance.\n\nA {animal} wearing a {color} {clothing item} was {verb ending in -ing} beside the fountain while shoppers threw {plural noun}.\n\nSuspect attempted to {verb} using a stolen {vehicle} from the toy kiosk.\n\nRecovered items: one {object}, half a {food}, and a {noun} marked property of the {job}.\n\nCrowd mood: {emotion}. Security response: {adjective} and {adverb}.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "workplace",
+    "parody-bureaucratic"
+  ]
+}

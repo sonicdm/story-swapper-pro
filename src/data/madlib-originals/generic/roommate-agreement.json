@@ -1,0 +1,11 @@
+{
+  "title": "Roommate Agreement",
+  "category": "generic",
+  "text": "## Roommate Agreement\n\n**Roommates:** {person} and {person}\n\n**Address:** {number} {adjective} {place} Street\n\n**Chores:**\n- Kitchen cleaned every {day of week}\n- Trash taken out before {verb ending in -ing} the {object}\n\n**Fridge rules:** No {food} without a label.\n\n**Guests:** Maximum {number} after {number} PM.\n\n**Noise curfew:** No {sound} after midnight unless someone is {verb ending in -ing} a {vehicle}.\n\n**Violation penalty:** Must {verb} the {color} {clothing item} and apologize {adverb}.",
+  "collection": "original",
+  "format": "legal",
+  "tags": [
+    "everyday",
+    "parody-bureaucratic"
+  ]
+}

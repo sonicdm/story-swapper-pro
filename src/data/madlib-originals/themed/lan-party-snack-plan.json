@@ -1,5 +1,11 @@
 {
   "title": "LAN Party Snack Plan",
   "category": "themed",
-  "text": "## LAN Party Snack Plan\n\n**Start time:** {number} PM, after everyone carries their {adjective} computer into the basement.\n\n**Network setup:** {person} will {verb} the router while {number} people yell about {plural noun}.\n\n**Approved snacks:**\n- {adjective} chips\n- {food} in a bowl shaped like a {object}\n- One emergency {color} soda\n\n**House rule:** If your character is defeated by a {animal}, you must {verb} and refill the ice tray.\n\n**Status:** The night ends when the modem makes a {sound}."
+  "text": "## LAN Party Snack Plan\n\n**Start time:** {number} PM, after everyone carries their {adjective} computer into the basement.\n\n**Network setup:** {person} will {verb} the router while {number} people yell about {plural noun}.\n\n**Approved snacks:**\n- {adjective} chips\n- {food} in a bowl shaped like a {object}\n- One emergency {color} soda\n\n**House rule:** If your character is defeated by a {animal}, you must {verb} and refill the ice tray.\n\n**Status:** The night ends when the modem makes a {sound}.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "gaming",
+    "retro-web"
+  ]
 }

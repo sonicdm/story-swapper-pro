@@ -1,0 +1,10 @@
+{
+  "title": "Substitute Teacher Note",
+  "category": "generic",
+  "text": "## Substitute Teacher Note\n\nDear teacher, your class was mostly {adjective} today.\n\nAt {number} o'clock, {person} asked if the {animal} counted as a lab partner.\n\nThe students finished page {number}, then began {verb ending in -ing} with the emergency {object}.\n\nI confiscated {plural noun}, one {color} {food}, and a note that said please {verb} the principal.\n\nEveryone became {emotion} during silent reading, but nobody {past-tense verb} the {place} or hid a {color} {noun} in the {clothing item} of the {job}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "school"
+  ]
+}

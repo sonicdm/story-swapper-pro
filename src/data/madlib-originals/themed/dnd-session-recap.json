@@ -1,0 +1,11 @@
+{
+  "title": "D&D Session Recap",
+  "category": "themed",
+  "text": "## D&D Session Recap\n\n**Party:** {person}, {person}, and a {adjective} {job}\n\n**Location:** The {place} of {plural noun}\n\n**Loot:** {color} {plural noun} and one cursed {object}\n\n**Critical fail:** {person} tried to {verb} the dragon and {past-tense verb} into a {food} cart.\n\n**NPC:** A merchant who demanded {plural noun} for directions.\n\n**Boss fight:** Resolved by {verb ending in -ing} a {sound} and rolling a {number}.\n\n**DM note:** Next session involves a {vehicle}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "gaming",
+    "fantasy"
+  ]
+}

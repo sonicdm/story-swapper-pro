@@ -11,7 +11,8 @@ import {
   gutenbergBlockedOnFileProtocol
 } from './fetch.js';
 import {
-  listBundledMadLibCatalog, getMadLibMeta, getRandomBundledMadLibTitle
+  listBundledMadLibCatalog, getMadLibMeta, getRandomBundledMadLibTitle,
+  COLLECTIONS, COLLECTION_LABELS, TAG_ORDER, TAG_LABELS, FORMAT_LABELS
 } from './madlibs.js';
 import { loadNlpEngine, awaitWinkEngine } from './nlp-engine.js';
 
@@ -43,6 +44,60 @@ function renderGutenbergResults(results) {
 const SETTINGS_KEY = 'storySwapper:settings';
 const LENGTH_SELECTS = ['#paste-length', '#gutenberg-length', '#sample-length', '#poem-length'];
 const AUTO_SWAP_TABS = new Set(['paste', 'gutenberg', 'poem', 'sample']);
+
+/** Active Mad Lib collection + tag filter chips. */
+const madlibActiveCollections = new Set();
+const madlibActiveTags = new Set();
+
+function getMadLibBrowseFilter() {
+  return {
+    search: $('#madlibs-filter')?.value || '',
+    collections: [...madlibActiveCollections],
+    tags: [...madlibActiveTags]
+  };
+}
+
+function renderMadLibCollectionChips() {
+  const container = $('#madlibs-collection-chips');
+  if (!container) return;
+  container.innerHTML = '';
+  for (const collection of COLLECTIONS) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tag-chip collection-chip' + (madlibActiveCollections.has(collection) ? ' active' : '');
+    btn.textContent = COLLECTION_LABELS[collection] || collection;
+    btn.dataset.collection = collection;
+    btn.setAttribute('aria-pressed', madlibActiveCollections.has(collection) ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      if (madlibActiveCollections.has(collection)) madlibActiveCollections.delete(collection);
+      else madlibActiveCollections.add(collection);
+      renderMadLibCollectionChips();
+      renderMadLibSelect(getMadLibBrowseFilter(), $('#madlibs-select')?.value);
+    });
+    container.appendChild(btn);
+  }
+}
+
+function renderMadLibTagChips() {
+  const container = $('#madlibs-tag-chips');
+  if (!container) return;
+  container.innerHTML = '';
+  for (const tag of TAG_ORDER) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tag-chip' + (madlibActiveTags.has(tag) ? ' active' : '');
+    btn.textContent = TAG_LABELS[tag] || tag;
+    btn.dataset.tag = tag;
+    btn.setAttribute('aria-pressed', madlibActiveTags.has(tag) ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      if (madlibActiveTags.has(tag)) madlibActiveTags.delete(tag);
+      else madlibActiveTags.add(tag);
+      renderMadLibTagChips();
+      renderMadLibSelect(getMadLibBrowseFilter(), $('#madlibs-select')?.value);
+    });
+    container.appendChild(btn);
+  }
+}
 
 function loadSettings() {
   try {
@@ -79,7 +134,19 @@ function updateMadLibMeta() {
   }
   const meta = getMadLibMeta(title);
   const words = meta.wordCount ? `~${meta.wordCount} words` : '';
-  el.textContent = `${meta.blankCount} blanks${words ? ` · ${words}` : ''}`;
+  const collectionLabel = COLLECTION_LABELS[meta.collection] || meta.collection;
+  const formatLabel = FORMAT_LABELS[meta.format] || meta.format;
+  const tagText = meta.tags?.length
+    ? meta.tags.map(t => TAG_LABELS[t] || t).join(', ')
+    : '';
+  const parts = [
+    collectionLabel,
+    formatLabel,
+    `${meta.blankCount} blanks`,
+    words,
+    tagText
+  ].filter(Boolean);
+  el.textContent = parts.join(' · ');
 }
 
 function updateGutenbergSelection() {
@@ -104,21 +171,25 @@ function updatePoemSelection() {
   el.textContent = `Selected: ${appState.selectedPoem.title}`;
 }
 
-function renderMadLibSelect(filter = '', preferredTitle = '') {
+function renderMadLibSelect(filter = {}, preferredTitle = '') {
   const select = $('#madlibs-select');
   if (!select) return;
-  const catalog = listBundledMadLibCatalog();
-  const needle = filter.trim().toLowerCase();
+  const browseFilter = typeof filter === 'string'
+    ? { search: filter, collections: [...madlibActiveCollections], tags: [...madlibActiveTags] }
+    : {
+      search: filter.search ?? '',
+      collections: filter.collections ?? [...madlibActiveCollections],
+      tags: filter.tags ?? [...madlibActiveTags]
+    };
+  const catalog = listBundledMadLibCatalog(browseFilter);
+  const hasFilter = browseFilter.search.trim() || browseFilter.tags.length || browseFilter.collections.length;
   select.innerHTML = '';
   let firstVisible = '';
   for (const group of catalog) {
-    const items = group.items.filter(item =>
-      !needle || item.title.toLowerCase().includes(needle)
-    );
-    if (!items.length) continue;
+    if (!group.items.length) continue;
     const og = document.createElement('optgroup');
     og.label = group.label;
-    for (const item of items) {
+    for (const item of group.items) {
       const opt = document.createElement('option');
       opt.value = item.title;
       opt.textContent = item.title;
@@ -130,7 +201,7 @@ function renderMadLibSelect(filter = '', preferredTitle = '') {
   if (!select.options.length) {
     const opt = document.createElement('option');
     opt.value = '';
-    opt.textContent = needle ? 'No templates match' : 'No templates available';
+    opt.textContent = hasFilter ? 'No templates match' : 'No templates available';
     select.appendChild(opt);
   } else {
     const pick = preferredTitle && [...select.options].some(o => o.value === preferredTitle)
@@ -150,7 +221,7 @@ function applySettings(settings) {
   }
   if (settings.promptCount && $('#prompt-count')) $('#prompt-count').value = settings.promptCount;
   switchTab(settings.tab || 'madlibs');
-  renderMadLibSelect('', settings.madlibsTitle || '');
+  renderMadLibSelect({}, settings.madlibsTitle || '');
 }
 
 function switchTab(tabName) {
@@ -221,6 +292,8 @@ function initApp() {
     });
   }
 
+  renderMadLibCollectionChips();
+  renderMadLibTagChips();
   renderMadLibSelect();
 
   $$('.tab').forEach(tab => {
@@ -268,8 +341,14 @@ function initApp() {
   $('#btn-sample-load').addEventListener('click', startFromSample);
 
   $('#btn-madlibs-random').addEventListener('click', () => {
-    const title = getRandomBundledMadLibTitle($('#madlibs-select')?.value);
-    renderMadLibSelect($('#madlibs-filter')?.value || '', title);
+    const filter = getMadLibBrowseFilter();
+    const title = getRandomBundledMadLibTitle($('#madlibs-select')?.value, filter);
+    if (!title) {
+      setStatus('No templates match your filters.', 'error');
+      renderMadLibSelect(filter, '');
+      return;
+    }
+    renderMadLibSelect(filter, title);
     setStatus(`Selected: ${title}`, 'success');
   });
   $('#btn-madlibs-load').addEventListener('click', () => startFromMadLib());
@@ -277,8 +356,8 @@ function initApp() {
     updateMadLibMeta();
     saveSettings();
   });
-  $('#madlibs-filter')?.addEventListener('input', e => {
-    renderMadLibSelect(e.target.value, $('#madlibs-select')?.value);
+  $('#madlibs-filter')?.addEventListener('input', () => {
+    renderMadLibSelect(getMadLibBrowseFilter(), $('#madlibs-select')?.value);
   });
 
   $('#prompt-form').addEventListener('submit', e => { e.preventDefault(); revealStory(); });

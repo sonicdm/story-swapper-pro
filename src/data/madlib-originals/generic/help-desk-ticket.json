@@ -1,5 +1,11 @@
 {
   "title": "Help Desk Ticket",
   "category": "generic",
-  "text": "## Help Desk Ticket\n\n**Caller:** {person}\n\n**Location:** {adjective} building, floor {number}\n\n**Priority:** {adjective}\n\n**Problem:** User cannot {verb} — screen shows a {adjective} error about {plural noun}.\n\n**Troubleshooting:**\n- Rebooted the {object}\n- Reseated the {adjective} cable\n- Asked them to {verb} and try again\n\n**Resolution:** Replaced the {adjective} and cleared the {adjective} queue. Closed as {adjective}.\n\n**Time on ticket:** {number} minutes. User thanked us and asked if we also fix {plural noun}."
+  "text": "## Help Desk Ticket\n\n**Caller:** {person}\n\n**Location:** {adjective} building, floor {number}\n\n**Priority:** {adjective}\n\n**Problem:** User cannot {verb} — screen shows a {adjective} error about {plural noun}.\n\n**Troubleshooting:**\n- Rebooted the {object}\n- Reseated the {adjective} cable\n- Asked them to {verb} and try again\n\n**Resolution:** Replaced the {adjective} and cleared the {adjective} queue. Closed as {adjective}.\n\n**Time on ticket:** {number} minutes. User thanked us and asked if we also fix {plural noun}.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
 }

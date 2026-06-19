@@ -1,0 +1,11 @@
+{
+  "title": "Fantasy Sports Draft Recap",
+  "category": "themed",
+  "text": "## Fantasy Sports Draft Recap\n\n**League:** {number} teams, {adjective} scoring\n\n**Round 1:** {person} drafted a {job} who {past-tense verb} every {day of week}\n\n**Reach pick:** A {color} {animal} listed as a {place} defender\n\n**Steal:** {person} grabbed the last {object} before the {sound}\n\n**Trade drama:** {plural noun} for one {vehicle}\n\n**Auto-draft shame:** {person} woke up owning a mascot made of {food}\n\n**Punishment:** Last place must {verb} in a {clothing item} all season.\n\n**Commissioner note:** No {verb ending in -ing} during the anthem.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "sports",
+    "media"
+  ]
+}

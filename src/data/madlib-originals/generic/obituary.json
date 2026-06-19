@@ -1,5 +1,11 @@
 {
   "title": "Obituary",
   "category": "generic",
-  "text": "## Obituary\n\nIn loving memory of {person}, who passed peacefully after a long battle with {adjective} laundry and an aggressive {plural noun} collection.\n\n**Early life:** Born in a {adjective} hospital, they spent youth {verb ending in -ing} through fields of {plural noun} and dreaming of {plural noun}.\n\n**Career:** They worked as a {job} for {number} years, retiring to pursue {verb ending in -ing} and competitive {plural noun}.\n\n**Survived by:** {number} cousins, one {adjective} dog, and a goldfish named {person}.\n\n**Services:** Will be held at {place} Cemetery. In lieu of flowers, send {food} and kind {plural noun}."
+  "text": "## Obituary\n\nIn loving memory of {person}, who passed peacefully after a long battle with {adjective} laundry and an aggressive {plural noun} collection.\n\n**Early life:** Born in a {adjective} hospital, they spent youth {verb ending in -ing} through fields of {plural noun} and dreaming of {plural noun}.\n\n**Career:** They worked as a {job} for {number} years, retiring to pursue {verb ending in -ing} and competitive {plural noun}.\n\n**Survived by:** {number} cousins, one {adjective} dog, and a goldfish named {person}.\n\n**Services:** Will be held at {place} Cemetery. In lieu of flowers, send {food} and kind {plural noun}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "everyday",
+    "parody-bureaucratic"
+  ]
 }

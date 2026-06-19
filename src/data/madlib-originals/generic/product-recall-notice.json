@@ -1,0 +1,11 @@
+{
+  "title": "Product Recall Notice",
+  "category": "generic",
+  "text": "## Product Recall Notice\n\nAttention customers: the {adjective} {object} sold last {day of week} may unexpectedly {verb}.\n\nReports include {number} cases of {plural noun}, one {color} smoke cloud, and a {animal} becoming {emotion}.\n\nDo not place the item near {food}, your {body part}, or any active {vehicle}.\n\nTo request a refund, mail the {noun} to {place} while {verb ending in -ing} politely.\n\nWe apologize for this {adjective} inconvenience and our {emotion} {job} hotline.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "civic",
+    "parody-bureaucratic"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Recipe Blog Intro",
+  "category": "generic",
+  "text": "## Recipe Blog Intro\n\nBefore we make {adjective} {food}, I need to tell you about the summer I spent in {place} with {person}.\n\nEvery {day of week}, we would {verb} beside a {color} {object} while my grandmother {past-tense verb} softly.\n\nThat memory taught me that {plural noun} are the secret to flavor.\n\nThis recipe takes {number} minutes, one {animal}, and a very {adjective} attitude.\n\nServe while {verb ending in -ing}, preferably with extra {noun}, a {color} napkin, and {number} {plural noun}.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "food",
+    "media"
+  ]
+}

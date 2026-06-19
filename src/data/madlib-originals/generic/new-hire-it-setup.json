@@ -1,5 +1,11 @@
 {
   "title": "New Hire IT Setup",
   "category": "generic",
-  "text": "## New Hire IT Setup\n\n**Employee:** {person}\n\n**Start date:** {adjective}day\n\n**Hardware issued:**\n- {adjective} laptop with {adjective} monitor\n- {adjective} keyboard and wireless {object}\n\n**Accounts created:**\n- Email and {adjective} access\n- Badge: {adjective} wing, {number} floor\n\n**Training scheduled:**\n- {adjective} security awareness\n- How to {verb} without breaking the {object}\n\n**Notes:** No admin rights on the {object}. Manager says they are {adjective} and should never receive {adjective} permissions."
+  "text": "## New Hire IT Setup\n\n**Employee:** {person}\n\n**Start date:** {adjective}day\n\n**Hardware issued:**\n- {adjective} laptop with {adjective} monitor\n- {adjective} keyboard and wireless {object}\n\n**Accounts created:**\n- Email and {adjective} access\n- Badge: {adjective} wing, {number} floor\n\n**Training scheduled:**\n- {adjective} security awareness\n- How to {verb} without breaking the {object}\n\n**Notes:** No admin rights on the {object}. Manager says they are {adjective} and should never receive {adjective} permissions.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "workplace",
+    "tech"
+  ]
 }

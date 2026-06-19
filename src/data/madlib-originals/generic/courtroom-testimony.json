@@ -1,0 +1,11 @@
+{
+  "title": "Courtroom Testimony",
+  "category": "generic",
+  "text": "## Courtroom Testimony\n\nYour honor, on {day of week}, I saw {person} enter the {place} carrying a {adjective} {object}.\n\nThe witness appeared {emotion} and began {verb ending in -ing} near the evidence table.\n\nWhen asked about the missing {noun}, they {past-tense verb} and blamed a {animal} wearing a {color} {clothing item}.\n\nExhibit {number} is a bag of {plural noun} found beside the {body part} print.\n\nI swear this statement is completely {adjective} and only slightly {emotion}, according to the {job}.",
+  "collection": "original",
+  "format": "speech",
+  "tags": [
+    "civic",
+    "parody-bureaucratic"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Zoo Keeper Daily Log",
+  "category": "generic",
+  "text": "## Zoo Keeper Daily Log\n\n**Date:** {day of week}\n\n**Keeper:** {person}\n\n**Morning feeding:** The {adjective} {animal} ate {number} pounds of {food} and {past-tense verb} the {object}.\n\n**Enclosure check:** Found {plural noun} near the gate; repaired by {verb ending in -ing} the fence.\n\n**Visitor incident:** A {job} tried to {verb} over the barrier and {past-tense verb} loudly.\n\n**Health note:** One {animal} showed {emotion} after {verb ending in -ing} near the {place}.\n\n**Closing:** All animals accounted for except the {silly word} in storage.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "workplace",
+    "pets"
+  ]
+}

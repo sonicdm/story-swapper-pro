@@ -1,0 +1,11 @@
+{
+  "title": "Streaming Algorithm Apology",
+  "category": "themed",
+  "text": "## Streaming Algorithm Apology\n\n**Subject:** We are sorry we recommended that\n\nDear {person},\n\nOur algorithm noticed you watched one {adjective} {noun} and assumed you wanted {number} hours of {plural noun}.\n\n**What happened:** While you were {verb ending in -ing}, we auto-played a {color} documentary about {plural noun}.\n\n**Our mistake:** Someone {past-tense verb} the settings during a {adjective} update.\n\n**Fix:** Your queue now includes {number} {adjective} {job} biopics and one {food} tutorial.\n\n**Compensation:** One free month and a {object} sticker.\n\nWe promise to stop {verb ending in -ing} your {emotion}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "tech",
+    "media"
+  ]
+}

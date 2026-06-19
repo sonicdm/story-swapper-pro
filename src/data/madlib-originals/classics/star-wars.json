@@ -1,5 +1,11 @@
 {
   "title": "Star Wars",
   "category": "classics",
-  "text": "Star Wars is a {adjective} {noun} of {adjective} versus evil in a {place} far far away. There are {adjective} battles between {adjective}ships in {adjective} space and {adjective} duels with {plural noun} called {adjective} sabers. {plural noun} called \"droids\" are helpers and {plural noun} to the heroes. A {adjective} power called The {noun} {verb}s people to do {adjective} things, like {verb} {job} use The Force for the {adjective} side and the Sith {verb} it for the {adjective} side."
+  "text": "Star Wars is a {adjective} {noun} of {adjective} versus evil in a {place} far far away. There are {adjective} battles between {adjective}ships in {adjective} space and {adjective} duels with {plural noun} called {adjective} sabers. {plural noun} called \"droids\" are helpers and {plural noun} to the heroes. A {adjective} power called The {noun} {verb}s people to do {adjective} things, like {verb} {job} use The Force for the {adjective} side and the Sith {verb} it for the {adjective} side.",
+  "collection": "classic",
+  "format": "story",
+  "tags": [
+    "media",
+    "kids"
+  ]
 }

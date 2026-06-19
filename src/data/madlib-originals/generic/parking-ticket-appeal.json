@@ -1,0 +1,11 @@
+{
+  "title": "Parking Ticket Appeal",
+  "category": "generic",
+  "text": "## Parking Ticket Appeal\n\n**To:** Municipal Parking Authority\n\n**From:** {person}, {job}\n\n**Ticket #:** {number}\n\n**Location:** {place}, near a {adjective} {object}\n\n**Explanation:** I parked there because my {vehicle} began {verb ending in -ing} and I needed to {verb} a {body part}.\n\n**Witness:** A {adjective} {animal} can confirm I only stopped for {number} minutes.\n\n**Prior record:** I have never {past-tense verb} a meter in my life.\n\n**Request:** Please waive this {adjective} fine or accept {food} as payment.\n\n**Signed:** {person}, {adverb}.",
+  "collection": "original",
+  "format": "legal",
+  "tags": [
+    "civic",
+    "parody-bureaucratic"
+  ]
+}

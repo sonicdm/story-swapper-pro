@@ -1,5 +1,10 @@
 {
   "title": "Travel Brochure",
   "category": "generic",
-  "text": "## Travel Brochure\n\nDiscover {place}, the {adjective} destination where every sunrise looks {adjective} and every taxi driver knows a {adjective} shortcut.\n\n**Accommodations:** Stay at the Hotel {adjective} featuring {adjective} pools and complimentary {plural noun}.\n\n**Activities:**\n- {verb ending in -ing} on the beach\n- Touring ancient {adjective} ruins\n- Sampling local {food} served on a {adjective} plate\n\n**What to pack:** {adjective} clothing, sturdy {clothing item}, and patience.\n\n**Warning:** Tourists who {verb} too loudly may be followed home by {adjective} birds.\n\n**Book now** and receive a free {object}!"
+  "text": "## Travel Brochure\n\nDiscover {place}, the {adjective} destination where every sunrise looks {adjective} and every taxi driver knows a {adjective} shortcut.\n\n**Accommodations:** Stay at the Hotel {adjective} featuring {adjective} pools and complimentary {plural noun}.\n\n**Activities:**\n- {verb ending in -ing} on the beach\n- Touring ancient {adjective} ruins\n- Sampling local {food} served on a {adjective} plate\n\n**What to pack:** {adjective} clothing, sturdy {clothing item}, and patience.\n\n**Warning:** Tourists who {verb} too loudly may be followed home by {adjective} birds.\n\n**Book now** and receive a free {object}!",
+  "collection": "original",
+  "format": "listing",
+  "tags": [
+    "travel"
+  ]
 }

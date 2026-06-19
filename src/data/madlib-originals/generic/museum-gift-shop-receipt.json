@@ -1,0 +1,11 @@
+{
+  "title": "Museum Gift Shop Receipt",
+  "category": "generic",
+  "text": "## Museum Gift Shop Receipt\n\nThank you for visiting the {adjective} Museum of {plural noun}.\n\nYour purchase includes one {color} {object}, {number} postcards, and a plush {animal} labeled historically accurate.\n\nCashier: {person}\n\nDiscount reason: customer correctly identified the ancient {body part}.\n\nPlease do not {verb} the replica {noun} inside the cafe.\n\nIf your souvenir begins {verb ending in -ing}, return to the {place} desk and ask for a {emotion} {job} wearing a {clothing item}, then {verb} {adverb} toward the {place}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "travel",
+    "everyday"
+  ]
+}

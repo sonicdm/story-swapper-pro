@@ -1,5 +1,10 @@
 {
   "title": "Blockbuster Rental Night",
   "category": "themed",
-  "text": "## Blockbuster Night Checklist\n\n**Arrival:** Before {number} PM for best {adjective} selection.\n\n**Browse:**\n- {adjective} aisle first\n- {verb} new releases near the {adjective} display\n\n**Rent:**\n- One {adjective} movie\n- One {adjective} comedy\n- Zero damaged {plural noun} cases\n\n**Snacks:** {adjective} candy and a soda the size of a {object}.\n\n**At home:** {verb} the tape, ignore tracking lines, and {verb} during previews.\n\n**Return by:** {number} PM or pay a {adjective} late fee that feels {adjective}.\n\n**Bonus:** Argue about whether to rewind."
+  "text": "## Blockbuster Night Checklist\n\n**Arrival:** Before {number} PM for best {adjective} selection.\n\n**Browse:**\n- {adjective} aisle first\n- {verb} new releases near the {adjective} display\n\n**Rent:**\n- One {adjective} movie\n- One {adjective} comedy\n- Zero damaged {plural noun} cases\n\n**Snacks:** {adjective} candy and a soda the size of a {object}.\n\n**At home:** {verb} the tape, ignore tracking lines, and {verb} during previews.\n\n**Return by:** {number} PM or pay a {adjective} late fee that feels {adjective}.\n\n**Bonus:** Argue about whether to rewind.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "retro-web"
+  ]
 }

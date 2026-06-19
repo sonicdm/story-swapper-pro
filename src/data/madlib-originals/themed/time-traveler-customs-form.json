@@ -1,0 +1,11 @@
+{
+  "title": "Time Traveler Customs Form",
+  "category": "themed",
+  "text": "## Time Traveler Customs Form\n\nWelcome to {place}, year {number}.\n\nDeclare all {adjective} artifacts, including {plural noun}, future {food}, and any {color} {object} capable of {verb ending in -ing}.\n\nTraveler name: {person}\n\nOccupation in original era: {job}\n\nHave you recently {past-tense verb} a historical {animal}? If yes, please explain {adverb}.\n\nDo not {verb} your own ancestor, touch the {noun}, or reveal next {day of week}'s weather.\n\nCurrent emotion: {emotion}. Approved snack: {food}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "sci-fi",
+    "parody-bureaucratic"
+  ]
+}

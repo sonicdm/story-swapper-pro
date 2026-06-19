@@ -1,0 +1,10 @@
+{
+  "title": "Food Critic Tasting Notes",
+  "category": "generic",
+  "text": "## Food Critic Tasting Notes\n\nTonight's meal at {place} began with a {color} bowl of {food}.\n\nThe chef, {person}, described it as {adjective}, but I detected notes of {noun} and mild {emotion}.\n\nCourse two arrived by {vehicle} and contained {number} {plural noun} arranged like a {animal}.\n\nThe sauce {past-tense verb} across the plate while the waiter began {verb ending in -ing}.\n\nOverall rating: {adjective}, provided you enjoy {verb} with your {body part} beside a {color} {object}.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "food"
+  ]
+}

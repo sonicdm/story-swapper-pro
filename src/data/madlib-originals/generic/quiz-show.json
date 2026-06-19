@@ -1,5 +1,10 @@
 {
   "title": "Quiz Show",
   "category": "generic",
-  "text": "## Quiz Show\n\nWelcome to *Who Wants to Be {adjective}!*\n\n**Contestant:** {person} from {place}, a professional {job} with strong opinions about {plural noun}.\n\n**For one thousand points:** Name a {place} country famous for {adjective} exports.\n\n**For ten thousand:** Spell a {adjective} word while {verb ending in -ing} on one foot.\n\n**Lifeline:** Phone-a-{person} went to voicemail.\n\n**Final question:** If a {adjective} train leaves at {number} o'clock carrying {number} passengers, how many will sing?\n\n**Answer:** {number} — because this show makes no {adjective} sense."
+  "text": "## Quiz Show\n\nWelcome to *Who Wants to Be {adjective}!*\n\n**Contestant:** {person} from {place}, a professional {job} with strong opinions about {plural noun}.\n\n**For one thousand points:** Name a {place} country famous for {adjective} exports.\n\n**For ten thousand:** Spell a {adjective} word while {verb ending in -ing} on one foot.\n\n**Lifeline:** Phone-a-{person} went to voicemail.\n\n**Final question:** If a {adjective} train leaves at {number} o'clock carrying {number} passengers, how many will sing?\n\n**Answer:** {number} — because this show makes no {adjective} sense.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "media"
+  ]
 }

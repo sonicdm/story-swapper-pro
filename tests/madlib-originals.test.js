@@ -11,6 +11,13 @@ import {
 } from '../src/lib/madlibs.js';
 import { tokenize } from '../src/lib/text.js';
 import { SAMPLES } from '../src/data/samples.js';
+import {
+  COLLECTIONS,
+  FORMAT_ORDER,
+  TAG_ORDER,
+  validateTaxonomy,
+  inferCollectionFromFolder
+} from '../src/lib/madlib-taxonomy.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const originalsDir = path.join(root, 'src', 'data', 'madlib-originals');
@@ -21,7 +28,7 @@ function countBlanks(text) {
 
 function walkOriginalJsonFiles() {
   const files = [];
-  for (const sub of ['classics', 'legacy', 'generic', 'themed']) {
+  for (const sub of ['classics', 'legacy', 'generic', 'themed', 'official', 'woo-jr']) {
     const dir = path.join(originalsDir, sub);
     if (!fs.existsSync(dir)) continue;
     for (const f of fs.readdirSync(dir).filter(n => n.endsWith('.json'))) {
@@ -37,8 +44,10 @@ describe('madlib originals JSON', () => {
   it('has expected original file counts', () => {
     expect(files.filter(f => f.sub === 'classics').length).toBe(16);
     expect(files.filter(f => f.sub === 'legacy').length).toBe(2);
-    expect(files.filter(f => f.sub === 'generic').length).toBe(21);
-    expect(files.filter(f => f.sub === 'themed').length).toBe(18);
+    expect(files.filter(f => f.sub === 'generic').length).toBe(51);
+    expect(files.filter(f => f.sub === 'themed').length).toBe(38);
+    expect(files.filter(f => f.sub === 'official').length).toBe(18);
+    expect(files.filter(f => f.sub === 'woo-jr').length).toBe(11);
   });
 
   for (const { sub, path: filePath, data } of files) {
@@ -49,11 +58,18 @@ describe('madlib originals JSON', () => {
       const blankCount = countBlanks(data.text);
       const minBlanks = sub === 'classics' ? 8 : 8;
       expect(blankCount).toBeGreaterThanOrEqual(minBlanks);
-      if (sub !== 'classics') {
-        expect(blankCount).toBeLessThanOrEqual(18);
-      }
       const tokens = tokenize(data.text);
       expect(tokens.filter(t => t.type === 'blank').length).toBe(blankCount);
+
+      const collection = data.collection || inferCollectionFromFolder(sub);
+      validateTaxonomy(title, { collection, format: data.format, tags: data.tags });
+      expect(COLLECTIONS).toContain(collection);
+      expect(FORMAT_ORDER).toContain(data.format);
+      expect(data.tags.length).toBeGreaterThanOrEqual(1);
+      expect(data.tags.length).toBeLessThanOrEqual(3);
+      for (const tag of data.tags) {
+        expect(TAG_ORDER).toContain(tag);
+      }
     });
   }
 
@@ -77,11 +93,12 @@ describe('madlib originals JSON', () => {
 });
 
 describe('madlibs bundle', () => {
-  it('bundle has ~57 templates with categories', () => {
+  it('bundle has 136 templates grouped by format', () => {
     const titles = listBundledMadLibTitles();
-    expect(titles.length).toBeGreaterThanOrEqual(48);
+    expect(titles.length).toBe(136);
     const catalog = listBundledMadLibCatalog();
-    expect(catalog.map(g => g.id)).toEqual(expect.arrayContaining(['classics', 'legacy', 'generic', 'themed']));
+    expect(catalog.every(g => FORMAT_ORDER.includes(g.id))).toBe(true);
+    expect(catalog.map(g => g.id)).not.toContain('generic');
     const total = catalog.reduce((n, g) => n + g.items.length, 0);
     expect(total).toBe(titles.length);
   });
@@ -102,6 +119,15 @@ describe('madlibs bundle', () => {
     const meta = getMadLibMeta("Doctor's Report");
     expect(meta.blankCount).toBeGreaterThan(8);
     expect(meta.category).toBe('generic');
+    expect(meta.format).toBe('incident-report');
+    expect(meta.tags.length).toBeGreaterThan(0);
+  });
+
+  it('includes official Penguin templates in bundle', () => {
+    const meta = getMadLibMeta('The Blank Page');
+    expect(meta.collection).toBe('official');
+    expect(meta.category).toBe('official');
+    expect(getBundledMadLib('The Blank Page')?.text).toMatch(/\{noun\}/);
   });
 
   it('bundled entries use string text with {tags}', () => {

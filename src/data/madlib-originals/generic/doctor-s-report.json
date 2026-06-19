@@ -1,5 +1,11 @@
 {
   "title": "Doctor's Report",
   "category": "generic",
-  "text": "## Doctor's Report\n\n**Patient presentation:** Patient presents with a {adjective} {body part} ache near the {body part}.\n\n**Vital signs:** {adjective} and slightly {adjective}.\n\n**Treatment:** Rest, {adjective} fluids, and one small {object} taken {adverb} with meals.\n\n**Follow-up:** Follow up if symptoms become {adjective} or if the patient begins to {verb} uncontrollably at work.\n\n**Notes:** Patient insists this started after eating {food} at a {adjective} restaurant. Prescription signed with a {color} pen."
+  "text": "## Doctor's Report\n\n**Patient presentation:** Patient presents with a {adjective} {body part} ache near the {body part}.\n\n**Vital signs:** {adjective} and slightly {adjective}.\n\n**Treatment:** Rest, {adjective} fluids, and one small {object} taken {adverb} with meals.\n\n**Follow-up:** Follow up if symptoms become {adjective} or if the patient begins to {verb} uncontrollably at work.\n\n**Notes:** Patient insists this started after eating {food} at a {adjective} restaurant. Prescription signed with a {color} pen.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "workplace",
+    "parody-bureaucratic"
+  ]
 }

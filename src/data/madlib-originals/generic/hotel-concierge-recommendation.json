@@ -1,0 +1,10 @@
+{
+  "title": "Hotel Concierge Recommendation",
+  "category": "generic",
+  "text": "## Hotel Concierge Recommendation\n\nWelcome to our {adjective} hotel in {place}.\n\nFor dinner, I recommend the bistro that serves {food} beside a {color} fountain.\n\nIf you feel {emotion}, take the {vehicle} tour led by {person}, our local {job}.\n\nAvoid the alley with {number} {plural noun}; they tend to {verb} after sunset.\n\nFor souvenirs, buy a {object} and never mention the {animal} that is always {verb ending in -ing} in room 4 with its {body part}, wearing a {clothing item}, and guarding {number} {plural noun}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "travel"
+  ]
+}

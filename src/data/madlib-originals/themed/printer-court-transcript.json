@@ -1,5 +1,12 @@
 {
   "title": "Printer Court Transcript",
   "category": "themed",
-  "text": "## Printer Court Transcript\n\n**Judge:** Court is now in session for the case of Office vs. The {adjective} Printer.\n\n**Charge:** Refusing to {verb} during a {number}-page presentation.\n\n**Witness:** {person} states the machine made a {sound}, flashed a {color} light, and demanded {plural noun}.\n\n**Evidence:** One jammed {object}, three {adjective} toner cartridges, and a note reading DO NOT {verb}.\n\n**Verdict:** Guilty of {adverb} wasting lunch.\n\n**Sentence:** Relocation to the {place} until morale improves."
+  "text": "## Printer Court Transcript\n\n**Judge:** Court is now in session for the case of Office vs. The {adjective} Printer.\n\n**Charge:** Refusing to {verb} during a {number}-page presentation.\n\n**Witness:** {person} states the machine made a {sound}, flashed a {color} light, and demanded {plural noun}.\n\n**Evidence:** One jammed {object}, three {adjective} toner cartridges, and a note reading DO NOT {verb}.\n\n**Verdict:** Guilty of {adverb} wasting lunch.\n\n**Sentence:** Relocation to the {place} until morale improves.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace",
+    "parody-bureaucratic"
+  ]
 }

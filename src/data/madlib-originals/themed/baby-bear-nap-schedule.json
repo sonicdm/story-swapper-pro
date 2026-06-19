@@ -1,5 +1,11 @@
 {
   "title": "Baby Bear Nap Schedule",
   "category": "themed",
-  "text": "## Baby Bear Nap Protocol\n\n**Pre-nap:**\n- {adjective} story\n- {adjective} honey on toast\n\n**Music:** Soft {adjective} songs from the {adjective} collection.\n\n**Room:** Must be {adjective}, quiet, and free of {plural noun} toys.\n\n**Duration:** Baby Bear will {verb} for exactly {number} minutes unless a {adjective} butterfly appears.\n\n**Wake-up:** Stretching, yawning, and asking for another {object}.\n\n**If Baby joins:** Both may {verb} until someone finds the {adjective} blanket.\n\n**Do not** schedule meetings during {adjective} hour."
+  "text": "## Baby Bear Nap Protocol\n\n**Pre-nap:**\n- {adjective} story\n- {adjective} honey on toast\n\n**Music:** Soft {adjective} songs from the {adjective} collection.\n\n**Room:** Must be {adjective}, quiet, and free of {plural noun} toys.\n\n**Duration:** Baby Bear will {verb} for exactly {number} minutes unless a {adjective} butterfly appears.\n\n**Wake-up:** Stretching, yawning, and asking for another {object}.\n\n**If Baby joins:** Both may {verb} until someone finds the {adjective} blanket.\n\n**Do not** schedule meetings during {adjective} hour.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "pets",
+    "kids"
+  ]
 }

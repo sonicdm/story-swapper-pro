@@ -54,7 +54,7 @@ describe('wildcard prompt remapping', () => {
     const words = tokens.filter(t => t.type === 'word');
 
     const cases = [
-      ['man', 'name of someone in the room'],
+      ['man', 'noun'],
       ['red', 'color'],
       ['box', 'object'],
       ['yelled', 'sound'],
@@ -109,5 +109,36 @@ describe('wildcard prompt remapping', () => {
     expect(pool.find(p => p.norm === 'listens')?.category).toBe('verb');
     expect(pool.filter(p => p.norm === 'whispers').every(p => p.category === 'plural noun')).toBe(true);
     expect(pool.find(p => p.norm === 'storms')?.category).toBe('plural noun');
+  });
+
+  it('does not treat poetry line openers as names (Fair, Well)', () => {
+    const fairLine = tokenize('Fair charmer, cease!');
+    const fairCls = classifyTokensHeuristic(fairLine);
+    const fairTok = fairLine.find(t => t.norm === 'fair');
+    expect(pickCategory(fairCls.get(fairTok.index).categories, fairTok)).toBe('adjective');
+
+    const wellLine = tokenize('Well might, alas! that vessel fail,');
+    const wellCls = classifyTokensHeuristic(wellLine);
+    const wellTok = wellLine.find(t => t.norm === 'well');
+    expect(pickCategory(wellCls.get(wellTok.index).categories, wellTok)).toBe('adverb');
+  });
+
+  it('does not treat derived adjectives as names after line breaks (Softest, Forgetful)', () => {
+    const text = `O Time! who know'st a lenient hand to lay
+Softest on sorrow's wound, and slowly thence
+The spirit may return,
+Forgetful of its past.
+Yet vain to thee the boast of hearts forgiven.`;
+    const tokens = tokenize(text);
+    const cls = classifyTokensHeuristic(tokens);
+
+    const softest = tokens.find(t => t.norm === 'softest');
+    expect(pickCategory(cls.get(softest.index).categories, softest)).toBe('adjective');
+
+    const forgetful = tokens.find(t => t.norm === 'forgetful');
+    expect(pickCategory(cls.get(forgetful.index).categories, forgetful)).toBe('adjective');
+
+    const yet = tokens.find(t => t.norm === 'yet');
+    expect(pickCategory(cls.get(yet.index).categories, yet)).not.toBe('name of someone in the room');
   });
 });

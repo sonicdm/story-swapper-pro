@@ -35,11 +35,19 @@
 
         <div id="panel-madlibs" class="panel active" role="tabpanel" aria-labelledby="tab-madlibs">
           <p class="field-hint" style="margin-top:0">
-            Classic fill-in-the-blank stories — bundled offline catalog plus optional live API.
+            Fill-in-the-blank stories — browse by collection (Classic, Original, Official, Woo! Jr), tags, or title.
           </p>
           <div class="field">
             <label for="madlibs-filter">Filter templates</label>
             <input type="search" id="madlibs-filter" placeholder="Search by title…" autocomplete="off">
+          </div>
+          <div class="field">
+            <span class="field-label" id="madlibs-collections-label">Collection</span>
+            <div id="madlibs-collection-chips" class="tag-chips collection-chips" role="group" aria-labelledby="madlibs-collections-label"></div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="madlibs-tags-label">Tags</span>
+            <div id="madlibs-tag-chips" class="tag-chips" role="group" aria-labelledby="madlibs-tags-label"></div>
           </div>
           <div class="field">
             <label for="madlibs-select">Choose a template</label>

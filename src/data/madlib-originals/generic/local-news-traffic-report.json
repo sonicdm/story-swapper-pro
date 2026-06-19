@@ -1,0 +1,11 @@
+{
+  "title": "Local News Traffic Report",
+  "category": "generic",
+  "text": "## Local News Traffic Report\n\nGood morning from the {adjective} traffic desk.\n\nA stalled {vehicle} near {place} has caused {number} miles of {plural noun}.\n\nDrivers report a {animal} {verb ending in -ing} on the shoulder and {person} trying to {verb} traffic with a {color} {object}.\n\nExpect delays until a {job} can remove the {food} from lane two.\n\nStay {emotion}, keep both {body part} on the wheel, and avoid the {adjective} detour past {place} on {day of week}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "media",
+    "civic"
+  ]
+}

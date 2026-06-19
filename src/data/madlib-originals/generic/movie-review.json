@@ -1,5 +1,10 @@
 {
   "title": "Movie Review",
   "category": "generic",
-  "text": "## Movie Review\n\nCritics call it the most {adjective} film of the season.\n\n**Starring:** {person} as a {adjective} hero who must {verb} across a {adjective} landscape to recover a stolen {object}.\n\n**Villain:** Played by a {adjective} celebrity, who wants to {verb} the world using only a {object} and poor timing.\n\n**Best scene:** A {adjective} chase through a {place} while {adjective} music swells.\n\n**Worst scene:** Someone tries to {verb} a {animal} and fails.\n\n**Rating:** {number} stars and one {adjective} popcorn bucket."
+  "text": "## Movie Review\n\nCritics call it the most {adjective} film of the season.\n\n**Starring:** {person} as a {adjective} hero who must {verb} across a {adjective} landscape to recover a stolen {object}.\n\n**Villain:** Played by a {adjective} celebrity, who wants to {verb} the world using only a {object} and poor timing.\n\n**Best scene:** A {adjective} chase through a {place} while {adjective} music swells.\n\n**Worst scene:** Someone tries to {verb} a {animal} and fails.\n\n**Rating:** {number} stars and one {adjective} popcorn bucket.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "media"
+  ]
 }

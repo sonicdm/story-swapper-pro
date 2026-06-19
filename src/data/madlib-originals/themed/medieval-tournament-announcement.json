@@ -1,0 +1,11 @@
+{
+  "title": "Medieval Tournament Announcement",
+  "category": "themed",
+  "text": "## Medieval Tournament Announcement\n\nHear ye, citizens of {place}! The {adjective} tournament begins this {day of week}.\n\nKnights will {verb}, bards will sing of {plural noun}, and {person} will judge the {color} banner contest.\n\nFirst prize is {number} gold {noun} and a ceremonial {object}.\n\nCompetitors must wear a {clothing item}, feed their {animal}, and avoid {verb ending in -ing} near the royal {food} table.\n\nAny {job} caught cheating will be publicly {emotion} beside the {color} {vehicle}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "fantasy",
+    "sports"
+  ]
+}

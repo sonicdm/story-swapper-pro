@@ -1,0 +1,11 @@
+{
+  "title": "Alien Exchange Student Letter",
+  "category": "themed",
+  "text": "## Alien Exchange Student Letter\n\nDear host family, my name is {person} and I come from {place}.\n\nI am excited to study {plural noun}, taste {food}, and learn why humans {verb} their {object} every morning.\n\nPlease do not be alarmed by my {color} {body part} or the {animal} that follows me {adverb}.\n\nOn my planet, we show {emotion} by {verb ending in -ing}.\n\nI packed {number} gifts, one {adjective} {noun} for your school principal, and a {color} {object} for the {job}.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "sci-fi",
+    "school"
+  ]
+}

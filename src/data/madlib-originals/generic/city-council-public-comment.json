@@ -1,0 +1,10 @@
+{
+  "title": "City Council Public Comment",
+  "category": "generic",
+  "text": "## City Council Public Comment\n\nGood evening, council. My name is {person}, and I live near the {place}.\n\nI am here about the proposed {adjective} statue shaped like a {animal}.\n\nFor {number} weeks, residents have heard {sound} every time someone tries to {verb} past it.\n\nChildren are {emotion}, dogs are {verb ending in -ing}, and my {object} turned {color}.\n\nPlease fund more {plural noun} instead of another {adjective} {noun}, a {color} {vehicle}, or {number} ceremonial {food} carts.",
+  "collection": "original",
+  "format": "speech",
+  "tags": [
+    "civic"
+  ]
+}

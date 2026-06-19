@@ -6,8 +6,26 @@ import {
   STREAMLIT_HINT_ALIASES,
   TAG_FOR_CATEGORY
 } from './madlib-api-format.js';
+import {
+  FORMAT_ORDER,
+  FORMAT_LABELS,
+  COLLECTIONS,
+  COLLECTION_LABELS,
+  TAG_ORDER,
+  TAG_LABELS,
+  filterMadLibTemplates
+} from './madlib-taxonomy.js';
 
 export { normalizeMadLibBlank, madLibBlankToTag, madlibsApiStoryToTemplate };
+export {
+  FORMAT_ORDER,
+  FORMAT_LABELS,
+  COLLECTIONS,
+  COLLECTION_LABELS,
+  TAG_ORDER,
+  TAG_LABELS,
+  filterMadLibTemplates
+};
 
 /** Convert one bundled or API entry to a {tag} template string. */
 export function madlibsTemplateEntryToText(entry) {
@@ -22,43 +40,70 @@ export function madlibsTemplateEntryToText(entry) {
   return '';
 }
 
-/** Bundled classic templates (offline fallback, MIT via madlibz / madlibs-api). */
-export function listBundledMadLibTitles() {
+/** All bundled template titles (sorted). */
+export function listBundledMadLibTitles(filter = null) {
+  const items = listBundledMadLibItems();
+  const filtered = filter ? filterMadLibTemplates(items, filter) : items;
+  return filtered.map(i => i.title).sort((a, b) => a.localeCompare(b));
+}
+
+/** Flat list of templates with browse metadata. */
+export function listBundledMadLibItems() {
+  return listBundledMadLibTitlesRaw().map(title => ({
+    title,
+    ...getMadLibMeta(title)
+  }));
+}
+
+function listBundledMadLibTitlesRaw() {
   return Object.keys(templates).sort((a, b) => a.localeCompare(b));
 }
 
-const CATEGORY_ORDER = ['classics', 'legacy', 'generic', 'themed'];
-const CATEGORY_LABELS = {
-  classics: 'Classics',
-  legacy: 'Legacy',
-  generic: 'Generic',
-  themed: 'Themed'
-};
-
-/** Catalog grouped for UI optgroups. */
-export function listBundledMadLibCatalog() {
-  const groups = new Map(CATEGORY_ORDER.map(c => [c, []]));
-  for (const title of listBundledMadLibTitles()) {
-    const entry = templates[title];
-    const cat = entry?.category || 'classics';
-    if (!groups.has(cat)) groups.set(cat, []);
-    groups.get(cat).push({ title, ...getMadLibMeta(title, entry) });
+/** Catalog grouped by format for UI optgroups. */
+export function listBundledMadLibCatalog(filter = null) {
+  const items = filter ? filterMadLibTemplates(listBundledMadLibItems(), filter) : listBundledMadLibItems();
+  const groups = new Map(FORMAT_ORDER.map(f => [f, []]));
+  for (const item of items) {
+    const fmt = item.format || 'story';
+    if (!groups.has(fmt)) groups.set(fmt, []);
+    groups.get(fmt).push(item);
   }
-  return CATEGORY_ORDER
-    .filter(c => groups.get(c)?.length)
-    .map(c => ({ id: c, label: CATEGORY_LABELS[c] || c, items: groups.get(c) }));
+  return FORMAT_ORDER
+    .filter(f => groups.get(f)?.length)
+    .map(f => ({
+      id: f,
+      label: FORMAT_LABELS[f] || f,
+      items: groups.get(f).sort((a, b) => a.title.localeCompare(b.title))
+    }));
 }
 
 export function getMadLibMeta(title, entry = templates[title]) {
-  if (!entry) return { blankCount: 0, wordCount: 0, category: 'classics' };
+  if (!entry) {
+    return {
+      blankCount: 0,
+      wordCount: 0,
+      category: 'classics',
+      collection: 'classic',
+      format: 'story',
+      tags: []
+    };
+  }
   const blankCount = entry.blankCount
     ?? (typeof entry.text === 'string' ? (entry.text.match(/\{[^}]+\}/g)?.length ?? 0) : entry.blanks?.length ?? 0);
   const wordCount = entry.wordCount ?? 0;
-  return { blankCount, wordCount, category: entry.category || 'classics' };
+  return {
+    blankCount,
+    wordCount,
+    category: entry.category || 'classics',
+    collection: entry.collection || (entry.category === 'classics' ? 'classic' : entry.category === 'official' ? 'official' : entry.category === 'woo-jr' ? 'woo-jr' : 'original'),
+    format: entry.format || 'story',
+    tags: Array.isArray(entry.tags) ? [...entry.tags] : []
+  };
 }
 
-export function getRandomBundledMadLibTitle(exclude = '') {
-  const titles = listBundledMadLibTitles().filter(t => t !== exclude);
+export function getRandomBundledMadLibTitle(exclude = '', filter = null) {
+  const titles = listBundledMadLibTitles(filter).filter(t => t !== exclude);
+  if (!titles.length) return '';
   return titles[Math.floor(Math.random() * titles.length)];
 }
 

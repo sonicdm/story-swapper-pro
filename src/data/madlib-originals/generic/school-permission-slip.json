@@ -1,5 +1,11 @@
 {
   "title": "School Permission Slip",
   "category": "generic",
-  "text": "## School Permission Slip\n\nDear Parent,\n\nOur class will visit the {adjective} Museum of {plural noun} on {adjective}day.\n\n**Students should bring:**\n- A {adjective} lunch\n- A {adjective} water bottle\n- {adjective} shoes\n\n**Itinerary:** We will {verb} through the {adjective} exhibit and learn about {adjective} history.\n\n**Permission granted** to ride the {adjective} bus and participate in the {adjective} workshop.\n\n**Emergency contact:** {person} at {number} o'clock.\n\n**Note:** If your child is allergic to {plural noun}, {plural noun}, or enthusiasm, please inform us."
+  "text": "## School Permission Slip\n\nDear Parent,\n\nOur class will visit the {adjective} Museum of {plural noun} on {adjective}day.\n\n**Students should bring:**\n- A {adjective} lunch\n- A {adjective} water bottle\n- {adjective} shoes\n\n**Itinerary:** We will {verb} through the {adjective} exhibit and learn about {adjective} history.\n\n**Permission granted** to ride the {adjective} bus and participate in the {adjective} workshop.\n\n**Emergency contact:** {person} at {number} o'clock.\n\n**Note:** If your child is allergic to {plural noun}, {plural noun}, or enthusiasm, please inform us.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "school",
+    "kids"
+  ]
 }

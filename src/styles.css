@@ -205,6 +205,47 @@
       border: 2px solid var(--border);
     }
     .btn-secondary:hover { border-color: var(--accent); }
+
+    .tag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .tag-chip {
+      font: inherit;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .tag-chip:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .tag-chip.active {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+      color: var(--text);
+    }
+
+    .collection-chip.active {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+      font-weight: 600;
+    }
+
+    .collection-chip[data-collection="official"].active {
+      border-color: #c2185b;
+      background: color-mix(in srgb, #c2185b 15%, var(--surface));
+    }
     .sticky-actions {
       position: fixed;
       bottom: 0;

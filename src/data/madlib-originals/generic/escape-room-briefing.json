@@ -1,0 +1,11 @@
+{
+  "title": "Escape Room Briefing",
+  "category": "generic",
+  "text": "## Escape Room Briefing\n\n**Team:** {number} players led by {person}\n\n**Theme:** The {adjective} {place} of {plural noun}\n\n**Time limit:** {number} minutes\n\n**Rules:**\n- Do not {verb} the {object}\n- Hints cost {number} points\n- No {verb ending in -ing} the {color} {clothing item}\n\n**Safety:** In case of panic, {verb} calmly and {past-tense verb} the emergency {sound}.\n\n**Goal:** Find the {adjective} key hidden inside a {vehicle} replica.\n\n**Prize:** Bragging rights and one {food} coupon.",
+  "collection": "original",
+  "format": "how-to",
+  "tags": [
+    "everyday",
+    "gaming"
+  ]
+}

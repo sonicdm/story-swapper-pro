@@ -1,5 +1,11 @@
 {
   "title": "IT Incident Report",
   "category": "themed",
-  "text": "## IT Incident Report\n\n**Incident summary:** Company-wide {adjective} outage began at {number} AM after someone {past-tense verb} the {adjective} server.\n\n**Root cause:** A {adjective} patch pushed by {person} during lunch.\n\n**User impact:** {number} employees unable to {verb} for {number} minutes.\n\n**Timeline:** Tier-1 missed the alert because the queue was {adjective}; fix attempted by {verb ending in -ing} the {object} twice.\n\n**Action items:**\n- Add {adjective} monitoring\n- Ban {plural noun} on Fridays\n- Require {adjective} approval before rebooting anything.\n\n**Blameless note:** The vendor swore the update was harmless.\n\n**Status:** Ticket closed."
+  "text": "## IT Incident Report\n\n**Incident summary:** Company-wide {adjective} outage began at {number} AM after someone {past-tense verb} the {adjective} server.\n\n**Root cause:** A {adjective} patch pushed by {person} during lunch.\n\n**User impact:** {number} employees unable to {verb} for {number} minutes.\n\n**Timeline:** Tier-1 missed the alert because the queue was {adjective}; fix attempted by {verb ending in -ing} the {object} twice.\n\n**Action items:**\n- Add {adjective} monitoring\n- Ban {plural noun} on Fridays\n- Require {adjective} approval before rebooting anything.\n\n**Blameless note:** The vendor swore the update was harmless.\n\n**Status:** Ticket closed.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
 }

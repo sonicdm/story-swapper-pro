@@ -8,7 +8,8 @@ import {
   isIngNounContext, looksLikeProperName, resolveProperNounCategory, isIdiomPart, isCompoundProtected, isLikelyPluralNoun,
   isPoeticOrArchaicForm, normalizeForPos, isPrepositionWord, isAbstractPoeticContext,
   isParticipleAfterName, isColorWord, isShoutVerb, isGerundVerb, isLexicalCompound,
-  isReportingVerbBeforeName, isReportingVerb
+  isReportingVerbBeforeName, isReportingVerb, isGenericPersonRole, isEpithetAdjective, isPoeticSentenceAdverb,
+  isLikelyDerivedAdjective
 } from './grammar.js';
 import { posFromWinkTag } from './nlp-hints.js';
 
@@ -196,6 +197,15 @@ function classifyTokenHeuristic(tok, wordTokens, wi, tokens, hints) {
   if (STOP_WORDS.has(w) || w.length < 2) {
     return { categories: [], confidence: 0 };
   }
+  if (isPoeticSentenceAdverb(w, tok)) {
+    return { categories: ['adverb'], confidence: 0.85 };
+  }
+  if (isEpithetAdjective(w) && /^[A-Z]/.test(tok.text)) {
+    return { categories: ['adjective'], confidence: 0.85 };
+  }
+  if (isLikelyDerivedAdjective(w, prevWord) && /^[A-Z]/.test(tok.text)) {
+    return { categories: ['adjective'], confidence: 0.85 };
+  }
   if (MONTHS.has(w)) {
     return { categories: [], confidence: 0 };
   }
@@ -252,7 +262,10 @@ function classifyTokenHeuristic(tok, wordTokens, wi, tokens, hints) {
     cats.push('color');
     confidence = Math.max(confidence, 0.88);
   }
-  if (listHas('personNouns', w)) { cats.push('name of someone in the room'); confidence = Math.max(confidence, 0.85); }
+  if (listHas('personNouns', w) && !isGenericPersonRole(w, tok)) {
+    cats.push('name of someone in the room');
+    confidence = Math.max(confidence, 0.85);
+  }
 
   const pos = classifyWordPos(w, prevWord, hints, nextWord);
 
@@ -276,7 +289,8 @@ function classifyTokenHeuristic(tok, wordTokens, wi, tokens, hints) {
   }
 
   if (DETERMINERS.has(prevWord) && cats.includes('noun')) confidence = Math.max(confidence, 0.78);
-  if (hints?.person?.has(w) && !cats.includes('name of someone in the room') && listHas('personNouns', w)) {
+  if (hints?.person?.has(w) && !cats.includes('name of someone in the room')
+      && !isGenericPersonRole(w, tok)) {
     cats.push('name of someone in the room');
     confidence = Math.max(confidence, 0.88);
   }
@@ -481,7 +495,9 @@ function pickCategory(categories, tok, prevWord = '', cls = null) {
   if (categories.includes('food') && listHas('foods', w)) return 'food';
   if (categories.includes('job') && listHas('jobs', w)) return 'job';
   if (categories.includes('name of someone in the room')) {
-    if (listHas('personNouns', w) || resolveProperNounCategory(tok)) {
+    const properName = resolveProperNounCategory(tok);
+    if (properName === 'name of someone in the room') return 'name of someone in the room';
+    if (listHas('personNouns', w) && !isGenericPersonRole(w, tok)) {
       return 'name of someone in the room';
     }
   }

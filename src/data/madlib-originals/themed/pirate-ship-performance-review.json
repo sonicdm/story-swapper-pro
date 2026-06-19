@@ -1,0 +1,11 @@
+{
+  "title": "Pirate Ship Performance Review",
+  "category": "themed",
+  "text": "## Pirate Ship Performance Review\n\nCrewmate: {person}\n\nThis quarter, you {past-tense verb} {number} enemy {plural noun} and kept the {color} {object} mostly dry.\n\nStrengths include {verb ending in -ing} during storms and saying {silly word} with a {adjective} accent.\n\nAreas to improve: stop feeding {food} to the ship's {animal} and remember to {verb} before entering the captain's {place}.\n\nOverall rating: {emotion}, with a bonus {noun} if your {body part} heals before {day of week} at {place}.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "fantasy",
+    "workplace"
+  ]
+}

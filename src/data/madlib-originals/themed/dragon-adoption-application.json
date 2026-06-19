@@ -1,0 +1,11 @@
+{
+  "title": "Dragon Adoption Application",
+  "category": "themed",
+  "text": "## Dragon Adoption Application\n\nApplicant name: {person}\n\nDesired dragon: {adjective}, {color}, and comfortable around {plural noun}.\n\nDo you have space in your {place} for {number} fireproof beds and one chewable {object}?\n\nIf the dragon begins {verb ending in -ing}, will you {verb} or call a licensed {job}?\n\nPreferred diet: {food}, roasted {noun}, and occasional {animal} treats.\n\nReason for adoption: feeling {emotion} and wanting a {adjective} friend with a {color} {clothing item} and {number} hobbies.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "fantasy",
+    "pets"
+  ]
+}

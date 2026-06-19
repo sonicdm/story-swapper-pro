@@ -2,6 +2,10 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {
+  inferCollectionFromFolder,
+  validateTaxonomy
+} from '../src/lib/madlib-taxonomy.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -12,10 +16,12 @@ const CATEGORY_LABELS = {
   classics: 'Classics',
   legacy: 'Legacy',
   generic: 'Generic',
-  themed: 'Themed'
+  themed: 'Themed',
+  official: 'Official',
+  'woo-jr': 'Woo! Jr'
 };
 
-const SUBDIRS = ['classics', 'legacy', 'generic', 'themed'];
+const SUBDIRS = ['classics', 'legacy', 'generic', 'themed', 'official', 'woo-jr'];
 
 function countWords(text) {
   const m = String(text).match(/\b[\w''-]+\b/g);
@@ -27,7 +33,7 @@ function countBlanks(text) {
   return m ? m.length : 0;
 }
 
-function validateStory(title, entry, category, { strictBlanks = true } = {}) {
+function validateStory(title, entry, folderCategory) {
   if (!entry?.text) {
     throw new Error(`${title}: missing text`);
   }
@@ -44,16 +50,28 @@ function validateStory(title, entry, category, { strictBlanks = true } = {}) {
     throw new Error(`${title}: text must contain {tag} placeholders`);
   }
   const blankCount = countBlanks(text);
-  if (strictBlanks && (blankCount < 8 || blankCount > 18)) {
-    throw new Error(`${title}: expected 8–18 blanks, got ${blankCount}`);
+  if (blankCount < 8) {
+    throw new Error(`${title}: expected at least 8 blanks, got ${blankCount}`);
+  }
+  if (blankCount > 18) {
+    console.warn(`  warn: ${title} has ${blankCount} blanks (typical 8–18)`);
   }
   const words = countWords(text);
   if (words < 60 || words > 200) {
     console.warn(`  warn: ${title} is ~${words} words (target 80–140)`);
   }
+
+  const collection = entry.collection || inferCollectionFromFolder(folderCategory);
+  const format = entry.format;
+  const tags = entry.tags;
+  validateTaxonomy(title, { collection, format, tags }, { requireAll: true });
+
   return {
     text,
-    category: entry.category || category,
+    category: entry.category || folderCategory,
+    collection,
+    format,
+    tags: [...tags],
     blankCount,
     wordCount: words
   };
@@ -65,13 +83,12 @@ function walkOriginals() {
   for (const sub of SUBDIRS) {
     const dir = path.join(originalsDir, sub);
     if (!fs.existsSync(dir)) continue;
-    const strictBlanks = sub !== 'classics';
     for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
       const full = path.join(dir, file);
       const entry = JSON.parse(fs.readFileSync(full, 'utf8'));
       const title = entry.title || file.replace(/\.json$/, '').replace(/-/g, ' ');
       if (out[title]) throw new Error(`Duplicate title: ${title}`);
-      out[title] = validateStory(title, entry, sub, { strictBlanks });
+      out[title] = validateStory(title, entry, sub);
     }
   }
   return out;

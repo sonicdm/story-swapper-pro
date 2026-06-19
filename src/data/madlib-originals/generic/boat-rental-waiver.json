@@ -1,0 +1,11 @@
+{
+  "title": "Boat Rental Waiver",
+  "category": "generic",
+  "text": "## Boat Rental Waiver\n\n**Renter:** {person}\n\n**Vessel:** {adjective} {vehicle} docked at {place}\n\n**Rental period:** {number} hours on {day of week}\n\n**Safety gear:** One {color} {clothing item} and a {object}\n\n**Weather disclaimer:** Not responsible if you {verb} during storms.\n\n**Rules:** Do not {verb} near {plural noun}; no {verb ending in -ing} while feeding a {animal}.\n\n**Emergency:** If the engine {past-tense verb}, {verb} toward shore and {sound} three times.\n\n**Signature:** I accept all liability.",
+  "collection": "original",
+  "format": "legal",
+  "tags": [
+    "travel",
+    "parody-bureaucratic"
+  ]
+}

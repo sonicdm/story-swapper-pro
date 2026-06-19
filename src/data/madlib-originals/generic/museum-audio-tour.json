@@ -1,0 +1,11 @@
+{
+  "title": "Museum Audio Tour",
+  "category": "generic",
+  "text": "## Museum Audio Tour — Stop {number}\n\nWelcome to the {adjective} Gallery of {plural noun}.\n\nBefore you stands a {color} {object} discovered in {place} by {person}, a renowned {job}.\n\n**Listen closely:** This piece was created by {verb ending in -ing} a {adjective} {animal} into art.\n\n**Scholars believe:** It symbolizes {emotion} and the urge to {verb}.\n\n**Fun fact:** In {number}, a visitor {past-tense verb} the display while eating {food}.\n\n**Next stop:** The Hall of {adjective} {silly word}.",
+  "collection": "original",
+  "format": "speech",
+  "tags": [
+    "travel",
+    "media"
+  ]
+}

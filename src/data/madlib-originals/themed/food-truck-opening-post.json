@@ -1,0 +1,11 @@
+{
+  "title": "Food Truck Opening Post",
+  "category": "themed",
+  "text": "## Food Truck Opening Post\n\n**Grand opening:** {day of week} at {number} AM\n\n**Location:** Corner of {adjective} {place} and Main Street\n\n**Truck name:** The {adjective} {silly word}\n\n**Signature dish:** {food} on a {color} {object}\n\n**Chef:** {person}, former {job}\n\n**Special:** First {number} customers get free {plural noun}\n\n**Hours:** Open until we {verb} out of {food} or the {animal} arrives.\n\n**Find us:** The {vehicle} with the {sound} horn.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "food",
+    "everyday"
+  ]
+}

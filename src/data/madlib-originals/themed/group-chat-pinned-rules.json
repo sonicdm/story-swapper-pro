@@ -1,0 +1,12 @@
+{
+  "title": "Group Chat Pinned Rules",
+  "category": "themed",
+  "text": "## Group Chat Pinned Rules\n\n**Admin:** {person}\n\n**Rule 1:** No {verb ending in -ing} {plural noun} after {number} PM\n\n**Rule 2:** Memes must be {adjective} and involve one {animal}\n\n**Rule 3:** {person} may not {verb} the group name again\n\n**Mute hours:** {day of week} through {day of week}, unless someone finds {food}\n\n**Violations:** Post a {color} {clothing item} selfie and {sound} in voice chat\n\n**Emergency:** If {person} {past-tense verb}, meet at the {place}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "media",
+    "tech",
+    "everyday"
+  ]
+}

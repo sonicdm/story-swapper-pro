@@ -1,344 +1,1625 @@
 {
+  "A Morning Person": {
+    "text": "## A Morning Person\n\nAre you cheery and {adjective} at the crack of dawn? Do you leap out of bed early in the morning, ready to greet the world with a dazzling {noun}? As a journalist, can you quickly switch gears from interviewing the ruler of (the) {place} to quizzing an expert on the effects of global {verb ending in -ing} on the planet to judging a beauty contest for {animal}? Then you could be the {adjective} morning show host we're looking for! The number one–ranked show Good Morning, {noun} is searching for a cohost to join the current host, {person}. The show combines {adjective}, hard news stories with lighter pieces such as cooking and {verb ending in -ing} segments, interviews with A-listers like {person} and {person}, and fashion tips such as one hundred stylish ways to wear a feathered {noun}. Salary is {number} dollars a year plus a generous allowance for clothing and {plural noun}. Are you qualified? Then {verb} today for an application!",
+    "category": "official",
+    "collection": "official",
+    "format": "listing",
+    "tags": [
+      "media",
+      "workplace"
+    ],
+    "blankCount": 16,
+    "wordCount": 165
+  },
   "A Scary Halloween Story": {
     "text": "They say my school is haunted; my {adjective} friend {person}says they saw a {adjective} {noun} floating at the end of the hall near the cafeteria. Some say if you {verb} down that hallway at night, you'll hear a {animal} growling deeply. My {adjective} friend {person} saw a {adjective} {noun} slithering under the tables once. I hope I never see any {noun} crawling; eating lunch there is scary enough!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids"
+    ],
     "blankCount": 11,
     "wordCount": 69
   },
   "A Spooky Campfire Story": {
     "text": "Every summer, I get totally amped and {adjective} to go camping in the deep, {adjective} forests. It's good to get away from it all - but not too far, like getting lost! Last year, my friend and I went hiking and got lost for {number} hour(s). We started off on a(n) {adjective} adventure, but we kept losing the trail. Night began to fall, and when we heard the howls of a {animal}, we began to panic. It was getting darker and our flashlights were running on {noun}. I'm sure glad my pet {animal}, {person}, was with us. He is one gifted creature, because he was able to guide us back by {verb ending in -ing} the {adjective} s'mores by the campfire. This year, before setting off on an {adjective} journey, I'll be sure to have working flashlights - and of course, my gifted pet!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids"
+    ],
     "blankCount": 11,
     "wordCount": 144
   },
   "AIM Away Message": {
     "text": "## AIM Away Message\n\nbrb {verb ending in -ing}ing 4 a while!!!\n\n**If u need me:** Prob at the {adjective} mall or fighting my {adjective} brother 4 the computer.\n\n**Current mood:** {adjective}\n\n**Listening 2:** {plural noun} on my {adjective} CD player.\n\n**Leave a {plural noun} if u wanna talk about {plural noun}, homework, or who {past-tense verb} who on the bus.\n\n**Back @** {number} unless dial-up is {adjective} again lol.\n\n**Auto-reply:** BRB DO NOT {verb} MY PROFILE!!! ~*{person} ~*",
     "category": "themed",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "retro-web",
+      "media"
+    ],
     "blankCount": 13,
     "wordCount": 77
   },
   "Airline Delay Announcement": {
     "text": "## Airline Delay Announcement\n\nGood afternoon, passengers on flight {number} to {place}.\n\nYour departure has been delayed because a {adjective} {animal} was seen {verb ending in -ing} near the runway.\n\n**While you wait:**\n- Please keep all {plural noun} under your seat\n- Do not {verb} the boarding door\n- Enjoy one complimentary {food}\n\n**Updated boarding time:** {number} minutes after the captain finishes inspecting the {object}.\n\nWe appreciate your {adjective} patience and promise the snack cart is only mildly {adjective}.",
     "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "travel",
+      "parody-bureaucratic"
+    ],
     "blankCount": 12,
     "wordCount": 76
+  },
+  "Alien Exchange Student Letter": {
+    "text": "## Alien Exchange Student Letter\n\nDear host family, my name is {person} and I come from {place}.\n\nI am excited to study {plural noun}, taste {food}, and learn why humans {verb} their {object} every morning.\n\nPlease do not be alarmed by my {color} {body part} or the {animal} that follows me {adverb}.\n\nOn my planet, we show {emotion} by {verb ending in -ing}.\n\nI packed {number} gifts, one {adjective} {noun} for your school principal, and a {color} {object} for the {job}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "sci-fi",
+      "school"
+    ],
+    "blankCount": 18,
+    "wordCount": 80
   },
   "All About Vampires": {
     "text": "Vampires are {adjective}! They have {adjective} {body part} for {verb ending in -ing} blood. The sun can {verb} vampires, so they only {verb} at night and {verb} during the day. Vampires also don't like {noun} so {verb} it or {verb} it around your {body part} to keep them away. If a vampire {verb}s a person and {verb}s their blood, they become a vampire, too. The only way to {verb} a vampire is with a {noun} through the {body part}, but {adjective} luck getting close enough to one!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids"
+    ],
     "blankCount": 17,
     "wordCount": 89
+  },
+  "Apartment Listing": {
+    "text": "## Apartment Listing\n\nNow leasing a {adjective} studio in the heart of {place}.\n\nThis unit features {number} windows, one {color} wall, and a surprisingly {adjective} view of the neighbor's {object}.\n\nAmenities include:\n- Shared {plural noun}\n- A lobby that smells faintly of {food}\n- On-site {animal} supervision\n\nIdeal for a {job} who loves {verb ending in -ing} and can {verb} quietly after midnight.\n\nSecurity deposit: one {adjective} {noun}, a {body part} print, {number} references, and a promise to stay {emotion} by {day of week}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 81
   },
   "Apology Letter": {
     "text": "## Apology Letter\n\nDear {person},\n\nI am deeply sorry for {verb ending in -ing} your {object} during the {adjective} party.\n\nIt was wrong to {verb} near the {place} and even worse to blame your {animal}.\n\nI should not have {past-tense verb} your favorite {object} or told everyone about the {adjective} incident.\n\n**To make amends** I will {verb} publicly, replace the {object}, and never again {verb} without permission.\n\nPlease forgive me.\n\nSincerely,\n{person}, a reformed {adjective} person.",
     "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "everyday"
+    ],
     "blankCount": 15,
     "wordCount": 75
   },
   "Baby and Baby Bear Bedtime": {
     "text": "## Bedtime Checklist\n\n**For Baby and Baby Bear:**\n\n- Draw a {adjective} bath\n- Find the {adjective} pajamas with {plural noun} on them\n- Read one {adjective} story about {animal} who learn to {verb}\n\n**Baby Bear:** Requires {adjective} honey on a {adjective} spoon and will {verb} if the room is too {adjective}.\n\n**Baby:** Prefers the {adjective} lullaby sung {adverb} while rocking the {adjective} chair.\n\n**Lights out:** {number} o'clock.\n\n**If either wakes up:** Offer a {adjective} hug and do not mention {plural noun} until morning.",
     "category": "themed",
+    "collection": "original",
+    "format": "story",
+    "tags": [
+      "pets",
+      "kids"
+    ],
     "blankCount": 16,
     "wordCount": 80
   },
   "Baby Bear Nap Schedule": {
     "text": "## Baby Bear Nap Protocol\n\n**Pre-nap:**\n- {adjective} story\n- {adjective} honey on toast\n\n**Music:** Soft {adjective} songs from the {adjective} collection.\n\n**Room:** Must be {adjective}, quiet, and free of {plural noun} toys.\n\n**Duration:** Baby Bear will {verb} for exactly {number} minutes unless a {adjective} butterfly appears.\n\n**Wake-up:** Stretching, yawning, and asking for another {object}.\n\n**If Baby joins:** Both may {verb} until someone finds the {adjective} blanket.\n\n**Do not** schedule meetings during {adjective} hour.",
     "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "pets",
+      "kids"
+    ],
     "blankCount": 13,
     "wordCount": 71
+  },
+  "BB-8 and R2-D2": {
+    "text": "## BB-8 and R2-D2\n\nR2D2 is a {color} and {color} {adjective} droid. R2 units were built to {verb} humans and can {verb} and even {verb}. R2D2 first served Queen {person} and went on to {verb} Jedi {noun} Luke {noun} walker.\n\nBB-8 is a BB series astromech {noun} with a {noun}-shaped head like R2D2 and a body shaped like a {noun}. BB-8 is a {adjective} droid to Commander {person} Dameron. BB-8 and R2D2 {past-tense verb} together to help {verb} the First Order.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "media",
+      "kids",
+      "sci-fi"
+    ],
+    "blankCount": 17,
+    "wordCount": 81
+  },
+  "Best Sellers for Kids": {
+    "text": "## Best Sellers for Kids\n\nAll children have {adjective} memories of the books their mothers and {noun} read to them. Here are some of the all-time {adjective} favorites:\n\n• The Giving {noun} is a touching story about a friendship between a/an {noun} and a tree. Throughout the boy's life, the {noun} gives and gives. Kids between the ages of {number} and {number} love this story.\n\n• Goodnight Moon is a/an {adjective} book that captures a child's nightly ritual of saying good night to everything in his {noun}. It's great for {plural noun} ages two through six.\n\n• Written in rhyme, Green Eggs and {food} made Dr. Seuss one of the best-loved children's {plural noun} of all time. While many {plural noun} have a moral or a/an {noun}, the lesson in this classic is: If you've never tried something, you can't say you don't like it. A perfect read for all {adjective} kindergartners.",
+    "category": "official",
+    "collection": "official",
+    "format": "review",
+    "tags": [
+      "kids",
+      "media"
+    ],
+    "blankCount": 16,
+    "wordCount": 151
+  },
+  "Birthday Party Invitation": {
+    "text": "## Birthday Party Invitation\n\nYou are invited to {person}'s {adjective} birthday party at {place}.\n\nThere will be {number} games, a {color} cake, and a professional {job} who can {verb} while {verb ending in -ing}.\n\nPlease bring one {object}, comfortable {clothing item}, and your favorite {animal} story.\n\nDo not bring {plural noun}; last year they made everyone {emotion}.\n\nRSVP by {day of week}, or we will mail you a {adjective} {noun} with {number} {plural noun}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "kids",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 74
   },
   "Blockbuster Rental Night": {
     "text": "## Blockbuster Night Checklist\n\n**Arrival:** Before {number} PM for best {adjective} selection.\n\n**Browse:**\n- {adjective} aisle first\n- {verb} new releases near the {adjective} display\n\n**Rent:**\n- One {adjective} movie\n- One {adjective} comedy\n- Zero damaged {plural noun} cases\n\n**Snacks:** {adjective} candy and a soda the size of a {object}.\n\n**At home:** {verb} the tape, ignore tracking lines, and {verb} during previews.\n\n**Return by:** {number} PM or pay a {adjective} late fee that feels {adjective}.\n\n**Bonus:** Argue about whether to rewind.",
     "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "retro-web"
+    ],
     "blankCount": 15,
     "wordCount": 76
+  },
+  "Boat Rental Waiver": {
+    "text": "## Boat Rental Waiver\n\n**Renter:** {person}\n\n**Vessel:** {adjective} {vehicle} docked at {place}\n\n**Rental period:** {number} hours on {day of week}\n\n**Safety gear:** One {color} {clothing item} and a {object}\n\n**Weather disclaimer:** Not responsible if you {verb} during storms.\n\n**Rules:** Do not {verb} near {plural noun}; no {verb ending in -ing} while feeding a {animal}.\n\n**Emergency:** If the engine {past-tense verb}, {verb} toward shore and {sound} three times.\n\n**Signature:** I accept all liability.",
+    "category": "generic",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "travel",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 17,
+    "wordCount": 71
+  },
+  "Call for Submissions": {
+    "text": "## Call for Submissions\n\nSeeking: Journal entries from talented {plural noun} with an interest in writing about the performing {plural noun} for inclusion in a/an {noun}-winning anthology. Entries must be {number} words or less and should {verb} your passion for this {adjective} topic. Interest in site-specific {plural noun} held in a/an {place} is a plus.\n\nTo Apply: Please up-{verb} your application, cover {noun}, resume, and a sample of {adjective} work to our website. We encourage applicants who are able to {verb} well with others in a highly diverse and collaborative {noun}.\n\nThank you, {adverb}, for your submission.",
+    "category": "official",
+    "collection": "official",
+    "format": "form",
+    "tags": [
+      "media",
+      "workplace"
+    ],
+    "blankCount": 14,
+    "wordCount": 100
+  },
+  "Camping Supply Checklist": {
+    "text": "## Camping Supply Checklist\n\nFor the trip to {place}, pack one {adjective} tent, {number} flashlights, and a {color} {object}.\n\nBring enough {food} for everyone, plus extra {plural noun} in case {person} gets {emotion}.\n\nIf a {animal} approaches, do not {verb}; simply begin {verb ending in -ing} {adverb}.\n\nWear a warm {clothing item} and protect your {body part} from the {adjective} weather.\n\nMost important: never forget the {noun} or say {silly word}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "travel",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 70
+  },
+  "Castle for Sale": {
+    "text": "## Castle for Sale\n\nAre you a king, queen, or {job} looking for that perfectly {adjective} new home? Then have we got a/an {adjective} place for you! King {person}'s {adjective} castle has just come on the market! Originally built in the {adjective} Ages, this lakefront wonder has towers that rise high above (the) {place} and a/an {adjective} view that will take your {body part} away. In each and every room of this 25,000 square-{body part} masterpiece, there are magnificent stained glass {plural noun} and splendid Gothic {noun}-burning fireplaces. There's also a chef's state-of-the-art, {adverb} modern {noun} for those who love to {verb}. For security and {adjective} privacy, there is also a moat filled with {plural noun} and a drawbridge to keep out unwanted {plural noun}. Take advantage of the collapse in the castle market and make a/an {adjective} offer on this treasure. The asking price is a ridiculously low {number} dollars.",
+    "category": "official",
+    "collection": "official",
+    "format": "listing",
+    "tags": [
+      "fantasy",
+      "kids"
+    ],
+    "blankCount": 20,
+    "wordCount": 157
   },
   "Castle Tour Script": {
     "text": "## Castle Tour Script\n\nWelcome to the {adjective} Castle of {place}.\n\nPlease stay behind the {adjective} rope and do not touch the royal {object}.\n\n**In the great hall:** Our guide will {verb} beside a portrait of {person}, who famously defeated a {adjective} {animal} with only a {body part}.\n\n**In the dungeon:** Visitors may hear {plural noun} and one suspicious {sound}.\n\n**Gift shop:** Buy a {color} crown, a {food}, or a postcard that says, \"I survived the {adjective} stairs.\"",
     "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "travel",
+      "fantasy"
+    ],
     "blankCount": 14,
     "wordCount": 77
+  },
+  "City Council Public Comment": {
+    "text": "## City Council Public Comment\n\nGood evening, council. My name is {person}, and I live near the {place}.\n\nI am here about the proposed {adjective} statue shaped like a {animal}.\n\nFor {number} weeks, residents have heard {sound} every time someone tries to {verb} past it.\n\nChildren are {emotion}, dogs are {verb ending in -ing}, and my {object} turned {color}.\n\nPlease fund more {plural noun} instead of another {adjective} {noun}, a {color} {vehicle}, or {number} ceremonial {food} carts.",
+    "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "civic"
+    ],
+    "blankCount": 18,
+    "wordCount": 76
   },
   "Community Garden Minutes": {
     "text": "## Community Garden Minutes\n\n**Meeting called by:** {person}\n\n**Main topic:** The {adjective} mystery of missing {plural noun} from plot {number}.\n\n**Witness report:** A {adjective} {animal} was seen carrying a {object} toward the {place} while {verb ending in -ing}.\n\n**New rules:**\n- Label every {food}\n- Stop using {adjective} compost after dark\n- Never {verb} near the sprinkler shed\n\n**Next meeting:** Bring one {color} chair and a {adverb} prepared apology.",
     "category": "generic",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "civic",
+      "everyday"
+    ],
     "blankCount": 14,
     "wordCount": 65
+  },
+  "Courtroom Testimony": {
+    "text": "## Courtroom Testimony\n\nYour honor, on {day of week}, I saw {person} enter the {place} carrying a {adjective} {object}.\n\nThe witness appeared {emotion} and began {verb ending in -ing} near the evidence table.\n\nWhen asked about the missing {noun}, they {past-tense verb} and blamed a {animal} wearing a {color} {clothing item}.\n\nExhibit {number} is a bag of {plural noun} found beside the {body part} print.\n\nI swear this statement is completely {adjective} and only slightly {emotion}, according to the {job}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "civic",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 79
+  },
+  "D&D Session Recap": {
+    "text": "## D&D Session Recap\n\n**Party:** {person}, {person}, and a {adjective} {job}\n\n**Location:** The {place} of {plural noun}\n\n**Loot:** {color} {plural noun} and one cursed {object}\n\n**Critical fail:** {person} tried to {verb} the dragon and {past-tense verb} into a {food} cart.\n\n**NPC:** A merchant who demanded {plural noun} for directions.\n\n**Boss fight:** Resolved by {verb ending in -ing} a {sound} and rolling a {number}.\n\n**DM note:** Next session involves a {vehicle}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "gaming",
+      "fantasy"
+    ],
+    "blankCount": 18,
+    "wordCount": 70
+  },
+  "Dating App Profile": {
+    "text": "## Dating App Profile\n\nHi, I am {person}, a {adjective} {job} who loves {verb ending in -ing}, {food}, and weekend trips to {place}.\n\nMy ideal date brings a {color} {object}, laughs at {plural noun}, and never asks why my {animal} knows how to {verb}.\n\nI am looking for someone {emotion}, kind, and only mildly {adjective}.\n\nFun fact: I once {past-tense verb} a {vehicle} using just my {body part} and a {noun} {adverb}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "everyday",
+      "media"
+    ],
+    "blankCount": 18,
+    "wordCount": 71
+  },
+  "Detention Survival Kit": {
+    "text": "## Detention Survival Kit\n\nMy best {noun}, {person}, is a pro at serving detentions and suggests bringing the following items to make it through the hour:\n\n• A/An {noun} phone—but don't use it for {verb ending in -ing}; instead, use it as a watch, a calculator, or a/an {noun}. And be sure to turn it to \"{noun}\" so it doesn't ring.\n\n• An i-{noun} to listen to music. Cover up the {noun}-phones by wearing a hooded {body part}.\n\n• Some tissues, in case you need to blow your {noun}\n\n• Blank paper and something to {verb} with. Use these {body part} items to compose love songs to your crush, {person}, draw a comic strip featuring {person} as the underwear-wearing superhero Captain {noun}-pants, or even do something crazy, like your {adjective} homework\n\n• A pair of {person}-glasses—you might as well look {person} while you're there!",
+    "category": "official",
+    "collection": "official",
+    "format": "checklist",
+    "tags": [
+      "school",
+      "kids"
+    ],
+    "blankCount": 18,
+    "wordCount": 146
   },
   "Dial-Up Internet Guide": {
     "text": "## Dial-Up Internet Guide\n\nWelcome to the Internet!\n\n**Step 1:** Tell everyone in the house you will {verb} the phone line for {number} hours.\n\n**Step 2:** Connect your {adjective} modem and listen for the {adjective} sound of progress.\n\n**Step 3:** Choose a {adjective} username like {person} and a password no one can {verb}.\n\n**Step 4:** Download one {adjective} image very {adverb}.\n\n**Step 5:** Sign into chat and say hello to {number} strangers.\n\n**Step 6:** When a parent needs the phone, {verb} quickly and blame the {object}.\n\nRepeat until broadband arrives in {number} years.",
     "category": "themed",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "retro-web",
+      "tech"
+    ],
     "blankCount": 13,
     "wordCount": 92
   },
   "Doctor's Report": {
     "text": "## Doctor's Report\n\n**Patient presentation:** Patient presents with a {adjective} {body part} ache near the {body part}.\n\n**Vital signs:** {adjective} and slightly {adjective}.\n\n**Treatment:** Rest, {adjective} fluids, and one small {object} taken {adverb} with meals.\n\n**Follow-up:** Follow up if symptoms become {adjective} or if the patient begins to {verb} uncontrollably at work.\n\n**Notes:** Patient insists this started after eating {food} at a {adjective} restaurant. Prescription signed with a {color} pen.",
     "category": "generic",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "workplace",
+      "parody-bureaucratic"
+    ],
     "blankCount": 13,
     "wordCount": 69
   },
   "Dot-Com Startup Pitch": {
     "text": "## Dot-Com Startup Pitch\n\n**Company name:** {adjective}{noun}.com\n\n**Mission:** To help busy people {verb} their {plural noun} on the information superhighway.\n\n**Target user:** {person}, age {number}, currently trapped in a {adjective} cubicle.\n\n**Product demo:** Click the {color} button and watch a {adjective} {object} appear in only {number} seconds.\n\n**Revenue model:** Sell {plural noun}, banner ads, and one {adverb} expensive subscription.\n\n**Investor ask:** ${number} million and a conference room with {food}.",
     "category": "themed",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "retro-web",
+      "workplace"
+    ],
     "blankCount": 15,
     "wordCount": 70
+  },
+  "Dragon Adoption Application": {
+    "text": "## Dragon Adoption Application\n\nApplicant name: {person}\n\nDesired dragon: {adjective}, {color}, and comfortable around {plural noun}.\n\nDo you have space in your {place} for {number} fireproof beds and one chewable {object}?\n\nIf the dragon begins {verb ending in -ing}, will you {verb} or call a licensed {job}?\n\nPreferred diet: {food}, roasted {noun}, and occasional {animal} treats.\n\nReason for adoption: feeling {emotion} and wanting a {adjective} friend with a {color} {clothing item} and {number} hobbies.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "fantasy",
+      "pets"
+    ],
+    "blankCount": 18,
+    "wordCount": 73
+  },
+  "Escape Room Briefing": {
+    "text": "## Escape Room Briefing\n\n**Team:** {number} players led by {person}\n\n**Theme:** The {adjective} {place} of {plural noun}\n\n**Time limit:** {number} minutes\n\n**Rules:**\n- Do not {verb} the {object}\n- Hints cost {number} points\n- No {verb ending in -ing} the {color} {clothing item}\n\n**Safety:** In case of panic, {verb} calmly and {past-tense verb} the emergency {sound}.\n\n**Goal:** Find the {adjective} key hidden inside a {vehicle} replica.\n\n**Prize:** Bragging rights and one {food} coupon.",
+    "category": "generic",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "everyday",
+      "gaming"
+    ],
+    "blankCount": 18,
+    "wordCount": 69
+  },
+  "Family Beach Road Trip": {
+    "text": "## Family Beach Road Trip\n\nMy family is taking a trip to {color} Beach, {number} hours away. We are riding in a {vehicle} with my {person} and {person}. My parents packed a cooler with {food} sandwiches, {food}, and {food}. They always {verb} us to wear {noun} and a {noun} so we don't get sunburned. During the drive, we will {verb} games like {noun} and \"Count the {plural noun}.\" I can't wait to get there so I can go {verb ending in -ing} in the ocean and {verb} along the beach and collect {plural noun} I find in the sand.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "travel",
+      "kids",
+      "seasonal"
+    ],
+    "blankCount": 17,
+    "wordCount": 98
+  },
+  "Fantasy Sports Draft Recap": {
+    "text": "## Fantasy Sports Draft Recap\n\n**League:** {number} teams, {adjective} scoring\n\n**Round 1:** {person} drafted a {job} who {past-tense verb} every {day of week}\n\n**Reach pick:** A {color} {animal} listed as a {place} defender\n\n**Steal:** {person} grabbed the last {object} before the {sound}\n\n**Trade drama:** {plural noun} for one {vehicle}\n\n**Auto-draft shame:** {person} woke up owning a mascot made of {food}\n\n**Punishment:** Last place must {verb} in a {clothing item} all season.\n\n**Commissioner note:** No {verb ending in -ing} during the anthem.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "sports",
+      "media"
+    ],
+    "blankCount": 19,
+    "wordCount": 80
+  },
+  "Food Critic Tasting Notes": {
+    "text": "## Food Critic Tasting Notes\n\nTonight's meal at {place} began with a {color} bowl of {food}.\n\nThe chef, {person}, described it as {adjective}, but I detected notes of {noun} and mild {emotion}.\n\nCourse two arrived by {vehicle} and contained {number} {plural noun} arranged like a {animal}.\n\nThe sauce {past-tense verb} across the plate while the waiter began {verb ending in -ing}.\n\nOverall rating: {adjective}, provided you enjoy {verb} with your {body part} beside a {color} {object}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "food"
+    ],
+    "blankCount": 18,
+    "wordCount": 75
+  },
+  "Food Truck Opening Post": {
+    "text": "## Food Truck Opening Post\n\n**Grand opening:** {day of week} at {number} AM\n\n**Location:** Corner of {adjective} {place} and Main Street\n\n**Truck name:** The {adjective} {silly word}\n\n**Signature dish:** {food} on a {color} {object}\n\n**Chef:** {person}, former {job}\n\n**Special:** First {number} customers get free {plural noun}\n\n**Hours:** Open until we {verb} out of {food} or the {animal} arrives.\n\n**Find us:** The {vehicle} with the {sound} horn.",
+    "category": "themed",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "food",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 65
+  },
+  "Fortune Cookie Factory Memo": {
+    "text": "## Fortune Cookie Factory Memo\n\nTeam, production of {adjective} fortunes begins at {number} AM.\n\nPlease stop inserting messages about {plural noun}, especially after {person} found one inside a {food}.\n\nApproved fortunes may mention {emotion}, a future {job}, or a journey to {place} by {vehicle}.\n\nDo not {verb} near the folding machine or the cookies will become {color}.\n\nRemember: every {object} deserves to {verb} {adverb} beside a {color} {noun} by {day of week}, unless {person} objects.",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "food",
+      "workplace"
+    ],
+    "blankCount": 18,
+    "wordCount": 74
+  },
+  "Fourth of July Bloopers": {
+    "text": "## Fourth of July Bloopers\n\nOur Fourth of July started out {adjective} enough. Aunt {person} and Uncle {person} were coming over to spend the day with my family. We had a really {adjective} barbecue set up in the backyard, with lots of {food} and {plural noun} right off the grill. The trouble started when my aunt and uncle arrived and we found out they had brought along the newest and most {adjective} member of their family: a/an {number}-pound pet pig named {person}! The pig looked {adjective} enough, and he even made a noise that sounded like \"{silly word}!\" when I petted him on his {body part}. But when we put him in the backyard to {verb}, everything got totally out of hand! The pig took one sniff of all the {adjective} food and started to {verb} around like crazy. He knocked over all the tables and {plural noun}, destroyed my kid sister's playhouse, and took a swim in the {food}. \"That's it!\" my father yelled. \"Next time you bring a/an {animal} to a barbecue, we're going to cook him!\"",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "seasonal",
+      "kids"
+    ],
+    "blankCount": 18,
+    "wordCount": 181
+  },
+  "Group Chat Pinned Rules": {
+    "text": "## Group Chat Pinned Rules\n\n**Admin:** {person}\n\n**Rule 1:** No {verb ending in -ing} {plural noun} after {number} PM\n\n**Rule 2:** Memes must be {adjective} and involve one {animal}\n\n**Rule 3:** {person} may not {verb} the group name again\n\n**Mute hours:** {day of week} through {day of week}, unless someone finds {food}\n\n**Violations:** Post a {color} {clothing item} selfie and {sound} in voice chat\n\n**Emergency:** If {person} {past-tense verb}, meet at the {place}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "media",
+      "tech",
+      "everyday"
+    ],
+    "blankCount": 17,
+    "wordCount": 72
+  },
+  "Gym Membership Cancellation": {
+    "text": "## Gym Membership Cancellation\n\nI would like to cancel my {adjective} gym membership immediately.\n\nWhen I joined, the brochure promised {number} machines, fresh {food}, and a trainer who would {verb} politely.\n\nInstead, I found a {animal} on the treadmill and {person} {verb ending in -ing} in the sauna.\n\nMy final class involved lifting a {color} {object} with my {body part}.\n\nPlease stop billing my {noun}, return my {clothing item}, and remove me from the {emotion} newsletter before {day of week}. My {body part} still feels {adjective} from {number} {plural noun}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 89
+  },
+  "Haunted House Safety Briefing": {
+    "text": "## Haunted House Safety Briefing\n\nBefore entering the {adjective} haunted house, secure all {plural noun} and silence your {object}.\n\nIf a ghost says {silly word}, do not {verb}; simply walk {adverb} toward the {place} exit.\n\nGuests may encounter a {color} {animal}, {number} floating {body part}, or {person} {verb ending in -ing} in the mirror room.\n\nNo {food} near the cursed {noun}.\n\nIf you feel {emotion}, notify the nearest {job} immediately by {day of week}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "spooky",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 73
   },
   "Help Desk Ticket": {
     "text": "## Help Desk Ticket\n\n**Caller:** {person}\n\n**Location:** {adjective} building, floor {number}\n\n**Priority:** {adjective}\n\n**Problem:** User cannot {verb} — screen shows a {adjective} error about {plural noun}.\n\n**Troubleshooting:**\n- Rebooted the {object}\n- Reseated the {adjective} cable\n- Asked them to {verb} and try again\n\n**Resolution:** Replaced the {adjective} and cleared the {adjective} queue. Closed as {adjective}.\n\n**Time on ticket:** {number} minutes. User thanked us and asked if we also fix {plural noun}.",
     "category": "generic",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
     "blankCount": 15,
     "wordCount": 67
   },
   "Help Wanted Ad": {
     "text": "## Help Wanted\n\nNow hiring a {adjective} {job} to join our {adjective} team downtown.\n\n**Requirements:**\n- Must be able to {verb} quickly\n- Lift {number} pounds\n- Remain {adjective} during emergencies involving {plural noun} or spilled {food}\n\n**Benefits:**\n- {adjective} dental\n- Unlimited {plural noun}\n- One {adjective} holiday per month\n\n**How to apply:** In person wearing {adjective} attire with a {object} resume.\n\n**Ideal candidate:** {number} years experience; can {verb} without supervision. No {adjective} applicants, please.",
     "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "workplace"
+    ],
     "blankCount": 16,
+    "wordCount": 69
+  },
+  "Home Renovation Reveal": {
+    "text": "## Home Renovation Reveal\n\n**Homeowners:** {person} and {person}\n\n**Contractor:** {person}, licensed {job}\n\n**Budget:** Started at {number} dollars; ended at {number} {plural noun}\n\n**Before:** A {adjective} {place} with {color} {plural noun} everywhere\n\n**Demo day:** Someone {past-tense verb} the wrong wall while {verb ending in -ing} a {object}\n\n**Surprise find:** {plural noun} behind the stairs\n\n**After:** {adjective} kitchen and a {vehicle} parked indoors.\n\n**Reaction:** Tears, a {sound}, and plans to {verb} again.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "everyday",
+      "media"
+    ],
+    "blankCount": 19,
     "wordCount": 69
   },
   "Horoscope": {
     "text": "## Today's Horoscope\n\n**Sign:** {adjective} signs\n\n**Opportunity:** A {adjective} stranger may offer you a {adjective} opportunity near a {place}.\n\n**Lucky charm:** Your lucky {object} is hiding inside an old {object}.\n\n**Romance:** Romance blooms when you {verb} with confidence and wear something {adjective}.\n\n**Warning:** Beware of {adjective} advice from a {adjective} relative.\n\n**Finance:** Financial luck arrives after you {verb} a forgotten {object}.\n\n**Tonight:** Dream of {plural noun} animals and wake up feeling {adjective}.",
     "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "media",
+      "everyday"
+    ],
     "blankCount": 14,
     "wordCount": 71
+  },
+  "Hotel Concierge Recommendation": {
+    "text": "## Hotel Concierge Recommendation\n\nWelcome to our {adjective} hotel in {place}.\n\nFor dinner, I recommend the bistro that serves {food} beside a {color} fountain.\n\nIf you feel {emotion}, take the {vehicle} tour led by {person}, our local {job}.\n\nAvoid the alley with {number} {plural noun}; they tend to {verb} after sunset.\n\nFor souvenirs, buy a {object} and never mention the {animal} that is always {verb ending in -ing} in room 4 with its {body part}, wearing a {clothing item}, and guarding {number} {plural noun}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "travel"
+    ],
+    "blankCount": 18,
+    "wordCount": 83
+  },
+  "How to Be a Princess": {
+    "text": "## How to Be a Princess\n\nIt is difficult not to envy a young woman who has everything her {body part} desires. But history shows it isn't easy being a princess. You have to maintain {adjective} standards and abide by {adjective} rules. For example:\n\n• A princess should always be kind to, and understanding of, her royal {plural noun}. A princess knows that a/an {adjective} smile is preferable to a/an {adjective} frown.\n\n• A princess should be a patron of the arts, well-versed in classical {adjective}, and {adverb} familiar with {adjective} authors and their {noun} works.\n\n• A princess should never make a/an {adjective} decision. She should always think before {verb ending in -ing}. And when she does speak, she should be articulate and, if possible, very {adjective}.\n\n• And, of course, a princess must be prepared to marry a/an {adjective} prince and live {adverb} ever after.",
+    "category": "official",
+    "collection": "official",
+    "format": "how-to",
+    "tags": [
+      "fantasy",
+      "kids"
+    ],
+    "blankCount": 15,
+    "wordCount": 146
   },
   "How To Cross a Piranha-Infested River": {
     "text": "If you are traveling in {place} and find yourself having to cross a piranha-filled river, here's how to do it {adverb}: 1) Piranhas are more {adjective} during the day, so cross the river at night. 2) Avoid areas with netted {animal} traps--piranhas may be {verb ending in -ing} there looking to {verb} them! 3) When {verb ending in -ing} the river, swim {adverb}. You don't want to wake them up and make them {adjective}! 4) Whatever you do, if you have an open wound, try to find another way to get back to the {place}. Piranhas are attracted to fresh {food} and will most likely take a bite out of your {body part} if you {verb} in the water!",
     "category": "classics",
+    "collection": "classic",
+    "format": "how-to",
+    "tags": [
+      "everyday",
+      "kids"
+    ],
     "blankCount": 13,
     "wordCount": 119
   },
   "How to Date the Coolest Guy/Girl in School": {
     "text": "It's simple. Turn the {plural noun}. Make him/her want {adverb} to date you. Make sure you're always dressed to {verb}. Each and every day, wear a/an {clothing item} that you know shows off your {body part} to {adjective} advantage and make your {noun} look like a million {plural noun}. Even if the two of you make meaningful {body part} contact, don't admit it. No hugs or {plural noun}. Just shake his/her {body part} firmly. And remember, when he/she asks you out, even though a chill may run down your {noun} and you can't stop your {noun} from {verb ending in -ing}, just play it {adjective}. Take a long pause before answering in a very {adjective} voice. \"I'll have to {verb} it over.\"",
     "category": "classics",
+    "collection": "classic",
+    "format": "how-to",
+    "tags": [
+      "school",
+      "kids"
+    ],
     "blankCount": 17,
     "wordCount": 126
   },
   "How to Host a Party": {
     "text": "## How to Host a Party\n\n**Step 1:** Send {adjective} invitations written in {color} ink.\n\n**Step 2:** Decorate with {adjective} balloons and a banner that says WELCOME {plural noun} PEOPLE.\n\n**Step 3:** Prepare {adjective} snacks and a punch bowl full of {food} liquid.\n\n**Step 4:** Create a playlist of {adjective} songs from the year you last {past-tense verb} in public.\n\n**Step 5:** Hide breakable {plural noun} objects on the highest {place}.\n\n**Step 6:** When guests arrive, greet them with a {adjective} handshake and offer a {object}.\n\n**Step 7:** End the night by {verb ending in -ing} politely and eating leftover {food}.",
     "category": "generic",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "everyday"
+    ],
     "blankCount": 14,
     "wordCount": 100
+  },
+  "Influencer Unboxing Script": {
+    "text": "## Influencer Unboxing Script\n\n**Creator:** {person} (@{silly word}{number})\n\n**Product:** The new {adjective} {object} from {place} Industries\n\n**Hook:** \"This changed my {emotion} routine forever.\"\n\n**Unbox:** Peel the {color} wrapper while {verb ending in -ing} for the camera.\n\n**Demo:** Watch it {verb} a {food} in {number} seconds.\n\n**Review:** Better than my old {vehicle}, worse than a {animal}.\n\n**Discount code:** {silly word} for {number} percent off.\n\n**CTA:** Like, subscribe, and {verb} the link before someone {past-tense verb} it.",
+    "category": "themed",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "media",
+      "tech"
+    ],
+    "blankCount": 18,
+    "wordCount": 75
   },
   "Instruction Manual": {
     "text": "## Instruction Manual\n\n**WARNING:** Do not {verb} this {object} near water, bees, or emotional {adjective} people.\n\n**Step A:** Insert the {object} into slot {number} until you hear a {adjective} sound.\n\n**Step B:** Press the {color} button firmly with your {body part}.\n\n**Step C:** Wait {number} minutes while the device becomes {adjective}.\n\n**Step D:** If smoke appears, {verb} calmly toward the nearest {place}.\n\n**Maintenance:** Clean with a {adjective} cloth every {number} days.\n\n**Support:** Questions? Call our {adjective} support line and ask for {person}.",
     "category": "generic",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "everyday",
+      "tech"
+    ],
     "blankCount": 16,
     "wordCount": 81
+  },
+  "Is There a Monster in My Room?": {
+    "text": "## Is There a Monster in My Room?\n\nEvery night before I {verb} to sleep, I swear I can {verb} noises in my closet. It sounds like a {adjective} {noun} is {verb ending in -ing} in there and it's so {adjective}! When I call my mom and {person}, they never {verb} anything. So I {verb} off the lights and try to {verb}. That's when the {plural noun} start under my {object}. Is it a monster, or something else, like a {noun} or maybe even a {noun}?",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids"
+    ],
+    "blankCount": 14,
+    "wordCount": 85
   },
   "IT Help Desk Update": {
     "text": "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The {adjective} printer on floor {number} is {adjective} again.\n\n**On site:** {person} with a {adjective} toolkit while {person} clears the password-reset {object}.\n\n**Users affected:** Anyone trying to {verb} or use the {adjective} conference room.\n\n**Workaround:** Route jobs to the {adjective} copier and {verb} your laptop until further notice.\n\n**ETA:** {number} minutes unless the print spooler acts {adjective} again.\n\nPlease stop opening tickets titled \"The internet is {adjective}.\"",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
     "blankCount": 14,
     "wordCount": 74
   },
   "IT Incident Report": {
     "text": "## IT Incident Report\n\n**Incident summary:** Company-wide {adjective} outage began at {number} AM after someone {past-tense verb} the {adjective} server.\n\n**Root cause:** A {adjective} patch pushed by {person} during lunch.\n\n**User impact:** {number} employees unable to {verb} for {number} minutes.\n\n**Timeline:** Tier-1 missed the alert because the queue was {adjective}; fix attempted by {verb ending in -ing} the {object} twice.\n\n**Action items:**\n- Add {adjective} monitoring\n- Ban {plural noun} on Fridays\n- Require {adjective} approval before rebooting anything.\n\n**Blameless note:** The vendor swore the update was harmless.\n\n**Status:** Ticket closed.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
     "blankCount": 15,
     "wordCount": 87
   },
   "LAN Party Snack Plan": {
     "text": "## LAN Party Snack Plan\n\n**Start time:** {number} PM, after everyone carries their {adjective} computer into the basement.\n\n**Network setup:** {person} will {verb} the router while {number} people yell about {plural noun}.\n\n**Approved snacks:**\n- {adjective} chips\n- {food} in a bowl shaped like a {object}\n- One emergency {color} soda\n\n**House rule:** If your character is defeated by a {animal}, you must {verb} and refill the ice tray.\n\n**Status:** The night ends when the modem makes a {sound}.",
     "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "gaming",
+      "retro-web"
+    ],
     "blankCount": 13,
     "wordCount": 75
   },
   "Learning About History": {
     "text": "History is {adjective} because we learn about {noun} and {noun} that happened long ago. I can't believe people used to dress in {adjective} clothing and kids played with {noun} and {noun} instead of video games. Also, before cars were invented, people actually rode {animal}! People read {noun} instead of computers and tablets, and sent messages via {noun} that took {number} days to arrive. I wonder how kids will view my life in {number} year(s); maybe they will ride flying cars to school and play with {noun} and {adjective} {noun}!",
     "category": "classics",
+    "collection": "classic",
+    "format": "how-to",
+    "tags": [
+      "school",
+      "kids"
+    ],
     "blankCount": 14,
     "wordCount": 90
   },
   "Letter from Camp": {
     "text": "## Letter from Camp\n\nDear {person},\n\nCamp is {adjective} so far. Our cabin is near the {place}, and every morning we {past-tense verb} before breakfast.\n\n**Yesterday:** Our counselor taught us to {verb} properly, which was harder than it looked.\n\n**Last night:** We sat around the fire and told stories about {animal}s and old {place}s. My tentmate brought a {object} from home and swears it brings good luck.\n\n**Food:** Lunch was {adjective}, dinner was better, and someone hid a {object} in the salad bowl.\n\n**Please write back soon.** Tell me whether the {place} is still quiet and whether the {animal} next door has learned any new tricks.\n\nMissing you,\n{person}",
     "category": "legacy",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "school",
+      "kids"
+    ],
     "blankCount": 13,
     "wordCount": 110
   },
   "Library Overdue Notice": {
     "text": "## Library Overdue Notice\n\nDear {person},\n\nOur records show that your {adjective} book, **The Secret Life of {plural noun}**, is {number} days overdue.\n\nPlease return it to the {place} branch or explain why it is covered in {food}.\n\n**Current fine:** one {object}, two {plural noun}, and a promise to {verb} quietly.\n\nIf the book was eaten by a {adjective} {animal}, bring photographic evidence.\n\nThank you for supporting public {adjective} reading.",
     "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "civic"
+    ],
     "blankCount": 12,
     "wordCount": 69
+  },
+  "Local News Traffic Report": {
+    "text": "## Local News Traffic Report\n\nGood morning from the {adjective} traffic desk.\n\nA stalled {vehicle} near {place} has caused {number} miles of {plural noun}.\n\nDrivers report a {animal} {verb ending in -ing} on the shoulder and {person} trying to {verb} traffic with a {color} {object}.\n\nExpect delays until a {job} can remove the {food} from lane two.\n\nStay {emotion}, keep both {body part} on the wheel, and avoid the {adjective} detour past {place} on {day of week}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "media",
+      "civic"
+    ],
+    "blankCount": 18,
+    "wordCount": 76
+  },
+  "Lost and Found Report": {
+    "text": "## Lost and Found Report\n\n**Item:** One {adjective} {object}\n\n**Color:** {color}\n\n**Found at:** The {place} near a {vehicle}\n\n**Found by:** {person}, a {job} who was {verb ending in -ing} at the time\n\n**Description:** Smells of {food}; contains {number} {plural noun} and a sticker shaped like a {body part}.\n\n**Claim process:** Describe the {sound} it makes when you {verb} it.\n\n**Reward:** {number} dollars and a {clothing item}.\n\n**Unclaimed after {number} days:** Donated to the {animal} shelter.",
+    "category": "generic",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "everyday",
+      "civic"
+    ],
+    "blankCount": 18,
+    "wordCount": 74
+  },
+  "Mall Security Incident Report": {
+    "text": "## Mall Security Incident Report\n\nAt {number} PM near the {place}, officer {person} observed a {adjective} disturbance.\n\nA {animal} wearing a {color} {clothing item} was {verb ending in -ing} beside the fountain while shoppers threw {plural noun}.\n\nSuspect attempted to {verb} using a stolen {vehicle} from the toy kiosk.\n\nRecovered items: one {object}, half a {food}, and a {noun} marked property of the {job}.\n\nCrowd mood: {emotion}. Security response: {adjective} and {adverb}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "workplace",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 71
   },
   "Matilda's Walk Report": {
     "text": "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** {adjective} with a chance of {plural noun}.\n\n**Route:** Left on {adjective} Street, past the {adjective} park, then home for {adjective} treats.\n\n**Highlights:** Matilda {past-tense verb} at a {adjective} squirrel and made {number} new friends.\n\n**Lowlights:** She rolled in something {adjective} near a {place}.\n\n**Equipment:** {adjective} leash, {adjective} bag, one heroic {object}.\n\n**Owner mood:** {adjective}.\n\n**Recommendation:** More walks, fewer {plural noun} distractions.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
     "blankCount": 15,
     "wordCount": 70
+  },
+  "Medieval Tournament Announcement": {
+    "text": "## Medieval Tournament Announcement\n\nHear ye, citizens of {place}! The {adjective} tournament begins this {day of week}.\n\nKnights will {verb}, bards will sing of {plural noun}, and {person} will judge the {color} banner contest.\n\nFirst prize is {number} gold {noun} and a ceremonial {object}.\n\nCompetitors must wear a {clothing item}, feed their {animal}, and avoid {verb ending in -ing} near the royal {food} table.\n\nAny {job} caught cheating will be publicly {emotion} beside the {color} {vehicle}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "fantasy",
+      "sports"
+    ],
+    "blankCount": 18,
+    "wordCount": 75
   },
   "Movie Review": {
     "text": "## Movie Review\n\nCritics call it the most {adjective} film of the season.\n\n**Starring:** {person} as a {adjective} hero who must {verb} across a {adjective} landscape to recover a stolen {object}.\n\n**Villain:** Played by a {adjective} celebrity, who wants to {verb} the world using only a {object} and poor timing.\n\n**Best scene:** A {adjective} chase through a {place} while {adjective} music swells.\n\n**Worst scene:** Someone tries to {verb} a {animal} and fails.\n\n**Rating:** {number} stars and one {adjective} popcorn bucket.",
     "category": "generic",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "media"
+    ],
     "blankCount": 16,
     "wordCount": 79
+  },
+  "Museum Audio Tour": {
+    "text": "## Museum Audio Tour — Stop {number}\n\nWelcome to the {adjective} Gallery of {plural noun}.\n\nBefore you stands a {color} {object} discovered in {place} by {person}, a renowned {job}.\n\n**Listen closely:** This piece was created by {verb ending in -ing} a {adjective} {animal} into art.\n\n**Scholars believe:** It symbolizes {emotion} and the urge to {verb}.\n\n**Fun fact:** In {number}, a visitor {past-tense verb} the display while eating {food}.\n\n**Next stop:** The Hall of {adjective} {silly word}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "travel",
+      "media"
+    ],
+    "blankCount": 18,
+    "wordCount": 74
+  },
+  "Museum Gift Shop Receipt": {
+    "text": "## Museum Gift Shop Receipt\n\nThank you for visiting the {adjective} Museum of {plural noun}.\n\nYour purchase includes one {color} {object}, {number} postcards, and a plush {animal} labeled historically accurate.\n\nCashier: {person}\n\nDiscount reason: customer correctly identified the ancient {body part}.\n\nPlease do not {verb} the replica {noun} inside the cafe.\n\nIf your souvenir begins {verb ending in -ing}, return to the {place} desk and ask for a {emotion} {job} wearing a {clothing item}, then {verb} {adverb} toward the {place}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "travel",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 79
+  },
+  "My Best Friend Is a Ghost": {
+    "text": "## My Best Friend Is a Ghost\n\nThis might sound {adjective}, but my {adjective} friend is a ghost. We met in {number} grade at school while they were {verb ending in -ing} the {place}. Their name is {person} and they were {number} years old when they died. No one can {verb} my friend but me. They have {color} hair and are {adverb} {adjective}, and their clothes are {adjective}. Having an invisible friend is {adjective}, but they always win at {verb} and seek.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids",
+      "school"
+    ],
+    "blankCount": 14,
+    "wordCount": 81
+  },
+  "My BFF": {
+    "text": "## My BFF\n\nThanks to social networking {plural noun} like My-{noun} and {noun}-book, everyone now has hundreds of {plural noun} friends. But most people really have only one best {noun}. A BFF is someone you tell your deepest, most {adjective} secrets to, knowing they won't tell a single {noun}. You and your best {noun} can pass {noun} in class and share a hot fudge {noun} after school. And if your {noun} friend wants some advice on the latest {noun} in their life, you'll give them the {adjective} truth. And finally, if you ever need a/an {adjective} to cry on, your BFF will be there with a box of {plural noun} and a/an {noun} of hot cocoa. Who could {verb} for anything more?",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "retro-web",
+      "kids"
+    ],
+    "blankCount": 17,
+    "wordCount": 125
+  },
+  "My High-Tech World": {
+    "text": "## My High-Tech World\n\nWow! I bought a new smart-{noun} today. It not only makes {noun} calls—it also forecasts the {noun} so I know whether to wear a/an {noun} or carry a/an {noun} in case it rains cats and {plural noun}. It can also read and send e-{noun} and even record a TV {noun}. And I will never get lost again because I now have a global {noun} system that gets me from point A to {noun} B in no time. I also received a/an {noun}-reader for my birthday. Imagine not only being able to download any book in just {number} seconds but view hundreds of magazines and {plural noun} from all over the {noun}. How did we ever get through each {noun} day before these {adjective} inventions?",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "tech",
+      "kids"
+    ],
+    "blankCount": 16,
+    "wordCount": 134
   },
   "MySpace Profile Update": {
     "text": "## MySpace Profile\n\n**About me:** Currently {adjective} and obsessed with {adjective} bands.\n\n**Mood:** {adjective}\n\n**Music:** Anything {adjective} with loud {plural noun}.\n\n**Heroes:** {person}, my {adjective} friends, and whoever invented {plural noun}.\n\n**Interests:** {verb ending in -ing}, glitter, and taking {adjective} photos in the bathroom mirror.\n\n**Top 8:** Updated — do not {verb} if you are not on it.\n\n**New background:** {adjective} stars on a {color} background.\n\nComment if you want to join my {adjective} group!!! xoxo {person} :)",
     "category": "themed",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "retro-web",
+      "media"
+    ],
     "blankCount": 15,
     "wordCount": 75
+  },
+  "Neighborhood Watch Bulletin": {
+    "text": "## Neighborhood Watch Bulletin\n\n**Alert level:** {adjective}\n\n**Reported activity:** A {person} was seen {verb ending in -ing} near the {place} at {number} AM.\n\n**Suspect description:** Wearing a {color} {clothing item}, carrying {plural noun}, and making a {sound}.\n\n**Vehicle:** Possibly a {adjective} {vehicle} with {plural noun} on the roof.\n\n**Safety tips:**\n- Do not {verb} strangers\n- Lock your {object}\n\n**Meeting:** {day of week} at the community {place}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "civic",
+      "everyday"
+    ],
+    "blankCount": 16,
+    "wordCount": 64
   },
   "New Hire IT Setup": {
     "text": "## New Hire IT Setup\n\n**Employee:** {person}\n\n**Start date:** {adjective}day\n\n**Hardware issued:**\n- {adjective} laptop with {adjective} monitor\n- {adjective} keyboard and wireless {object}\n\n**Accounts created:**\n- Email and {adjective} access\n- Badge: {adjective} wing, {number} floor\n\n**Training scheduled:**\n- {adjective} security awareness\n- How to {verb} without breaking the {object}\n\n**Notes:** No admin rights on the {object}. Manager says they are {adjective} and should never receive {adjective} permissions.",
     "category": "generic",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "workplace",
+      "tech"
+    ],
     "blankCount": 15,
     "wordCount": 63
   },
   "North Pole": {
     "text": "Santa, Mrs. Claus, and the {plural noun} live at the North pole. The weather is always {adjective} there, but the {plural noun} {verb} toys for Santa to {verb} to children on Christmas, so holiday cheer lasts year-round there. There's no land at the North Pole; instead there is a {number}-inch thick sheet of {noun} there, {adjective} enough to hold Santa's Village! The {plural noun} help load Santa's sleigh with {plural noun}, and Santa's {animal} {verb} his sleigh on Christmas Eve to {verb} {plural noun} to children around the entire world.",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "seasonal",
+      "kids"
+    ],
     "blankCount": 14,
     "wordCount": 91
   },
   "Obituary": {
     "text": "## Obituary\n\nIn loving memory of {person}, who passed peacefully after a long battle with {adjective} laundry and an aggressive {plural noun} collection.\n\n**Early life:** Born in a {adjective} hospital, they spent youth {verb ending in -ing} through fields of {plural noun} and dreaming of {plural noun}.\n\n**Career:** They worked as a {job} for {number} years, retiring to pursue {verb ending in -ing} and competitive {plural noun}.\n\n**Survived by:** {number} cousins, one {adjective} dog, and a goldfish named {person}.\n\n**Services:** Will be held at {place} Cemetery. In lieu of flowers, send {food} and kind {plural noun}.",
     "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "everyday",
+      "parody-bureaucratic"
+    ],
     "blankCount": 17,
     "wordCount": 95
+  },
+  "Office Fridge Warning": {
+    "text": "## Office Fridge Warning\n\nTo whoever stole my {adjective} {food}: I know it was you.\n\nThe container was {color}, clearly marked with {person}, and guarded by {number} tiny {plural noun}.\n\nIf you do not return it by {day of week}, I will {verb} the break room camera and notify a {job}.\n\nAlso, please remove the {animal} from shelf three.\n\nIt has been {verb ending in -ing} beside my {object}, wearing a {clothing item}, and making everyone feel {emotion}. Bring {number} {plural noun} and a {color} {noun}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "workplace",
+      "food"
+    ],
+    "blankCount": 18,
+    "wordCount": 85
   },
   "Our Cafeteria": {
     "text": "Our school cafeteria has really {adjective} food. Just thinking about it makes my stomach {verb}. The spaghetti is {adjective} and tastes like {noun}. One day, I swear one of my meatballs started to {verb}! The turkey tacos are totally {adjective} and look kind of like old {noun}. My friend Dana actually likes the meatloaf, even though it's {adjective} and {adjective}. I call it \"Mystery Meatloaf\" and think it's really made out of {noun}. My dad said he'd make my lunches, but the first day, he made me a sandwich out of {noun} and peanut butter! I think I'd rather take my chances with the cafeteria!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "school",
+      "food",
+      "kids"
+    ],
     "blankCount": 11,
     "wordCount": 105
+  },
+  "Parking Ticket Appeal": {
+    "text": "## Parking Ticket Appeal\n\n**To:** Municipal Parking Authority\n\n**From:** {person}, {job}\n\n**Ticket #:** {number}\n\n**Location:** {place}, near a {adjective} {object}\n\n**Explanation:** I parked there because my {vehicle} began {verb ending in -ing} and I needed to {verb} a {body part}.\n\n**Witness:** A {adjective} {animal} can confirm I only stopped for {number} minutes.\n\n**Prior record:** I have never {past-tense verb} a meter in my life.\n\n**Request:** Please waive this {adjective} fine or accept {food} as payment.\n\n**Signed:** {person}, {adverb}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "civic",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 76
+  },
+  "Paul Bunyan Mad Lib": {
+    "text": "## Paul Bunyan Mad Lib\n\nPaul Bunyan was a powerful giant, {number} feet tall. He was famous throughout the lumbering districts for his great {adjective} strength. So great was his lung capacity that he called his {plural noun} to dinner by blowing through a {adjective} tree. When he spoke {noun} sometimes fell from trees.\n\nWhen he had doughnuts for breakfast, they were carried from the {place} by {number} {noun} on poles which they carried on their {body part}.\n\nBunyan was assisted in his lumbering by a huge blue {animal} named Babe. This {adjective} {animal} had the strength of nine {plural noun} and it weighed {number} thousand pounds. Its head was so big, it measured seven {plural noun} between the eyes. Its horns were of {adjective} and {adjective} Paul tied a line to their tips and hung {noun} on it to dry. The original color of the animal was pure {color}.\n\nOne {noun} it snowed {color} snow for {number} days and the ox lying down in it all {noun} was dyed {color}. Paul and Babe {verb} a {adjective} house up a hill. In the woods around Paul's camp were {adjective} animals. Some were very wild and {adjective} and others harmless. There was a {animal} which laid square eggs so that they would not roll {noun} the hill.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "kids",
+      "everyday"
+    ],
+    "blankCount": 30,
+    "wordCount": 215
   },
   "Pet Sitter Instructions": {
     "text": "## Pet Sitter Instructions\n\nThank you for watching **Matilda** (dark red golden retriever), **Violet** (tortie cat), and **Zebby** (black cat).\n\n**Matilda:** Needs {adjective} walks and one {adjective} treat after she {past-tense verb} politely.\n\n**Violet:** Demands {adjective} food at exactly {number} o'clock and will {verb} if ignored.\n\n**Zebby:** Hides in the {place} and attacks anything {adjective}.\n\n**Rules:** Do not {verb} the vacuum near them. Emergency vet number is on the {object}.\n\n**Bonus:** If all three sit together peacefully, photograph it — it is {adjective} and probably a sign.",
     "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
     "blankCount": 11,
     "wordCount": 85
+  },
+  "Pinktastic": {
+    "text": "## Pinktastic\n\nMy absolute favorite {noun} in the whole, {adjective} world is pink. Everything I wear is pink, from my head down to my {body part}. I eat, sleep, and {verb} pink! I redecorated my room with pink wallpaper, pink carpeting, and pink {plural noun}. I cover all my school {plural noun} in pink paper and use only pink {plural noun} to write my homework. I even got permission from the {adjective} principal to paint my locker pink! I can't wait until I turn {number} years old and get my {adjective} license because I've been saving up money to buy a hot pink convertible {noun}. It will be so {adjective}. Maybe one day I'll have a/an {adjective} pink house, too! Then there will be no doubt in anyone's {noun} that pink is my favorite color in the whole, wide {noun}!",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "kids",
+      "everyday"
+    ],
+    "blankCount": 15,
+    "wordCount": 140
+  },
+  "Pirate Ship Performance Review": {
+    "text": "## Pirate Ship Performance Review\n\nCrewmate: {person}\n\nThis quarter, you {past-tense verb} {number} enemy {plural noun} and kept the {color} {object} mostly dry.\n\nStrengths include {verb ending in -ing} during storms and saying {silly word} with a {adjective} accent.\n\nAreas to improve: stop feeding {food} to the ship's {animal} and remember to {verb} before entering the captain's {place}.\n\nOverall rating: {emotion}, with a bonus {noun} if your {body part} heals before {day of week} at {place}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "fantasy",
+      "workplace"
+    ],
+    "blankCount": 18,
+    "wordCount": 75
+  },
+  "Pretty Princess": {
+    "text": "## Pretty Princess\n\nA new and {adjective} fairy princess movie is coming out soon! It will be about Snow {person} and the {number} dwarfs. Snow {person} is a princess whose beauty threatens her {person}, the queen. Snow {person} is forced to flee from {place} and hides in nearby {place}. There, she discovers the dwarfs {verb ending in -ing} in their {plural noun}. But the queen finds her and casts a {adjective} spell on her. The dwarfs take care of her until the {adjective} {person} comes to rescue her, and they all live {adverb} ever after!",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "fantasy",
+      "kids",
+      "media"
+    ],
+    "blankCount": 14,
+    "wordCount": 94
   },
   "Printer Court Transcript": {
     "text": "## Printer Court Transcript\n\n**Judge:** Court is now in session for the case of Office vs. The {adjective} Printer.\n\n**Charge:** Refusing to {verb} during a {number}-page presentation.\n\n**Witness:** {person} states the machine made a {sound}, flashed a {color} light, and demanded {plural noun}.\n\n**Evidence:** One jammed {object}, three {adjective} toner cartridges, and a note reading DO NOT {verb}.\n\n**Verdict:** Guilty of {adverb} wasting lunch.\n\n**Sentence:** Relocation to the {place} until morale improves.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace",
+      "parody-bureaucratic"
+    ],
     "blankCount": 12,
+    "wordCount": 72
+  },
+  "Product Recall Notice": {
+    "text": "## Product Recall Notice\n\nAttention customers: the {adjective} {object} sold last {day of week} may unexpectedly {verb}.\n\nReports include {number} cases of {plural noun}, one {color} smoke cloud, and a {animal} becoming {emotion}.\n\nDo not place the item near {food}, your {body part}, or any active {vehicle}.\n\nTo request a refund, mail the {noun} to {place} while {verb ending in -ing} politely.\n\nWe apologize for this {adjective} inconvenience and our {emotion} {job} hotline.",
+    "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "civic",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
     "wordCount": 72
   },
   "Product Warning Label": {
     "text": "## Product Warning\n\n**CAUTION:** This {object} may become {adjective} when exposed to sunlight, gossip, or {adjective} music.\n\n**Do not:**\n- {verb} while operating a {vehicle}\n- Negotiate with {adjective} people\n\n**Side effects:** {adjective} laughter, sudden urges to {verb}, and believing you can {verb} professionally.\n\n**Keep away from** {adjective} animals and open {plural noun}.\n\n**If swallowed:** Contact a {job} immediately and describe the {adjective} flavor.\n\n**Storage:** Cool, {adjective} place away from children and {adjective} influencers.",
     "category": "generic",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "everyday",
+      "parody-bureaucratic"
+    ],
     "blankCount": 15,
     "wordCount": 71
   },
   "Quiz Show": {
     "text": "## Quiz Show\n\nWelcome to *Who Wants to Be {adjective}!*\n\n**Contestant:** {person} from {place}, a professional {job} with strong opinions about {plural noun}.\n\n**For one thousand points:** Name a {place} country famous for {adjective} exports.\n\n**For ten thousand:** Spell a {adjective} word while {verb ending in -ing} on one foot.\n\n**Lifeline:** Phone-a-{person} went to voicemail.\n\n**Final question:** If a {adjective} train leaves at {number} o'clock carrying {number} passengers, how many will sing?\n\n**Answer:** {number} — because this show makes no {adjective} sense.",
     "category": "generic",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "media"
+    ],
     "blankCount": 15,
     "wordCount": 81
+  },
+  "Recipe Blog Intro": {
+    "text": "## Recipe Blog Intro\n\nBefore we make {adjective} {food}, I need to tell you about the summer I spent in {place} with {person}.\n\nEvery {day of week}, we would {verb} beside a {color} {object} while my grandmother {past-tense verb} softly.\n\nThat memory taught me that {plural noun} are the secret to flavor.\n\nThis recipe takes {number} minutes, one {animal}, and a very {adjective} attitude.\n\nServe while {verb ending in -ing}, preferably with extra {noun}, a {color} napkin, and {number} {plural noun}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "food",
+      "media"
+    ],
+    "blankCount": 18,
+    "wordCount": 80
   },
   "Restaurant Complaint": {
     "text": "## Restaurant Complaint\n\nDear Manager,\n\nI visited your {adjective} restaurant last {place} and ordered the chef's {adjective} special.\n\n**The soup:** Tasted like {food} mixed with {food} and was served at a {adjective} temperature.\n\n**Service:** My server, who wore {color} shoes, forgot to {verb} our table twice.\n\n**Dessert:** We received a {object} that looked like a small {animal}.\n\n**The check:** When I asked for the bill, the total seemed {adjective}. Please refund my {number} and consider hiring a {adjective} host who can {verb} without causing panic.",
     "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "food"
+    ],
     "blankCount": 14,
     "wordCount": 84
+  },
+  "Road Trip!": {
+    "text": "## Road Trip!\n\nPack your bags! It's time to take a/an {adjective} road trip across the United States to visit some of the most {adjective} historical landmarks. First stop is Philadelphia, where you can visit Independence Hall to see where the Declaration of {plural noun} was signed. After that, check out the Liberty Bell. It's the most famous cracked {noun} in history, and a symbol of freedom across America. Then head on up to Boston, where you can check out the USS Constitution, the oldest {verb ending in -ing} naval vessel, and the {noun} Hill Monument. In New York, you can climb to the top of the {noun} of Liberty (or take a/an {vehicle} to check out the view from the harbor!). Now it's time to head west, where you can see famous landmarks like Mount {silly word}, which features carved statues of the {body part} of some of our most {adjective} presidents. Or check out {color}-stone, our first national park, which includes the famous geyser Old {adjective}! Just don't forget to pack a/an {noun}—you'll want to take pictures to remember your {adjective} trip by!",
+    "category": "official",
+    "collection": "official",
+    "format": "how-to",
+    "tags": [
+      "travel",
+      "civic"
+    ],
+    "blankCount": 15,
+    "wordCount": 189
+  },
+  "Robot Talent Show Scorecard": {
+    "text": "## Robot Talent Show Scorecard\n\nContestant unit: {person}-{number}\n\nTalent: {verb ending in -ing} while balancing a {color} {object} on its {body part}.\n\nJudge notes: routine began {adverb}, then became {adjective} when {plural noun} fell from the ceiling.\n\nAudience reaction: {emotion}, especially after the robot tried to {verb} a {food}.\n\nSpecial effects included {sound}, one confused {animal}, and a smoke cloud over {place}.\n\nFinal score: {number} {noun} and {emotion}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "review",
+    "tags": [
+      "sci-fi",
+      "media"
+    ],
+    "blankCount": 18,
+    "wordCount": 68
+  },
+  "Roommate Agreement": {
+    "text": "## Roommate Agreement\n\n**Roommates:** {person} and {person}\n\n**Address:** {number} {adjective} {place} Street\n\n**Chores:**\n- Kitchen cleaned every {day of week}\n- Trash taken out before {verb ending in -ing} the {object}\n\n**Fridge rules:** No {food} without a label.\n\n**Guests:** Maximum {number} after {number} PM.\n\n**Noise curfew:** No {sound} after midnight unless someone is {verb ending in -ing} a {vehicle}.\n\n**Violation penalty:** Must {verb} the {color} {clothing item} and apologize {adverb}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "everyday",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 67
   },
   "School Permission Slip": {
     "text": "## School Permission Slip\n\nDear Parent,\n\nOur class will visit the {adjective} Museum of {plural noun} on {adjective}day.\n\n**Students should bring:**\n- A {adjective} lunch\n- A {adjective} water bottle\n- {adjective} shoes\n\n**Itinerary:** We will {verb} through the {adjective} exhibit and learn about {adjective} history.\n\n**Permission granted** to ride the {adjective} bus and participate in the {adjective} workshop.\n\n**Emergency contact:** {person} at {number} o'clock.\n\n**Note:** If your child is allergic to {plural noun}, {plural noun}, or enthusiasm, please inform us.",
     "category": "generic",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "school",
+      "kids"
+    ],
     "blankCount": 15,
     "wordCount": 78
+  },
+  "Science Fair Abstract": {
+    "text": "## Science Fair Abstract\n\n**Title:** How {adjective} {plural noun} Affect {emotion}\n\n**Student:** {person}, Grade {number}\n\n**Hypothesis:** If a {animal} eats {food}, it will {verb} {adverb}.\n\n**Method:** Built a {color} {object} and spent {number} hours {verb ending in -ing} in the {place}.\n\n**Results:** The control group {past-tense verb}; the test group made a {sound}.\n\n**Conclusion:** Science is {adjective}.\n\n**Future work:** Repeat with a {vehicle}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "school",
+      "kids"
+    ],
+    "blankCount": 18,
+    "wordCount": 62
+  },
+  "Secret Agent Expense Report": {
+    "text": "## Secret Agent Expense Report\n\nAgent {person} requests reimbursement for a {adjective} mission in {place}.\n\nExpenses include {number} disguises, one {color} {vehicle}, and emergency {food} for a suspicious {animal}.\n\nThe agent had to {verb} through a vent while {verb ending in -ing} {adverb} with the stolen {object}.\n\nAdditional charges: replacement {clothing item}, fake {body part}, and {plural noun} for the getaway.\n\nMission outcome: target {past-tense verb}; agent felt {emotion} and {adjective}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "fantasy",
+      "workplace"
+    ],
+    "blankCount": 18,
+    "wordCount": 70
   },
   "Server Room Incident": {
     "text": "## Server Room Ticket\n\n**Ticket #{number}:** Loud {adjective} noise reported in server room B.\n\n**Technician:** Arrived with a {adjective} flashlight and a clipboard.\n\n**Findings:**\n- A {adjective} cable connected to {adjective} power\n- An old {adjective} pizza box on the UPS\n- Sticky note: DO NOT {verb}\n\n**Fix applied:** Labeled every {adjective} port and rebooted the {object} twice for luck.\n\n**Monitoring:** Now tracks {adjective} temperature and {adjective} humidity.\n\n**Reminder:** Stop storing {adjective} boxes next to the backup {object}.\n\nClosing as resolved-ish.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
     "blankCount": 13,
     "wordCount": 77
   },
   "Smart Fridge Status Update": {
     "text": "## Smart Fridge Status Update\n\n**Device:** Kitchen Fridge firmware {number}.{number}\n\n**Notification:** Your {adjective} yogurt has achieved {emotion} and may attempt to {verb}.\n\n**Inventory warning:** Low on {food}, high on {plural noun}, suspiciously full of {color} leftovers.\n\n**Suggested action:** Ask {person} to remove the {object} before it starts {verb ending in -ing}.\n\n**Voice assistant note:** The fridge heard a {sound} near the {place} and responded {adverb}.\n\n**Warranty status:** Still technically {adjective}.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "everyday"
+    ],
     "blankCount": 15,
     "wordCount": 70
   },
   "Snowstorm!": {
     "text": "Weather plays an important part in our {noun}s everyday. What is weather, you ask? Accoring to {adjective} scientists, who are known as meteorologists, weather is what the {noun} is like at any given time of the {noun}. It doesn't matter if the air is {adjective} or {adjective}, it's all weather. When vapors in {adjective} clouds condense, we have {noun} and snow. A lot of {noun} means a {adjective} snowstorm!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "seasonal",
+      "kids"
+    ],
     "blankCount": 10,
     "wordCount": 70
+  },
+  "Social Networking": {
+    "text": "## Social Networking\n\nDo you remember radio, handwritten letters, and landline {plural noun}—all the technology used by your parents to communicate with their {plural noun}? These technologies are now as old as {noun}. They've been replaced by Twitter and {noun}-book. Twitter is a great way to stay in touch with all your {body part} and share {plural noun} information about what is happening in your own {adjective}. Just remember to keep it to 140 characters. Facebook is a social {noun} service with more than five hundred million {verb ending in -ing}. You can create a/an {plural noun} profile, add other {adjective} as friends, and exchange {plural noun} messages. Face-{adjective} was founded by {noun} and a few of his {person} college classmates. Social networks are popular on the {adjective} Wide Web, where they have their own {noun} language, such as GTG (got to go), LOL (laughing out loud), or XOXO (hugs and {adjective}).",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "retro-web",
+      "tech"
+    ],
+    "blankCount": 18,
+    "wordCount": 155
+  },
+  "Space Mission Log": {
+    "text": "## Space Mission Log\n\nCaptain's log, day {number}: our {adjective} ship reached {place} at dawn.\n\nEngineer {person} reported a {color} light near the {object}, followed by {number} floating {plural noun}.\n\nThe crew became {emotion} when an alien {animal} began {verb ending in -ing} in the airlock.\n\nProtocol says to {verb} calmly, but the {job} already {past-tense verb} the emergency {food}.\n\nMission status: scientifically {adjective} and emotionally {emotion}, pending {number} signatures.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "sci-fi"
+    ],
+    "blankCount": 18,
+    "wordCount": 69
   },
   "Star Wars": {
     "text": "Star Wars is a {adjective} {noun} of {adjective} versus evil in a {place} far far away. There are {adjective} battles between {adjective}ships in {adjective} space and {adjective} duels with {plural noun} called {adjective} sabers. {plural noun} called \"droids\" are helpers and {plural noun} to the heroes. A {adjective} power called The {noun} {verb}s people to do {adjective} things, like {verb} {job} use The Force for the {adjective} side and the Sith {verb} it for the {adjective} side.",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "media",
+      "kids"
+    ],
     "blankCount": 21,
     "wordCount": 79
+  },
+  "Streaming Algorithm Apology": {
+    "text": "## Streaming Algorithm Apology\n\n**Subject:** We are sorry we recommended that\n\nDear {person},\n\nOur algorithm noticed you watched one {adjective} {noun} and assumed you wanted {number} hours of {plural noun}.\n\n**What happened:** While you were {verb ending in -ing}, we auto-played a {color} documentary about {plural noun}.\n\n**Our mistake:** Someone {past-tense verb} the settings during a {adjective} update.\n\n**Fix:** Your queue now includes {number} {adjective} {job} biopics and one {food} tutorial.\n\n**Compensation:** One free month and a {object} sticker.\n\nWe promise to stop {verb ending in -ing} your {emotion}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "tech",
+      "media"
+    ],
+    "blankCount": 17,
+    "wordCount": 88
+  },
+  "Substitute Teacher Note": {
+    "text": "## Substitute Teacher Note\n\nDear teacher, your class was mostly {adjective} today.\n\nAt {number} o'clock, {person} asked if the {animal} counted as a lab partner.\n\nThe students finished page {number}, then began {verb ending in -ing} with the emergency {object}.\n\nI confiscated {plural noun}, one {color} {food}, and a note that said please {verb} the principal.\n\nEveryone became {emotion} during silent reading, but nobody {past-tense verb} the {place} or hid a {color} {noun} in the {clothing item} of the {job}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "school"
+    ],
+    "blankCount": 18,
+    "wordCount": 79
+  },
+  "Summer Movie Reviews": {
+    "text": "## Summer Movie Reviews\n\nIt's summer, and you know what that means: {adjective} weather, icy-cold {noun}-sicles, and big blockbusters. Check out what's coming to a/an {noun} near you this summer!\n\n• {noun} of the Caribbean: Captain {person} and his band of {adjective} scalawags take to the {adjective} seas in search of buried {plural noun}.\n\n• The Big {noun} Ogre: A cranky ogre named {person}, his sidekick—a/an {animal} named {person}—and a/an {adjective} gang of fairy tale creatures go on a search and {verb} mission to rescue Princess {person} from a tower guarded by a fire-breathing {animal}.\n\n• The Boy Wizard: A/An {adjective} boy discovers he possesses magical {noun} that he must use to defeat the evil wizard, Lord {person}.",
+    "category": "official",
+    "collection": "official",
+    "format": "review",
+    "tags": [
+      "media",
+      "kids"
+    ],
+    "blankCount": 19,
+    "wordCount": 121
   },
   "Superhero Job Application": {
     "text": "## Hero Registration Board\n\n**Applicant name:** Captain {noun}\n**Secret identity occupation:** professional {noun}\n**City of operation:** New {place}\n**Preferred cape color:** {color}\n\n**Origin story:**\nI was bitten by a radioactive {animal} while volunteering at the local {place}. At first I only gained the power to {verb}, but after a thunderstorm and a motivational speech from my grandmother, I learned to {verb} at incredible speed. My weakness is {noun}, especially on Mondays.\n\n**Equipment checklist:**\n- Utility belt containing snacks, string, and a small {object}\n- Mask with anti-fog goggles and excellent cheekbones\n- Sidekick named {person} who complains constantly but never gives up\n- Hidden base located beneath the {place} downtown\n\n**Battle record:**\nLast week I defeated the villain known as Doctor {noun} by using teamwork, a {object}, and a perfectly timed pun. Civilians cheered, pigeons saluted, and one reporter asked if I was single in the middle of a collapsing bridge.\n\n**Statement of purpose:**\nI wish to protect this city because every child deserves to feel safe, every dog deserves a long walk, and every villain deserves a second chance unless they steal cakes. I promise to arrive quickly, leave politely, and never reveal my identity at family reunions.\n\n**Signature:** {noun}\n**Date:** the future",
     "category": "legacy",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "fantasy",
+      "workplace"
+    ],
     "blankCount": 15,
     "wordCount": 199
+  },
+  "Supervillain HOA Complaint": {
+    "text": "## Supervillain HOA Complaint\n\nDear {person}, the board has received {number} complaints about your {adjective} lair.\n\nNeighbors report a {color} laser, loose {plural noun}, and a {animal} {verb ending in -ing} on the roof.\n\nPer community rules, residents may not {verb} the moon before {day of week} or store {food} in the shared {place}.\n\nPlease remove the giant {object} and repaint the front {noun} a less {adjective} color.\n\nFailure to comply will make us {emotion} and summon a {job} with a {body part} clipboard and {number} forms.",
+    "category": "themed",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "fantasy",
+      "everyday",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 86
   },
   "Talk Like a Pirate": {
     "text": "Ye can always pretend to be a bloodthirsty {noun}, threatening everyone by waving yer {adjective} sword in the air, but until ye learn to {verb} like a pirate, ye'll never be {adverb} accepted as an authentic {noun}. So here's what ye do: Cleverly work into yer daily conversations {adjective} pirate phrases such as \"Ahoy there, {plural noun}, \"\"Avast, ye {plural noun},\" and \"Shiver me {plural noun}.\" Remember to drop all yer gs when ye say such words as sailin', spittin', and fightin'. This will give ye a/an {body part} start to being recognized as a swashbucklin' {noun}. Once ye have the lingo down pat, it helps to wear a three-cornered {noun} on yer head, stash a/an {noun} in yer pants, and keep a/an {noun} perched atop yer {body part}. Aye, now ye be a real pirate!",
     "category": "classics",
+    "collection": "classic",
+    "format": "how-to",
+    "tags": [
+      "fantasy",
+      "kids"
+    ],
     "blankCount": 15,
     "wordCount": 139
+  },
+  "Tall Tale Mad Lib": {
+    "text": "## Tall Tale Mad Lib\n\nOnce upon a time there was a {noun} named {person} who was so {adjective} that he could {verb} the {noun}. His favorite thing to do was {verb} with the {noun}. He had a {animal} named {person} who was so {adjective} that it could {noun} in {noun}. They liked to play together, especially {noun}. Whenever they played {noun}, the neighborhood {job} would hide under their {object}. One day while they were playing, they found a {animal} who was crying. Its {body part} was stuck in a {noun} and the {animal} couldn't get loose. So they thought about what they could do to help. Finally, {animal} had an idea! \"Let's {verb} some {noun} onto its paw.\"",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "kids",
+      "everyday"
+    ],
+    "blankCount": 23,
+    "wordCount": 118
+  },
+  "The Blank Page": {
+    "text": "## The Blank Page\n\nHave an idea for the next great American {noun}, but don't know where to {verb}? Well, here's some advice from one {job} to another. First, remember that even {adjective} writers like {person} had to start writing at some point. So, don't get down in the {plural noun} just because they already have {number} books with their name on them. Then, remind yourself that {verb ending in -ing} is a process . . . A/an {adjective} process. Some authors take more than {number} months just to research and write one short {noun}! You'll want to get your {plural noun} on paper as fast as you can. Then it's time to revise, and {verb ending in -ing} again. And if you get stuck, try taking a walk around the {plural noun} to get your creative {noun} flowing. Sometimes the best writing happens when you're not even {verb ending in -ing} at your computer. And finally, find a supportive {food} to read your work. Nothing is more motivating than having a friend nearby to {verb} you during the writing process.",
+    "category": "official",
+    "collection": "official",
+    "format": "how-to",
+    "tags": [
+      "media",
+      "workplace"
+    ],
+    "blankCount": 18,
+    "wordCount": 178
   },
   "The Fun Park": {
     "text": "Today, my fabulous camp group went to a(an) {adjective} amusement park. It was a fun park with lots of cool {plural noun} and enjoyable play structures. When we got there, my kind counselor shouted loudly, \"Everybody off the {noun}.\" My counselor handed out yellow tickets, and we scurried in. I was so excited! I couldn't figure out what exciting thing to do first. I saw a scary roller coaster I really liked so, I {adverb}  ran over to get in the long line that had about {number} people in it. when I finally got on the roller coaster I was {past-tense verb}. In fact, I was so nervous my two knees were knocking together. This was the {adjective} ride I had ever been on! In about two minutes I heard the crank and grinding of the gears. Thats when the ride began! When I got to the bottom, I was a little {past-tense verb} but I was proud of myself. The rest of the day went {adverb}. It was a {adjective} day at the fun park.",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "everyday",
+      "kids"
+    ],
     "blankCount": 10,
     "wordCount": 177
+  },
+  "The Great American Pastime": {
+    "text": "## The Great American Pastime\n\nOne of the things most {adjective} sports fans look forward to at American baseball {plural noun} is eating a/an {adjective} hot dog. There is nothing more traditional than watching a/an {adjective} ball game and eating a hot {noun} drenched in mustard, relish, and {noun}. Some {noun}-parks even have their own {adjective} specialties, such as the Dodger {noun} in Los Angeles. (It's an oversize steamed or grilled {plural noun}.) Hot {plural noun} were created at the end of the nineteenth century when a sausage-maker saw his {noun} customers wearing gloves on their {body part} because the steaming sausages were too {adjective} to handle. He put them in a/an {adjective} roll, and that was the beginning of the {adjective} dog in a bun. The rest, as they say, is {noun}!",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "sports",
+      "food"
+    ],
+    "blankCount": 17,
+    "wordCount": 136
+  },
+  "The Haunted House on My Street": {
+    "text": "## The Haunted House on My Street\n\nThere is a house on my {noun} that is {adverb} haunted. It's the old {person} place that's been {adjective} for {number} years. I can tell the house is {adjective} because there are {plural noun} and {adjective} {plural noun} outside, and it smells like old {food}. I heard that a kid named {person} {past-tense verb} inside and never {past-tense verb} back out. My friends and I are {emotion} to {verb} past the house because it's so {adjective}.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "kids",
+      "seasonal"
+    ],
+    "blankCount": 16,
+    "wordCount": 82
+  },
+  "The Moon Landing": {
+    "text": "## The Moon Landing\n\nOn July {number} 1969, two American {plural noun} were the first to {verb} on the moon. This {adjective} trip took {number} days to reach the moon from {place}. As {person} Armstrong and {person} Aldrin {past-tense verb} onto the {noun} of the moon, Armstrong {past-tense verb} the famous words, \"That's {number} {adjective} step for a man, one {adjective} leap for mankind.\" Soon after, Aldrin {past-tense verb} onto the moon and together, they {past-tense verb} a U.S. {noun} on the surface. They {past-tense verb} {plural noun} from the moon's surface to {verb} back to Earth and {adverb} returned home {number} days later.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "school",
+      "kids",
+      "sci-fi"
+    ],
+    "blankCount": 22,
+    "wordCount": 104
+  },
+  "The Pyramids of Ancient Egypt": {
+    "text": "## The Pyramids of Ancient Egypt\n\nPyramids are {adjective} tombs where Egyptians {past-tense verb} their kings and {adjective} families. Some of them are {number} years old, each taking many {plural noun} to build. Each pyramid had {plural noun} inside and were decorated with {plural noun} and {adjective} {plural noun}. Some royal {plural noun} arranged to have {plural noun} and {past-tense verb} with them when they died. Today, archaeologists and other {plural noun} continue to {verb} these ancient {plural noun} to {verb} about how people {past-tense verb} in the past.",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "school",
+      "kids"
+    ],
+    "blankCount": 17,
+    "wordCount": 88
+  },
+  "The Story of You": {
+    "text": "## The Story of You\n\nEveryone has a unique {noun} inside of them that's just {verb ending in -ing} to come out! So, what are you standing on the {plural noun} for? It's time to step into that {place} and share your experiences with (the) {plural noun}! Once you do, you'll be surprised at how many {job} can't wait to hear more. Readers love {adjective} stories that are told from the PO-{noun} of the person who lived through them. You know what they say, {plural noun} are stranger than fiction. Of course, you'll have to be as brave as a/an {adjective} in shining armor to share your innermost {body part} and feelings. But there are great rewards for writers who are truly {adjective}. After all, it takes a lot of {body part} to air out your {plural noun} laundry in hopes of inspiring others to overcome their own {plural noun}. But in the {noun}, it's {adverb} worth it!",
+    "category": "official",
+    "collection": "official",
+    "format": "how-to",
+    "tags": [
+      "media",
+      "everyday"
+    ],
+    "blankCount": 17,
+    "wordCount": 159
   },
   "Three Little Pigs": {
     "text": "Once up a time, there were three {adjective} pigs. One day, their mother said, \"You are all grown up and must {verb} on your own.\" So they left to {verb} their houses. The first little pig wanted only to {verb} all day and quickly built his house out of {plural noun}. The second little pig wanted to {verb} and {verb} all day so he {past-tense verb} his house with {plural noun}. The third {adjective} pig knew the wolf lived nearby and worked hard to {verb} his house out of {plural noun}. One day, the wolf knocked on the first pig's {noun}. \"Let me in or I'll {verb} your house down!\" The pig didn't, so the wolf {past-tense verb} down the {noun}. The wolf knocked on the second pig's {noun}. \"Let me in or I'll blow your {noun} down!\" The pig didn't, so the wolf {past-tense verb} down the house. Then the wolf knocked on the third {adjective} pig's door. \"Let me in or I'll blow your house down!\" The little pig didn't so the wolf {past-tense verb} and {past-tense verb}. He could not blow the house down. All the pigs went to live in the {noun} house and they all {past-tense verb} happily ever after.",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "kids"
+    ],
     "blankCount": 24,
     "wordCount": 205
+  },
+  "Time Traveler Customs Form": {
+    "text": "## Time Traveler Customs Form\n\nWelcome to {place}, year {number}.\n\nDeclare all {adjective} artifacts, including {plural noun}, future {food}, and any {color} {object} capable of {verb ending in -ing}.\n\nTraveler name: {person}\n\nOccupation in original era: {job}\n\nHave you recently {past-tense verb} a historical {animal}? If yes, please explain {adverb}.\n\nDo not {verb} your own ancestor, touch the {noun}, or reveal next {day of week}'s weather.\n\nCurrent emotion: {emotion}. Approved snack: {food}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "sci-fi",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 72
   },
   "Travel Brochure": {
     "text": "## Travel Brochure\n\nDiscover {place}, the {adjective} destination where every sunrise looks {adjective} and every taxi driver knows a {adjective} shortcut.\n\n**Accommodations:** Stay at the Hotel {adjective} featuring {adjective} pools and complimentary {plural noun}.\n\n**Activities:**\n- {verb ending in -ing} on the beach\n- Touring ancient {adjective} ruins\n- Sampling local {food} served on a {adjective} plate\n\n**What to pack:** {adjective} clothing, sturdy {clothing item}, and patience.\n\n**Warning:** Tourists who {verb} too loudly may be followed home by {adjective} birds.\n\n**Book now** and receive a free {object}!",
     "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "travel"
+    ],
     "blankCount": 16,
     "wordCount": 83
+  },
+  "Treasure Map Instructions": {
+    "text": "## Treasure Map Instructions\n\n**Start:** From the {adjective} {place}, walk {number} paces toward the {color} {object}.\n\n**Landmarks:**\n- Pass the {adjective} {animal} without {verb ending in -ing}\n- Cross the bridge built by {person}\n\n**Danger:** Beware the {plural noun} guarding the {body part} cave.\n\n**Dig here:** X marks a spot under {number} {plural noun}.\n\n**Loot:** One {adjective} {object} and all the {food} you can {verb}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "fantasy",
+      "travel"
+    ],
+    "blankCount": 17,
+    "wordCount": 62
   },
   "Trip to the Park": {
     "text": "Yesterday, my friend and I went to the park. On our way to the {adjective} park, we saw big {adjective} balloons tied to a {noun}. Once we got to the {adjective} park, the sky turned {adjective}. It started to {verb} and {verb}. My friend and I {past-tense verb} all the way home. Tomorrow we will try to go to the {adjective} park again and hopefully it doesnt {verb}!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "everyday",
+      "kids"
+    ],
     "blankCount": 10,
     "wordCount": 68
+  },
+  "True Crime Podcast Teaser": {
+    "text": "## True Crime Podcast Teaser\n\n**Episode {number}:** The {adjective} {place} Incident\n\n**Host:** {person}, investigative {job}\n\n**Victim:** Last seen {verb ending in -ing} near a {color} {vehicle}\n\n**Suspect:** Someone who {past-tense verb} {plural noun} and hated {food}\n\n**Twist:** The {object} was inside the {body part} the whole time.\n\n**Cliffhanger:** A {sound} on the {day of week} recording changes everything.\n\n**Sponsor:** {adjective} {plural noun} — code {silly word}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "media",
+      "spooky"
+    ],
+    "blankCount": 18,
+    "wordCount": 64
+  },
+  "UFO Sighting Report": {
+    "text": "## UFO Sighting Report\n\n**Date:** {day of week}, {number} hours after sunset\n\n**Location:** Near the {adjective} {place}, beside a {color} {vehicle}\n\n**Witness:** {person}, a {job} {verb ending in -ing} at night\n\n**Description:** A craft hovered while {verb ending in -ing} a {sound} and flashing {plural noun}\n\n**Occupants:** {number} beings wearing {clothing item}\n\n**Action taken:** Witness tried to {verb} but only managed to {verb} a {object}.\n\n**Status:** Case filed under {silly word}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "sci-fi",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 18,
+    "wordCount": 70
+  },
+  "Video Games": {
+    "text": "## Video Games\n\nAlthough video {plural noun} have been around for over {number} years, they've become more and more {adjective} as developers create more sophisticated {plural noun}. Today's {plural noun} games are so complicated, they require really {adjective} attention at all times. They have you sitting on pins and {noun} throughout the entire game. Such {plural noun} as Final {noun} XIII, Grand Theft {noun}, and (the) {place} Noire cost more to develop than many {plural noun} movies produced by big Hollywood {plural noun}. If the technology in the video-gaming {noun} continues to advance, imagine what future electronic {plural noun} will be like. It's {adjective}-boggling.",
+    "category": "official",
+    "collection": "official",
+    "format": "story",
+    "tags": [
+      "gaming",
+      "kids"
+    ],
+    "blankCount": 16,
+    "wordCount": 104
   },
   "Violet's Demand List": {
     "text": "## Official Demands\n\n*From Violet the tortie cat:*\n\n**Breakfast:** Must include {adjective} food served in the {adjective} bowl only.\n\n**Sunbeam:** The sunbeam on the {place} belongs to Violet from {number} AM to {number} PM.\n\n**Staff rules:**\n- {verb} before entering the room\n- Avoid {adjective} noises\n\n**Petting:** Allowed only on the {body part} for {number} seconds.\n\n**Zebby:** May not {verb} near Violet's {place}.\n\n**Violations:** {adjective} stares and one {adjective} item knocked off a shelf.\n\nSigned with a {color} paw print.",
     "category": "themed",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
     "blankCount": 14,
     "wordCount": 77
   },
   "VPN Support Call": {
     "text": "## VPN Support Call\n\n**Agent:** Thank you for calling {adjective} IT support. May I have your employee {number}?\n\n**User:** I cannot {verb} from home. The {adjective} icon just spins.\n\n**Agent:** Please {verb} your router, then {verb} the VPN client.\n\n**User:** It asked for my {object} and then said access was {adjective}.\n\n**Agent:** I reset your {object} in Active Directory. Try {verb} again in {number} minutes.\n\n**User:** It works! You are a {adjective} legend.",
     "category": "generic",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "tech",
+      "workplace"
+    ],
     "blankCount": 12,
     "wordCount": 72
   },
   "Weather Forecast": {
     "text": "## Weather Forecast\n\nGood evening. Tomorrow expect {adjective} skies over the {adjective} valley with {adjective} winds from the {place}.\n\n**Commuters:** Carry a {clothing item} and avoid {adjective} puddles near the {place}.\n\n**Temperatures:** Will feel {adjective} before lunch, then become {adjective} by evening.\n\n**Chance of precipitation:** {number} percent chance of {plural noun} falling on anyone who forgot to {verb}.\n\n**Weekend outlook:** Mostly {adjective} with isolated {plural noun} and one heroic {animal} saving a {object} from a tree.",
     "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "media",
+      "everyday"
+    ],
     "blankCount": 16,
     "wordCount": 75
+  },
+  "Wedding Planner Checklist": {
+    "text": "## Wedding Planner Checklist\n\nBefore the ceremony, confirm that {person} has the rings, the {job} has the microphone, and the {animal} has left the {place}.\n\nCenterpieces should include {number} {plural noun}, one {color} {object}, and no visible {food} stains.\n\nIf anyone begins {verb ending in -ing}, signal the band to {verb} {adverb}.\n\nEmergency kit: tape, tissues, spare {clothing item}, and a {adjective} {noun}.\n\nFinal mood should be {emotion}, not {adjective} or {silly word}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 72
+  },
+  "Wedding Toast Gone Wrong": {
+    "text": "## Wedding Toast Gone Wrong\n\nLadies and gentlemen, I am {person}, the bride's {adjective} {job}.\n\nI first met the couple at a {adjective} {place} while {verb ending in -ing} near the {object}.\n\n**Advice:** Never {verb} before {number} PM, and always wear a {color} {clothing item} to family dinners.\n\n**Memory:** The groom once {past-tense verb} a {animal} during a {adjective} vacation.\n\n**Closing:** May your love be as {adjective} as {food} and as loud as a {sound}.\n\nPlease raise your glass and {verb} responsibly.",
+    "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 81
   },
   "Weird News": {
     "text": "A {noun} in {place} was arrested this morning after he was caught {verb ending in -ing} in front of {noun}. {person} had a history of {verb ending in -ing}, but no one-not even his {noun}-ever imagined he'd {verb} with a {noun} stuck in his {body part}. After drinking a {food}, cops followed him to a {place} where he reportedly  {past-tense verb}in the fry machine. Later, a woman from {place} was charged with a similar crime. But rather than {verb}with a {noun}, she {past-tense verb}with a {adjective} dog. Either way, we imagine that after witnessing him {verb ending in -ing} with a {noun} there are probably a whole lot of {plural noun} that are going to need some therapy!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "media",
+      "parody-bureaucratic"
+    ],
     "blankCount": 21,
     "wordCount": 122
+  },
+  "What I Did for Summer Vacation": {
+    "text": "## What I Did for Summer Vacation\n\nLast summer, my family and I went to a {place} on vacation. We {past-tense verb} in a {vehicle}, and it took {number} days to get there. I took lots of photos of the {plural noun} there, and saw wild {animal} {verb ending in -ing} in the {noun}. We rode a {vehicle} through a {adjective} {place} and there were {animal} and {animal} {verb ending in -ing} all around us! At night, we went to a {noun} and heard {adjective} {plural noun} while we ate {adjective} {food}. I can't wait to share my {adjective} photos of {plural noun} and {plural noun} with my friends!",
+    "category": "woo-jr",
+    "collection": "woo-jr",
+    "format": "story",
+    "tags": [
+      "travel",
+      "kids",
+      "seasonal"
+    ],
+    "blankCount": 22,
+    "wordCount": 108
+  },
+  "Wizard School Detention Slip": {
+    "text": "## Wizard School Detention Slip\n\nStudent: {person}\n\nOffense: using a {adjective} spell to turn {number} {plural noun} into a {color} {animal} during class.\n\nThe student claimed they meant to {verb} a harmless {object}, but the witness saw them {verb ending in -ing} behind the {place}.\n\nPunishment: clean the enchanted {noun}, apologize to the {job}, and write I will not {verb} with my {body part} {number} times.\n\nMood observed: {emotion}. Wand color: {color}. Snack confiscated: {food}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "fantasy",
+      "school"
+    ],
+    "blankCount": 18,
+    "wordCount": 74
+  },
+  "Writing for Change": {
+    "text": "## Writing for Change\n\nDear {job},\n\nI'm writing to you because I'm passionate about {plural noun}. I think it's important that everyday people, like me, speak up about all the problems that need {verb ending in -ing} in our {place} today. I can't just watch TV in my {place} like a couch {food} anymore. I want to {verb} up for what I believe in! For example, there are endangered {animal} living in our rivers and {plural noun} that need protecting! We need more environmentally {adjective} products in our supermarkets, to help {verb} the environment. And we need to make sure each man, woman, and {noun} has the right to life, liberty, and the pursuit of {noun}. {silly word}! It feels so good to {verb} all this down in a letter. I want to thank you for your {noun} and I look forward to your response.\n\n{person},\n{person}",
+    "category": "official",
+    "collection": "official",
+    "format": "letter",
+    "tags": [
+      "civic",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 146
   },
   "Y2K Preparedness Checklist": {
     "text": "## Y2K Readiness Plan\n\n**Stockpile:**\n- {number} gallons of {food}\n- {adjective} batteries\n\n**Finances:** Withdraw {number} dollars in {adjective} bills from the bank.\n\n**Equipment:** Test the {adjective} generator and the {adjective} radio.\n\n**Maps:** Print maps because GPS may {verb}.\n\n**Grandma:** Teach her to {verb} without fear.\n\n**Supplies:** Store canned {food} and one {object} for morale.\n\n**Midnight rule:** Do not {verb} near any {adjective} computer.\n\n**Worst case:** Build a {adjective} fort and assign {person} to guard duty.",
     "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "retro-web",
+      "tech"
+    ],
     "blankCount": 15,
     "wordCount": 73
+  },
+  "Yard Sale Sign": {
+    "text": "## Yard Sale Sign\n\nHuge {adjective} yard sale this {day of week} at {place}.\n\nWe have {number} {plural noun}, a gently used {object}, one {color} {vehicle}, and a mysterious box labeled do not {verb}.\n\nAsk {person} about the vintage {clothing item} or the {animal} that keeps {verb ending in -ing} by the lemonade table.\n\nPrices are {adjective}; haggling makes us {emotion}.\n\nFree {food} with every purchase of a {noun} from a {job}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 71
   },
   "Zebby's Incident Report": {
     "text": "## Incident Report\n\n**Filed by:** Zebby, black cat\n\n**Time:** {number} o'clock\n\n**Location:** The {place} near the {object}\n\n**Event:** Human attempted to {verb} without offering {food} first.\n\n**Witnesses:**\n- Matilda ({adjective})\n- Violet ({adjective})\n\n**Response:** Zebby {past-tense verb} under the couch, then {past-tense verb} the offender's {body part}.\n\n**Damage:** One {object} knocked over, zero regrets.\n\n**Corrective action:** Schedule {adjective} play sessions; stop buying {adjective} toys.\n\n**Status:** Closed until next {adjective} snack.",
     "category": "themed",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
     "blankCount": 14,
     "wordCount": 67
   },
   "Zombie Picnic": {
     "text": "If zombies had a picnic, what would they {verb} to eat? Everybody knows zombies love to {verb} {body part}, but did you know they also enjoy {body part} and even {body part}? The best {noun} for a zombie picnic is when the moon is {adjective}. At least one zombie will bring {food} to drink, and it's not a picnic without {body part} with extra flesh on top. After eating, zombies will {verb} {adjective} games like kick the {body part} and {body part} toss. What fun!",
     "category": "classics",
+    "collection": "classic",
+    "format": "story",
+    "tags": [
+      "spooky",
+      "food"
+    ],
     "blankCount": 13,
     "wordCount": 85
+  },
+  "Zoo Keeper Daily Log": {
+    "text": "## Zoo Keeper Daily Log\n\n**Date:** {day of week}\n\n**Keeper:** {person}\n\n**Morning feeding:** The {adjective} {animal} ate {number} pounds of {food} and {past-tense verb} the {object}.\n\n**Enclosure check:** Found {plural noun} near the gate; repaired by {verb ending in -ing} the fence.\n\n**Visitor incident:** A {job} tried to {verb} over the barrier and {past-tense verb} loudly.\n\n**Health note:** One {animal} showed {emotion} after {verb ending in -ing} near the {place}.\n\n**Closing:** All animals accounted for except the {silly word} in storage.",
+    "category": "generic",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "workplace",
+      "pets"
+    ],
+    "blankCount": 18,
+    "wordCount": 80
   }
 }

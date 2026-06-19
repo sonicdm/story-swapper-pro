@@ -1,0 +1,11 @@
+{
+  "title": "Robot Talent Show Scorecard",
+  "category": "themed",
+  "text": "## Robot Talent Show Scorecard\n\nContestant unit: {person}-{number}\n\nTalent: {verb ending in -ing} while balancing a {color} {object} on its {body part}.\n\nJudge notes: routine began {adverb}, then became {adjective} when {plural noun} fell from the ceiling.\n\nAudience reaction: {emotion}, especially after the robot tried to {verb} a {food}.\n\nSpecial effects included {sound}, one confused {animal}, and a smoke cloud over {place}.\n\nFinal score: {number} {noun} and {emotion}.",
+  "collection": "original",
+  "format": "review",
+  "tags": [
+    "sci-fi",
+    "media"
+  ]
+}

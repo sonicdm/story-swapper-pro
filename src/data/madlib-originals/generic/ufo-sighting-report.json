@@ -1,0 +1,11 @@
+{
+  "title": "UFO Sighting Report",
+  "category": "generic",
+  "text": "## UFO Sighting Report\n\n**Date:** {day of week}, {number} hours after sunset\n\n**Location:** Near the {adjective} {place}, beside a {color} {vehicle}\n\n**Witness:** {person}, a {job} {verb ending in -ing} at night\n\n**Description:** A craft hovered while {verb ending in -ing} a {sound} and flashing {plural noun}\n\n**Occupants:** {number} beings wearing {clothing item}\n\n**Action taken:** Witness tried to {verb} but only managed to {verb} a {object}.\n\n**Status:** Case filed under {silly word}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "sci-fi",
+    "parody-bureaucratic"
+  ]
+}

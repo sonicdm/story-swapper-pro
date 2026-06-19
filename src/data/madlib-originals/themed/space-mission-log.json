@@ -1,0 +1,10 @@
+{
+  "title": "Space Mission Log",
+  "category": "themed",
+  "text": "## Space Mission Log\n\nCaptain's log, day {number}: our {adjective} ship reached {place} at dawn.\n\nEngineer {person} reported a {color} light near the {object}, followed by {number} floating {plural noun}.\n\nThe crew became {emotion} when an alien {animal} began {verb ending in -ing} in the airlock.\n\nProtocol says to {verb} calmly, but the {job} already {past-tense verb} the emergency {food}.\n\nMission status: scientifically {adjective} and emotionally {emotion}, pending {number} signatures.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "sci-fi"
+  ]
+}

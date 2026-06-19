@@ -1,5 +1,11 @@
 {
   "title": "VPN Support Call",
   "category": "generic",
-  "text": "## VPN Support Call\n\n**Agent:** Thank you for calling {adjective} IT support. May I have your employee {number}?\n\n**User:** I cannot {verb} from home. The {adjective} icon just spins.\n\n**Agent:** Please {verb} your router, then {verb} the VPN client.\n\n**User:** It asked for my {object} and then said access was {adjective}.\n\n**Agent:** I reset your {object} in Active Directory. Try {verb} again in {number} minutes.\n\n**User:** It works! You are a {adjective} legend."
+  "text": "## VPN Support Call\n\n**Agent:** Thank you for calling {adjective} IT support. May I have your employee {number}?\n\n**User:** I cannot {verb} from home. The {adjective} icon just spins.\n\n**Agent:** Please {verb} your router, then {verb} the VPN client.\n\n**User:** It asked for my {object} and then said access was {adjective}.\n\n**Agent:** I reset your {object} in Active Directory. Try {verb} again in {number} minutes.\n\n**User:** It works! You are a {adjective} legend.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
 }

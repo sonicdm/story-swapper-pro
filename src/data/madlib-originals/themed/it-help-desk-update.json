@@ -1,5 +1,11 @@
 {
   "title": "IT Help Desk Update",
   "category": "themed",
-  "text": "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The {adjective} printer on floor {number} is {adjective} again.\n\n**On site:** {person} with a {adjective} toolkit while {person} clears the password-reset {object}.\n\n**Users affected:** Anyone trying to {verb} or use the {adjective} conference room.\n\n**Workaround:** Route jobs to the {adjective} copier and {verb} your laptop until further notice.\n\n**ETA:** {number} minutes unless the print spooler acts {adjective} again.\n\nPlease stop opening tickets titled \"The internet is {adjective}.\""
+  "text": "## IT Help Desk Update\n\n@helpdesk heads-up:\n\n**Issue:** The {adjective} printer on floor {number} is {adjective} again.\n\n**On site:** {person} with a {adjective} toolkit while {person} clears the password-reset {object}.\n\n**Users affected:** Anyone trying to {verb} or use the {adjective} conference room.\n\n**Workaround:** Route jobs to the {adjective} copier and {verb} your laptop until further notice.\n\n**ETA:** {number} minutes unless the print spooler acts {adjective} again.\n\nPlease stop opening tickets titled \"The internet is {adjective}.\"",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
 }

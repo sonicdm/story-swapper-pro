@@ -1,0 +1,11 @@
+{
+  "title": "Lost and Found Report",
+  "category": "generic",
+  "text": "## Lost and Found Report\n\n**Item:** One {adjective} {object}\n\n**Color:** {color}\n\n**Found at:** The {place} near a {vehicle}\n\n**Found by:** {person}, a {job} who was {verb ending in -ing} at the time\n\n**Description:** Smells of {food}; contains {number} {plural noun} and a sticker shaped like a {body part}.\n\n**Claim process:** Describe the {sound} it makes when you {verb} it.\n\n**Reward:** {number} dollars and a {clothing item}.\n\n**Unclaimed after {number} days:** Donated to the {animal} shelter.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "everyday",
+    "civic"
+  ]
+}

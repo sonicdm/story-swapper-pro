@@ -5,8 +5,8 @@
   "text": "The man picked up a red box and yelled. Dinner was cold pizza. The doctor drove a car wearing a hat. She was running through the park.",
   "words": {
     "man": {
-      "pickCategory": "name of someone in the room",
-      "categoriesInclude": ["name of someone in the room"]
+      "pickCategory": "noun",
+      "categoriesInclude": ["noun"]
     },
     "red": {
       "pickCategory": "color",

@@ -1,5 +1,11 @@
 {
   "title": "Community Garden Minutes",
   "category": "generic",
-  "text": "## Community Garden Minutes\n\n**Meeting called by:** {person}\n\n**Main topic:** The {adjective} mystery of missing {plural noun} from plot {number}.\n\n**Witness report:** A {adjective} {animal} was seen carrying a {object} toward the {place} while {verb ending in -ing}.\n\n**New rules:**\n- Label every {food}\n- Stop using {adjective} compost after dark\n- Never {verb} near the sprinkler shed\n\n**Next meeting:** Bring one {color} chair and a {adverb} prepared apology."
+  "text": "## Community Garden Minutes\n\n**Meeting called by:** {person}\n\n**Main topic:** The {adjective} mystery of missing {plural noun} from plot {number}.\n\n**Witness report:** A {adjective} {animal} was seen carrying a {object} toward the {place} while {verb ending in -ing}.\n\n**New rules:**\n- Label every {food}\n- Stop using {adjective} compost after dark\n- Never {verb} near the sprinkler shed\n\n**Next meeting:** Bring one {color} chair and a {adverb} prepared apology.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "civic",
+    "everyday"
+  ]
 }

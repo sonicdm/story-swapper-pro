@@ -1,5 +1,11 @@
 {
   "title": "A Scary Halloween Story",
   "category": "classics",
-  "text": "They say my school is haunted; my {adjective} friend {person}says they saw a {adjective} {noun} floating at the end of the hall near the cafeteria. Some say if you {verb} down that hallway at night, you'll hear a {animal} growling deeply. My {adjective} friend {person} saw a {adjective} {noun} slithering under the tables once. I hope I never see any {noun} crawling; eating lunch there is scary enough!"
+  "text": "They say my school is haunted; my {adjective} friend {person}says they saw a {adjective} {noun} floating at the end of the hall near the cafeteria. Some say if you {verb} down that hallway at night, you'll hear a {animal} growling deeply. My {adjective} friend {person} saw a {adjective} {noun} slithering under the tables once. I hope I never see any {noun} crawling; eating lunch there is scary enough!",
+  "collection": "classic",
+  "format": "story",
+  "tags": [
+    "spooky",
+    "kids"
+  ]
 }

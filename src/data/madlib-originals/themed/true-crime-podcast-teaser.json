@@ -1,0 +1,11 @@
+{
+  "title": "True Crime Podcast Teaser",
+  "category": "themed",
+  "text": "## True Crime Podcast Teaser\n\n**Episode {number}:** The {adjective} {place} Incident\n\n**Host:** {person}, investigative {job}\n\n**Victim:** Last seen {verb ending in -ing} near a {color} {vehicle}\n\n**Suspect:** Someone who {past-tense verb} {plural noun} and hated {food}\n\n**Twist:** The {object} was inside the {body part} the whole time.\n\n**Cliffhanger:** A {sound} on the {day of week} recording changes everything.\n\n**Sponsor:** {adjective} {plural noun} — code {silly word}.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "media",
+    "spooky"
+  ]
+}

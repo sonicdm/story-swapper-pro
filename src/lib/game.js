@@ -244,6 +244,7 @@ async function fillRandomPrompts() {
       if (inputs[i]) inputs[i].value = words[i];
     });
     setStatus('Filled with random words — reveal them or tweak first!', 'info');
+    $('#btn-sticky-reveal')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } catch (err) {
     setStatus(err.message || 'Could not load word list.', 'error');
   }

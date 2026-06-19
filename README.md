@@ -4,7 +4,7 @@
 
 **Live app:** [https://sonicdm.github.io/story-swapper-pro/](https://sonicdm.github.io/story-swapper-pro/)
 
-Mad Libs-style browser app built with Vite. It includes **57 bundled Mad Libs**, NLP-based auto-swap examples, pasted text, Project Gutenberg/Gutendex books, and PoetryDB poems.
+Mad Libs-style browser app built with Vite. It includes **136 bundled Mad Libs**, NLP-based auto-swap examples, pasted text, Project Gutenberg/Gutendex books, and PoetryDB poems.
 
 ## Quick start
 
@@ -35,8 +35,8 @@ npm run preview
 - **Auto prompt density** — auto-swaps target roughly 18 blanks per 150 words, then cap to distinct usable source words.
 - **Reveal controls** — highlight replacements, show original words, copy plain text, and download `.txt`.
 - **Saved settings** — length, prompt count, tab, Mad Libs pick, and reveal preference via `localStorage`.
-- Sources: **Mad Libs** (57 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
-- **Mad Libs tab** — filter, optgroups (Classics / Legacy / Generic / Themed), Random then Start; full template always (never cropped).
+- Sources: **Mad Libs** (136 bundled templates), **Examples** (prose NLP demos), paste, Project Gutenberg (Gutendex), PoetryDB.
+- **Mad Libs tab** — search, tag filter chips, format optgroups, Random then Start; full template always (never cropped).
 - **Examples tab** — short prose for NLP word detection; one hybrid passage with `{tags}` plus optional auto-swaps.
 - **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers on Paste. Mad Libs templates are authored as a single `{tag}` string in JSON.
 
@@ -48,12 +48,18 @@ Each story is one JSON file under `src/data/madlib-originals/`:
 {
   "title": "IT Incident Report",
   "category": "themed",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": ["workplace", "tech", "parody-bureaucratic"],
   "text": "## IT Incident Report\n\nCompany-wide {adjective} outage began at {number} AM…"
 }
 ```
 
 - `**text**` — full template with `{tag}` placeholders (same as the Paste tab)
-- `**category**` — optional; inferred from folder (`classics`, `legacy`, `generic`, `themed`) if omitted
+- `**category**` — folder provenance (`classics`, `legacy`, `generic`, `themed`, `official`)
+- `**collection**` — `classic`, `original`, `official`, or `woo-jr` (browse metadata)
+- `**format**` — primary UI group: `story`, `how-to`, `form`, `incident-report`, `announcement`, `letter`, `checklist`, `review`, `legal`, `speech`, `listing`, `log`
+- `**tags**` — 1–3 filter chips: `everyday`, `workplace`, `tech`, `civic`, `school`, `travel`, `food`, `media`, `sports`, `gaming`, `retro-web`, `fantasy`, `sci-fi`, `spooky`, `seasonal`, `pets`, `kids`, `parody-bureaucratic`
 
 Common tags: `{noun}`, `{plural noun}`, `{adjective}`, `{adverb}`, `{verb}`, `{past-tense verb}`, `{verb ending in -ing}`, `{person}`, `{place}`, `{number}`, `{animal}`, `{object}`, `{body part}`, `{food}`, `{color}`, `{job}`, `{vehicle}`, `{clothing item}`, `{emotion}`, `{sound}`, `{silly word}`, `{day of week}`.
 
@@ -84,8 +90,10 @@ story-swapper-pro/
       madlib-originals/
         classics/               # 16 madlibz classics
         legacy/                 # 2 migrated templates
-        generic/                # 21 originals
-        themed/                 # 18 themed originals (pets, IT, 90s/00s)
+        generic/                # 51 originals
+        themed/                 # 38 themed originals
+        official/               # 18 Penguin Mad Libs (authorized PDF import)
+        woo-jr/                 # 11 WooJr.com printable Mad Libs
       madlibs-templates.json    # GENERATED — do not hand-edit
     lib/
   public/                       # copied as-is to dist/

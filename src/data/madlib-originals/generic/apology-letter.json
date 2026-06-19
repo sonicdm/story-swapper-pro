@@ -1,5 +1,10 @@
 {
   "title": "Apology Letter",
   "category": "generic",
-  "text": "## Apology Letter\n\nDear {person},\n\nI am deeply sorry for {verb ending in -ing} your {object} during the {adjective} party.\n\nIt was wrong to {verb} near the {place} and even worse to blame your {animal}.\n\nI should not have {past-tense verb} your favorite {object} or told everyone about the {adjective} incident.\n\n**To make amends** I will {verb} publicly, replace the {object}, and never again {verb} without permission.\n\nPlease forgive me.\n\nSincerely,\n{person}, a reformed {adjective} person."
+  "text": "## Apology Letter\n\nDear {person},\n\nI am deeply sorry for {verb ending in -ing} your {object} during the {adjective} party.\n\nIt was wrong to {verb} near the {place} and even worse to blame your {animal}.\n\nI should not have {past-tense verb} your favorite {object} or told everyone about the {adjective} incident.\n\n**To make amends** I will {verb} publicly, replace the {object}, and never again {verb} without permission.\n\nPlease forgive me.\n\nSincerely,\n{person}, a reformed {adjective} person.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "everyday"
+  ]
 }

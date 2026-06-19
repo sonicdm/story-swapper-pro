@@ -1,0 +1,10 @@
+{
+  "title": "Wedding Planner Checklist",
+  "category": "generic",
+  "text": "## Wedding Planner Checklist\n\nBefore the ceremony, confirm that {person} has the rings, the {job} has the microphone, and the {animal} has left the {place}.\n\nCenterpieces should include {number} {plural noun}, one {color} {object}, and no visible {food} stains.\n\nIf anyone begins {verb ending in -ing}, signal the band to {verb} {adverb}.\n\nEmergency kit: tape, tissues, spare {clothing item}, and a {adjective} {noun}.\n\nFinal mood should be {emotion}, not {adjective} or {silly word}.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "everyday"
+  ]
+}

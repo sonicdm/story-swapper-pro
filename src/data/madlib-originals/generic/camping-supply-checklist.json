@@ -1,0 +1,11 @@
+{
+  "title": "Camping Supply Checklist",
+  "category": "generic",
+  "text": "## Camping Supply Checklist\n\nFor the trip to {place}, pack one {adjective} tent, {number} flashlights, and a {color} {object}.\n\nBring enough {food} for everyone, plus extra {plural noun} in case {person} gets {emotion}.\n\nIf a {animal} approaches, do not {verb}; simply begin {verb ending in -ing} {adverb}.\n\nWear a warm {clothing item} and protect your {body part} from the {adjective} weather.\n\nMost important: never forget the {noun} or say {silly word}.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "travel",
+    "everyday"
+  ]
+}

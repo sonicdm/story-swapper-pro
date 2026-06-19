@@ -1,0 +1,11 @@
+{
+  "title": "Fortune Cookie Factory Memo",
+  "category": "generic",
+  "text": "## Fortune Cookie Factory Memo\n\nTeam, production of {adjective} fortunes begins at {number} AM.\n\nPlease stop inserting messages about {plural noun}, especially after {person} found one inside a {food}.\n\nApproved fortunes may mention {emotion}, a future {job}, or a journey to {place} by {vehicle}.\n\nDo not {verb} near the folding machine or the cookies will become {color}.\n\nRemember: every {object} deserves to {verb} {adverb} beside a {color} {noun} by {day of week}, unless {person} objects.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "food",
+    "workplace"
+  ]
+}

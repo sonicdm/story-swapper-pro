@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   isPoeticOrArchaicForm, isAbstractPoeticContext, isIdiomPart,
-  looksLikeProperName, resolveProperNounCategory, isPastTenseForm, normalizeForPos, isPrepositionWord
+  looksLikeProperName, resolveProperNounCategory, isPastTenseForm, normalizeForPos, isPrepositionWord,
+  isLikelyDerivedAdjective
 } from '../src/lib/grammar.js';
 
 function tok(text, atSentenceStart = false) {
@@ -86,6 +87,18 @@ describe('grammar guards', () => {
     expect(resolveProperNounCategory(tok('London', true))).toBe('place');
     expect(resolveProperNounCategory(tok('Henry', true))).toBe('name of someone in the room');
     expect(resolveProperNounCategory(tok('March', true))).toBeNull();
+    expect(resolveProperNounCategory(tok('Old', true))).toBeNull();
+    expect(resolveProperNounCategory(tok('Fair', true))).toBeNull();
+    expect(resolveProperNounCategory(tok('Well', true))).toBeNull();
+    expect(resolveProperNounCategory(tok('Yet', true))).toBeNull();
+    expect(resolveProperNounCategory(tok('Marta', false))).toBe('name of someone in the room');
+  });
+
+  it('skips derived adjectives misread as names (poetry line breaks)', () => {
+    expect(isLikelyDerivedAdjective('softest')).toBe(true);
+    expect(isLikelyDerivedAdjective('forgetful')).toBe(true);
+    expect(resolveProperNounCategory(tok('Softest', false))).toBeNull();
+    expect(resolveProperNounCategory(tok('Forgetful', false))).toBeNull();
   });
 
   it('knows irregular past forms', () => {

@@ -1,5 +1,11 @@
 {
   "title": "Server Room Incident",
   "category": "themed",
-  "text": "## Server Room Ticket\n\n**Ticket #{number}:** Loud {adjective} noise reported in server room B.\n\n**Technician:** Arrived with a {adjective} flashlight and a clipboard.\n\n**Findings:**\n- A {adjective} cable connected to {adjective} power\n- An old {adjective} pizza box on the UPS\n- Sticky note: DO NOT {verb}\n\n**Fix applied:** Labeled every {adjective} port and rebooted the {object} twice for luck.\n\n**Monitoring:** Now tracks {adjective} temperature and {adjective} humidity.\n\n**Reminder:** Stop storing {adjective} boxes next to the backup {object}.\n\nClosing as resolved-ish."
+  "text": "## Server Room Ticket\n\n**Ticket #{number}:** Loud {adjective} noise reported in server room B.\n\n**Technician:** Arrived with a {adjective} flashlight and a clipboard.\n\n**Findings:**\n- A {adjective} cable connected to {adjective} power\n- An old {adjective} pizza box on the UPS\n- Sticky note: DO NOT {verb}\n\n**Fix applied:** Labeled every {adjective} port and rebooted the {object} twice for luck.\n\n**Monitoring:** Now tracks {adjective} temperature and {adjective} humidity.\n\n**Reminder:** Stop storing {adjective} boxes next to the backup {object}.\n\nClosing as resolved-ish.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "tech",
+    "workplace"
+  ]
 }

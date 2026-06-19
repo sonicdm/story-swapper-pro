@@ -1,5 +1,11 @@
 {
   "title": "Matilda's Walk Report",
   "category": "themed",
-  "text": "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** {adjective} with a chance of {plural noun}.\n\n**Route:** Left on {adjective} Street, past the {adjective} park, then home for {adjective} treats.\n\n**Highlights:** Matilda {past-tense verb} at a {adjective} squirrel and made {number} new friends.\n\n**Lowlights:** She rolled in something {adjective} near a {place}.\n\n**Equipment:** {adjective} leash, {adjective} bag, one heroic {object}.\n\n**Owner mood:** {adjective}.\n\n**Recommendation:** More walks, fewer {plural noun} distractions."
+  "text": "## Walk Report\n\n**Dog:** Matilda (dark red golden retriever)\n\n**Weather:** {adjective} with a chance of {plural noun}.\n\n**Route:** Left on {adjective} Street, past the {adjective} park, then home for {adjective} treats.\n\n**Highlights:** Matilda {past-tense verb} at a {adjective} squirrel and made {number} new friends.\n\n**Lowlights:** She rolled in something {adjective} near a {place}.\n\n**Equipment:** {adjective} leash, {adjective} bag, one heroic {object}.\n\n**Owner mood:** {adjective}.\n\n**Recommendation:** More walks, fewer {plural noun} distractions.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
 }

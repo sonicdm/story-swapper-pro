@@ -1,0 +1,10 @@
+{
+  "title": "Apartment Listing",
+  "category": "generic",
+  "text": "## Apartment Listing\n\nNow leasing a {adjective} studio in the heart of {place}.\n\nThis unit features {number} windows, one {color} wall, and a surprisingly {adjective} view of the neighbor's {object}.\n\nAmenities include:\n- Shared {plural noun}\n- A lobby that smells faintly of {food}\n- On-site {animal} supervision\n\nIdeal for a {job} who loves {verb ending in -ing} and can {verb} quietly after midnight.\n\nSecurity deposit: one {adjective} {noun}, a {body part} print, {number} references, and a promise to stay {emotion} by {day of week}.",
+  "collection": "original",
+  "format": "listing",
+  "tags": [
+    "everyday"
+  ]
+}

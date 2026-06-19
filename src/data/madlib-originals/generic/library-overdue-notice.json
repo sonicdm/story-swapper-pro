@@ -1,5 +1,10 @@
 {
   "title": "Library Overdue Notice",
   "category": "generic",
-  "text": "## Library Overdue Notice\n\nDear {person},\n\nOur records show that your {adjective} book, **The Secret Life of {plural noun}**, is {number} days overdue.\n\nPlease return it to the {place} branch or explain why it is covered in {food}.\n\n**Current fine:** one {object}, two {plural noun}, and a promise to {verb} quietly.\n\nIf the book was eaten by a {adjective} {animal}, bring photographic evidence.\n\nThank you for supporting public {adjective} reading."
+  "text": "## Library Overdue Notice\n\nDear {person},\n\nOur records show that your {adjective} book, **The Secret Life of {plural noun}**, is {number} days overdue.\n\nPlease return it to the {place} branch or explain why it is covered in {food}.\n\n**Current fine:** one {object}, two {plural noun}, and a promise to {verb} quietly.\n\nIf the book was eaten by a {adjective} {animal}, bring photographic evidence.\n\nThank you for supporting public {adjective} reading.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "civic"
+  ]
 }

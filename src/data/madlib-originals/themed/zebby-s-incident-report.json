@@ -1,5 +1,11 @@
 {
   "title": "Zebby's Incident Report",
   "category": "themed",
-  "text": "## Incident Report\n\n**Filed by:** Zebby, black cat\n\n**Time:** {number} o'clock\n\n**Location:** The {place} near the {object}\n\n**Event:** Human attempted to {verb} without offering {food} first.\n\n**Witnesses:**\n- Matilda ({adjective})\n- Violet ({adjective})\n\n**Response:** Zebby {past-tense verb} under the couch, then {past-tense verb} the offender's {body part}.\n\n**Damage:** One {object} knocked over, zero regrets.\n\n**Corrective action:** Schedule {adjective} play sessions; stop buying {adjective} toys.\n\n**Status:** Closed until next {adjective} snack."
+  "text": "## Incident Report\n\n**Filed by:** Zebby, black cat\n\n**Time:** {number} o'clock\n\n**Location:** The {place} near the {object}\n\n**Event:** Human attempted to {verb} without offering {food} first.\n\n**Witnesses:**\n- Matilda ({adjective})\n- Violet ({adjective})\n\n**Response:** Zebby {past-tense verb} under the couch, then {past-tense verb} the offender's {body part}.\n\n**Damage:** One {object} knocked over, zero regrets.\n\n**Corrective action:** Schedule {adjective} play sessions; stop buying {adjective} toys.\n\n**Status:** Closed until next {adjective} snack.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
 }

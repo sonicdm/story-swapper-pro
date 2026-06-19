@@ -1,0 +1,11 @@
+{
+  "title": "Dating App Profile",
+  "category": "generic",
+  "text": "## Dating App Profile\n\nHi, I am {person}, a {adjective} {job} who loves {verb ending in -ing}, {food}, and weekend trips to {place}.\n\nMy ideal date brings a {color} {object}, laughs at {plural noun}, and never asks why my {animal} knows how to {verb}.\n\nI am looking for someone {emotion}, kind, and only mildly {adjective}.\n\nFun fact: I once {past-tense verb} a {vehicle} using just my {body part} and a {noun} {adverb}.",
+  "collection": "original",
+  "format": "listing",
+  "tags": [
+    "everyday",
+    "media"
+  ]
+}

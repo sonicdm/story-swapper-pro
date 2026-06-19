@@ -1,0 +1,11 @@
+{
+  "title": "Home Renovation Reveal",
+  "category": "themed",
+  "text": "## Home Renovation Reveal\n\n**Homeowners:** {person} and {person}\n\n**Contractor:** {person}, licensed {job}\n\n**Budget:** Started at {number} dollars; ended at {number} {plural noun}\n\n**Before:** A {adjective} {place} with {color} {plural noun} everywhere\n\n**Demo day:** Someone {past-tense verb} the wrong wall while {verb ending in -ing} a {object}\n\n**Surprise find:** {plural noun} behind the stairs\n\n**After:** {adjective} kitchen and a {vehicle} parked indoors.\n\n**Reaction:** Tears, a {sound}, and plans to {verb} again.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "everyday",
+    "media"
+  ]
+}

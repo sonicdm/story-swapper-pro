@@ -1,5 +1,10 @@
 {
   "title": "Restaurant Complaint",
   "category": "generic",
-  "text": "## Restaurant Complaint\n\nDear Manager,\n\nI visited your {adjective} restaurant last {place} and ordered the chef's {adjective} special.\n\n**The soup:** Tasted like {food} mixed with {food} and was served at a {adjective} temperature.\n\n**Service:** My server, who wore {color} shoes, forgot to {verb} our table twice.\n\n**Dessert:** We received a {object} that looked like a small {animal}.\n\n**The check:** When I asked for the bill, the total seemed {adjective}. Please refund my {number} and consider hiring a {adjective} host who can {verb} without causing panic."
+  "text": "## Restaurant Complaint\n\nDear Manager,\n\nI visited your {adjective} restaurant last {place} and ordered the chef's {adjective} special.\n\n**The soup:** Tasted like {food} mixed with {food} and was served at a {adjective} temperature.\n\n**Service:** My server, who wore {color} shoes, forgot to {verb} our table twice.\n\n**Dessert:** We received a {object} that looked like a small {animal}.\n\n**The check:** When I asked for the bill, the total seemed {adjective}. Please refund my {number} and consider hiring a {adjective} host who can {verb} without causing panic.",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "food"
+  ]
 }

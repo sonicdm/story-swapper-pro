@@ -1,0 +1,11 @@
+{
+  "title": "Wizard School Detention Slip",
+  "category": "themed",
+  "text": "## Wizard School Detention Slip\n\nStudent: {person}\n\nOffense: using a {adjective} spell to turn {number} {plural noun} into a {color} {animal} during class.\n\nThe student claimed they meant to {verb} a harmless {object}, but the witness saw them {verb ending in -ing} behind the {place}.\n\nPunishment: clean the enchanted {noun}, apologize to the {job}, and write I will not {verb} with my {body part} {number} times.\n\nMood observed: {emotion}. Wand color: {color}. Snack confiscated: {food}.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "fantasy",
+    "school"
+  ]
+}

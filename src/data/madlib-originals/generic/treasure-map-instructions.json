@@ -1,0 +1,11 @@
+{
+  "title": "Treasure Map Instructions",
+  "category": "generic",
+  "text": "## Treasure Map Instructions\n\n**Start:** From the {adjective} {place}, walk {number} paces toward the {color} {object}.\n\n**Landmarks:**\n- Pass the {adjective} {animal} without {verb ending in -ing}\n- Cross the bridge built by {person}\n\n**Danger:** Beware the {plural noun} guarding the {body part} cave.\n\n**Dig here:** X marks a spot under {number} {plural noun}.\n\n**Loot:** One {adjective} {object} and all the {food} you can {verb}.",
+  "collection": "original",
+  "format": "how-to",
+  "tags": [
+    "fantasy",
+    "travel"
+  ]
+}

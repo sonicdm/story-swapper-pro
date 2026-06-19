@@ -1,5 +1,11 @@
 {
   "title": "Y2K Preparedness Checklist",
   "category": "themed",
-  "text": "## Y2K Readiness Plan\n\n**Stockpile:**\n- {number} gallons of {food}\n- {adjective} batteries\n\n**Finances:** Withdraw {number} dollars in {adjective} bills from the bank.\n\n**Equipment:** Test the {adjective} generator and the {adjective} radio.\n\n**Maps:** Print maps because GPS may {verb}.\n\n**Grandma:** Teach her to {verb} without fear.\n\n**Supplies:** Store canned {food} and one {object} for morale.\n\n**Midnight rule:** Do not {verb} near any {adjective} computer.\n\n**Worst case:** Build a {adjective} fort and assign {person} to guard duty."
+  "text": "## Y2K Readiness Plan\n\n**Stockpile:**\n- {number} gallons of {food}\n- {adjective} batteries\n\n**Finances:** Withdraw {number} dollars in {adjective} bills from the bank.\n\n**Equipment:** Test the {adjective} generator and the {adjective} radio.\n\n**Maps:** Print maps because GPS may {verb}.\n\n**Grandma:** Teach her to {verb} without fear.\n\n**Supplies:** Store canned {food} and one {object} for morale.\n\n**Midnight rule:** Do not {verb} near any {adjective} computer.\n\n**Worst case:** Build a {adjective} fort and assign {person} to guard duty.",
+  "collection": "original",
+  "format": "checklist",
+  "tags": [
+    "retro-web",
+    "tech"
+  ]
 }

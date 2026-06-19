@@ -1,0 +1,11 @@
+{
+  "title": "Birthday Party Invitation",
+  "category": "generic",
+  "text": "## Birthday Party Invitation\n\nYou are invited to {person}'s {adjective} birthday party at {place}.\n\nThere will be {number} games, a {color} cake, and a professional {job} who can {verb} while {verb ending in -ing}.\n\nPlease bring one {object}, comfortable {clothing item}, and your favorite {animal} story.\n\nDo not bring {plural noun}; last year they made everyone {emotion}.\n\nRSVP by {day of week}, or we will mail you a {adjective} {noun} with {number} {plural noun}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "kids",
+    "everyday"
+  ]
+}

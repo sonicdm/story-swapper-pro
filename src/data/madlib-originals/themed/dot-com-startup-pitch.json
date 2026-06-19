@@ -1,5 +1,11 @@
 {
   "title": "Dot-Com Startup Pitch",
   "category": "themed",
-  "text": "## Dot-Com Startup Pitch\n\n**Company name:** {adjective}{noun}.com\n\n**Mission:** To help busy people {verb} their {plural noun} on the information superhighway.\n\n**Target user:** {person}, age {number}, currently trapped in a {adjective} cubicle.\n\n**Product demo:** Click the {color} button and watch a {adjective} {object} appear in only {number} seconds.\n\n**Revenue model:** Sell {plural noun}, banner ads, and one {adverb} expensive subscription.\n\n**Investor ask:** ${number} million and a conference room with {food}."
+  "text": "## Dot-Com Startup Pitch\n\n**Company name:** {adjective}{noun}.com\n\n**Mission:** To help busy people {verb} their {plural noun} on the information superhighway.\n\n**Target user:** {person}, age {number}, currently trapped in a {adjective} cubicle.\n\n**Product demo:** Click the {color} button and watch a {adjective} {object} appear in only {number} seconds.\n\n**Revenue model:** Sell {plural noun}, banner ads, and one {adverb} expensive subscription.\n\n**Investor ask:** ${number} million and a conference room with {food}.",
+  "collection": "original",
+  "format": "speech",
+  "tags": [
+    "retro-web",
+    "workplace"
+  ]
 }

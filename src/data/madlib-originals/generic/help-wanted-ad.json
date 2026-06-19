@@ -1,5 +1,10 @@
 {
   "title": "Help Wanted Ad",
   "category": "generic",
-  "text": "## Help Wanted\n\nNow hiring a {adjective} {job} to join our {adjective} team downtown.\n\n**Requirements:**\n- Must be able to {verb} quickly\n- Lift {number} pounds\n- Remain {adjective} during emergencies involving {plural noun} or spilled {food}\n\n**Benefits:**\n- {adjective} dental\n- Unlimited {plural noun}\n- One {adjective} holiday per month\n\n**How to apply:** In person wearing {adjective} attire with a {object} resume.\n\n**Ideal candidate:** {number} years experience; can {verb} without supervision. No {adjective} applicants, please."
+  "text": "## Help Wanted\n\nNow hiring a {adjective} {job} to join our {adjective} team downtown.\n\n**Requirements:**\n- Must be able to {verb} quickly\n- Lift {number} pounds\n- Remain {adjective} during emergencies involving {plural noun} or spilled {food}\n\n**Benefits:**\n- {adjective} dental\n- Unlimited {plural noun}\n- One {adjective} holiday per month\n\n**How to apply:** In person wearing {adjective} attire with a {object} resume.\n\n**Ideal candidate:** {number} years experience; can {verb} without supervision. No {adjective} applicants, please.",
+  "collection": "original",
+  "format": "listing",
+  "tags": [
+    "workplace"
+  ]
 }

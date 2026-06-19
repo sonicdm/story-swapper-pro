@@ -1,5 +1,11 @@
 {
   "title": "Product Warning Label",
   "category": "generic",
-  "text": "## Product Warning\n\n**CAUTION:** This {object} may become {adjective} when exposed to sunlight, gossip, or {adjective} music.\n\n**Do not:**\n- {verb} while operating a {vehicle}\n- Negotiate with {adjective} people\n\n**Side effects:** {adjective} laughter, sudden urges to {verb}, and believing you can {verb} professionally.\n\n**Keep away from** {adjective} animals and open {plural noun}.\n\n**If swallowed:** Contact a {job} immediately and describe the {adjective} flavor.\n\n**Storage:** Cool, {adjective} place away from children and {adjective} influencers."
+  "text": "## Product Warning\n\n**CAUTION:** This {object} may become {adjective} when exposed to sunlight, gossip, or {adjective} music.\n\n**Do not:**\n- {verb} while operating a {vehicle}\n- Negotiate with {adjective} people\n\n**Side effects:** {adjective} laughter, sudden urges to {verb}, and believing you can {verb} professionally.\n\n**Keep away from** {adjective} animals and open {plural noun}.\n\n**If swallowed:** Contact a {job} immediately and describe the {adjective} flavor.\n\n**Storage:** Cool, {adjective} place away from children and {adjective} influencers.",
+  "collection": "original",
+  "format": "legal",
+  "tags": [
+    "everyday",
+    "parody-bureaucratic"
+  ]
 }

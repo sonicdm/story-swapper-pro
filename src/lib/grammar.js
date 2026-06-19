@@ -96,7 +96,9 @@ const SENTENCE_STARTERS = new Set([
   'get', 'let', 'put', 'say', 'see', 'take', 'make', 'come', 'give', 'think',
   'know', 'want', 'look', 'use', 'find', 'tell', 'ask', 'work', 'seem', 'feel',
   'try', 'call', 'keep', 'turn', 'start', 'show', 'hear', 'play', 'run', 'move',
-  'live', 'believe', 'hold', 'bring', 'happen', 'write', 'provide', 'sit', 'stand'
+  'live', 'believe', 'hold', 'bring', 'happen', 'write', 'provide', 'sit', 'stand',
+  // Poetry / archaic line openers — not names (Well might…, Yet vain…)
+  'well', 'hark', 'lo', 'behold', 'hail', 'mark', 'list', 'alas', 'hence', 'thus', 'yet'
 ]);
 
 const ING_NOUN_CONTEXT = new Set([
@@ -106,6 +108,29 @@ const ING_NOUN_CONTEXT = new Set([
 
 const COMPOUND_MODIFIERS = new Set(['living', 'dining', 'waiting', 'operating', 'farthest', 'nearest']);
 const COMPOUND_HEADS = new Set(['room', 'rooms', 'area', 'areas', 'table', 'station', 'street', 'cliffs', 'cliff']);
+
+/** Capitalized epithets before nouns (Old Marta, Fair charmer) — not proper names. */
+const EPITHET_ADJECTIVES = new Set([
+  'old', 'young', 'little', 'great', 'dear', 'poor', 'good', 'big', 'small', 'new', 'last', 'first',
+  'fair', 'vain', 'fond', 'sweet', 'bright', 'soft', 'bold', 'wild', 'mild', 'pure', 'lone', 'clear',
+  'pale', 'bleak', 'glad', 'sad', 'cold', 'warm', 'high', 'low', 'free', 'true', 'false'
+]);
+
+export function isEpithetAdjective(w) {
+  return EPITHET_ADJECTIVES.has(w);
+}
+
+/** Line-initial adverbs in poetry (Well might…) — not names. */
+const POETIC_SENTENCE_ADVERBS = new Set(['well']);
+
+export function isPoeticSentenceAdverb(w, tok) {
+  return Boolean(tok?.atSentenceStart && POETIC_SENTENCE_ADVERBS.has(w));
+}
+
+/** Common role words (boy, man) — nouns, not names like Henry or Marta. */
+export function isGenericPersonRole(w, tok) {
+  return listHas('personNouns', w) && tok && !/^[A-Z]/.test(tok.text);
+}
 
 export function isPastTenseForm(w) {
   return w.endsWith('ed') || IRREGULAR_PAST.has(w);
@@ -129,6 +154,22 @@ export function isComparativeAdjective(w, prevWord) {
   if (/^(was|were|is|are|am|be|been|seem|seems|look|looks|feel|feels|became|grow|grows|turn|turns)$/.test(prevWord)) {
     return true;
   }
+  return false;
+}
+
+/** -est / -ful / etc. — capitalized mid-line in poetry, not names (Softest, Forgetful). */
+const SUPERLATIVE_EST_NOUNS = new Set([
+  'west', 'east', 'rest', 'nest', 'guest', 'crest', 'chest', 'jest', 'fest', 'best', 'test',
+  'priest', 'beast', 'feast', 'breast', 'quest', 'pest', 'zest'
+]);
+
+export function isLikelyDerivedAdjective(w, prevWord = '') {
+  if (isComparativeAdjective(w, prevWord)) return true;
+  if (w.endsWith('ful') && w.length > 4) return true;
+  if (w.endsWith('less') && w.length > 5) return true;
+  if (w.endsWith('ous') && w.length > 5) return true;
+  if (w.endsWith('ive') && w.length > 5) return true;
+  if (w.endsWith('est') && w.length > 5 && !SUPERLATIVE_EST_NOUNS.has(w)) return true;
   return false;
 }
 
@@ -181,6 +222,8 @@ export function resolveProperNounCategory(tok, hints = null, { termTags = [], pr
   if (TITLES.has(w) || MONTHS.has(w) || DAYS.has(w)) return null;
   if (SENTENCE_STARTERS.has(w)) return null;
   if (STOP_WORDS.has(w)) return null;
+  if (isEpithetAdjective(w)) return null;
+  if (isLikelyDerivedAdjective(w, prev)) return null;
 
   const isPlaceTag = termTags.some(t => /Place/i.test(t));
   const isPersonTag = termTags.some(t => /Person|FirstName|LastName/i.test(t));
@@ -194,8 +237,10 @@ export function resolveProperNounCategory(tok, hints = null, { termTags = [], pr
 
   if (!tok.atSentenceStart) return 'name of someone in the room';
 
-  // Sentence start: short TitleCase names (Sim, Henry) — not long words like Account.
-  if (/^[A-Z][a-z]{2,5}$/.test(tok.text) && !listHas('places', w) && !listHas('objects', w)) {
+  // Sentence start: short TitleCase names (Sim, Henry) — not common words or long tokens like Account.
+  if (/^[A-Z][a-z]{2,5}$/.test(tok.text) && !listHas('places', w) && !listHas('objects', w)
+      && !isEpithetAdjective(w) && !listHas('adjectives', w) && !listHas('adverbs', w)
+      && !isLikelyDerivedAdjective(w, prev)) {
     return 'name of someone in the room';
   }
 
