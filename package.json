@@ -10,11 +10,15 @@
     "build:dict": "node scripts/build-dictionary.mjs",
     "sync:madlibs": "node scripts/sync-madlib-templates.mjs",
     "preview": "vite preview",
+    "preview:pages": "node scripts/serve-dist-prefix.mjs story-swapper-pro 4173",
     "preview:watch": "concurrently -k -n build,preview -c yellow,cyan \"vite build --watch\" \"vite preview\"",
     "serve": "npm run build && vite preview",
-    "test": "npm run build:dict && npm run sync:madlibs && vitest run",
+    "test": "npm run build:dict && npm run sync:madlibs && npm run test:unit",
+    "test:unit": "vitest run",
     "test:watch": "npm run build:dict && npm run sync:madlibs && vitest",
     "test:full": "npm run build:dict && npm run sync:madlibs && cross-env TEST_FULL=1 vitest run",
+    "test:browser": "npm run build:dict && npm run sync:madlibs && cross-env VITE_BASE_PATH=/story-swapper-pro/ vite build && npm run test:browser:run",
+    "test:browser:run": "playwright test",
     "test:coverage": "npm run build:dict && npm run sync:madlibs && cross-env TEST_FULL=1 vitest run --coverage",
     "test:inspect": "node scripts/inspect-text.mjs"
   },
@@ -27,6 +31,7 @@
     "wink-nlp": "^2.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
     "@types/pluralize": "^0.0.33",
     "@vitest/coverage-v8": "^3.2.6",
     "concurrently": "^9.1.2",

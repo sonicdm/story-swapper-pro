@@ -104,7 +104,7 @@ story-swapper-pro/
 
 ### GitHub Actions
 
-A workflow is included at `.github/workflows/deploy-pages.yml`. On push to `main`/`master`, it runs `npm test`, builds `dist/`, and deploys to GitHub Pages.
+A workflow is included at `.github/workflows/deploy-pages.yml`. On push to `main`/`master`, it runs `npm test`, builds `dist/`, runs the Playwright browser smoke test against that Pages build, and deploys to GitHub Pages.
 
 1. Push this repo to GitHub.
 2. In **Settings → Pages**, set source to **GitHub Actions**.
@@ -135,10 +135,10 @@ npm run build
 ```bash
 # Simulate a project site at /story-swapper-pro/
 VITE_BASE_PATH=/story-swapper-pro/ npm run build
-npm run preview
+npm run preview:pages
 ```
 
-Then open the URL Vite prints (usually `http://localhost:4173/story-swapper-pro/`).
+Then open `http://127.0.0.1:4173/story-swapper-pro/`.
 
 ## Testing
 
@@ -146,10 +146,18 @@ NLP regressions live in `tests/fixtures/` as JSON cases. See [tests/README.md](t
 
 ```bash
 npm test              # default suite (compromise only; wink fixtures skipped)
+npm run test:unit     # Vitest only; assumes generated assets are current
 npm run test:full     # all fixtures including wink-nlp
+npm run test:browser  # build with /story-swapper-pro/ base and run Playwright smoke
 npm run test:coverage # full suite + v8 coverage report
 npm run test:watch    # prepare generated data, then watch mode
 npm run test:inspect -- marys-dream   # debug word analysis for a fixture
+```
+
+For the browser smoke test, install the Chromium runtime once if Playwright asks for it:
+
+```bash
+npx playwright install chromium
 ```
 
 ## NLP stack
@@ -194,4 +202,3 @@ Bundled templates support offline play and remote API fallback. Template text re
 
 - **Public Domain downloads** need a normal `http://` origin (GitHub Pages or `npm run dev`). Opening built files via `file://` blocks most book downloads; Examples, Paste, and Mad Libs still work.
 - The older single-file `standalone.html` build has been removed in favor of this standard Vite output.
-

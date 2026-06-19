@@ -6,9 +6,17 @@ Regression tests for word classification, swap eligibility, and replacement gram
 
 ```bash
 npm test              # fast: compromise only (wink fixtures skipped)
+npm run test:unit     # Vitest only; assumes generated assets are current
 npm run test:full     # all fixtures including wink-nlp
+npm run test:browser  # Pages-base build + Playwright smoke test
 npm run test:coverage # build generated data, then full suite + v8 coverage report
 npm run test:watch    # build generated data once, then watch mode
+```
+
+Install Playwright's browser runtime once if needed:
+
+```bash
+npx playwright install chromium
 ```
 
 ## Adding a regression case
@@ -69,12 +77,25 @@ For untagged auto-swap passages, **Auto** prompt count follows Mad Lib-style den
 
 Generated assets are required: `npm run build:dict` for WordNet files and `npm run sync:madlibs` for bundled templates. Missing WordNet assets are treated as a runtime error, not a silent fallback. These commands run before `npm run dev`, `npm run build`, `npm test`, `npm run test:full`, `npm run test:coverage`, and `npm run test:watch`. If you run `vitest` directly, run both commands first.
 
+## Template catalog tests
+
+`tests/madlib-originals.test.js` validates every JSON template under `src/data/madlib-originals/` without hard-coded catalog counts. Adding a valid template should only require adding the JSON file and running sync. The tests assert:
+
+- unique titles
+- valid taxonomy
+- 8+ blanks
+- markdown heading structure for non-classic authored template buckets
+- tokenized blank count matches placeholder count
+- generated `madlibs-templates.json` mirrors every source template
+
+`tests/helpers/madlib-catalog.js` owns template discovery for catalog tests.
+
 ## Test framework audit notes
 
 - Vitest covers NLP classification, replacement grammar, template validation, markdown conversion, and generated Mad Lib metadata in a Node environment.
 - Coverage currently tracks `src/lib/**/*.js` and `src/data/**/*.js`; `src/main.js` is intentionally outside the unit coverage target because it is browser UI orchestration.
-- The GitHub Pages workflow runs `npm test` before building `dist/`, so deploys now have the same generated-data and regression gate as local test runs.
-- Remaining high-value improvement: add a small browser smoke suite, ideally Playwright, for the built app at `/story-swapper-pro/` covering load, Mad Lib start, random fill, reveal, copy/download controls, and base-path asset loading.
+- The GitHub Pages workflow runs `npm test`, builds `dist/`, then runs Playwright against the Pages-base build before deploying.
+- Browser smoke currently covers load, Mad Lib selection, random fill, reveal, highlighted swaps, and base-path asset loading.
 
 ## Debug a failure
 
@@ -91,9 +112,12 @@ tests/
   helpers/
     analyze.js        tokenize + classify + pool
     assert-word.js    fixture assertions
+    madlib-catalog.js dynamic template discovery
     load-fixtures.js
     nlp-session.js    shared NLP engine
+  browser/             Playwright browser smoke tests
   classify.fixtures.test.js
+  fixtures.test.js    fixture schema tests
   grammar.test.js     pure unit tests (no NLP)
   replacement.test.js verb/plural fitting
 ```

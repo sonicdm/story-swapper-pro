@@ -27,9 +27,13 @@ jobs:
 
       - run: npm ci
       - run: npm test
+      - run: npx playwright install --with-deps chromium
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+      - run: npm run test:browser:run
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:4173/${{ github.event.repository.name }}/
 
       - uses: actions/upload-pages-artifact@v5
         with:

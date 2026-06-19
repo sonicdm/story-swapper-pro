@@ -21,8 +21,6 @@ const CATEGORY_LABELS = {
   'woo-jr': 'Woo! Jr'
 };
 
-const SUBDIRS = ['classics', 'legacy', 'generic', 'themed', 'official', 'woo-jr'];
-
 function countWords(text) {
   const m = String(text).match(/\b[\w''-]+\b/g);
   return m ? m.length : 0;
@@ -80,7 +78,11 @@ function validateStory(title, entry, folderCategory) {
 function walkOriginals() {
   const out = {};
   if (!fs.existsSync(originalsDir)) return out;
-  for (const sub of SUBDIRS) {
+  const subdirs = fs.readdirSync(originalsDir, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => d.name)
+    .sort((a, b) => a.localeCompare(b));
+  for (const sub of subdirs) {
     const dir = path.join(originalsDir, sub);
     if (!fs.existsSync(dir)) continue;
     for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {

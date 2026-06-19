@@ -3,7 +3,8 @@ import {
   FORMAT_ORDER,
   TAG_ORDER,
   filterMadLibTemplates,
-  validateTaxonomy
+  validateTaxonomy,
+  inferCollectionFromFolder
 } from '../src/lib/madlib-taxonomy.js';
 import {
   listBundledMadLibTitles,
@@ -13,6 +14,16 @@ import {
   getRandomBundledMadLibTitle,
   FORMAT_LABELS
 } from '../src/lib/madlibs.js';
+import { readOriginalTemplates } from './helpers/madlib-catalog.js';
+
+const files = readOriginalTemplates();
+
+function titlesForCollection(collection) {
+  return files
+    .filter(f => (f.data.collection || inferCollectionFromFolder(f.folder)) === collection)
+    .map(f => f.title)
+    .sort((a, b) => a.localeCompare(b));
+}
 
 describe('madlib taxonomy filter', () => {
   const items = [
@@ -65,7 +76,7 @@ describe('madlib taxonomy bundle', () => {
     const ids = catalog.map(g => g.id);
     expect([...ids].sort((a, b) => FORMAT_ORDER.indexOf(a) - FORMAT_ORDER.indexOf(b))).toEqual(ids);
     const total = catalog.reduce((n, g) => n + g.items.length, 0);
-    expect(total).toBe(136);
+    expect(total).toBe(listBundledMadLibTitles().length);
   });
 
   it('preserves taxonomy metadata on items', () => {
@@ -91,17 +102,21 @@ describe('madlib taxonomy bundle', () => {
   });
 
   it('filters bundled titles by official collection', () => {
-    const official = listBundledMadLibTitles({ collections: ['official'] });
-    expect(official.length).toBe(18);
-    expect(official).toContain('The Blank Page');
-    expect(official).toContain('Pinktastic');
+    const expected = titlesForCollection('official');
+    const official = listBundledMadLibTitles({ collections: ['official'] }).sort();
+    expect(official).toEqual(expected);
+    if (expected.length) {
+      expect(getMadLibMeta(expected[0]).collection).toBe('official');
+    }
   });
 
   it('filters bundled titles by woo-jr collection', () => {
-    const wooJr = listBundledMadLibTitles({ collections: ['woo-jr'] });
-    expect(wooJr.length).toBe(11);
-    expect(wooJr).toContain('BB-8 and R2-D2');
-    expect(wooJr).toContain('Paul Bunyan Mad Lib');
+    const expected = titlesForCollection('woo-jr');
+    const wooJr = listBundledMadLibTitles({ collections: ['woo-jr'] }).sort();
+    expect(wooJr).toEqual(expected);
+    if (expected.length) {
+      expect(getMadLibMeta(expected[0]).collection).toBe('woo-jr');
+    }
   });
 
   it('every bundled item has format and tags', () => {
