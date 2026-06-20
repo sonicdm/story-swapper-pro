@@ -3,7 +3,7 @@ import { appState } from './state.js';
 import { SAMPLES } from '../data/samples.js';
 import { CATEGORY_LABELS, CATEGORY_HINTS } from './constants.js';
 import {
-  cleanGutenbergText, detectSections, selectSection, trimToWordLimit, tokenize
+  selectSection, trimToWordLimit, tokenize
 } from './text.js';
 import {
   classifyTokensHeuristic, classifyTokensWithNlp, resolvePromptCount,
@@ -13,10 +13,11 @@ import { fetchGutenbergText, fetchPoem, poemToText, fetchMadLibRandom, fetchMadL
 import { normalizeTemplateSyntax } from './madlibs.js';
 import pluralize from 'pluralize';
 import { phraseLooksPlural, isPastTenseForm } from './grammar.js';
-import { hasPlaceholders, selectMixedCandidates, countPlaceholders, placeholderOriginalForCategory } from './placeholders.js';
+import { hasPlaceholders, placeholderOriginalForCategory } from './placeholders.js';
 import { lookupPosForPool, randomWordsForCategories } from './dictionary.js';
 import { renderMadLibMarkdown, swapPlaceholder } from './story-markdown.js';
 import { escapeHtml } from './html-utils.js';
+import { computeAutoSwapCandidates } from './auto-swap-candidates.js';
 
 function renderPromptForm(candidates) {
   const form = $('#prompt-form');
@@ -305,55 +306,36 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
   try {
     appState.rawText = rawText;
     appState.loadedSourceTitle = title;
-    appState.cleanText = isGutenberg
-      ? cleanGutenbergText(rawText)
-      : normalizeTemplateSyntax(rawText.replace(/\r\n/g, '\n').trim());
 
     const templateMode = isTemplateModeSource();
+    const collectionMode = appState.sourceType === 'gutenberg'
+      ? $('#gutenberg-collection').value
+      : 'auto';
 
-    if (templateMode) {
-      appState.detectedSections = [];
-      appState.selectedSection = { text: appState.cleanText, title: title, index: 0 };
-      appState.selectedSectionIndex = 0;
-      appState.selectedText = appState.cleanText;
-      appState.revealLength = countWords(appState.cleanText);
-    } else {
-      appState.detectedSections = detectSections(appState.cleanText);
-      appState.collectionMode = appState.sourceType === 'gutenberg'
-        ? $('#gutenberg-collection').value
-        : 'auto';
-      const section = selectSection(
-        appState.cleanText,
-        appState.detectedSections,
-        appState.collectionMode,
-        appState.selectedSectionIndex
-      );
-      appState.selectedSection = section;
-      appState.selectedSectionIndex = section.index;
-      appState.selectedText = trimToWordLimit(section.text, appState.revealLength);
-    }
-    appState.tokens = tokenize(appState.selectedText);
-
-    const minWords = templateMode ? 20 : 80;
-    if (countWords(appState.selectedText) < minWords && countPlaceholders(appState.tokens) === 0) {
-      throw new Error('This text is too short. Try a longer excerpt or paste more text.');
-    }
-
-    appState.hasTaggedBlanks = hasPlaceholders(appState.selectedText);
-
-    if (appState.nlpEngine && appState.nlpEngine.name !== 'heuristic') {
-      appState.classifications = classifyTokensWithNlp(appState.tokens, appState.nlpEngine);
-    } else {
-      appState.classifications = classifyTokensHeuristic(appState.tokens);
-    }
-
-    const dictionaryPos = await lookupPosForPool(appState.tokens, appState.classifications);
-
-    appState.candidates = selectMixedCandidates(appState.tokens, appState.classifications, {
+    const swapResult = await computeAutoSwapCandidates(rawText, {
+      nlpEngine: appState.nlpEngine,
+      forceTemplateMode: templateMode,
       revealLength: appState.revealLength,
       promptSetting: appState.promptCount,
-      dictionaryPos
+      collectionMode,
+      selectedSectionIndex: appState.selectedSectionIndex,
+      isGutenberg,
+      title,
+      throwOnEmpty: true
     });
+
+    appState.cleanText = swapResult.cleanText;
+    appState.detectedSections = swapResult.detectedSections;
+    appState.selectedSection = swapResult.selectedSection;
+    appState.selectedSectionIndex = swapResult.selectedSectionIndex;
+    appState.selectedText = swapResult.selectedText;
+    if (templateMode) {
+      appState.revealLength = swapResult.revealLength;
+    }
+    appState.tokens = swapResult.tokens;
+    appState.classifications = swapResult.classifications;
+    appState.hasTaggedBlanks = swapResult.hasTaggedBlanks;
+    appState.candidates = swapResult.candidates;
 
     if (!appState.candidates.length) {
       throw new Error('No words to swap. Add {noun}-style tags or try a longer passage.');
@@ -374,8 +356,8 @@ async function prepareGameFromSource(rawText, title, isGutenberg = false) {
   }
 }
 
-async function startFromCreateDraft() {
-  const text = $('#editor-text')?.value.trim() || '';
+async function startFromCreateDraft(sourceText) {
+  const text = (sourceText ?? $('#editor-text')?.value ?? '').trim();
   if (!text) { setStatus('Write or paste a template first.', 'error'); return; }
   const title = $('#editor-title')?.value.trim() || 'Draft template';
   appState.sourceType = 'create';

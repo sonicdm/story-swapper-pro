@@ -89,37 +89,68 @@
         </div>
 
         <div id="panel-create" class="panel" role="tabpanel" aria-labelledby="tab-create">
-          <p class="field-hint" style="margin-top:0">
-            Write Markdown with {noun}-style blanks, or paste plain text and let Story Swapper pick words for you.
+          <p class="field-hint create-intro" style="margin-top:0">
+            Write or paste in the text box, then tap words below to make blanks. Use the toolbar for formatting.
           </p>
 
-          <div class="editor-grid">
-            <div class="field">
-              <label for="editor-title">Template title</label>
-              <input type="text" id="editor-title" placeholder="e.g. Family Road Trip Memo">
+          <div class="create-editor-shell">
+            <div class="create-format-toolbar" role="toolbar" aria-label="Format">
+              <button type="button" class="fmt-btn" data-format="h1" title="Heading 1">H1</button>
+              <button type="button" class="fmt-btn" data-format="h2" title="Heading 2">H2</button>
+              <button type="button" class="fmt-btn" data-format="h3" title="Heading 3">H3</button>
+              <button type="button" class="fmt-btn" data-format="list" title="Bullet list">List</button>
+              <button type="button" class="fmt-btn" data-format="bold" title="Bold"><strong>B</strong></button>
+              <button type="button" class="fmt-btn" data-format="italic" title="Italic"><em>I</em></button>
+              <button type="button" class="fmt-btn" data-format="undo" title="Undo">Undo</button>
+              <button type="button" class="fmt-btn" data-format="paste" title="Paste text">Paste</button>
+              <button type="button" class="fmt-btn fmt-btn-more" id="btn-editor-more-blanks" title="Insert blank">+ Blank</button>
             </div>
-            <div class="field">
-              <label for="editor-format">Format</label>
-              <div class="select-wrap">
-                <select id="editor-format"></select>
+
+            <label for="editor-source" class="field-label">Template text</label>
+            <textarea id="editor-source" class="editor-source-input" placeholder="Write or paste your story here…&#10;&#10;## My Template&#10;&#10;On Monday, Morgan packed a red suitcase and drove to Portland."></textarea>
+
+            <div class="editor-source-actions">
+              <button type="button" class="btn-secondary" id="btn-editor-suggest">Suggest blanks</button>
+            </div>
+
+            <div id="editor-suggest-bar" class="editor-suggest-bar hidden" aria-live="polite">
+              <span id="editor-suggest-label"></span>
+              <button type="button" class="btn-secondary btn-sm" id="btn-editor-apply-suggest">Apply all</button>
+              <button type="button" class="btn-secondary btn-sm" id="btn-editor-clear-suggest">Dismiss</button>
+            </div>
+
+            <p id="editor-tap-hint" class="field-hint editor-tap-hint hidden">Tap highlighted words below to make blanks.</p>
+            <div id="editor-render" class="create-blank-editor" tabindex="0" aria-label="Tap words to make blanks"></div>
+
+            <div id="editor-stats" class="editor-stats" aria-live="polite"></div>
+            <div id="editor-validation" class="editor-validation" aria-live="polite"></div>
+          </div>
+
+          <div class="create-sticky-actions" role="group" aria-label="Editor actions">
+            <button type="button" class="btn-primary" id="btn-editor-play">Play Draft</button>
+            <button type="button" class="btn-secondary" id="btn-editor-save">Save</button>
+          </div>
+
+          <details class="create-accordion" id="editor-details">
+            <summary>Details</summary>
+            <div class="editor-grid">
+              <div class="field">
+                <label for="editor-title">Template title</label>
+                <input type="text" id="editor-title" placeholder="e.g. Family Road Trip Memo">
+              </div>
+              <div class="field">
+                <label for="editor-format">Format</label>
+                <div class="select-wrap">
+                  <select id="editor-format"></select>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="field">
-            <span class="field-label" id="editor-tags-label">Topic tags</span>
-            <div id="editor-tag-chips" class="tag-chips" role="group" aria-labelledby="editor-tags-label"></div>
-            <p class="field-hint">Choose up to 3 tags for browsing later.</p>
-          </div>
-
-          <div class="field">
-            <label for="editor-text">Markdown template</label>
-            <div id="editor-blank-toolbar" class="blank-toolbar" aria-label="Insert blank"></div>
-            <textarea id="editor-text" class="editor-textarea" placeholder="## My Template&#10;&#10;On {day of week}, {person} found a {adjective} {object} behind the couch."></textarea>
-          </div>
-
-          <div class="editor-grid">
             <div class="field">
+              <span class="field-label" id="editor-tags-label">Topic tags</span>
+              <div id="editor-tag-chips" class="tag-chips" role="group" aria-labelledby="editor-tags-label"></div>
+              <p class="field-hint">Choose up to 3 tags for browsing later.</p>
+            </div>
+            <div class="field" id="editor-length-field">
               <label for="editor-length">Plain-text reveal length</label>
               <div class="select-wrap">
                 <select id="editor-length">
@@ -131,39 +162,28 @@
                 </select>
               </div>
             </div>
+          </details>
+
+          <details class="create-accordion" id="editor-library">
+            <summary>Library</summary>
             <div class="field">
               <label for="custom-template-select">Saved templates</label>
               <div class="select-wrap">
                 <select id="custom-template-select"></select>
               </div>
             </div>
-          </div>
+            <div class="btn-row">
+              <button type="button" class="btn-secondary" id="btn-editor-save-copy">Save Copy</button>
+              <button type="button" class="btn-secondary" id="btn-editor-load">Load Saved</button>
+              <button type="button" class="btn-secondary" id="btn-editor-delete">Delete Saved</button>
+              <button type="button" class="btn-secondary" id="btn-editor-export">Export Saved</button>
+              <button type="button" class="btn-secondary" id="btn-editor-export-all">Export All</button>
+              <button type="button" class="btn-secondary" id="btn-editor-import">Import</button>
+              <input type="file" id="custom-import-file" class="hidden" accept="application/json,.json">
+            </div>
+          </details>
 
-          <div id="editor-stats" class="editor-stats" aria-live="polite"></div>
-          <div id="editor-validation" class="editor-validation" aria-live="polite"></div>
-
-          <div class="btn-row">
-            <button type="button" class="btn-primary" id="btn-editor-play">Play Draft</button>
-            <button type="button" class="btn-secondary" id="btn-editor-save">Save Template</button>
-            <button type="button" class="btn-secondary" id="btn-editor-save-copy">Save Copy</button>
-            <button type="button" class="btn-secondary" id="btn-editor-suggest">Suggest Blanks</button>
-          </div>
-
-          <div id="editor-suggestions" class="editor-suggestions hidden"></div>
-
-          <div class="btn-row">
-            <button type="button" class="btn-secondary" id="btn-editor-load">Load Saved</button>
-            <button type="button" class="btn-secondary" id="btn-editor-delete">Delete Saved</button>
-            <button type="button" class="btn-secondary" id="btn-editor-export">Export Saved</button>
-            <button type="button" class="btn-secondary" id="btn-editor-export-all">Export All</button>
-            <button type="button" class="btn-secondary" id="btn-editor-import">Import</button>
-            <input type="file" id="custom-import-file" class="hidden" accept="application/json,.json">
-          </div>
-
-          <div class="field editor-preview-wrap">
-            <span class="field-label">Markdown preview</span>
-            <div id="editor-preview" class="story-reveal story-reveal--markdown editor-preview"></div>
-          </div>
+          <div id="editor-blank-toolbar" class="blank-toolbar hidden" aria-hidden="true"></div>
         </div>
 
         <div id="panel-gutenberg" class="panel" role="tabpanel" aria-labelledby="tab-gutenberg">

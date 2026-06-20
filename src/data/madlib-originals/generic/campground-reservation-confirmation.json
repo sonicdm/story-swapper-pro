@@ -1,0 +1,11 @@
+{
+  "title": "Campground Reservation Confirmation",
+  "category": "generic",
+  "text": "## Campground Reservation Confirmation\n\nDear {person},\n\nYour site at {place} Campground is confirmed for {number} nights.\n\n**Site:** {number}, near the {adjective} {animal} trail\n\n**Check-in:** After {number} PM on {day of week}\n\n**Rules:** No {verb ending in -ing} after dark, store {food} in the {object} locker, and keep {plural noun} inside your tent.\n\n**Amenities:** {adjective} showers, one {color} picnic table, and a fire ring shaped like a {silly word}.\n\n**Weather note:** Expect {adjective} skies and occasional {plural noun}.\n\nSee you under the {adjective} stars,\n\n{person}, Camp Host",
+  "collection": "original",
+  "format": "letter",
+  "tags": [
+    "travel",
+    "seasonal"
+  ]
+}

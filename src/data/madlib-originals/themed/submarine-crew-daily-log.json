@@ -1,0 +1,11 @@
+{
+  "title": "Submarine Crew Daily Log",
+  "category": "themed",
+  "text": "## Submarine Crew Daily Log\n\n**Depth:** {number} fathoms\n\n**Captain:** {person}\n\n**0800:** Sonar detected a {adjective} {animal} near the {place} trench\n\n**1200:** Galley served {adjective} {food}; morale {past-tense verb}\n\n**1400:** Engineer {person} {past-tense verb} the {color} {object} valve\n\n**1600:** Periscope spotted {number} {plural noun} on the surface\n\n**2000:** Night watch reported a {sound} and one missing {clothing item}\n\n**Orders:** {verb ending in -ing} silent, {verb ending in -ing} deeper, no {verb} until dawn\n\n**Note:** Still lost, but in a {adjective} way.",
+  "collection": "original",
+  "format": "log",
+  "tags": [
+    "sci-fi",
+    "workplace"
+  ]
+}

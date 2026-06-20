@@ -1,10 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+async function pasteIntoEditor(page, text) {
+  const ta = page.locator('#editor-source');
+  await ta.fill(text);
+  await ta.dispatchEvent('input');
+}
+
 test('plays a created template draft', async ({ page }) => {
   await page.goto('./');
 
   await page.getByRole('tab', { name: 'Create' }).click();
-  await page.locator('#editor-text').fill('Hello {noun}, welcome to {place}.');
+  await pasteIntoEditor(page, 'Hello {noun}, welcome to {place}.');
   await page.getByRole('button', { name: 'Play Draft' }).click();
 
   await expect(page.getByRole('heading', { name: 'Fill in the blanks' })).toBeVisible();
@@ -23,9 +29,9 @@ test('saves a custom markdown template and plays it from the picker', async ({ p
   await page.goto('./');
 
   await page.getByRole('tab', { name: 'Create' }).click();
-  await page.locator('#editor-title').fill('Tiny Memo');
-  await page.locator('#editor-text').fill('## Tiny Memo\n\n- Bring a {adjective} {object}\n- Meet {person} at {place}');
-  await page.getByRole('button', { name: 'Save Template' }).click();
+  await pasteIntoEditor(page, '## Tiny Memo\n\n- Bring a {adjective} {object}\n- Meet {person} at {place}');
+  await expect(page.locator('#editor-title')).toHaveValue('Tiny Memo');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await expect(page.locator('#status')).toContainText('Saved "Tiny Memo"');
 
@@ -46,6 +52,21 @@ test('saves a custom markdown template and plays it from the picker', async ({ p
   await expect(page.locator('#story-output h2')).toContainText('Tiny Memo');
   await expect(page.locator('#story-output')).toContainText('Bring a shiny clipboard');
   await expect(page.locator('#story-output')).toContainText('Meet Morgan at the lobby');
+});
+
+test('tap-to-blank on mobile viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 667 });
+  await page.goto('./');
+
+  await page.getByRole('tab', { name: 'Create' }).click();
+  await pasteIntoEditor(page, 'Morgan packed a red suitcase and drove to Portland.');
+
+  await page.locator('.word-tap', { hasText: 'Morgan' }).click();
+  await page.locator('.category-sheet-item', { hasText: '{person}' }).click();
+  await expect(page.locator('.blank-chip')).toContainText('{person}');
+
+  await page.getByRole('button', { name: 'Play Draft' }).click();
+  await expect(page.getByRole('heading', { name: 'Fill in the blanks' })).toBeVisible();
 });
 
 test('escapes hostile Gutenberg titles in search results', async ({ page }) => {

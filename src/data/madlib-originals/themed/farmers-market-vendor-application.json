@@ -1,0 +1,11 @@
+{
+  "title": "Farmers Market Vendor Application",
+  "category": "themed",
+  "text": "## Farmers Market Vendor Application\n\n**Business name:** {person}'s {adjective} {plural noun}\n\n**Product:** {adjective} {food} served {adverb} on {color} plates\n\n**Booth size:** {number} feet, needs one {object} and a {vehicle} for delivery\n\n**Permits:** Certified to {verb} without {verb ending in -ing} nearby {plural noun}\n\n**Sample menu:** {food}, {food}, and seasonal {plural noun}\n\n**Allergen note:** May contain traces of {animal} enthusiasm\n\n**Emergency contact:** {person}, reachable every {day of week}\n\n**Signature:** I agree to {verb} politely and sweep {adjective} crumbs nightly.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "food",
+    "civic"
+  ]
+}

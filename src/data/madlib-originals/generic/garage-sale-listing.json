@@ -1,0 +1,10 @@
+{
+  "title": "Garage Sale Listing",
+  "category": "generic",
+  "text": "## Garage Sale Listing\n\n**Title:** {adjective} {plural noun} Must Go!\n\n**When:** {day of week} from {number} AM to {number} PM\n\n**Where:** {number} {place} Street\n\n**Highlights:**\n- {adjective} {object} (works if you {verb} it gently)\n- Box of {color} {clothing item} items, size {silly word}\n- Vintage {vehicle} part still smells like {food}\n\n**Free item:** One {animal} poster with {adjective} frame\n\n**Payment:** Cash, {plural noun}, or polite {emotion}\n\n**Note:** No early birds unless you bring {food}.",
+  "collection": "original",
+  "format": "listing",
+  "tags": [
+    "everyday"
+  ]
+}

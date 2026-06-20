@@ -4,7 +4,7 @@
 
 **Live app:** [https://sonicdm.github.io/story-swapper-pro/](https://sonicdm.github.io/story-swapper-pro/)
 
-Mad Libs-style browser app built with Vite. It includes **160 bundled Mad Libs**, a Markdown template creator with browser-local saves, NLP-based auto-swap examples, Project Gutenberg/Gutendex books, and PoetryDB poems.
+Mad Libs-style browser app built with Vite. It includes **175 bundled Mad Libs**, a Markdown template creator with browser-local saves, NLP-based auto-swap examples, Project Gutenberg/Gutendex books, and PoetryDB poems.
 
 ## Quick start
 
@@ -36,10 +36,10 @@ npm run preview
 - **Reveal controls** — highlight replacements, show original words, copy plain text, and download `.txt`.
 - **Saved settings** — length, prompt count, tab, Mad Libs pick, and reveal preference via `localStorage`.
 - **Custom templates** — Create tab saves Markdown Mad Libs in browser storage, with JSON import/export for backup.
-- Sources: **Mad Libs** (160 bundled templates), **Examples** (prose NLP demos), Create, Project Gutenberg (Gutendex), PoetryDB.
+- Sources: **Mad Libs** (175 bundled templates), **Examples** (prose NLP demos), Create, Project Gutenberg (Gutendex), PoetryDB.
 - **Mad Libs tab** — search, tag filter chips, format optgroups, Random then Start; full template always (never cropped).
 - **Examples tab** — short prose for NLP word detection; one hybrid passage with `{tags}` plus optional auto-swaps.
-- **Create tab** — Markdown editor, blank toolbar, live preview, local saves, imports/exports, and suggested blanks.
+- **Create tab** — tap-to-blank editor with format toolbar (headings, bold, italic, lists), auto-swap Suggest highlights, local saves, and JSON import/export.
 - **Template blanks** — `{verb}`, `{noun}`, Rosetta-style `<noun>`, streamlit-games `<word::category/>` hints, and workergnome `--NOUN--` markers. Mad Libs templates are authored as a single `{tag}` string in JSON.
 
 ## Mad Lib authoring
@@ -92,8 +92,8 @@ story-swapper-pro/
       madlib-originals/
         classics/               # 16 madlibz classics
         legacy/                 # 2 migrated templates
-        generic/                # 51 originals
-        themed/                 # 62 themed originals
+        generic/                # 59 originals
+        themed/                 # 69 themed originals
         official/               # 18 Penguin Mad Libs (authorized PDF import)
         woo-jr/                 # 11 WooJr.com printable Mad Libs
       madlibs-templates.json    # GENERATED — do not hand-edit

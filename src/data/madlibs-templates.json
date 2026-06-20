@@ -96,6 +96,18 @@
     "blankCount": 17,
     "wordCount": 89
   },
+  "Apartment Inspection Form": {
+    "text": "## Apartment Inspection Form\n\n**Unit:** {number}B, {place} building\n\n**Tenant:** {person}\n\n**Kitchen:** {adjective} stove, {number} loose {plural noun}, smell of {food}\n\n**Bathroom:** {color} grout, faucet that {verb ending in -ing} at midnight\n\n**Living room:** {adjective} carpet stain shaped like a {animal}\n\n**Bedroom:** Closet contains {number} {clothing item} items and one suspicious {object}\n\n**Balcony:** {adjective} plants, no {plural noun} stored illegally\n\n**Inspector notes:** Tenant promised to {verb} before next visit.\n\n**Overall rating:** {adjective} but habitable.",
+    "category": "generic",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "civic",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 73
+  },
   "Apartment Listing": {
     "text": "## Apartment Listing\n\nNow leasing a {adjective} studio in the heart of {place}.\n\nThis unit features {number} windows, one {color} wall, and a surprisingly {adjective} view of the neighbor's {object}.\n\nAmenities include:\n- Shared {plural noun}\n- A lobby that smells faintly of {food}\n- On-site {animal} supervision\n\nIdeal for a {job} who loves {verb ending in -ing} and can {verb} quietly after midnight.\n\nSecurity deposit: one {adjective} {noun}, a {body part} print, {number} references, and a promise to stay {emotion} by {day of week}.",
     "category": "generic",
@@ -226,6 +238,18 @@
     "blankCount": 15,
     "wordCount": 76
   },
+  "Board Game Night Rules Sheet": {
+    "text": "## Board Game Night Rules Sheet\n\n**Host:** {person}\n\n**Setup:** Clear the {place}, deploy {number} {adjective} chairs, shuffle the {plural noun} deck twice.\n\n**House rules:**\n- No {verb ending in -ing} during someone else's turn\n- Snacks must be {adjective} and not {color}\n- Disputes settled by {person} or a {object} coin flip\n\n**Turn order:** Youngest player {verb ending in -ing} first, then clockwise by {emotion}\n\n**Penalties:** Lose one {food} token if you {verb} the board\n\n**Victory dance:** Winner must {verb} while holding a {clothing item}\n\n**Cleanup:** Everyone helps {verb} {plural noun} back into the box.",
+    "category": "themed",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "gaming",
+      "everyday"
+    ],
+    "blankCount": 18,
+    "wordCount": 91
+  },
   "Boat Rental Waiver": {
     "text": "## Boat Rental Waiver\n\n**Renter:** {person}\n\n**Vessel:** {adjective} {vehicle} docked at {place}\n\n**Rental period:** {number} hours on {day of week}\n\n**Safety gear:** One {color} {clothing item} and a {object}\n\n**Weather disclaimer:** Not responsible if you {verb} during storms.\n\n**Rules:** Do not {verb} near {plural noun}; no {verb ending in -ing} while feeding a {animal}.\n\n**Emergency:** If the engine {past-tense verb}, {verb} toward shore and {sound} three times.\n\n**Signature:** I accept all liability.",
     "category": "generic",
@@ -249,6 +273,18 @@
     ],
     "blankCount": 14,
     "wordCount": 100
+  },
+  "Campground Reservation Confirmation": {
+    "text": "## Campground Reservation Confirmation\n\nDear {person},\n\nYour site at {place} Campground is confirmed for {number} nights.\n\n**Site:** {number}, near the {adjective} {animal} trail\n\n**Check-in:** After {number} PM on {day of week}\n\n**Rules:** No {verb ending in -ing} after dark, store {food} in the {object} locker, and keep {plural noun} inside your tent.\n\n**Amenities:** {adjective} showers, one {color} picnic table, and a fire ring shaped like a {silly word}.\n\n**Weather note:** Expect {adjective} skies and occasional {plural noun}.\n\nSee you under the {adjective} stars,\n\n{person}, Camp Host",
+    "category": "generic",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "travel",
+      "seasonal"
+    ],
+    "blankCount": 19,
+    "wordCount": 85
   },
   "Camping Supply Checklist": {
     "text": "## Camping Supply Checklist\n\nFor the trip to {place}, pack one {adjective} tent, {number} flashlights, and a {color} {object}.\n\nBring enough {food} for everyone, plus extra {plural noun} in case {person} gets {emotion}.\n\nIf a {animal} approaches, do not {verb}; simply begin {verb ending in -ing} {adverb}.\n\nWear a warm {clothing item} and protect your {body part} from the {adjective} weather.\n\nMost important: never forget the {noun} or say {silly word}.",
@@ -334,6 +370,18 @@
     "blankCount": 18,
     "wordCount": 79
   },
+  "Cryptid Sighting Dispatch": {
+    "text": "## Cryptid Sighting Dispatch\n\n**Alert level:** {adjective}\n\n**Location:** {place} County, mile marker {number}\n\n**Report:** Witness {person} saw a {adjective} {animal} {verb ending in -ing} across the highway at {number} AM.\n\n**Description:** Approximately {number} feet tall, {color} fur, smell of {food}.\n\n**Evidence:** One {object}, {number} blurry photos, and a {adjective} footprint.\n\n**Public guidance:** Do not {verb} alone. Report sightings to the {job} hotline.\n\n**Status:** Search team deployed with {plural noun} and a {adjective} drone.\n\n**Next update:** {day of week} after the mayor finishes {verb ending in -ing}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "announcement",
+    "tags": [
+      "spooky",
+      "civic"
+    ],
+    "blankCount": 20,
+    "wordCount": 85
+  },
   "D&D Session Recap": {
     "text": "## D&D Session Recap\n\n**Party:** {person}, {person}, and a {adjective} {job}\n\n**Location:** The {place} of {plural noun}\n\n**Loot:** {color} {plural noun} and one cursed {object}\n\n**Critical fail:** {person} tried to {verb} the dragon and {past-tense verb} into a {food} cart.\n\n**NPC:** A merchant who demanded {plural noun} for directions.\n\n**Boss fight:** Resolved by {verb ending in -ing} a {sound} and rolling a {number}.\n\n**DM note:** Next session involves a {vehicle}.",
     "category": "themed",
@@ -393,6 +441,18 @@
     ],
     "blankCount": 13,
     "wordCount": 69
+  },
+  "Dog Walker Incident Report": {
+    "text": "## Dog Walker Incident Report\n\n**Date:** {day of week}, {number} PM\n\n**Walker:** {person}\n\n**Dog:** {adjective} {animal} named {person}\n\n**Incident:** Client's {object} was {past-tense verb} after the dog {past-tense verb} toward a {adjective} squirrel.\n\n**Witness statement:** A neighbor saw the leash {verb ending in -ing} around a {color} {vehicle}.\n\n**Injuries:** One scraped {body part} and {number} treats lost.\n\n**Corrective action:** Walker will {verb} more {adverb} and avoid the {place} until further notice.\n\n**Owner response:** Sent a {adjective} email and one bag of {food}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "incident-report",
+    "tags": [
+      "pets",
+      "everyday"
+    ],
+    "blankCount": 20,
+    "wordCount": 81
   },
   "Dot-Com Startup Pitch": {
     "text": "## Dot-Com Startup Pitch\n\n**Company name:** {adjective}{noun}.com\n\n**Mission:** To help busy people {verb} their {plural noun} on the information superhighway.\n\n**Target user:** {person}, age {number}, currently trapped in a {adjective} cubicle.\n\n**Product demo:** Click the {color} button and watch a {adjective} {object} appear in only {number} seconds.\n\n**Revenue model:** Sell {plural noun}, banner ads, and one {adverb} expensive subscription.\n\n**Investor ask:** ${number} million and a conference room with {food}.",
@@ -455,6 +515,18 @@
     "blankCount": 18,
     "wordCount": 69
   },
+  "Esports Tournament Script": {
+    "text": "## Esports Tournament Script\n\n**Caster 1:** Welcome to the {adjective} Championship, live from {place}!\n\n**Caster 2:** {person} just {past-tense verb} the {color} objective with a {adjective} {object}.\n\n**Caster 1:** The crowd is {verb ending in -ing} because {person} forgot to buy {plural noun}.\n\n**Caster 2:** That ult was {adjective}—pure {emotion} energy.\n\n**Caster 1:** Chat is spamming {plural noun} in all caps.\n\n**Caster 2:** And there it is! {person} wins by {number} points after {verb ending in -ing} the final boss.\n\n**Caster 1:** MVP goes home with a {adjective} trophy and a year of {food}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "gaming",
+      "media"
+    ],
+    "blankCount": 18,
+    "wordCount": 94
+  },
   "Family Beach Road Trip": {
     "text": "## Family Beach Road Trip\n\nMy family is taking a trip to {color} Beach, {number} hours away. We are riding in a {vehicle} with my {person} and {person}. My parents packed a cooler with {food} sandwiches, {food}, and {food}. They always {verb} us to wear {noun} and a {noun} so we don't get sunburned. During the drive, we will {verb} games like {noun} and \"Count the {plural noun}.\" I can't wait to get there so I can go {verb ending in -ing} in the ocean and {verb} along the beach and collect {plural noun} I find in the sand.",
     "category": "woo-jr",
@@ -479,6 +551,18 @@
     ],
     "blankCount": 19,
     "wordCount": 80
+  },
+  "Farmers Market Vendor Application": {
+    "text": "## Farmers Market Vendor Application\n\n**Business name:** {person}'s {adjective} {plural noun}\n\n**Product:** {adjective} {food} served {adverb} on {color} plates\n\n**Booth size:** {number} feet, needs one {object} and a {vehicle} for delivery\n\n**Permits:** Certified to {verb} without {verb ending in -ing} nearby {plural noun}\n\n**Sample menu:** {food}, {food}, and seasonal {plural noun}\n\n**Allergen note:** May contain traces of {animal} enthusiasm\n\n**Emergency contact:** {person}, reachable every {day of week}\n\n**Signature:** I agree to {verb} politely and sweep {adjective} crumbs nightly.",
+    "category": "themed",
+    "collection": "original",
+    "format": "form",
+    "tags": [
+      "food",
+      "civic"
+    ],
+    "blankCount": 21,
+    "wordCount": 78
   },
   "Food Critic Tasting Notes": {
     "text": "## Food Critic Tasting Notes\n\nTonight's meal at {place} began with a {color} bowl of {food}.\n\nThe chef, {person}, described it as {adjective}, but I detected notes of {noun} and mild {emotion}.\n\nCourse two arrived by {vehicle} and contained {number} {plural noun} arranged like a {animal}.\n\nThe sauce {past-tense verb} across the plate while the waiter began {verb ending in -ing}.\n\nOverall rating: {adjective}, provided you enjoy {verb} with your {body part} beside a {color} {object}.",
@@ -526,6 +610,17 @@
     ],
     "blankCount": 18,
     "wordCount": 181
+  },
+  "Garage Sale Listing": {
+    "text": "## Garage Sale Listing\n\n**Title:** {adjective} {plural noun} Must Go!\n\n**When:** {day of week} from {number} AM to {number} PM\n\n**Where:** {number} {place} Street\n\n**Highlights:**\n- {adjective} {object} (works if you {verb} it gently)\n- Box of {color} {clothing item} items, size {silly word}\n- Vintage {vehicle} part still smells like {food}\n\n**Free item:** One {animal} poster with {adjective} frame\n\n**Payment:** Cash, {plural noun}, or polite {emotion}\n\n**Note:** No early birds unless you bring {food}.",
+    "category": "generic",
+    "collection": "original",
+    "format": "listing",
+    "tags": [
+      "everyday"
+    ],
+    "blankCount": 20,
+    "wordCount": 71
   },
   "Group Chat Pinned Rules": {
     "text": "## Group Chat Pinned Rules\n\n**Admin:** {person}\n\n**Rule 1:** No {verb ending in -ing} {plural noun} after {number} PM\n\n**Rule 2:** Memes must be {adjective} and involve one {animal}\n\n**Rule 3:** {person} may not {verb} the group name again\n\n**Mute hours:** {day of week} through {day of week}, unless someone finds {food}\n\n**Violations:** Post a {color} {clothing item} selfie and {sound} in voice chat\n\n**Emergency:** If {person} {past-tense verb}, meet at the {place}.",
@@ -657,6 +752,18 @@
     "blankCount": 17,
     "wordCount": 126
   },
+  "How to Fake Being Busy": {
+    "text": "## How to Fake Being Busy\n\n**Step 1:** Open {number} tabs and one spreadsheet labeled {adjective} {plural noun}.\n\n**Step 2:** Type {adverb} while staring at a {color} chart nobody asked for.\n\n**Step 3:** Schedule a {adjective} meeting about the {object} initiative.\n\n**Step 4:** Reply to emails with phrases like \"per my last {noun}\" and \"circle back after I {verb}.\"\n\n**Step 5:** Walk quickly through the {place} holding a {object} and a worried {emotion} expression.\n\n**Step 6:** Mute yourself, then {verb ending in -ing} like you are solving a {adjective} crisis.\n\n**Step 7:** End the day by {verb ending in -ing} one {food} item and calling it deep work.",
+    "category": "generic",
+    "collection": "original",
+    "format": "how-to",
+    "tags": [
+      "workplace",
+      "parody-bureaucratic"
+    ],
+    "blankCount": 16,
+    "wordCount": 107
+  },
   "How to Host a Party": {
     "text": "## How to Host a Party\n\n**Step 1:** Send {adjective} invitations written in {color} ink.\n\n**Step 2:** Decorate with {adjective} balloons and a banner that says WELCOME {plural noun} PEOPLE.\n\n**Step 3:** Prepare {adjective} snacks and a punch bowl full of {food} liquid.\n\n**Step 4:** Create a playlist of {adjective} songs from the year you last {past-tense verb} in public.\n\n**Step 5:** Hide breakable {plural noun} objects on the highest {place}.\n\n**Step 6:** When guests arrive, greet them with a {adjective} handshake and offer a {object}.\n\n**Step 7:** End the night by {verb ending in -ing} politely and eating leftover {food}.",
     "category": "generic",
@@ -765,6 +872,18 @@
     "blankCount": 13,
     "wordCount": 75
   },
+  "Laundry Room Cease and Desist": {
+    "text": "## Laundry Room Cease and Desist\n\n**To:** Resident {person}, Unit {number}\n\n**Re:** Unauthorized use of {adjective} dryer settings\n\nYou are hereby ordered to stop {verb ending in -ing} {plural noun} belonging to other tenants.\n\n**Violations observed:**\n- Removing {color} socks before the cycle ends\n- Leaving {adjective} lint in the {object} trap\n- Playing {adjective} music at {number} decibels\n\n**Penalty:** {number} days without access to the {place}.\n\n**Compliance:** Sign below and promise to {verb} only your own {clothing item}.\n\n**Landlord:** {person}, Esq.",
+    "category": "generic",
+    "collection": "original",
+    "format": "legal",
+    "tags": [
+      "parody-bureaucratic",
+      "everyday"
+    ],
+    "blankCount": 15,
+    "wordCount": 78
+  },
   "Learning About History": {
     "text": "History is {adjective} because we learn about {noun} and {noun} that happened long ago. I can't believe people used to dress in {adjective} clothing and kids played with {noun} and {noun} instead of video games. Also, before cars were invented, people actually rode {animal}! People read {noun} instead of computers and tablets, and sent messages via {noun} that took {number} days to arrive. I wonder how kids will view my life in {number} year(s); maybe they will ride flying cars to school and play with {noun} and {adjective} {noun}!",
     "category": "classics",
@@ -835,6 +954,18 @@
     ],
     "blankCount": 18,
     "wordCount": 71
+  },
+  "Marathon Training Plan": {
+    "text": "## Marathon Training Plan\n\n**Goal:** Finish {number} miles without {verb ending in -ing} publicly\n\n**Week 1:** {number} easy runs, stretch your {body part}, eat {adjective} {food}\n\n**Week 2:** Long run to {place} and back, hydrate with {color} {liquid}\n\n**Week 3:** Tempo day—{verb} fast when you hear a {sound}\n\n**Week 4:** Cross-train by {verb ending in -ing} with {plural noun}\n\n**Taper week:** Sleep, foam-roll your {body part}, visualize {person} cheering\n\n**Race kit:** {clothing item}, {number} gels, lucky {object}\n\n**Mantra:** I am {adjective}, I will not {verb} at mile {number}.",
+    "category": "themed",
+    "collection": "original",
+    "format": "checklist",
+    "tags": [
+      "sports",
+      "everyday"
+    ],
+    "blankCount": 21,
+    "wordCount": 88
   },
   "Matilda's Grooming Review": {
     "text": "## Grooming Review\n\nClient: Matilda, dark red golden retriever\n\n**Bath quality:** {adjective}, with notes of {food} and wet {animal}.\n\n**Brush report:** Removed {number} pounds of {color} fluff, one mystery {object}, and several {plural noun} from behind her {body part}.\n\n**Cooperation:** Matilda {past-tense verb} until the dryer began {verb ending in -ing} like a {sound}.\n\n**Post-groom mood:** {emotion}; immediately tried to {verb} on the {place}.\n\n**Final rating:** {number} stars and one {adjective} bandana.",
@@ -1052,6 +1183,18 @@
     ],
     "blankCount": 11,
     "wordCount": 105
+  },
+  "Parents Night Speech": {
+    "text": "## Parents Night Speech\n\nGood evening, {adjective} parents and guardians.\n\nI am {person}, your child's {adjective} teacher.\n\nThis year we will {verb} hard, {verb ending in -ing} often, and learn about {plural noun} in a {adjective} way.\n\nHomework goes home every {day of week} unless a {animal} eats it.\n\nPlease label all {plural noun} with {color} tape and a {emotion} attitude.\n\nVolunteers are needed to {verb} at the {place} field trip.\n\nTogether we can turn every student into a {adjective} {job}.\n\nThank you, and please do not {verb} in the parking lot.",
+    "category": "generic",
+    "collection": "original",
+    "format": "speech",
+    "tags": [
+      "school",
+      "kids"
+    ],
+    "blankCount": 17,
+    "wordCount": 91
   },
   "Parking Ticket Appeal": {
     "text": "## Parking Ticket Appeal\n\n**To:** Municipal Parking Authority\n\n**From:** {person}, {job}\n\n**Ticket #:** {number}\n\n**Location:** {place}, near a {adjective} {object}\n\n**Explanation:** I parked there because my {vehicle} began {verb ending in -ing} and I needed to {verb} a {body part}.\n\n**Witness:** A {adjective} {animal} can confirm I only stopped for {number} minutes.\n\n**Prior record:** I have never {past-tense verb} a meter in my life.\n\n**Request:** Please waive this {adjective} fine or accept {food} as payment.\n\n**Signed:** {person}, {adverb}.",
@@ -1413,6 +1556,18 @@
     "blankCount": 17,
     "wordCount": 88
   },
+  "Submarine Crew Daily Log": {
+    "text": "## Submarine Crew Daily Log\n\n**Depth:** {number} fathoms\n\n**Captain:** {person}\n\n**0800:** Sonar detected a {adjective} {animal} near the {place} trench\n\n**1200:** Galley served {adjective} {food}; morale {past-tense verb}\n\n**1400:** Engineer {person} {past-tense verb} the {color} {object} valve\n\n**1600:** Periscope spotted {number} {plural noun} on the surface\n\n**2000:** Night watch reported a {sound} and one missing {clothing item}\n\n**Orders:** {verb ending in -ing} silent, {verb ending in -ing} deeper, no {verb} until dawn\n\n**Note:** Still lost, but in a {adjective} way.",
+    "category": "themed",
+    "collection": "original",
+    "format": "log",
+    "tags": [
+      "sci-fi",
+      "workplace"
+    ],
+    "blankCount": 20,
+    "wordCount": 79
+  },
   "Substitute Teacher Note": {
     "text": "## Substitute Teacher Note\n\nDear teacher, your class was mostly {adjective} today.\n\nAt {number} o'clock, {person} asked if the {animal} counted as a lab partner.\n\nThe students finished page {number}, then began {verb ending in -ing} with the emergency {object}.\n\nI confiscated {plural noun}, one {color} {food}, and a note that said please {verb} the principal.\n\nEveryone became {emotion} during silent reading, but nobody {past-tense verb} the {place} or hid a {color} {noun} in the {clothing item} of the {job}.",
     "category": "generic",
@@ -1423,6 +1578,18 @@
     ],
     "blankCount": 18,
     "wordCount": 79
+  },
+  "Summer Camp Care Package Letter": {
+    "text": "## Summer Camp Care Package Letter\n\nDear {person},\n\nWe miss your {adjective} laugh and the way you {verb} every morning.\n\nCamp sounds {adjective}. Did you really {past-tense verb} a {animal} near the {place}?\n\nWe packed {number} {food} snacks, a {color} {clothing item}, and a photo of your {object}.\n\nPlease write back and tell us about your {adjective} counselor.\n\nDo not {verb} with {plural noun} after lights out.\n\nLove,\n\nMom, Dad, and the {adjective} {animal} at home",
+    "category": "themed",
+    "collection": "original",
+    "format": "letter",
+    "tags": [
+      "seasonal",
+      "kids"
+    ],
+    "blankCount": 17,
+    "wordCount": 75
   },
   "Summer Movie Reviews": {
     "text": "## Summer Movie Reviews\n\nIt's summer, and you know what that means: {adjective} weather, icy-cold {noun}-sicles, and big blockbusters. Check out what's coming to a/an {noun} near you this summer!\n\n• {noun} of the Caribbean: Captain {person} and his band of {adjective} scalawags take to the {adjective} seas in search of buried {plural noun}.\n\n• The Big {noun} Ogre: A cranky ogre named {person}, his sidekick—a/an {animal} named {person}—and a/an {adjective} gang of fairy tale creatures go on a search and {verb} mission to rescue Princess {person} from a tower guarded by a fire-breathing {animal}.\n\n• The Boy Wizard: A/An {adjective} boy discovers he possesses magical {noun} that he must use to defeat the evil wizard, Lord {person}.",
@@ -1559,6 +1726,18 @@
     ],
     "blankCount": 22,
     "wordCount": 104
+  },
+  "The Mystery of the Missing Left Sock": {
+    "text": "## The Mystery of the Missing Left Sock\n\nDetective {person} arrived at the {adjective} laundry room with a {color} flashlight and a notebook full of {plural noun}.\n\nThe witness, a {adjective} {animal}, claimed the sock {past-tense verb} through the dryer vent at {number} o'clock.\n\nClue one: a trail of {adjective} lint leading toward the {place}.\n\nClue two: a single {object} wedged behind the {body part} of a folding chair.\n\nThe detective {past-tense verb} the hamper, {verb ending in -ing} loudly, and discovered the truth: the sock had been {verb ending in -ing} inside a {food} container the whole time.\n\nCase closed with a {adjective} handshake and a promise to never {verb} alone again.",
+    "category": "generic",
+    "collection": "original",
+    "format": "story",
+    "tags": [
+      "everyday",
+      "spooky"
+    ],
+    "blankCount": 18,
+    "wordCount": 112
   },
   "The Pyramids of Ancient Egypt": {
     "text": "## The Pyramids of Ancient Egypt\n\nPyramids are {adjective} tombs where Egyptians {past-tense verb} their kings and {adjective} families. Some of them are {number} years old, each taking many {plural noun} to build. Each pyramid had {plural noun} inside and were decorated with {plural noun} and {adjective} {plural noun}. Some royal {plural noun} arranged to have {plural noun} and {past-tense verb} with them when they died. Today, archaeologists and other {plural noun} continue to {verb} these ancient {plural noun} to {verb} about how people {past-tense verb} in the past.",

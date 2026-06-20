@@ -1,4 +1,4 @@
-import { $, $$, setStatus, showPhase, switchTab as activateTab, countWords } from './dom.js';
+import { $, $$, setStatus, switchTab as activateTab, countWords } from './dom.js';
 import { appState } from './state.js';
 import { SAMPLES } from '../data/samples.js';
 import {
@@ -15,10 +15,13 @@ import {
   COLLECTIONS, COLLECTION_LABELS, FORMAT_ORDER, TAG_ORDER, TAG_LABELS, FORMAT_LABELS
 } from './madlibs.js';
 import { loadNlpEngine, awaitWinkEngine } from './nlp-engine.js';
-import { renderMadLibMarkdown } from './story-markdown.js';
+import { computeAutoSwapCandidates } from './auto-swap-candidates.js';
+import { createBlankEditor } from './create-blank-editor.js';
+import { classifyTokensHeuristic, classifyTokensWithNlp } from './classify.js';
 import { tokenize } from './text.js';
-import { classifyTokensHeuristic, classifyTokensWithNlp, selectReplacementCandidates } from './classify.js';
-import { lookupPosForPool } from './dictionary.js';
+import { normalizeTemplateSyntax } from './madlibs.js';
+import { hasPlaceholders } from './placeholders.js';
+import { firstHeadingTitle } from './template-model.js';
 import {
   EDITOR_BLANK_TAGS,
   customTemplateKey,
@@ -27,7 +30,6 @@ import {
   parseCustomTemplatePack,
   saveCustomTemplates,
   serializeCustomTemplatePack,
-  tagForCategory,
   unsupportedPlaceholderTags,
   upsertCustomTemplate,
   validBlankCount,
@@ -74,7 +76,9 @@ const madlibActiveTags = new Set();
 let madlibFilterTimer = null;
 const editorActiveTags = new Set(['everyday']);
 let currentCustomTemplateId = '';
-let editorSuggestions = [];
+let createEditor = null;
+let editorDirty = false;
+let lastSavedSnapshot = '';
 
 function getMadLibBrowseFilter() {
   return {
@@ -198,11 +202,77 @@ function updatePoemSelection() {
   el.textContent = `Selected: ${appState.selectedPoem.title}`;
 }
 
+function getEditorText() {
+  const ta = $('#editor-source');
+  if (ta) return ta.value;
+  return createEditor?.getText() || '';
+}
+
+function syncEditorFromSource() {
+  const ta = $('#editor-source');
+  if (ta && createEditor) createEditor.replaceText(ta.value);
+}
+
+function syncEditorSource(text) {
+  const ta = $('#editor-source');
+  if (ta && ta.value !== text) ta.value = text;
+}
+
+function updateEditorRenderVisibility(text) {
+  const hasText = Boolean(String(text || '').trim());
+  $('#editor-render')?.classList.toggle('hidden', !hasText);
+  $('#editor-tap-hint')?.classList.toggle('hidden', !hasText);
+}
+
+function getEditorSourceSelection() {
+  const ta = $('#editor-source');
+  if (!ta) return null;
+  const start = ta.selectionStart ?? 0;
+  const end = ta.selectionEnd ?? 0;
+  return { start, end, cursor: start };
+}
+
+function taSetSelection(start, end) {
+  const ta = $('#editor-source');
+  if (!ta) return;
+  ta.focus();
+  ta.setSelectionRange(start, end);
+}
+
+function setEditorText(text) {
+  createEditor?.setText(text || '');
+  syncEditorSource(text || '');
+  updateEditorRenderVisibility(text || '');
+  markEditorSavedSnapshot();
+}
+
+function markEditorSavedSnapshot() {
+  lastSavedSnapshot = JSON.stringify(editorDraftInput());
+  editorDirty = false;
+  updateCreateTabDirtyIndicator();
+}
+
+function updateCreateTabDirtyIndicator() {
+  const tab = $('#tab-create');
+  if (!tab) return;
+  const dirty = editorDirty && appState.sourceType === 'create';
+  tab.dataset.unsaved = dirty ? 'true' : 'false';
+  tab.setAttribute('aria-label', dirty ? 'Create (unsaved draft)' : 'Create');
+}
+
+function editorClassifications(text) {
+  const tokens = tokenize(text);
+  const classifications = appState.nlpEngine && appState.nlpEngine.name !== 'heuristic'
+    ? classifyTokensWithNlp(tokens, appState.nlpEngine)
+    : classifyTokensHeuristic(tokens);
+  return { tokens, classifications };
+}
+
 function editorDraftInput() {
   return {
     id: currentCustomTemplateId,
     title: $('#editor-title')?.value || '',
-    text: $('#editor-text')?.value || '',
+    text: getEditorText(),
     format: $('#editor-format')?.value || 'story',
     tags: [...editorActiveTags]
   };
@@ -251,48 +321,29 @@ function renderEditorTagChips() {
   }
 }
 
-function renderEditorBlankToolbar() {
-  const toolbar = $('#editor-blank-toolbar');
-  if (!toolbar) return;
-  toolbar.innerHTML = '';
-  for (const tag of EDITOR_BLANK_TAGS) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.textContent = `{${tag}}`;
-    btn.addEventListener('click', () => insertEditorTag(tag));
-    toolbar.appendChild(btn);
-  }
-}
-
-function insertEditorTag(tag) {
-  const textarea = $('#editor-text');
-  if (!textarea) return;
-  const insert = `{${tag}}`;
-  const start = textarea.selectionStart ?? textarea.value.length;
-  const end = textarea.selectionEnd ?? textarea.value.length;
-  textarea.value = `${textarea.value.slice(0, start)}${insert}${textarea.value.slice(end)}`;
-  const pos = start + insert.length;
-  textarea.focus();
-  textarea.setSelectionRange(pos, pos);
-  updateEditorStatsAndPreview();
-}
-
 function updateEditorStatsAndPreview() {
-  const text = $('#editor-text')?.value || '';
+  const text = getEditorText();
   const title = $('#editor-title')?.value || '';
   const stats = $('#editor-stats');
   const validationEl = $('#editor-validation');
-  const preview = $('#editor-preview');
   const blanks = validBlankCount(text);
   const words = countWords(text);
   const unsupported = unsupportedPlaceholderTags(text);
+
+  if (!title.trim()) {
+    const headingTitle = firstHeadingTitle(text);
+    if (headingTitle) $('#editor-title').value = headingTitle;
+  }
+
+  $('#editor-length-field')?.classList.toggle('hidden', blanks > 0);
+
   if (stats) {
     const mode = blanks ? 'template mode' : 'plain text auto-swap mode';
-    stats.textContent = `${words} words · ${blanks} blanks · ${mode}`;
+    stats.textContent = `${words} words · ${blanks} blanks · ${mode}${editorDirty ? ' · unsaved' : ''}`;
   }
   if (validationEl) {
     const validation = validateCustomTemplate(
-      { title, text, format: $('#editor-format')?.value, tags: [...editorActiveTags] },
+      { title: $('#editor-title')?.value || title, text, format: $('#editor-format')?.value, tags: [...editorActiveTags] },
       loadCustomTemplates(),
       currentCustomTemplateId
     );
@@ -312,10 +363,24 @@ function updateEditorStatsAndPreview() {
       validationEl.textContent = 'Ready to save or play.';
     }
   }
-  if (preview) {
-    const previewText = text.trim() || '*Markdown preview appears here.*';
-    preview.innerHTML = renderMadLibMarkdown(previewText, []);
-  }
+
+  const snapshot = JSON.stringify(editorDraftInput());
+  editorDirty = snapshot !== lastSavedSnapshot;
+  updateCreateTabDirtyIndicator();
+}
+
+function onEditorChange(text) {
+  syncEditorSource(text);
+  updateEditorRenderVisibility(text);
+  updateEditorStatsAndPreview();
+}
+
+function focusEditorSource() {
+  const ta = $('#editor-source');
+  if (!ta) return;
+  ta.focus();
+  const end = ta.value.length;
+  ta.setSelectionRange(end, end);
 }
 
 function renderCustomTemplateSelect(preferredId = '') {
@@ -350,12 +415,11 @@ function loadCustomTemplateIntoEditor(template) {
   if (!template) return;
   currentCustomTemplateId = template.id;
   $('#editor-title').value = template.title || '';
-  $('#editor-text').value = template.text || '';
+  setEditorText(template.text || '');
   $('#editor-format').value = template.format || 'story';
   setEditorTags(template.tags);
   renderEditorTagChips();
   renderCustomTemplateSelect(template.id);
-  updateEditorStatsAndPreview();
   setStatus(`Loaded "${template.title}".`, 'success');
 }
 
@@ -391,6 +455,7 @@ function saveEditorTemplate(copy = false) {
     const saved = upsertCustomTemplate(draft);
     currentCustomTemplateId = saved.id;
     $('#editor-title').value = saved.title;
+    markEditorSavedSnapshot();
     refreshTemplateBrowsers(customTemplateKey(saved.id));
     setStatus(`Saved "${saved.title}" to this browser.`, 'success');
   } catch (err) {
@@ -483,98 +548,143 @@ async function importCustomTemplateFile(file) {
   }
 }
 
-function renderEditorSuggestions() {
-  const box = $('#editor-suggestions');
-  if (!box) return;
-  box.innerHTML = '';
-  if (!editorSuggestions.length) {
-    box.classList.add('hidden');
+function showSuggestBar(count, promptSetting) {
+  const bar = $('#editor-suggest-bar');
+  const label = $('#editor-suggest-label');
+  if (!bar || !label) return;
+  if (!count) {
+    bar.classList.add('hidden');
     return;
   }
-  const title = document.createElement('h3');
-  title.textContent = 'Suggested blanks';
-  box.appendChild(title);
-  const list = document.createElement('div');
-  list.className = 'suggestion-list';
-  for (const suggestion of editorSuggestions) {
-    const label = document.createElement('label');
-    label.className = 'suggestion-item';
-    const input = document.createElement('input');
-    input.type = 'checkbox';
-    input.checked = true;
-    input.dataset.index = String(suggestion.index);
-    const text = document.createElement('span');
-    text.textContent = suggestion.originalWord;
-    const meta = document.createElement('small');
-    meta.textContent = `{${tagForCategory(suggestion.category)}}`;
-    label.append(input, text, meta);
-    list.appendChild(label);
-  }
-  const apply = document.createElement('button');
-  apply.type = 'button';
-  apply.className = 'btn-secondary';
-  apply.textContent = 'Apply Selected Blanks';
-  apply.addEventListener('click', applySelectedSuggestions);
-  box.append(list, apply);
-  box.classList.remove('hidden');
+  label.textContent = `${count} suggested swaps (${promptSetting === 'auto' ? 'auto density' : promptSetting + ' prompts'}) — tap highlighted words or Apply all`;
+  bar.classList.remove('hidden');
 }
 
 async function suggestEditorBlanks() {
-  const text = $('#editor-text')?.value || '';
+  syncEditorFromSource();
+  const text = getEditorText();
   if (!text.trim()) {
     setStatus('Write or paste text before asking for suggestions.', 'error');
     return;
   }
   setStatus('Finding good blank candidates...', 'info');
   try {
-    const tokens = tokenize(text);
-    const classifications = appState.nlpEngine && appState.nlpEngine.name !== 'heuristic'
-      ? classifyTokensWithNlp(tokens, appState.nlpEngine)
-      : classifyTokensHeuristic(tokens);
-    let dictionaryPos = null;
-    try {
-      dictionaryPos = await lookupPosForPool(tokens, classifications);
-    } catch (_) {
-      dictionaryPos = null;
-    }
-    const candidates = selectReplacementCandidates(tokens, classifications, {
-      count: 12,
-      allowPartial: true,
-      dictionaryPos
+    const forceTemplateMode = hasPlaceholders(normalizeTemplateSyntax(text));
+    const revealLength = parseInt($('#editor-length')?.value || '250', 10);
+    const promptSetting = forceTemplateMode ? 'auto' : ($('#prompt-count')?.value || 'auto');
+
+    const result = await computeAutoSwapCandidates(text, {
+      nlpEngine: appState.nlpEngine,
+      forceTemplateMode,
+      revealLength,
+      promptSetting,
+      collectionMode: 'auto',
+      useFullText: true,
+      minWordsProse: 20
     });
-    editorSuggestions = candidates
-      .map((candidate, index) => ({ ...candidate, index, token: tokens[candidate.tokenIndex] }))
-      .filter(s => Number.isInteger(s.token?.start) && Number.isInteger(s.token?.end));
-    renderEditorSuggestions();
-    setStatus(editorSuggestions.length ? `Found ${editorSuggestions.length} blank suggestions.` : 'No good blank suggestions found.', editorSuggestions.length ? 'success' : 'error');
+
+    if (result.error) {
+      createEditor?.clearSuggestions();
+      showSuggestBar(0);
+      setStatus(result.error, 'error');
+      return;
+    }
+
+    const autoCandidates = result.candidates
+      .filter(c => !c.isPlaceholder)
+      .map(c => ({ ...c, token: result.tokens[c.tokenIndex] }))
+      .filter(c => c.token && Number.isInteger(c.token.start));
+
+    createEditor?.showSuggestions(autoCandidates);
+    updateEditorRenderVisibility(text);
+    showSuggestBar(autoCandidates.length, promptSetting);
+    setStatus(
+      autoCandidates.length
+        ? `Highlighted ${autoCandidates.length} swap candidates — tap words below or Apply all.`
+        : 'No auto-swap candidates — template blanks only.',
+      autoCandidates.length ? 'success' : 'info'
+    );
   } catch (err) {
-    editorSuggestions = [];
-    renderEditorSuggestions();
+    createEditor?.clearSuggestions();
+    showSuggestBar(0);
     setStatus(err.message || 'Could not suggest blanks for this text.', 'error');
   }
 }
 
-function applySelectedSuggestions() {
-  const box = $('#editor-suggestions');
-  const textarea = $('#editor-text');
-  if (!box || !textarea) return;
-  const selected = [...box.querySelectorAll('input[type="checkbox"]:checked')]
-    .map(input => editorSuggestions.find(s => s.index === Number(input.dataset.index)))
-    .filter(Boolean)
-    .sort((a, b) => b.token.start - a.token.start);
-  if (!selected.length) {
-    setStatus('Select at least one suggestion to apply.', 'error');
-    return;
-  }
-  let text = textarea.value;
-  for (const suggestion of selected) {
-    text = `${text.slice(0, suggestion.token.start)}{${tagForCategory(suggestion.category)}}${text.slice(suggestion.token.end)}`;
-  }
-  textarea.value = text;
-  editorSuggestions = [];
-  renderEditorSuggestions();
+function applyAllSuggestions() {
+  const count = createEditor?.applyAllSuggestions() || 0;
+  syncEditorSource(createEditor?.getText() || '');
+  showSuggestBar(0);
   updateEditorStatsAndPreview();
-  setStatus(`Applied ${selected.length} suggested blanks.`, 'success');
+  setStatus(count ? `Applied ${count} suggested blanks.` : 'No suggestions to apply.', count ? 'success' : 'error');
+}
+
+function openMoreBlanksSheet() {
+  const backdrop = document.createElement('div');
+  backdrop.className = 'category-sheet-backdrop';
+  const sheet = document.createElement('div');
+  sheet.className = 'category-sheet';
+  sheet.setAttribute('role', 'dialog');
+  sheet.setAttribute('aria-label', 'Insert blank');
+
+  const title = document.createElement('h3');
+  title.textContent = 'Insert blank';
+  sheet.appendChild(title);
+
+  const quick = document.createElement('div');
+  quick.className = 'category-sheet-grid';
+  for (const tag of EDITOR_BLANK_TAGS) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'category-sheet-item';
+    btn.textContent = `{${tag}}`;
+    btn.addEventListener('click', () => {
+      const sel = getEditorSourceSelection();
+      createEditor?.insertBlankTagAtCursor(tag, sel?.cursor);
+      syncEditorSource(createEditor.getText());
+      updateEditorStatsAndPreview();
+      close();
+    });
+    quick.appendChild(btn);
+  }
+  sheet.appendChild(quick);
+
+  const cancel = document.createElement('button');
+  cancel.type = 'button';
+  cancel.className = 'btn-secondary category-sheet-cancel';
+  cancel.textContent = 'Cancel';
+  function close() {
+    backdrop.remove();
+    sheet.remove();
+  }
+  cancel.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  sheet.appendChild(cancel);
+  document.body.append(backdrop, sheet);
+}
+
+function focusEditorForPaste() {
+  focusEditorSource();
+  setStatus('Paste or type in the template text box.', 'info');
+}
+
+function initCreateEditor() {
+  createEditor = createBlankEditor({
+    getClassifications: editorClassifications,
+    onChange: onEditorChange
+  });
+  createEditor.mount('#editor-render');
+
+  const ta = $('#editor-source');
+  ta?.addEventListener('input', () => {
+    createEditor?.replaceText(ta.value);
+  });
+  ta?.addEventListener('paste', () => {
+    requestAnimationFrame(() => createEditor?.replaceText(ta.value));
+  });
+
+  updateEditorRenderVisibility('');
+  markEditorSavedSnapshot();
 }
 
 function renderMadLibSelect(filter = {}, preferredTitle = '') {
@@ -704,15 +814,47 @@ function initApp() {
   renderMadLibSelect();
   renderEditorFormatOptions();
   renderEditorTagChips();
-  renderEditorBlankToolbar();
+  initCreateEditor();
   renderCustomTemplateSelect();
   updateEditorStatsAndPreview();
+
+  document.querySelectorAll('.create-format-toolbar .fmt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const format = btn.dataset.format;
+      if (format === 'paste') {
+        focusEditorForPaste();
+        return;
+      }
+      if (format === 'undo') {
+        if (createEditor?.undo()) {
+          syncEditorSource(createEditor.getText());
+          updateEditorStatsAndPreview();
+        }
+        return;
+      }
+      const sel = getEditorSourceSelection();
+      if (!sel) return;
+      const applied = createEditor?.applyFormat(format, sel.start, sel.end)
+        || (sel.start === sel.end && createEditor?.applyFormat(format, sel.cursor, sel.cursor));
+      if (applied) {
+        syncEditorSource(createEditor.getText());
+        taSetSelection(sel.start, sel.end);
+        updateEditorStatsAndPreview();
+      }
+    });
+  });
+  $('#btn-editor-more-blanks')?.addEventListener('click', openMoreBlanksSheet);
+  $('#btn-editor-apply-suggest')?.addEventListener('click', applyAllSuggestions);
+  $('#btn-editor-clear-suggest')?.addEventListener('click', () => {
+    createEditor?.clearSuggestions();
+    showSuggestBar(0);
+  });
 
   $$('.tab').forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.tab));
   });
 
-  $('#btn-editor-play').addEventListener('click', startFromCreateDraft);
+  $('#btn-editor-play').addEventListener('click', () => startFromCreateDraft(getEditorText()));
   $('#btn-editor-save').addEventListener('click', () => saveEditorTemplate(false));
   $('#btn-editor-save-copy').addEventListener('click', () => saveEditorTemplate(true));
   $('#btn-editor-suggest').addEventListener('click', suggestEditorBlanks);
@@ -729,11 +871,6 @@ function initApp() {
     e.target.value = '';
   });
   $('#editor-title')?.addEventListener('input', updateEditorStatsAndPreview);
-  $('#editor-text')?.addEventListener('input', () => {
-    editorSuggestions = [];
-    renderEditorSuggestions();
-    updateEditorStatsAndPreview();
-  });
   $('#editor-format')?.addEventListener('change', updateEditorStatsAndPreview);
 
   $('#btn-gutenberg-search').addEventListener('click', async () => {

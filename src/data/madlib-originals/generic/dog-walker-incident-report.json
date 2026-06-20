@@ -1,0 +1,11 @@
+{
+  "title": "Dog Walker Incident Report",
+  "category": "generic",
+  "text": "## Dog Walker Incident Report\n\n**Date:** {day of week}, {number} PM\n\n**Walker:** {person}\n\n**Dog:** {adjective} {animal} named {person}\n\n**Incident:** Client's {object} was {past-tense verb} after the dog {past-tense verb} toward a {adjective} squirrel.\n\n**Witness statement:** A neighbor saw the leash {verb ending in -ing} around a {color} {vehicle}.\n\n**Injuries:** One scraped {body part} and {number} treats lost.\n\n**Corrective action:** Walker will {verb} more {adverb} and avoid the {place} until further notice.\n\n**Owner response:** Sent a {adjective} email and one bag of {food}.",
+  "collection": "original",
+  "format": "incident-report",
+  "tags": [
+    "pets",
+    "everyday"
+  ]
+}

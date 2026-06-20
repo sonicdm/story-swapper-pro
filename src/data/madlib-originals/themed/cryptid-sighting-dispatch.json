@@ -1,0 +1,11 @@
+{
+  "title": "Cryptid Sighting Dispatch",
+  "category": "themed",
+  "text": "## Cryptid Sighting Dispatch\n\n**Alert level:** {adjective}\n\n**Location:** {place} County, mile marker {number}\n\n**Report:** Witness {person} saw a {adjective} {animal} {verb ending in -ing} across the highway at {number} AM.\n\n**Description:** Approximately {number} feet tall, {color} fur, smell of {food}.\n\n**Evidence:** One {object}, {number} blurry photos, and a {adjective} footprint.\n\n**Public guidance:** Do not {verb} alone. Report sightings to the {job} hotline.\n\n**Status:** Search team deployed with {plural noun} and a {adjective} drone.\n\n**Next update:** {day of week} after the mayor finishes {verb ending in -ing}.",
+  "collection": "original",
+  "format": "announcement",
+  "tags": [
+    "spooky",
+    "civic"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Apartment Inspection Form",
+  "category": "generic",
+  "text": "## Apartment Inspection Form\n\n**Unit:** {number}B, {place} building\n\n**Tenant:** {person}\n\n**Kitchen:** {adjective} stove, {number} loose {plural noun}, smell of {food}\n\n**Bathroom:** {color} grout, faucet that {verb ending in -ing} at midnight\n\n**Living room:** {adjective} carpet stain shaped like a {animal}\n\n**Bedroom:** Closet contains {number} {clothing item} items and one suspicious {object}\n\n**Balcony:** {adjective} plants, no {plural noun} stored illegally\n\n**Inspector notes:** Tenant promised to {verb} before next visit.\n\n**Overall rating:** {adjective} but habitable.",
+  "collection": "original",
+  "format": "form",
+  "tags": [
+    "civic",
+    "everyday"
+  ]
+}

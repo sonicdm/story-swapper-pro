@@ -1,0 +1,11 @@
+{
+  "title": "Esports Tournament Script",
+  "category": "themed",
+  "text": "## Esports Tournament Script\n\n**Caster 1:** Welcome to the {adjective} Championship, live from {place}!\n\n**Caster 2:** {person} just {past-tense verb} the {color} objective with a {adjective} {object}.\n\n**Caster 1:** The crowd is {verb ending in -ing} because {person} forgot to buy {plural noun}.\n\n**Caster 2:** That ult was {adjective}—pure {emotion} energy.\n\n**Caster 1:** Chat is spamming {plural noun} in all caps.\n\n**Caster 2:** And there it is! {person} wins by {number} points after {verb ending in -ing} the final boss.\n\n**Caster 1:** MVP goes home with a {adjective} trophy and a year of {food}.",
+  "collection": "original",
+  "format": "speech",
+  "tags": [
+    "gaming",
+    "media"
+  ]
+}
